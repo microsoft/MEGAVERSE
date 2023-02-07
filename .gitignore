@@ -3,7 +3,8 @@ results/*
 envs/*
 results/*
 openai_key.txt
-
+data/*
+keys/*.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
