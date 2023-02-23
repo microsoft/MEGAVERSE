@@ -40,5 +40,8 @@ def load_prompt_template(lang: str, prompt_name: str, dataset: str) -> Template:
     Returns:
         Template
     """
-    dataset_prompts = DatasetTemplates(f"{dataset}/{lang}")
+    if dataset == "xnli" and lang in set([]):
+        dataset_prompts = DatasetTemplates(f"Divyanshu/indicxnli/{lang}")
+    else:
+        dataset_prompts = DatasetTemplates(f"{dataset}/{lang}")
     return dataset_prompts[prompt_name]
