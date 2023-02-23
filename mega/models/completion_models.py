@@ -6,6 +6,7 @@ from typing import List, Dict, Union
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 import pdb
+
 openai.api_base = "https://gpttesting1.openai.azure.com/"
 openai.api_type = "azure"
 openai.api_version = "2022-12-01"  # this may change in the future
@@ -52,6 +53,9 @@ def gpt3x_completion(prompt: str, model: str, **model_params) -> str:
         except (openai.error.APIConnectionError, openai.error.RateLimitError) as e:
             continue
 
+        except (openai.error.InvalidRequestError) as e:
+            return "Invalid request"
+
     return response["choices"][0]["text"].strip()
 
 
@@ -64,7 +68,7 @@ def bloom_completion(prompt: str, **model_params) -> str:
     Returns:
         str: generated string
     """
-    headers = {"Authorization": f"Bearer {HF_API_TOKEN}"}    
+    headers = {"Authorization": f"Bearer {HF_API_TOKEN}"}
 
     def query(payload):
         response = requests.post(HF_API_URL, headers=headers, json=payload)
@@ -83,8 +87,9 @@ def bloom_completion(prompt: str, **model_params) -> str:
             signal.alarm(0)  # Reset the alarm
             time.sleep(60)
             continue
-    
+
     return output
+
 
 def model_completion(prompt: str, model: str, **model_params) -> str:
 
