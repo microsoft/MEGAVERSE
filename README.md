@@ -77,7 +77,7 @@ An example command would look like:
 python -m mega.eval_xnli \
     -p hi \
     -t hi \
-    -k 4 \
+    -k 8 \
     --pivot_prompt_name "Handcrafted based on the previous passage" \
     --tgt_prompt_name "Handcrafted based on the previous passage" \
     --model DaVinci003

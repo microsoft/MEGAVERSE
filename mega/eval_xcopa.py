@@ -6,7 +6,7 @@ import random
 import json
 import wandb
 import numpy as np
-from mega.data.load_datasets import load_pawsx_dataset, load_pawsx_translate_test
+from mega.data.load_datasets import load_xcopa_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.eval_cls import evaluate_model
 from mega.prompting.prompting_utils import load_prompt_template
@@ -38,39 +38,36 @@ def main(sys_args):
         args.num_proc = wandb.config.num_proc
 
     # Load datasets for pivot and target languages
-    train_dataset = load_pawsx_dataset(
+    train_dataset = load_xcopa_dataset(
         args.pivot_lang, split="train" if not args.use_val_to_prompt else "validation"
     )
-    test_dataset = load_pawsx_dataset(
-        args.pivot_lang,
+    test_dataset = load_xcopa_dataset(
+        args.tgt_lang,
         split="test" if not args.eval_on_val else "validation",
         dataset_frac=args.test_frac,
     )
-    # print("LENGTH::::::::::",len(test_dataset))
-    # sys.exit
-    if args.translate_test:
-        test_dataset = load_pawsx_translate_test(
-            args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
-        )
 
-    # train_dataset = train_dataset.select(list(range(10)))
-    # test_dataset = test_dataset.select(list(range(10)))
-    # test_dataset = test_dataset.select(list(range(1560,1570,1)))
+    # ToDO: Add Translate Test Support
+    # if args.translate_test:
+    #     test_dataset = load_xnli_translate_test(
+    #         args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
+    #     )
+
     # Load prompt templates for train and test datasets
     if args.same_prompt_name:
         args.pivot_prompt_name = args.tgt_prompt_name
     train_prompt_template = load_prompt_template(
-        args.pivot_lang, args.pivot_prompt_name, args.dataset
+        args.pivot_lang, args.pivot_prompt_name, dataset="xcopa"
     )
     test_prompt_template = load_prompt_template(
-        args.tgt_lang, args.tgt_prompt_name, args.dataset
+        args.tgt_lang, args.tgt_prompt_name, dataset="xcopa"
     )
 
     train_examples = choose_few_shot_examples(
         train_dataset, args.few_shot_k, args.few_shot_selection
     )
 
-    out_dir = f"{args.save_dir}/pawsx/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"
+    out_dir = f"{args.save_dir}/xcopa/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"
     if args.translate_test:
         out_dir = f"{out_dir}_translate_test"
     if args.use_val_to_prompt:
@@ -89,6 +86,7 @@ def main(sys_args):
         args.few_shot_k,
         args.few_shot_selection,
         save_preds_path=pred_file_path if not args.no_save else None,
+        num_evals_per_sec=args.num_evals_per_sec,
         parallel_eval=args.parallel_eval,
         num_proc=args.num_proc,
         temperature=args.temperature,
