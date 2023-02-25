@@ -45,7 +45,8 @@ def main(sys_args):
         split="test" if not args.eval_on_val else "validation",
         dataset_frac=args.test_frac,
     )
-
+    # print("LENGTH::::::::::",len(test_dataset))
+    # sys.exit
     if args.translate_test:
         test_dataset = load_pawsx_translate_test(
             args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
