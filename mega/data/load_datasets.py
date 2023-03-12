@@ -18,7 +18,9 @@ def load_xnli_dataset(
     Returns:
         Union[Dataset, DatasetDict]: huggingface dataset object
     """
-    if lang in set(['as','gu','kn','ml','mr','or','pa','ta','te','bn']):##PJ:To add except hindi
+    if lang in set(
+        ["as", "gu", "kn", "ml", "mr", "or", "pa", "ta", "te", "bn"]
+    ):  ##PJ:To add except hindi
         dataset = load_dataset("Divyanshu/indicxnli", lang)[split]
     else:
         dataset = load_dataset("xnli", lang)[split]

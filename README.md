@@ -4,7 +4,7 @@ Code for **M**ultilingual **E**valuation of **G**enerative **A**I (MEGA), a fram
 # Getting Started
 
 ### Dependencies
-- Compatible with Python3.7
+- Compatible with Python3.8
 - The necessary packages can be install through requirements.txt.
 
 ### Setup
@@ -13,7 +13,7 @@ We recommend creating a virtual environment for the framework (optional):
 
 ```shell
 $ [sudo] pip install virtualenv
-$ virtualenv -p python3 megaenv
+$ virtualenv -p python3.8 megaenv
 $ source megaenv/bin/activate
 ```
 
