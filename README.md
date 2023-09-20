@@ -31,7 +31,7 @@ cd promptsource
 pip install -e .
 ```
 
-Finally, the framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/) and [HUGGING_FACE_API] (https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
+Finally, the framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/) and [HUggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
 
 #### Expected env variables
 1. `OPENAI_END_POINT`
