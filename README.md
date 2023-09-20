@@ -31,7 +31,18 @@ cd promptsource
 pip install -e .
 ```
 
-Finally, the framework requires keys for [OpenAI API](https://platform.openai.com) and [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/). Place the keys in the [`keys/`](keys/) directory with the filenames `openai_key.txt` and `bing_translate_key.txt`.
+Finally, the framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/) and [HUGGING_FACE_API] (https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
+
+#### Expected env variables
+1. `OPENAI_END_POINT`
+2. `OPENAI_API_KEY`
+3. `OPENAI_API_TYPE`
+4. `OPENAI_API_VERSION`
+5. `HF_API_URL`
+6. `BLOOMZ_API_URL`
+7. `HF_API_KEY`
+8. `BING_TRANSLATE_KEY`
+9. `BING_TRANSLATE_ENDPOINT`
 
 # Overview of the Framework
 We use prompt-based approach to evaluate LLMs on multilingual benchmark. For each task we divide our prompt into two portions: i) Few-shot Labelled examples and ii) Test Example to evaluate. The few-shot examples and the test example can be in different languages and we denote the language used to represent few-shot examples as *Pivot Language* and *Target Language* to represent the test example. Taking inspiration from [Shi et al. 2022](https://arxiv.org/abs/2210.03057), we consider three setups for evaluation:
@@ -80,7 +91,7 @@ python -m mega.eval_xnli \
     -k 8 \
     --pivot_prompt_name "Handcrafted based on the previous passage" \
     --tgt_prompt_name "Handcrafted based on the previous passage" \
-    --model DaVinci003
+    --model gpt-35-turbo
 ```
 
 **Other tasks to be added soon!**
@@ -116,7 +127,7 @@ accuracy = evaluate_model(
         test_dataset,
         train_prompt,
         test_prompt,
-        model="DaVinci003", #Can change this to BLOOM also
+        model="gpt-35-turbo", #Can change this to BLOOM also
         few_shot_size=4, #Number of few-shot examples
         save_preds_path="results/preds.csv",#Any path where you would like to store predictions,
         temperature=0.1, # Temperature parameter for GPT-3x generations
