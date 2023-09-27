@@ -1,5 +1,5 @@
 import argparse
-from mega.models.completion_models import SUPPORTED_MODELS
+from mega.models.completion_models import SUPPORTED_MODELS, MODEL_TYPES
 
 
 def parse_args(args: list) -> argparse.Namespace:
@@ -81,6 +81,13 @@ def parse_args(args: list) -> argparse.Namespace:
         "--model",
         default="gpt-35-turbo",
         choices=SUPPORTED_MODELS,
+        type=str,
+        help="GPT-x model to use to evaluate",
+    )
+    parser.add_argument(
+        "--model_type",
+        default="completion",
+        choices=MODEL_TYPES,
         type=str,
         help="GPT-x model to use to evaluate",
     )

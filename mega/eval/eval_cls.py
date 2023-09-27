@@ -13,6 +13,7 @@ import openai
 import pdb
 
 
+
 def run_seq_eval(
     train_examples: List[Dict[str, Union[str, int]]],
     test_dataset: Dataset,
@@ -146,6 +147,45 @@ def run_parallel_eval(
 
     return accuracy, results_df
 
+
+def test_hf_model(
+    train_dataset: Dataset,
+    test_dataset: Dataset,
+    train_prompt_template: Template,
+    test_prompt_template: Template,
+    model: str,
+    few_shot_size: int,
+    selection_criteria: str = "random",
+    chat_prompt: bool = False,
+    instruction: str = "",
+    save_preds_path: Optional[str] = None,
+    num_evals_per_sec: int = 2,
+    parallel_eval: bool = False,
+    num_proc: Optional[int] = None,
+    log_wandb: bool = False,
+    timeout: int = 0,
+    **model_params,
+) -> float:
+    """Evaluates the accuracy of the model
+    Note: Currently compares the exact match between the generated answer and the verbalized label
+    ToDo: Find alternatives to exact match (embeddings?)
+
+    Args:
+        train_dataset (Dataset): _description_
+        test_dataset (Dataset): _description_
+        train_prompt_template (Template): _description_
+        test_prompt_template (Template): _description_
+        model (str): _description_
+        few_shot_size (int): _description_
+        selection_criteria (int): _description_
+        save_preds_path (Optional[str], optional): _description_. Defaults to None.
+        parallel_eval (bool): _description_
+
+    Returns:
+        float: _description_
+    """
+    
+    
 
 def evaluate_model(
     train_dataset: Dataset,

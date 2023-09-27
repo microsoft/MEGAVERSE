@@ -23,6 +23,11 @@ SUPPORTED_MODELS = [
     "gpt-4",
 ]
 
+MODEL_TYPES = [
+                "completion", 
+                "seq2seq"
+               ]
+
 CHAT_MODELS = [
     "gpt-35-turbo",
     "gpt4_deployment",

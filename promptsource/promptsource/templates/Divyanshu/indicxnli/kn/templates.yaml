@@ -1,19 +1,31 @@
-dataset: Divyanshu/indicxnli/kn
+dataset: Divyanshu/indicxnli
+subset: kn
 templates:
-  c04b6143-97ed-46c6-a419-a4d073a2edd7: !Template
-    answer_choices: True ||| Neither ||| False
-    id: c04b6143-97ed-46c6-a419-a4d073a2edd7
-    jinja: '{{premise}}
-
-      Question: {{hypothesis}} True, False, or Neither? ||| {{ answer_choices[label]
-      }}'
-    metadata: !TemplateMetadata
+  3e0379e8-fa13-4bd4-b512-73e639e5744a: !Template
+    answer_choices: "\u0CB9\u0CCC\u0CA6\u0CC1 ||| \u0C87\u0CB0\u0CAC\u0CB9\u0CC1\u0CA6\
+      \u0CC1 ||| \u0C87\u0CB2\u0CCD\u0CB2"
+    id: 3e0379e8-fa13-4bd4-b512-73e639e5744a
+    jinja: "{{premise}} \u0CB9\u0CBF\u0C82\u0CA6\u0CBF\u0CA8 \u0CAA\u0CCD\u0CAF\u0CBE\
+      \u0CB8\u0CC7\u0C9C\u0CCD \u0CA8 \u0C86\u0CA7\u0CBE\u0CB0\u0CA6 \u0CAE\u0CC7\u0CB2\
+      \u0CC6, \"{{hypothesis}}\" \u0C8E\u0C82\u0CAC\u0CC1\u0CA6\u0CC1 \u0CA8\u0CBF\
+      \u0C9C\u0CB5\u0CC7? \u0CB9\u0CCC\u0CA6\u0CC1, \u0C87\u0CB2\u0CCD\u0CB2, \u0C85\
+      \u0CA5\u0CB5\u0CBE \u0C87\u0CB0\u0CAC\u0CB9\u0CC1\u0CA6\u0CC1? ||| {{ answer_choices[label]\
+      \ }}"
+    metadata: &id001 !TemplateMetadata
       choices_in_prompt: true
       languages:
       - en
       metrics:
       - Accuracy
       original_task: true
-    name: GPT-3 style
-    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
-      is no task identifying tokens like "anli R1: ".'
+    name: Bing-Translated based on the previous passage
+    reference: "Translated to kn version  of: Adapted from the BoolQ prompts in Schick\
+      \ & Sch\xFCtze 2021."
+  ee721a85-5bf7-4b73-980e-39f1ddb7967a: !Template
+    answer_choices: Yes ||| Maybe ||| No
+    id: ee721a85-5bf7-4b73-980e-39f1ddb7967a
+    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
+      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
+    metadata: *id001
+    name: based on the previous passage
+    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
