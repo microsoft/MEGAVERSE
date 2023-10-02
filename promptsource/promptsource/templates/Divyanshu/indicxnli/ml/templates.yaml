@@ -1,32 +1,19 @@
-dataset: Divyanshu/indicxnli
-subset: ml
+dataset: Divyanshu/indicxnli/ml
 templates:
-  4b718c06-03f4-4c94-a9d7-bbf788b77ff2: !Template
-    answer_choices: "\u0D36\u0D30\u0D3F ||| \u0D12\u0D30\u0D41\u0D2A\u0D15\u0D4D\u0D37\
-      \u0D47 ||| \u0D05\u0D32\u0D4D\u0D32"
-    id: 4b718c06-03f4-4c94-a9d7-bbf788b77ff2
-    jinja: "{{premise}} \u0D2E\u0D41\u0D2E\u0D4D\u0D2A\u0D24\u0D4D\u0D24\u0D46 \u0D2D\
-      \u0D3E\u0D17\u0D24\u0D4D\u0D24\u0D46 \u0D05\u0D1F\u0D3F\u0D38\u0D4D\u0D25\u0D3E\
-      \u0D28\u0D2E\u0D3E\u0D15\u0D4D\u0D15\u0D3F, \"{{hypothesis}} \u0D0E\u0D28\u0D4D\
-      \u0D28\u0D24\u0D4D \u0D36\u0D30\u0D3F\u0D2F\u0D3E\u0D23\u0D4B? \u0D09\u0D35\u0D4D\
-      \u0D35\u0D4D, \u0D07\u0D32\u0D4D\u0D32, \u0D05\u0D32\u0D4D\u0D32\u0D46\u0D19\
-      \u0D4D\u0D15\u0D3F\u0D7D \u0D12\u0D30\u0D41\u0D2A\u0D15\u0D4D\u0D37\u0D47? |||\
-      \ {{ answer_choices[label] }}"
-    metadata: &id001 !TemplateMetadata
+  c04b6143-97ed-46c6-a419-a4d073a2edd7: !Template
+    answer_choices: True ||| Neither ||| False
+    id: c04b6143-97ed-46c6-a419-a4d073a2edd7
+    jinja: '{{premise}}
+
+      Question: {{hypothesis}} True, False, or Neither? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
       - en
       metrics:
       - Accuracy
       original_task: true
-    name: Bing-Translated based on the previous passage
-    reference: "Translated to ml version  of: Adapted from the BoolQ prompts in Schick\
-      \ & Sch\xFCtze 2021."
-  ee721a85-5bf7-4b73-980e-39f1ddb7967a: !Template
-    answer_choices: Yes ||| Maybe ||| No
-    id: ee721a85-5bf7-4b73-980e-39f1ddb7967a
-    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
-      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
-    metadata: *id001
-    name: based on the previous passage
-    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'

@@ -21,6 +21,8 @@ SUPPORTED_MODELS = [
     "gpt-35-turbo",
     "gpt-4-32k",
     "gpt-4",
+    "meta-llama/Llama-2-7b-chat-hf",
+    "meta-llama/Llama-2-13b-chat-hf"
 ]
 
 MODEL_TYPES = [
@@ -34,6 +36,7 @@ CHAT_MODELS = [
     "gpt-4",
     "gpt-4-32k",
 ]
+
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -216,7 +219,6 @@ def bloomz_completion(prompt: str, **model_params) -> str:
             continue
 
     return output
-
 
 def model_completion(
     prompt: Union[str, List[Dict[str, str]]],

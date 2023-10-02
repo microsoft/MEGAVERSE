@@ -1,28 +1,19 @@
 dataset: Divyanshu/indicxnli/or
 templates:
-  08115794-ab2b-485e-a502-8f6b71db46da: !Template
-    answer_choices: "\u0B39\u0B01 ||| \u0B2C\u0B4B\u0B27\u0B39\u0B41\u0B0F ||| \u0B28\
-      \u0B3E\u0B39\u0B3F\u0B01"
-    id: 08115794-ab2b-485e-a502-8f6b71db46da
-    jinja: "{{premise}} \u0B2A\u0B42\u0B30\u0B4D\u0B2C \u0B05\u0B27\u0B4D\u0B5F\u0B3E\
-      \u0B5F \u0B06\u0B27\u0B3E\u0B30\u0B30\u0B47, \u0B0F\u0B39\u0B3E \u0B15'\u0B23\
-      \ \u0B38\u0B24 \u0B2F\u0B47 \"{{hypothesis}}\"? \u0B39\u0B01, \u0B28\u0B3E \u0B28\
-      \u0B3E \u0B2C\u0B4B\u0B27\u0B39\u0B41\u0B0F? ||| {{ answer_choices[label] }}"
-    metadata: &id001 !TemplateMetadata
+  c04b6143-97ed-46c6-a419-a4d073a2edd7: !Template
+    answer_choices: True ||| Neither ||| False
+    id: c04b6143-97ed-46c6-a419-a4d073a2edd7
+    jinja: '{{premise}}
+
+      Question: {{hypothesis}} True, False, or Neither? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
       - en
       metrics:
       - Accuracy
       original_task: true
-    name: Bing-Translated based on the previous passage
-    reference: "Translated to or version  of: Adapted from the BoolQ prompts in Schick\
-      \ & Sch\xFCtze 2021."
-  ee721a85-5bf7-4b73-980e-39f1ddb7967a: !Template
-    answer_choices: Yes ||| Maybe ||| No
-    id: ee721a85-5bf7-4b73-980e-39f1ddb7967a
-    jinja: '{{premise}} Based on the previous passage, is it true that "{{hypothesis}}"?
-      Yes, no, or maybe? ||| {{ answer_choices[label] }}'
-    metadata: *id001
-    name: based on the previous passage
-    reference: "Adapted from the BoolQ prompts in Schick & Sch\xFCtze 2021."
+    name: GPT-3 style
+    reference: 'Same as reported in Figure G7 of the GPT-3 paper, except that there
+      is no task identifying tokens like "anli R1: ".'
