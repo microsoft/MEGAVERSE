@@ -4,39 +4,30 @@ import pdb
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
 from pprint import pprint
+from fastchat.conversation import get_conv_template
 
-def convert_to_llama_chat_prompt(
+
+role2tag = {"user": 0, "assistant": 1}
+
+def convert_to_hf_chat_prompt(
                             messages : List[Dict[str, str]]
                         ) -> str:
     
-    final_prompt_input = "<s> [INST] "
+    conv = get_conv_template("llama-2") 
     
-    # pprint(messages)
+    conv.set_system_message(messages[0]['content'])
     
-    final_prompt_input += f"<<SYS>> {messages[0]['content']} <</SYS>> " 
     for idx, example in enumerate(messages[1:]):
-        # messages.append({"role": "user", "content": prompt_input})
-        # messages.append({"role": "assistant", "content": prompt_label})
-        
-        # print(example)
         role = example['role']
         content = example["content"]
         
-        if role == "user":
-            if idx == 0:
-                final_prompt_input += f"{content} [/INST]"
-            else:
-                final_prompt_input += f"<s> [INST] {content} [/INST] "
-        
-        else:
-            final_prompt_input += f"{content} </s>"
-        
-        
-    # test_prompt_input, test_prompt_label = test_prompt_template.apply(test_example)
-    # # messages.append({"role": "user", "content": test_prompt_input})
+        conv.append_message(conv.roles[role2tag[role]], content)
     
-    # final_prompt_input += f"<s>[INST] {prompt_input} [/INST]"
     
+    conv.append_message(conv.roles[1], None)
+    final_prompt_input = conv.get_prompt()  
+      
     return final_prompt_input
+
     
     

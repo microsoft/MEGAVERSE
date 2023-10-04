@@ -6,7 +6,7 @@ from tqdm import tqdm
 from typing import List, Dict, Union, Any
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
-from mega.prompting.hf_prompting_utils import convert_to_llama_chat_prompt
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
 # import torch. multiprocessing as trch_mp 
@@ -108,11 +108,13 @@ def get_hf_model_pred(
     
     # pprint(prompt_input)    
     
-    llama_prompt_input = convert_to_llama_chat_prompt(prompt_input)
     
-    # print(llama_prompt_input)
+    if chat_prompt:
+        prompt_input = convert_to_hf_chat_prompt(prompt_input)
+    
+    # print(prompt_input)
         
     model_prediction = hf_model_completion(
-        llama_prompt_input, model, tokenizer, timeout=timeout, **model_params
+        prompt_input, model, tokenizer, timeout=timeout, **model_params
     )
     return {"prediction": model_prediction, "ground_truth": label}

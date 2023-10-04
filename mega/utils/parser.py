@@ -202,6 +202,11 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Whether to use chat type prompts",
     )
     parser.add_argument(
+        "--is-hf",
+        action="store_true",
+        help="Whether the model is hugging face model or not",
+    )
+    parser.add_argument(
         "--contam_lang",
         default="",
         help="For what languages to check data contamination",

@@ -15,7 +15,7 @@ import gc
 import openai
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
-import GPUtil
+# import GPUtil
 import pprint
 
 
@@ -26,23 +26,15 @@ def initialise_model(model_name):
     tokenizer =  AutoTokenizer.from_pretrained(model_name)
     # tokenizer.padding_side = "left" 
     tokenizer.pad_token = tokenizer.eos_token # to avoid an error
-    
-    deviceIDs = GPUtil.getAvailable(order = 'random', limit = 1, maxLoad = 0.5, maxMemory = 0.5, includeNan=False, excludeID=[], excludeUUID=[])    
-    
-    # device_id = deviceIDs[0]
-    
-    device_id = 0
-    
+        
     if model_name in HF_DECODER_MODELS:
-        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32)
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="auto")
     else:
-        model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype=torch.float32)
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="auto")
     
     model.config.pad_token_id = model.config.eos_token_id
-    
-    model.to(f"cuda:{device_id}")
-    
-    # model = model.to_bettertransformer()
+        
+    model = model.to_bettertransformer()
     
     return model, tokenizer
 
