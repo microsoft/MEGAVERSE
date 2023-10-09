@@ -7,8 +7,7 @@ import pandas as pd
 import wandb
 from datasets import Dataset
 from promptsource.templates import Template
-from mega.models.hf_completion_models import get_hf_model_pred
-from mega.models.hf_completion_models import HF_DECODER_MODELS
+from mega.models.hf_completion_models import get_hf_model_pred, HF_DECODER_MODELS
 from mega.data.data_utils import choose_few_shot_examples
 import pdb
 import gc
@@ -34,7 +33,7 @@ def initialise_model(model_name):
     
     model.config.pad_token_id = model.config.eos_token_id
         
-    model = model.to_bettertransformer()
+    # model = model.to_bettertransformer()
     
     return model, tokenizer
 
