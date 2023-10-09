@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Starting Turbo  Evaluation"
+# echo "Starting Turbo  Evaluation"
 echo "Monolingual Evaluation"
 for prompt_name in "plausible_alternatives_discrete"
 do

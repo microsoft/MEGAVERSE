@@ -1,3 +1,5 @@
+#!/bin/bash
+
 for prompt_name in "Answer Given options"
     do
     for model in "meta-llama/Llama-2-7b-chat-hf" "meta-llama/Llama-2-13b-chat-hf"

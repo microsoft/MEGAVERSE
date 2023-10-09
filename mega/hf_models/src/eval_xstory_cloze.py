@@ -1,7 +1,7 @@
 import os
 import argparse
 from typing import Dict, Any, Optional
-import openai
+# import openai
 import sys
 import time
 import random
@@ -23,6 +23,7 @@ from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.eval.hf_eval_cls import initialise_model
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 PROMPT_TEMPLATES = {
     "Answer Given options": """{input_sentence_1} {input_sentence_2} {input_sentence_3} {input_sentence_4}\nWhat is a possible continuation for the story given the following options ?\n-Option1: {sentence_quiz1}\n-Option2: {sentence_quiz2}""",
@@ -40,7 +41,8 @@ def evaluate(
     test_dataset: Dataset,
     prompt_template: str,
     verbalizer: Dict[Any, str],
-    model_name: str,
+    model: AutoModelForCausalLM,
+    tokenizer: AutoTokenizer,
     few_shot_size: int,
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
@@ -89,8 +91,6 @@ def evaluate(
             
             # print(prompt)
             # print()
-            
-            model, tokenizer = initialise_model(model_name)
             
             pred = hf_model_completion(
                     prompt,
@@ -174,12 +174,15 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
+    model, tokenizer = initialise_model(args.model)
+    
     eval_score, preds_df = evaluate(
         train_dataset,
         test_dataset,
         prompt_template=prompt_template,
         verbalizer=verbalizer,
-        model_name=args.model,
+        model=model,
+        tokenizer=tokenizer,
         few_shot_size=args.few_shot_k,
         selection_criteria=args.few_shot_selection,
         num_evals_per_sec=args.num_evals_per_sec,
