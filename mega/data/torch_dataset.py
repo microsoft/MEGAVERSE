@@ -9,7 +9,7 @@ random.seed(0)
 
 torch.manual_seed(0)
 
-# torch.set_default_dtype(torch.float32)
+torch.set_default_dtype(torch.float32)
 
 
 class PromptDataset(Dataset):
@@ -28,17 +28,17 @@ class PromptDataset(Dataset):
     
     def __getitem__(self, i):
         text = self.prompts[i]
-        self.tokenizer.pad_token = self.tokenizer.eos_token
+        # self.tokenizer.pad_token = self.tokenizer.eos_token
         encoding = self.tokenizer(text, 
                                   return_tensors="pt", 
                                   padding="max_length",
                                   truncation=True,
-                                  max_length=self.max_len,
+                                  max_length=min(1024, self.max_len),
                                   add_special_tokens=True
                                  )
         
         encoding = {k: v[0].to(self.device) for k, v in encoding.items()}
-        
+        # print("encoded")
         return encoding
 
     

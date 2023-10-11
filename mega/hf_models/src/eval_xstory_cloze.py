@@ -68,8 +68,9 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
-    pbar = tqdm(test_dataset)
-    for test_example in pbar:
+    pbar = tqdm(test_dataset.shuffle(seed=1))
+    for idx, test_example in enumerate(pbar):
+        # print(idx)
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
         while len(train_examples_i) >= 0:
@@ -97,6 +98,7 @@ def evaluate(
                     model=model,
                     tokenizer=tokenizer,
                     timeout=timeout,
+                    max_new_tokens=5,
                     **model_params,
                 )
 

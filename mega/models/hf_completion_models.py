@@ -11,8 +11,9 @@ from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
 # import torch. multiprocessing as trch_mp 
 from pprint import pprint
-
+from waiting import wait, TimeoutExpired
 # trch_mp.set_start_method('spawn')
+from ipdb import set_trace
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
@@ -23,13 +24,14 @@ def hf_model_completion(
                 prompts: Union[str, List[str]],
                 model: Union[AutoModelForCausalLM, AutoModelForSeq2SeqLM],
                 tokenizer: AutoTokenizer,
-                batch_size = 1, 
-                max_new_tokens=2,
+                timeout: int = 2,
+                batch_size: int = 1, 
+                max_new_tokens: int =2,
                 **model_params,
             ):
 
-    torch.cuda.empty_cache()
-    gc.collect()
+    # torch.cuda.empty_cache()
+    # gc.collect()
     
     outputs = []
     
@@ -40,14 +42,24 @@ def hf_model_completion(
     prompt_dataset = PromptDataset(prompts, tokenizer)
     
     for idx, batch in enumerate(DataLoader(prompt_dataset, batch_size=batch_size, shuffle=False)):
-            
+        # print("entered in loop") 
         with torch.no_grad():
-            output = model.generate(**batch, 
-                                    max_new_tokens=max_new_tokens,
-                                    return_dict_in_generate=True, 
-                                    output_scores=True
-                                   ) 
-            
+            # print("entered in no grad")
+            try:
+                # set_trace()
+                output = model.generate(**batch, 
+                                        max_new_tokens=max_new_tokens,
+                                        return_dict_in_generate=True, 
+                                        output_scores=True,
+                                        min_length=20,
+                                        early_stopping=False,
+                                        max_time=timeout,
+                                        eos_token_id=tokenizer.eos_token_id
+                                        )
+            except:
+                output = batch
+        
+        # print("generation done")
         for idx, encoding in enumerate(batch['input_ids']):
 
             input_length = encoding.shape[0]
@@ -60,8 +72,8 @@ def hf_model_completion(
                                                 skip_special_tokens=True
                                               )
 
-    torch.cuda.empty_cache()
-    gc.collect()
+    # torch.cuda.empty_cache()
+    # gc.collect()
     
     return outputs[0].strip().strip("\n").strip("\r").strip("\t").strip('.')
 
