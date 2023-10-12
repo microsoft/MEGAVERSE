@@ -1,7 +1,7 @@
 #!bin/bash
 
 
-source ~/mambaforge/bin/activate
+source $HOME/mambaforge/bin/activate
 mamba activate mega_v3
 
 sh mega/hf_models/scripts/run_indicxnli.sh

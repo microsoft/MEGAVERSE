@@ -9,11 +9,7 @@ from mega.prompting.prompting_utils import construct_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
-# import torch. multiprocessing as trch_mp 
-from pprint import pprint
-from waiting import wait, TimeoutExpired
-# trch_mp.set_start_method('spawn')
-from ipdb import set_trace
+
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
@@ -24,7 +20,7 @@ def hf_model_completion(
                 prompts: Union[str, List[str]],
                 model: Union[AutoModelForCausalLM, AutoModelForSeq2SeqLM],
                 tokenizer: AutoTokenizer,
-                timeout: int = 2,
+                timeout: int = 10000000,
                 batch_size: int = 1, 
                 max_new_tokens: int =2,
                 **model_params,

@@ -235,32 +235,39 @@ def main(sys_args):
     print(args.model)
     model, tokenizer = initialise_model(args.model)
 
-    metrics, preds_df = evaluate_qa_chatgpt(
-        train_examples,
-        test_dataset,
-        prompt_template,
-        model=model,
-        tokenizer=tokenizer,
-        instruction=instruction,
-        chat_prompt=args.chat_prompt,
-        num_evals_per_sec=args.num_evals_per_sec,
-        temperature=args.temperature,
-        max_tokens=args.max_tokens,
-        log_wandb=True,
-    )
+    
+    results_file = f"{out_dir}/results.json"
+    
+    
+    if not os.path.exists(results_file):
+        metrics, preds_df = evaluate_qa_chatgpt(
+            train_examples,
+            test_dataset,
+            prompt_template,
+            model=model,
+            tokenizer=tokenizer,
+            instruction=instruction,
+            chat_prompt=args.chat_prompt,
+            num_evals_per_sec=args.num_evals_per_sec,
+            temperature=args.temperature,
+            max_tokens=args.max_tokens,
+            log_wandb=True,
+        )
 
-    preds_df.to_csv(f"{out_dir}/preds.csv")
-    print(metrics)
-    results_dict = vars(args)
-    results_dict["metrics"] = metrics
-    if not args.no_save:
-        with open(f"{out_dir}/results.json", "w") as f:
-            json.dump(results_dict, f, indent=4)
-        print(f"Results written in {out_dir}")
+        preds_df.to_csv(f"{out_dir}/preds.csv")
+        print(metrics)
+        results_dict = vars(args)
+        results_dict["metrics"] = metrics
+        if not args.no_save:
+            with open(results_file, "w") as f:
+                json.dump(results_dict, f, indent=4)
+            print(f"Results written in {out_dir}")
 
-    if args.log_wandb:
-        wandb.log(metrics)
+        if args.log_wandb:
+            wandb.log(metrics)
 
+    else:
+        print(f"Results already exist in {out_dir}")
 
 if __name__ == "__main__":
     wandb.init()

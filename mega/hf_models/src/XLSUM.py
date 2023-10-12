@@ -227,6 +227,8 @@ if __name__ == "__main__":
         
         # print(prompt)
         
+        # print(args)
+        
         time.sleep(args["sleep_period"])
         pred = hf_model_completion(
             prompts=prompt,

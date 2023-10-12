@@ -178,38 +178,43 @@ def main(sys_args):
 
     model, tokenizer = initialise_model(args.model)
     
-    eval_score, preds_df = evaluate(
-        train_dataset,
-        test_dataset,
-        prompt_template=prompt_template,
-        verbalizer=verbalizer,
-        model=model,
-        tokenizer=tokenizer,
-        few_shot_size=args.few_shot_k,
-        selection_criteria=args.few_shot_selection,
-        num_evals_per_sec=args.num_evals_per_sec,
-        parallel_eval=args.parallel_eval,
-        num_proc=args.num_proc,
-        log_wandb=args.log_wandb,
-        chat_prompt=args.chat_prompt,
-        instruction=instruction,
-        timeout=args.timeout,
-        temperature=args.temperature,
-        top_p=args.top_p,
-        max_tokens=args.max_tokens,
-    )
-    preds_df.to_csv(f"{out_dir}/preds.csv")
-    print(eval_score)
-    results_dict = vars(args)
-    results_dict["metrics"] = {"accuracy": eval_score}
-    if not args.no_save:
-        with open(f"{out_dir}/results.json", "w") as f:
-            json.dump(results_dict, f, indent=4)
-        print(f"Results written in {out_dir}")
+    
+    results_file = f"{out_dir}/results.json"
+    
+    if not os.path.exists(results_file):
+        eval_score, preds_df = evaluate(
+            train_dataset,
+            test_dataset,
+            prompt_template=prompt_template,
+            verbalizer=verbalizer,
+            model=model,
+            tokenizer=tokenizer,
+            few_shot_size=args.few_shot_k,
+            selection_criteria=args.few_shot_selection,
+            num_evals_per_sec=args.num_evals_per_sec,
+            parallel_eval=args.parallel_eval,
+            num_proc=args.num_proc,
+            log_wandb=args.log_wandb,
+            chat_prompt=args.chat_prompt,
+            instruction=instruction,
+            timeout=args.timeout,
+            temperature=args.temperature,
+            top_p=args.top_p,
+            max_tokens=args.max_tokens,
+        )
+        preds_df.to_csv(f"{out_dir}/preds.csv")
+        print(eval_score)
+        results_dict = vars(args)
+        results_dict["metrics"] = {"accuracy": eval_score}
+        if not args.no_save:
+            with open(results_file, "w") as f:
+                json.dump(results_dict, f, indent=4)
+            print(f"Results written in {out_dir}")
 
-    if args.log_wandb:
-        wandb.log({"accuracy": eval_score})
-
+        if args.log_wandb:
+            wandb.log({"accuracy": eval_score})
+    else:
+        print(f"Results already exist in {out_dir}")
 
 if __name__ == "__main__":
     main(sys.argv[1:])

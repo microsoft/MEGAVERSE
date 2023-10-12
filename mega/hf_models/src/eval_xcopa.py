@@ -82,36 +82,43 @@ def main(sys_args):
     print(instruction)
 
     pred_file_path = f"{out_dir}/preds.csv"
-    accuracy = evaluate_model(
-        train_dataset,
-        test_dataset,
-        train_prompt_template,
-        test_prompt_template,
-        args.model,
-        args.few_shot_k,
-        args.few_shot_selection,
-        chat_prompt=args.chat_prompt,
-        instruction=INSTRUCTIONS.get(args.dataset, ""),
-        save_preds_path=pred_file_path if not args.no_save else None,
-        num_evals_per_sec=args.num_evals_per_sec,
-        parallel_eval=args.parallel_eval,
-        num_proc=args.num_proc,
-        temperature=args.temperature,
-        top_p=args.top_p,
-        timeout=args.timeout,
-    )
-    print(accuracy)
-    # Store results
-    results_dict = vars(args)
-    results_dict["metrics"] = {"accuracy": accuracy}
-    if not args.no_save:
-        with open(f"{out_dir}/results.json", "w") as f:
-            json.dump(results_dict, f, indent=4)
-        print(f"Results written in {out_dir}")
+    results_file = f"{out_dir}/results.json"
+    
+    
+    if not os.path.exists(results_file):
+        accuracy = evaluate_model(
+            train_dataset,
+            test_dataset,
+            train_prompt_template,
+            test_prompt_template,
+            args.model,
+            args.few_shot_k,
+            args.few_shot_selection,
+            chat_prompt=args.chat_prompt,
+            instruction=INSTRUCTIONS.get(args.dataset, ""),
+            save_preds_path=pred_file_path if not args.no_save else None,
+            num_evals_per_sec=args.num_evals_per_sec,
+            parallel_eval=args.parallel_eval,
+            num_proc=args.num_proc,
+            temperature=args.temperature,
+            top_p=args.top_p,
+            timeout=args.timeout,
+        )
+        print(accuracy)
+        # Store results
+        results_dict = vars(args)
+        results_dict["metrics"] = {"accuracy": accuracy}
+        if not args.no_save:
+            with open(results_file, "w") as f:
+                json.dump(results_dict, f, indent=4)
+            print(f"Results written in {out_dir}")
 
-    if args.log_wandb:
-        wandb.log({"accuracy": accuracy})
+        if args.log_wandb:
+            wandb.log({"accuracy": accuracy})
 
-
+    else:
+        print(f"Results already exist in {out_dir}")
+        
+        
 if __name__ == "__main__":
     main(sys.argv[1:])
