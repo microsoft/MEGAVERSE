@@ -9,12 +9,32 @@ from mega.prompting.prompting_utils import construct_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
-
+from huggingface_hub import InferenceClient
+from mega.utils.env_utils import (
+    load_openai_env_variables,
+    HF_API_KEY,
+    BLOOMZ_API_URL,
+    HF_API_URL,
+)
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
-    "meta-llama/Llama-2-13b-chat-hf"
+    "meta-llama/Llama-2-13b-chat-hf",
+    "meta-llama/Llama-2-70b-chat-hf",
 ]
+
+def hf_model_api_completion(
+    prompt: Union[str, List[str]],
+    model_name: str,
+    **model_params,
+):
+    
+    client = InferenceClient(model=model_name, token=HF_API_KEY)
+    
+    output = client.text_generation(prompt)
+    
+    return output
+
 
 def hf_model_completion(
                 prompts: Union[str, List[str]],
@@ -79,8 +99,9 @@ def get_hf_model_pred(
     test_example: Dict[str, Union[str, int]],
     train_prompt_template: Template,
     test_prompt_template: Template,
-    model: Union[AutoModelForCausalLM, AutoModelForSeq2SeqLM],
-    tokenizer: AutoTokenizer,
+    model: Union[AutoModelForCausalLM, AutoModelForSeq2SeqLM] = None,
+    tokenizer: AutoTokenizer = None,
+    use_api: bool = False,
     chat_prompt: bool = False,
     instruction: str = "",
     timeout: int = 0,
@@ -122,7 +143,10 @@ def get_hf_model_pred(
     
     # print(prompt_input)
         
-    model_prediction = hf_model_completion(
-        prompt_input, model, tokenizer, timeout=timeout, **model_params
-    )
+    if use_api:
+        model_prediction = hf_model_api_completion(prompt_input, model, **model_params)
+    else:
+        model_prediction = hf_model_completion(
+            prompt_input, model, tokenizer, timeout=timeout, **model_params
+        )
     return {"prediction": model_prediction, "ground_truth": label}

@@ -109,6 +109,13 @@ def parse_args(args: list) -> argparse.Namespace:
         action="store_true",
         help="Whether to use Validation Data for in-evaluation",
     )
+    
+    parser.add_argument(
+        "--use_api",
+        action="store_true",
+        help="Whether to use HF API",
+    )
+    
     parser.add_argument(
         "--num_evals_per_sec",
         default=2,

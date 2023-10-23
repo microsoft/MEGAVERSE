@@ -9,7 +9,7 @@ do
             # for lang in gu
             do
                 echo "Running for language $lang and prompt ${prompt_name}"
-                python -m mega.hf_models.src.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k 8 --model "${model}" -e "melange" --chat-prompt --temperature 0 --log_wandb
+                python -m mega.hf_models.src.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k 4 --model "${model}" -e "melange" --chat-prompt --temperature 0 --log_wandb
             done
         done
 done

@@ -1,6 +1,5 @@
 import os
 from typing import List, Dict, Union, Tuple, Optional
-import time
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
@@ -10,7 +9,6 @@ from promptsource.templates import Template
 from mega.models.completion_models import get_model_pred
 from mega.data.data_utils import choose_few_shot_examples
 import openai
-import pdb
 
 
 
@@ -51,7 +49,6 @@ def run_seq_eval(
     pbar = tqdm(test_dataset)
     for test_example in pbar:
         train_examples_i = train_examples
-
         while len(train_examples_i) >= 0:
             try:
                 pred_dict = get_model_pred(

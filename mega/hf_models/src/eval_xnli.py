@@ -94,6 +94,7 @@ def main(sys_args):
             args.model,
             args.few_shot_k,
             args.few_shot_selection,
+            use_api=args.use_api,
             chat_prompt=args.chat_prompt,
             instruction=INSTRUCTIONS.get(args.dataset, ""),
             save_preds_path=pred_file_path if not args.no_save else None,

@@ -46,6 +46,7 @@ def run_seq_eval(
     test_prompt_template: Template,
     model_name: str,
     num_evals_per_sec: int = 2,
+    use_api: bool = False,
     chat_prompt: bool = False,
     instruction: str = "",
     log_wandb: bool = False,
@@ -74,7 +75,10 @@ def run_seq_eval(
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]    
     
-    model, tokenizer = initialise_model(model_name)
+    if use_api:
+        model, tokenizer = None, None
+    else:
+        model, tokenizer = initialise_model(model_name)
     
     pbar = tqdm(test_dataset)
     
@@ -92,6 +96,7 @@ def run_seq_eval(
             test_prompt_template,
             model,
             tokenizer,
+            use_api=use_api,
             chat_prompt=chat_prompt,
             instruction=instruction,
             timeout=timeout,
@@ -114,7 +119,7 @@ def run_seq_eval(
             #     )
 
         pred = pred_dict["prediction"]
-        # print(pred)
+        print(pred)
         # if pred == "Invalid request":
         #     pdb.set_trace()
         #     continue
@@ -142,6 +147,7 @@ def run_parallel_eval(
     train_prompt_template: Template,
     test_prompt_template: Template,
     model_name: str,
+    use_api: bool = False,
     chat_prompt: bool = False,
     instruction: str = "",
     num_proc: int = 4,
@@ -162,7 +168,10 @@ def run_parallel_eval(
         _type_: _description_
     """
 
-    model, tokenizer = initialise_model(model_name)
+    if use_api:
+        model, tokenizer = None, None
+    else:
+        model, tokenizer = initialise_model(model_name)
     
     results_dataset = test_dataset.map(
         lambda example: get_hf_model_pred(
@@ -172,6 +181,7 @@ def run_parallel_eval(
             test_prompt_template,
             model,
             tokenizer,
+            use_api=use_api,
             chat_prompt=chat_prompt,
             instruction=instruction,
             **model_params,
@@ -198,6 +208,7 @@ def evaluate_model(
     model: str,
     few_shot_size: int,
     selection_criteria: str = "random",
+    use_api: bool = False,
     chat_prompt: bool = False,
     instruction: str = "",
     save_preds_path: Optional[str] = None,
@@ -239,6 +250,7 @@ def evaluate_model(
             train_prompt_template,
             test_prompt_template,
             model_name=model,
+            use_api=use_api,
             num_proc=num_proc,
             **model_params,
         )
@@ -250,6 +262,7 @@ def evaluate_model(
             test_prompt_template,
             model_name=model,
             num_evals_per_sec=num_evals_per_sec,
+            use_api=use_api,
             chat_prompt=chat_prompt,
             instruction=instruction,
             log_wandb=log_wandb,
