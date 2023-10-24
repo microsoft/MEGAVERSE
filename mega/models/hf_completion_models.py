@@ -10,6 +10,7 @@ from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
 from huggingface_hub import InferenceClient, AsyncInferenceClient
+from huggingface_hub.inference._text_generation import OverloadedError
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -35,12 +36,15 @@ def hf_model_api_completion(
     
     client = InferenceClient(model=model_name, token=HF_API_KEY)
     
-    output = client.text_generation(prompt)
     
+    while True:
+        try:
+            output = client.text_generation(prompt)
+            break
+        except OverloadedError:
+            time.sleep(1)
+        
     output = tokenizer.decode(tokenizer(output)['input_ids'], skip_special_tokens=True)
-    
-    time.sleep(3)
-    # print(output)
     
     return output.strip().strip("\n").strip("\r").strip("\t").strip('.')
     
