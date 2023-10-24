@@ -10,13 +10,14 @@ from datasets import load_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.env_utils import load_openai_env_variables
-from mega.models.hf_completion_models import hf_model_completion
+from mega.models.hf_completion_models import hf_model_completion, hf_model_api_completion
 from mega.eval.hf_eval_cls import initialise_model
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.prompting_utils import construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 
 
 # load_openai_env_variables()
@@ -102,14 +103,16 @@ def evaluate_qa_chatgpt(
     train_examples,
     test_dataset,
     prompt_template,
-    model,
-    tokenizer,
-    instruction="",
-    chat_prompt=True,
-    num_evals_per_sec=2,
-    temperature=0,
-    max_tokens=20,
-    log_wandb=True,
+    model: AutoModelForCausalLM,
+    tokenizer: AutoTokenizer,
+    model_name: str,
+    instruction: str="",
+    use_api: bool = False,
+    chat_prompt: bool =True,
+    num_evals_per_sec: int =2,
+    temperature: int =0,
+    max_tokens: int =20,
+    log_wandb: bool =True,
 ):
     f1_sum = 0
     em_sum = 0
@@ -141,16 +144,27 @@ def evaluate_qa_chatgpt(
         
         # print(final_prompt)
         
-        pred = hf_model_completion(
-            final_prompt,
-            model,
-            tokenizer,
-            temperature=0,
-            # run_details=run_details,
-            # num_evals_per_sec=num_evals_per_sec,
-            max_new_tokens=max_tokens,
-        )
-                
+        if use_api:
+            pred = hf_model_api_completion(
+                final_prompt,
+                model_name = model_name,
+                tokenizer = tokenizer,
+                temperature=0,
+                run_details=run_details,
+                num_evals_per_sec=num_evals_per_sec,
+                max_new_tokens=max_tokens,
+                )
+        else:
+            pred = hf_model_completion(
+                final_prompt,
+                model,
+                tokenizer,
+                temperature=0,
+                run_details=run_details,
+                num_evals_per_sec=num_evals_per_sec,
+                max_new_tokens=max_tokens,
+            )
+        
         prediction = {"prediction_text": pred, "id": test_example["id"]}
         reference = {}
         reference["answers"] = test_example["answers"]
@@ -233,8 +247,13 @@ def main(sys_args):
         os.makedirs(out_dir)
         
     print(args.model)
-    model, tokenizer = initialise_model(args.model)
+    
+    if not args.use_api:
+        model, tokenizer = initialise_model(args.model)
 
+    else:
+        model = None
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
     
     results_file = f"{out_dir}/results.json"
     
@@ -245,7 +264,9 @@ def main(sys_args):
             test_dataset,
             prompt_template,
             model=model,
+            model_name=args.model,
             tokenizer=tokenizer,
+            use_api=args.use_api,
             instruction=instruction,
             chat_prompt=args.chat_prompt,
             num_evals_per_sec=args.num_evals_per_sec,

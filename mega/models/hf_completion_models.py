@@ -36,12 +36,11 @@ def hf_model_api_completion(
     
     client = InferenceClient(model=model_name, token=HF_API_KEY)
     
-    
     while True:
         try:
             output = client.text_generation(prompt)
             break
-        except OverloadedError:
+        except:
             time.sleep(1)
         
     output = tokenizer.decode(tokenizer(output)['input_ids'], skip_special_tokens=True)

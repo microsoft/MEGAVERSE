@@ -9,7 +9,7 @@ import yaml
 import random
 import openai
 from mega.data.data_utils import choose_few_shot_examples
-from mega.models.hf_completion_models import hf_model_completion
+from mega.models.hf_completion_models import hf_model_completion, hf_model_api_completion
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.env_utils import load_openai_env_variables
@@ -19,6 +19,7 @@ from rouge_score import rouge_scorer
 from mega.eval.hf_eval_cls import initialise_model
 from tqdm import tqdm
 import wandb
+from transformers import AutoTokenizer
 
 
 def read_parameters(args_path):
@@ -148,7 +149,7 @@ def compute_rouge(scorer, pred, label):
 
 
 if __name__ == "__main__":
-    args = read_parameters("./mega/hf_models/scripts/parameters_13b.yaml")
+    args = read_parameters("./mega/hf_models/scripts/parameters_70b.yaml")
     env_name = "melange"
     load_openai_env_variables()
     lang = sys.argv[1]
@@ -208,7 +209,11 @@ if __name__ == "__main__":
         )
     )
     
-    model, tokenizer = initialise_model(model_name)
+    if args['use_api']:
+        model = None
+        tokenizer = AutoTokenizer.from_pretrained(model_name)   
+    else:
+        model, tokenizer = initialise_model(model_name)
     
     
     for idx, test_example in pbar:
@@ -230,14 +235,24 @@ if __name__ == "__main__":
         # print(args)
         
         time.sleep(args["sleep_period"])
-        pred = hf_model_completion(
-            prompts=prompt,
-            model=model,
-            tokenizer=tokenizer,
-            max_tokens=args["max_tokens"],
-            temperature=args["temperature"],
-            run_details=run_details,
-        )
+        if args['use_api']:
+            pred = hf_model_api_completion(
+                prompt=prompt,
+                model_name=model_name,
+                tokenizer=tokenizer,
+                max_tokens=args["max_tokens"],
+                temperature=args["temperature"],
+                run_details=run_details,
+            )
+        else:
+            pred = hf_model_completion(
+                prompts=prompt,
+                model=model,
+                tokenizer=tokenizer,
+                max_tokens=args["max_tokens"],
+                temperature=args["temperature"],
+                run_details=run_details,
+            )
         run_details["last_processed_idx"] = idx
         batched_predictions.append(pred)
         dump_predictions(idx, pred, response_logger_file)
