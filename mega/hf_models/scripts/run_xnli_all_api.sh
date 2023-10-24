@@ -3,8 +3,8 @@
 echo "Monolingual Evaluation"
 for prompt_name in "GPT-3 style"
 do
-    # for lang in ar bg de el es fr hi ru sw th tr ur vi zh
-    for lang in en
+    for lang in ar bg de el es fr hi ru sw th tr ur vi zh
+    # for lang in en
     do
         for k in 0 2 4 8 16
         do

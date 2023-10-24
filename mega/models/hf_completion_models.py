@@ -9,13 +9,14 @@ from mega.prompting.prompting_utils import construct_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
-from huggingface_hub import InferenceClient
+from huggingface_hub import InferenceClient, AsyncInferenceClient
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
     BLOOMZ_API_URL,
     HF_API_URL,
 )
+import time
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
@@ -38,9 +39,12 @@ def hf_model_api_completion(
     
     output = tokenizer.decode(tokenizer(output)['input_ids'], skip_special_tokens=True)
     
+    time.sleep(3)
     # print(output)
     
     return output.strip().strip("\n").strip("\r").strip("\t").strip('.')
+    
+
 
 
 def hf_model_completion(
