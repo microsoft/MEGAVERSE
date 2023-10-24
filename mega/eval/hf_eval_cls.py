@@ -38,7 +38,6 @@ def initialise_model(model_name):
     return model, tokenizer
 
 
-
 def run_seq_eval(
     train_examples: List[Dict[str, Union[str, int]]],
     test_dataset: Dataset,
@@ -76,7 +75,8 @@ def run_seq_eval(
     valid_labels = [label.strip().split()[0] for label in valid_labels]    
     
     if use_api:
-        model, tokenizer = None, None
+        model = None
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
     else:
         model, tokenizer = initialise_model(model_name)
     
@@ -94,6 +94,7 @@ def run_seq_eval(
             test_example,
             train_prompt_template,
             test_prompt_template,
+            model_name, 
             model,
             tokenizer,
             use_api=use_api,
@@ -119,7 +120,6 @@ def run_seq_eval(
             #     )
 
         pred = pred_dict["prediction"]
-        print(pred)
         # if pred == "Invalid request":
         #     pdb.set_trace()
         #     continue

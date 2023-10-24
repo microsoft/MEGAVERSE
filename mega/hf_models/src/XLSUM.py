@@ -148,7 +148,7 @@ def compute_rouge(scorer, pred, label):
 
 
 if __name__ == "__main__":
-    args = read_parameters("./mega/hf_models/scripts/parameters.yaml")
+    args = read_parameters("./mega/hf_models/scripts/parameters_13b.yaml")
     env_name = "melange"
     load_openai_env_variables()
     lang = sys.argv[1]

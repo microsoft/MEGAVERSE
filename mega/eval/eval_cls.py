@@ -79,6 +79,8 @@ def run_seq_eval(
                 )
 
         pred = pred_dict["prediction"]
+        print(pred)
+        
         # if pred == "Invalid request":
         #     pdb.set_trace()
         #     continue

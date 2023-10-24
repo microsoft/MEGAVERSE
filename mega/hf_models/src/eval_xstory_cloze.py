@@ -16,7 +16,7 @@ from mega.data.load_datasets import (
     load_xstory_cloze_translate_test,
 )
 from mega.data.data_utils import choose_few_shot_examples
-from mega.models.hf_completion_models import hf_model_completion
+from mega.models.hf_completion_models import hf_model_completion, hf_model_api_completion
 from mega.prompting.prompting_utils import construct_xstory_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
@@ -41,6 +41,7 @@ def evaluate(
     test_dataset: Dataset,
     prompt_template: str,
     verbalizer: Dict[Any, str],
+    model_name: str, 
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
     few_shot_size: int,
@@ -53,6 +54,7 @@ def evaluate(
     chat_prompt: bool = False,
     instruction: str = "",
     timeout: int = 0,
+    use_api: bool = False,
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
@@ -93,14 +95,23 @@ def evaluate(
             # print(prompt)
             # print()
             
-            pred = hf_model_completion(
-                    prompt,
-                    model=model,
-                    tokenizer=tokenizer,
-                    timeout=timeout,
-                    max_new_tokens=5,
-                    **model_params,
-                )
+            if use_api:
+                pred = hf_model_api_completion(
+                        prompt,
+                        model_name=model_name,
+                        tokenizer=tokenizer,
+                        timeout=timeout,
+                        **model_params,
+                    )
+            else:
+                pred = hf_model_completion(
+                        prompt,
+                        model=model,
+                        tokenizer=tokenizer,
+                        timeout=timeout,
+                        max_new_tokens=5,
+                        **model_params,
+                    )
 
         preds.append(pred)
         labels.append(label)
@@ -176,8 +187,11 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    model, tokenizer = initialise_model(args.model)
-    
+    if args.use_api:
+        model = None
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
+    else:
+        model, tokenizer = initialise_model(args.model)
     
     results_file = f"{out_dir}/results.json"
     
@@ -187,6 +201,7 @@ def main(sys_args):
             test_dataset,
             prompt_template=prompt_template,
             verbalizer=verbalizer,
+            model_name=args.model, 
             model=model,
             tokenizer=tokenizer,
             few_shot_size=args.few_shot_k,
@@ -198,6 +213,7 @@ def main(sys_args):
             chat_prompt=args.chat_prompt,
             instruction=instruction,
             timeout=args.timeout,
+            use_api=args.use_api,
             temperature=args.temperature,
             top_p=args.top_p,
             max_tokens=args.max_tokens,
