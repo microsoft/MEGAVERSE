@@ -157,6 +157,7 @@ def normalize_answer_mlqa(lang, s):
     return white_space_fix(remove_articles(remove_punc(lower(s)), lang), lang)
 
 
+
 def normalize_answer(s):
     """Lower text and remove punctuation, articles and extra whitespace."""
 
@@ -281,9 +282,9 @@ def hf_eval_qa(
         pred = answer_question(
             test_example["question"],
             test_example["context"],
-            model_name,
-            model,
-            tokenizer,
+            # model_name=model_name,
+            model=model,
+            tokenizer=tokenizer,
             prompt=prompt_to_use,
             chat_prompt=chat_prompt,
             use_api=use_api,
@@ -455,8 +456,10 @@ def main():
 
     metrics, results_df = hf_eval_qa(
         test_dataset,
-        model_name=args.model,
-        # langchain_prompt,
+        # model_name=model_name,
+        model=model,
+        prompt=langchain_prompt,
+        tokenizer=tokenizer,
         num_evals_per_sec=args.num_evals_per_sec,
         smaller_prompts=smaller_prompts,
         use_api=args.use_api,
@@ -464,7 +467,6 @@ def main():
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
         timeout=args.timeout,
-        model_params=args.model_params,
 
     )
 
