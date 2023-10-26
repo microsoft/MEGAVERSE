@@ -9,13 +9,16 @@ from mega.prompting.prompting_utils import construct_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
-from huggingface_hub import InferenceClient
+from huggingface_hub import InferenceClient, AsyncInferenceClient
+import huggingface_hub
+from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
     BLOOMZ_API_URL,
     HF_API_URL,
 )
+import time
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
@@ -26,14 +29,47 @@ HF_DECODER_MODELS = [
 def hf_model_api_completion(
     prompt: Union[str, List[str]],
     model_name: str,
+    tokenizer: AutoTokenizer,
+    timeout: int = 10, 
     **model_params,
 ):
     
-    client = InferenceClient(model=model_name, token=HF_API_KEY)
+    # print(model_name)
     
-    output = client.text_generation(prompt)
+    client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
     
-    return output
+    start = time.time()
+    
+    while True:
+    
+        end = time.time()
+        
+        if end - start > 10:
+            output = ""
+            # print("generation done")
+            break
+        
+        try:
+            output = client.text_generation(prompt)
+            break
+         
+        except ValidationError:
+            prompt = ' '.join(prompt.split()[:len(prompt.split())*3 // 4])
+            
+        except TimeoutError:
+            output=  ""
+            break
+        except:
+            time.sleep(1)
+            
+    
+    # output = client.text_generation(prompt)
+    
+    output = tokenizer.decode(tokenizer(output)['input_ids'], skip_special_tokens=True)
+    
+    return output.strip().strip("\n").strip("\r").strip("\t").strip('.')
+    
+
 
 
 def hf_model_completion(
@@ -99,6 +135,7 @@ def get_hf_model_pred(
     test_example: Dict[str, Union[str, int]],
     train_prompt_template: Template,
     test_prompt_template: Template,
+    model_name: str, 
     model: Union[AutoModelForCausalLM, AutoModelForSeq2SeqLM] = None,
     tokenizer: AutoTokenizer = None,
     use_api: bool = False,
@@ -126,6 +163,7 @@ def get_hf_model_pred(
     #     print(test_example)
     #     break
         
+    # print(use_api)
     prompt_input, label = construct_prompt(
         train_examples,
         test_example,
@@ -144,7 +182,7 @@ def get_hf_model_pred(
     # print(prompt_input)
         
     if use_api:
-        model_prediction = hf_model_api_completion(prompt_input, model, **model_params)
+        model_prediction = hf_model_api_completion(prompt_input, model_name, tokenizer, **model_params)
     else:
         model_prediction = hf_model_completion(
             prompt_input, model, tokenizer, timeout=timeout, **model_params

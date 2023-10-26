@@ -83,8 +83,7 @@ def main(sys_args):
     pred_file_path = f"{out_dir}/preds.csv"
     
     results_file = f"{out_dir}/results.json"
-    
-    
+        
     if not os.path.exists(results_file):
         accuracy = evaluate_model(
             train_dataset,

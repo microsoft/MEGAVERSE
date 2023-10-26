@@ -228,6 +228,7 @@ def answer_question(
         )
     elif model in ["gpt-4", "gpt-4-32k"]:
         return answer_question_gpt4(question, context, prompt, model)
+    
 
     else:
         raise NotImplementedError()
