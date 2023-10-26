@@ -217,6 +217,10 @@ if __name__ == "__main__":
     
     
     for idx, test_example in pbar:
+        if f"{lang}_predictions.csv" in os.listdir(args["response_logger_root"]):
+            print("file already exists")
+            break
+        
         prompt, label = construct_prompt(
             ic_examples,
             test_example,

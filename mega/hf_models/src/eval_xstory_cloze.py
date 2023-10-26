@@ -24,6 +24,7 @@ from mega.utils.env_utils import load_openai_env_variables
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.eval.hf_eval_cls import initialise_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from huggingface_hub import InferenceTimeoutError
 
 PROMPT_TEMPLATES = {
     "Answer Given options": """{input_sentence_1} {input_sentence_2} {input_sentence_3} {input_sentence_4}\nWhat is a possible continuation for the story given the following options ?\n-Option1: {sentence_quiz1}\n-Option2: {sentence_quiz2}""",
@@ -70,12 +71,16 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
-    pbar = tqdm(test_dataset.shuffle(seed=1))
+    
+    pbar = tqdm(test_dataset.shuffle(seed=42))
+    
     for idx, test_example in enumerate(pbar):
         # print(idx)
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
+        
         while len(train_examples_i) >= 0:
+            
             prompt, _ = construct_xstory_prompt(
                 train_examples_i,
                 test_example,
@@ -89,29 +94,40 @@ def evaluate(
             # print(prompt)
             # print()
             
-            if chat_prompt:
-                prompt = convert_to_hf_chat_prompt(prompt)
-            
-            # print(prompt)
-            # print()
-            
-            if use_api:
-                pred = hf_model_api_completion(
-                        prompt,
-                        model_name=model_name,
-                        tokenizer=tokenizer,
-                        timeout=timeout,
-                        **model_params,
-                    )
-            else:
-                pred = hf_model_completion(
-                        prompt,
-                        model=model,
-                        tokenizer=tokenizer,
-                        timeout=timeout,
-                        max_new_tokens=5,
-                        **model_params,
-                    )
+            try:
+                if chat_prompt:
+                    prompt = convert_to_hf_chat_prompt(prompt)
+                
+                # print(prompt)
+                # print()
+                
+                if use_api:
+                    pred = hf_model_api_completion(
+                            prompt,
+                            model_name=model_name,
+                            tokenizer=tokenizer,
+                            timeout=timeout,
+                            **model_params,
+                        )
+                else:
+                    pred = hf_model_completion(
+                            prompt,
+                            model=model,
+                            tokenizer=tokenizer,
+                            timeout=timeout,
+                            max_new_tokens=5,
+                            **model_params,
+                        )
+                    break
+            except:
+                if len(train_examples_i) == 0:
+                    pred = np.random.choice(valid_labels)
+                    print("Exausted Everything! Giving Random Prediction Now :(")
+                    break
+                train_examples_i = train_examples_i[:-1]
+                print(
+                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                )
 
         preds.append(pred)
         labels.append(label)

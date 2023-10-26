@@ -10,7 +10,8 @@ from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
 from huggingface_hub import InferenceClient, AsyncInferenceClient
-from huggingface_hub.inference._text_generation import OverloadedError
+import huggingface_hub
+from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -29,20 +30,41 @@ def hf_model_api_completion(
     prompt: Union[str, List[str]],
     model_name: str,
     tokenizer: AutoTokenizer,
+    timeout: int = 10, 
     **model_params,
 ):
     
     # print(model_name)
     
-    client = InferenceClient(model=model_name, token=HF_API_KEY)
+    client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
+    
+    start = time.time()
     
     while True:
+    
+        end = time.time()
+        
+        if end - start > 10:
+            output = ""
+            # print("generation done")
+            break
+        
         try:
             output = client.text_generation(prompt)
             break
+         
+        except ValidationError:
+            prompt = ' '.join(prompt.split()[:len(prompt.split())*3 // 4])
+            
+        except TimeoutError:
+            output=  ""
+            break
         except:
             time.sleep(1)
-        
+            
+    
+    # output = client.text_generation(prompt)
+    
     output = tokenizer.decode(tokenizer(output)['input_ids'], skip_special_tokens=True)
     
     return output.strip().strip("\n").strip("\r").strip("\t").strip('.')
