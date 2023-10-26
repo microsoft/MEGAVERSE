@@ -126,6 +126,7 @@ ENV/
 env.bak/
 venv.bak/
 megaenv/
+v3megaenv/
 
 # Spyder project settings
 .spyderproject
@@ -152,3 +153,11 @@ dmypy.json
 cython_debug/
 
 llama-2-all-lang-eval/
+
+# other files
+Python-3.8.12.tgz
+Python-3.8.12/
+
+BLOOM/
+DV003/
+backup/

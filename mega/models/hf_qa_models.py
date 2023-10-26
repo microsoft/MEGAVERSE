@@ -140,6 +140,10 @@ def answer_question_gpt4(
 ):
     return hf_model_completion(prompt, model, **model_params)
 
+def answer_question_llama(
+    question: str, context: str, prompt: Union[List, str], model: str, **model_params
+):
+    return hf_model_completion(prompt, model, **model_params)
 
 def answer_question_bloomz(
     question: str,
@@ -228,6 +232,7 @@ def answer_question(
         )
     elif model in ["gpt-4", "gpt-4-32k"]:
         return answer_question_gpt4(question, context, prompt, model)
-
+    elif model in ["meta-llama/Llama-2-70b-chat-hf"]:
+        return answer_question_llama(question, context, prompt, model)
     else:
         raise NotImplementedError()

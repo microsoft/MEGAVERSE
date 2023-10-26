@@ -219,11 +219,12 @@ def eval_qa(
     model,
     num_evals_per_sec=1,
     smaller_prompts=[],
+    use_api=True,
     metric="squad",
     normalize_fn=normalize_answer,
     **model_kwargs,
 ):
-    from mega.models.qa_models import answer_question
+    from mega.models.hf_qa_models import answer_question
 
     preds = []
     labels = []
@@ -414,6 +415,7 @@ def main():
         args.model,
         num_evals_per_sec=args.num_evals_per_sec,
         smaller_prompts=smaller_prompts,
+        use_api=args.use_api,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
     )
