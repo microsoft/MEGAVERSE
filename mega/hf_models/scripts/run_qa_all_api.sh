@@ -6,10 +6,53 @@ do
     for lang in ar de es hi vi zh en
     do
         echo "Running for language $lang"
-        python -m mega.hf_models.src.eval_qa -p $lang \
+        python -m mega.hf_models.src.eval_qa_gptindex -p $lang \
         -t $lang --pivot_prompt_name "answer_given_context_and_question" \
         --tgt_prompt_name "answer_given_context_and_question" -k 4 \
         --model "${model}" -e melange --chat-prompt --temperature 0 \
-        --num_evals_per_sec 2 --log_wandb --chat-prompt -d mlqa --use_api
+        --num_evals_per_sec 2 --log_wandb -d mlqa --use_api
     done
 done
+
+# echo "Evaluating for XQuAD"
+# for model in "meta-llama/Llama-2-70b-chat-hf"
+# do
+#     for lang in en ar de el es hi ro ru th tr vi zh
+#     do
+#         echo "Running for language $lang"
+#         python -m mega.hf_models.src.eval_qa -p $lang \
+#         -t $lang --pivot_prompt_name "answer_given_context_and_question" \
+#         --tgt_prompt_name "answer_given_context_and_question" -k 4 \
+#         --model "${model}" -e melange --chat-prompt --temperature 0 \
+#         --num_evals_per_sec 2 --log_wandb --chat-prompt -d xquad --use_api
+#     done
+# done
+
+# echo "Evaluating for TyDiQA"
+# for model in "meta-llama/Llama-2-70b-chat-hf"
+# do
+#     for lang in ar de es hi vi zh en
+#     do
+#         echo "Running for language $lang"
+#         python -m mega.hf_models.src.eval_qa -p $lang \
+#         -t $lang --pivot_prompt_name "answer_given_context_and_question" \
+#         --tgt_prompt_name "answer_given_context_and_question" -k 4 \
+#         --model "${model}" -e melange --chat-prompt --temperature 0 \
+#         --num_evals_per_sec 2 --log_wandb --chat-prompt -d tydiqa --use_api
+#     done
+# done
+
+# echo "Evaluating for SQuAD"
+# for model in "meta-llama/Llama-2-70b-chat-hf"
+# do
+#     for lang in ar de es hi vi zh en
+#     do
+#         echo "Running for language $lang"
+#         python -m mega.hf_models.src.eval_qa -p $lang \
+#         -t $lang --pivot_prompt_name "answer_given_context_and_question" \
+#         --tgt_prompt_name "answer_given_context_and_question" -k 4 \
+#         --model "${model}" -e melange --chat-prompt --temperature 0 \
+#         --num_evals_per_sec 2 --log_wandb --chat-prompt -d squad --use_api
+#     done
+# done
+

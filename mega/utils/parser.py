@@ -243,4 +243,9 @@ def parse_args(args: list) -> argparse.Namespace:
         default=0,
         help="Timeout for each call to the model. 0 means no timeout",
     )
+    parser.add_argument(
+        "tokenizer",
+        type=str,
+        help="Tokenizer to use for the hf model.",
+    )
     return parser.parse_args(args)
