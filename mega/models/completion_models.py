@@ -9,7 +9,7 @@ from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
-    BLOOMZ_API_URL,
+    # BLOOMZ_API_URL,
     HF_API_URL,
 )
 from huggingface_hub import InferenceClient

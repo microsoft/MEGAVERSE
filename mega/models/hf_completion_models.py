@@ -13,9 +13,9 @@ from huggingface_hub import InferenceClient, AsyncInferenceClient
 import huggingface_hub
 from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
 from mega.utils.env_utils import (
-    load_openai_env_variables,
+    # load_openai_env_variables,
     HF_API_KEY,
-    BLOOMZ_API_URL,
+    # BLOOMZ_API_URL,
     HF_API_URL,
 )
 import time

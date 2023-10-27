@@ -19,13 +19,39 @@ import openai
 from evaluate import load
 
 import numpy as np
+import torch
+import gc
+from mega.models.hf_completion_models import get_hf_model_pred, HF_DECODER_MODELS
+from transformers import AutoModelForCausalLM, AutoModelForSeq2SeqLM, AutoTokenizer
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.prompting_utils import construct_langchain_qa_prompt
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+from mega.models.hf_completion_models import hf_model_api_completion
 from mega.utils.parser import parse_args
 # from mega.utils.env_utils import load_openai_env_variables
 
 
 # load_openai_env_variables()
+
+def initialise_model(model_name):
+    torch.cuda.empty_cache()
+    gc.collect()
+    
+    tokenizer =  AutoTokenizer.from_pretrained(model_name)
+    # tokenizer.padding_side = "left" 
+    tokenizer.pad_token = tokenizer.eos_token # to avoid an error
+        
+    if model_name in HF_DECODER_MODELS:
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="auto")
+    else:
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="auto")
+    
+    model.config.pad_token_id = model.config.eos_token_id
+        
+    model = model.to_bettertransformer()
+    
+    return model, tokenizer
+
 
 PUNCT = {
     chr(i)
@@ -131,6 +157,7 @@ def normalize_answer_mlqa(lang, s):
     return white_space_fix(remove_articles(remove_punc(lower(s)), lang), lang)
 
 
+
 def normalize_answer(s):
     """Lower text and remove punctuation, articles and extra whitespace."""
 
@@ -213,13 +240,15 @@ def load_qa_dataset(dataset_name, lang, split, dataset_frac=1, translate_test=Fa
     return dataset.select(selector)
 
 
-def eval_qa(
+def hf_eval_qa(
     test_dataset,
     prompt,
+    model_name,
     model,
     num_evals_per_sec=1,
     smaller_prompts=[],
     use_api=True,
+    chat_prompt=True,
     metric="squad",
     normalize_fn=normalize_answer,
     **model_kwargs,
@@ -233,35 +262,51 @@ def eval_qa(
     em_score = 0
     f1_score = 0
     squad_metric = load(metric)
-    pbar = tqdm(enumerate(test_dataset))
-    for i, test_example in pbar:
-        prompt_to_use = prompt
-        for trial in range(0, len(smaller_prompts) + 1):
-            try:
-                pred = answer_question(
-                    model,
-                    test_example["question"],
-                    test_example["context"],
-                    prompt=prompt_to_use,
-                    chunk_size=model_kwargs.get("chunk_size", 100),
-                    chunk_overlap=model_kwargs.get("chunk_overlap", 0),
-                ).strip()
-                break
-            except openai.error.InvalidRequestError as e:
-                print(e, "Request here")
-                if trial == len(smaller_prompts):
-                    print("Exausted Everything! Giving Empty Prediction Now :(")
-                    pred = ""
-                    break
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(smaller_prompts) - trial - 1}"
-                )
-                prompt_to_use = smaller_prompts[trial]
+    if use_api:
+        model = None
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+    else:
+        model, tokenizer = initialise_model(model_name)
 
-            except openai.error.APIError as e:
-                print("Content Policy Triggered! Giving Empty prediction for this!")
-                pred = ""
-                break
+    pbar = tqdm(enumerate(test_dataset))
+
+    for i, test_example in pbar:
+
+        prompt_input = prompt
+        if chat_prompt:
+            prompt_input = convert_to_hf_chat_prompt(prompt_input)
+        prompt_to_use = prompt_input
+
+        # for trial in range(0, len(smaller_prompts) + 1):
+            # try:
+        pred = answer_question(
+            test_example["question"],
+            test_example["context"],
+            # model_name=model_name,
+            model=model,
+            tokenizer=tokenizer,
+            prompt=prompt_to_use,
+            chat_prompt=chat_prompt,
+            use_api=use_api,
+            chunk_size=model_kwargs.get("chunk_size", 100),
+            chunk_overlap=model_kwargs.get("chunk_overlap", 0),
+        ).strip()
+            #     break
+            # except openai.error.InvalidRequestError as e:
+            #     print(e, "Request here")
+            #     if trial == len(smaller_prompts):
+            #         print("Exausted Everything! Giving Empty Prediction Now :(")
+            #         pred = ""
+            #         break
+            #     print(
+            #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(smaller_prompts) - trial - 1}"
+            #     )
+            #     prompt_to_use = smaller_prompts[trial]
+
+            # except openai.error.APIError as e:
+            #     print("Content Policy Triggered! Giving Empty prediction for this!")
+            #     pred = ""
+            #     break
 
         pred = normalize_fn(pred)
         if metric == "squad":
@@ -409,15 +454,20 @@ def main():
         normalize_answer if args.dataset != "mlqa" else normalize_answer_mlqa_fn
     )
 
-    metrics, results_df = eval_qa(
+    metrics, results_df = hf_eval_qa(
         test_dataset,
-        langchain_prompt,
-        args.model,
+        # model_name=model_name,
+        model=model,
+        prompt=langchain_prompt,
+        tokenizer=tokenizer,
         num_evals_per_sec=args.num_evals_per_sec,
         smaller_prompts=smaller_prompts,
         use_api=args.use_api,
+        chat_prompt=args.chat_prompt,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
+        timeout=args.timeout,
+
     )
 
     print(metrics)
@@ -431,9 +481,6 @@ def main():
         with open(f"{out_dir}/results.json", "w") as f:
             json.dump(results_dict, f, indent=4)
         print(f"Results written in {out_dir}")
-
-    # if args.log_wandb:
-    #     wandb.log({"accuracy": accuracy})
 
 
 if __name__ == "__main__":
