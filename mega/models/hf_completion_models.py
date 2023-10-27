@@ -19,6 +19,7 @@ from mega.utils.env_utils import (
     HF_API_URL,
 )
 import time
+from pprint import pprint
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
@@ -173,13 +174,13 @@ def get_hf_model_pred(
         instruction=instruction,
     )
     
-    # pprint(prompt_input)    
+    pprint(prompt_input)    
     
     
     if chat_prompt:
         prompt_input = convert_to_hf_chat_prompt(prompt_input)
     
-    # print(prompt_input)
+    print(prompt_input)
         
     if use_api:
         model_prediction = hf_model_api_completion(prompt_input, model_name, tokenizer, **model_params)
