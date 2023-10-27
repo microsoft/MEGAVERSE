@@ -19,29 +19,29 @@ from mega.models.hf_completion_models import hf_model_completion, hf_model_api_c
 # load_openai_env_variables()
 
 
-EMBEDDING_LLM = OpenAIEmbeddings(
-    openai_api_key=openai.api_key,
-)
+# EMBEDDING_LLM = OpenAIEmbeddings(
+#     openai_api_key=openai.api_key,
+# )
 
-LLM = AzureOpenAI(
-    deployment_name="gpt-35-turbo",
-    openai_api_key=openai.api_key,
-    temperature=0,
-    model_kwargs={
-        "api_base": openai.api_base,
-        "api_type": "azure",
-        "api_version": openai.api_version,
-    },
-)
+# LLM = AzureOpenAI(
+#     deployment_name="gpt-35-turbo",
+#     openai_api_key=openai.api_key,
+#     temperature=0,
+#     model_kwargs={
+#         "api_base": openai.api_base,
+#         "api_type": "azure",
+#         "api_version": openai.api_version,
+#     },
+# )
 
-CHAT_LLM = AzureChatOpenAI(
-    openai_api_base=openai.api_base,
-    openai_api_version="2023-03-15-preview",
-    deployment_name="gpt-35-turbo",
-    openai_api_key=openai.api_key,
-    openai_api_type="azure",
-    temperature=0,
-)
+# CHAT_LLM = AzureChatOpenAI(
+#     openai_api_base=openai.api_base,
+#     openai_api_version="2023-03-15-preview",
+#     deployment_name="gpt-35-turbo",
+#     openai_api_key=openai.api_key,
+#     openai_api_type="azure",
+#     temperature=0,
+# )
 
 
 def answer_question_gpt(

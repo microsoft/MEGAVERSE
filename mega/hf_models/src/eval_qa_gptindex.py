@@ -244,7 +244,6 @@ def hf_eval_qa(
     test_dataset,
     prompt,
     model_name,
-    model,
     num_evals_per_sec=1,
     smaller_prompts=[],
     use_api=True,
@@ -273,6 +272,9 @@ def hf_eval_qa(
     for i, test_example in pbar:
 
         prompt_input = prompt
+        
+        print(prompt)
+        
         if chat_prompt:
             prompt_input = convert_to_hf_chat_prompt(prompt_input)
         prompt_to_use = prompt_input
@@ -456,10 +458,8 @@ def main():
 
     metrics, results_df = hf_eval_qa(
         test_dataset,
-        # model_name=model_name,
-        model=model,
+        model_name=args.model,
         prompt=langchain_prompt,
-        tokenizer=tokenizer,
         num_evals_per_sec=args.num_evals_per_sec,
         smaller_prompts=smaller_prompts,
         use_api=args.use_api,

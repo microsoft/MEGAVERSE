@@ -2,12 +2,31 @@ import os
 from tqdm import tqdm
 import pdb
 import requests, uuid, json
-from typing import Union, Optional
+from typing import Union, Optional, List, Dict
 import copy
+from dotenv import load_dotenv
 from datasets import Dataset, load_dataset
-from mega.utils.env_utils import BING_TRANSLATE_KEY, BING_TRANSLATE_ENDPOINT
+from mega.utils.env_utils import ( 
+                                  BING_TRANSLATE_KEY, 
+                                  BING_TRANSLATE_ENDPOINT,  
+                                #   COGNITIVE_API_ENDPOINT, 
+                                #   COGNITIVE_API_REGION, 
+                                #   COGNITIVE_API_VERSION,
+                                #   COGNITIVE_API_KEY
+                                  )
+
+
+from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
+from azure.ai.translation.text.models import InputTextItem
+from azure.core.exceptions import HttpResponseError
+import json
+import os
+ 
+
 
 # Translator setup for bing
+
+load_dotenv()
 
 
 subscription_key = BING_TRANSLATE_KEY
@@ -23,6 +42,40 @@ headers = {
     "X-ClientTraceId": str(uuid.uuid4()),
 }
 
+ 
+def translate_with_azure(
+                         texts: List[str],
+                         source: str, 
+                         targets: List[str] = ['en'],
+                        endpoint = os.environ['COGNITIVE_API_ENDPOINT'],
+                        region = os.environ['COGNITIVE_API_REGION'],
+                        api_version = os.environ['COGNITIVE_API_VERSION'],
+                        resource_key = os.environ["COGNITIVE_API_KEY"]
+              ) -> Dict[str, str]:
+    
+    credential = TranslatorCredential(resource_key, region)
+    text_translator = TextTranslationClient(endpoint=endpoint, credential=credential)
+
+    try:
+        source_language = source
+        target_languages = ['en']
+        input_text_elements = [ InputTextItem(text = texts) ]
+       
+        response = text_translator.translate(content = input_text_elements, to = target_languages, from_parameter = source_language)
+        translation = response[0] if response else None
+ 
+        if translation:
+            for translated_text in translation.translations:
+                return translated_text.text
+       
+ 
+    except HttpResponseError as exception:
+        print(f"Error Code: {exception.error.code}")
+        print(f"Message: {exception.error.message}")
+    
+    
+    
+    
 
 def translate_with_bing(text: str, src: str, dest: str) -> str:
     """Uses the bing translator to translate `text` from `src` language to `dest` language
@@ -69,15 +122,15 @@ def translate_xnli(
 
     # Translate premise
     xnli_dataset = xnli_dataset.map(
-        lambda example: {"premise": translate_with_bing(example["premise"], src, dest)},
-        num_proc=4,
+        lambda example: {"premise": translate_with_azure(example["premise"], src, dest)},
+        num_proc=1,
         load_from_cache_file=False,
     )
 
     # Translate hypothesis
     xnli_dataset = xnli_dataset.map(
         lambda example: {
-            "hypothesis": translate_with_bing(example["hypothesis"], src, dest)
+            "hypothesis": translate_with_azure(example["hypothesis"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -110,7 +163,7 @@ def translate_pawsx(
     # Translate premise
     pawsx_dataset = pawsx_dataset.map(
         lambda example: {
-            "sentence1": translate_with_bing(example["sentence1"], src, dest)
+            "sentence1": translate_with_azure(example["sentence1"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -119,7 +172,7 @@ def translate_pawsx(
     # Translate hypothesis
     pawsx_dataset = pawsx_dataset.map(
         lambda example: {
-            "sentence2": translate_with_bing(example["sentence2"], src, dest)
+            "sentence2": translate_with_azure(example["sentence2"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -152,7 +205,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_1
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_1": translate_with_bing(
+            "input_sentence_1": translate_with_azure(
                 example["input_sentence_1"], src, dest
             )
         },
@@ -163,7 +216,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_2
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_2": translate_with_bing(
+            "input_sentence_2": translate_with_azure(
                 example["input_sentence_2"], src, dest
             )
         },
@@ -174,7 +227,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_3
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_3": translate_with_bing(
+            "input_sentence_3": translate_with_azure(
                 example["input_sentence_3"], src, dest
             )
         },
@@ -185,7 +238,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_4
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_4": translate_with_bing(
+            "input_sentence_4": translate_with_azure(
                 example["input_sentence_4"], src, dest
             )
         },
@@ -196,7 +249,7 @@ def translate_xstory_cloze(
     # Translate sentence_quiz1
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "sentence_quiz1": translate_with_bing(example["sentence_quiz1"], src, dest)
+            "sentence_quiz1": translate_with_azure(example["sentence_quiz1"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -205,7 +258,7 @@ def translate_xstory_cloze(
     # Translate sentence_quiz2
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "sentence_quiz2": translate_with_bing(example["sentence_quiz2"], src, dest)
+            "sentence_quiz2": translate_with_azure(example["sentence_quiz2"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
