@@ -180,7 +180,7 @@ def get_hf_model_pred(
     if chat_prompt:
         prompt_input = convert_to_hf_chat_prompt(prompt_input)
     
-    print(prompt_input)
+    # print(prompt_input)
         
     if use_api:
         model_prediction = hf_model_api_completion(prompt_input, model_name, tokenizer, **model_params)

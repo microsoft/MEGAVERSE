@@ -96,6 +96,7 @@ def main(sys_args):
             num_proc=args.num_proc,
             temperature=args.temperature,
             top_p=args.top_p,
+            use_api=args.use_api,
         )
         print(accuracy)
         # Store results

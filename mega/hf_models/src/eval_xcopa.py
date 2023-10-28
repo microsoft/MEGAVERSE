@@ -6,7 +6,7 @@ import random
 import json
 import wandb
 import numpy as np
-from mega.data.load_datasets import load_xcopa_dataset
+from mega.data.load_datasets import load_xcopa_dataset, load_xcopa_translate_test
 from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.hf_eval_cls import evaluate_model
 from mega.prompting.prompting_utils import load_prompt_template
@@ -50,10 +50,10 @@ def main(sys_args):
         dataset_frac=args.test_frac,
     )
     # ToDO: Add Translate Test Support
-    # if args.translate_test:
-    #     test_dataset = load_xnli_translate_test(
-    #         args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
-    #     )
+    if args.translate_test:
+        test_dataset = load_xcopa_translate_test(
+            args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
+        )
 
     # Load prompt templates for train and test datasets
     if args.same_prompt_name:
