@@ -142,10 +142,10 @@ def translate_xnli(
 def translate_xcopa(
     xcopa_dataset: Dataset, src: str, dest: str, save_path: Optional[str] = None
 ) -> Dataset:
-    """Translate premise, choices and questions of xnli dataset
+    """Translate premise, choices and questions of xcopa dataset
 
     Args:
-        xcopa_dataset (Dataset): Some split (test, val) of XNLI dataset
+        xcopa_dataset (Dataset): Some split (test, val) of XCOPA dataset
         src (str): Source language to translate from
         dest (str): Language to translate to
         save_path (str, optional): Path to store translated dataset. Doesn't store if set to None. Defaults to None.
@@ -156,30 +156,33 @@ def translate_xcopa(
 
     # Translate premise
     xcopa_dataset = xcopa_dataset.map(
-        lambda example: {"premise": translate_with_bing(example["premise"], src, dest)},
-        num_proc=1,
+        lambda example: {"premise": translate_with_azure(example["premise"], src, dest)},
+        num_proc=4,
         load_from_cache_file=False,
+        desc="translating premise"
     )
 
     # Translate choice1
     xcopa_dataset = xcopa_dataset.map(
         lambda example: {
-            "choice1": translate_with_bing(example["choice1"], src, dest)
+            "choice1": translate_with_azure(example["choice1"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc="translating choice1"
     )
     
     # Translate choice2
     xcopa_dataset = xcopa_dataset.map(
         lambda example: {
-            "choice2": translate_with_bing(example["choice2"], src, dest)
+            "choice2": translate_with_azure(example["choice2"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc="translating choice2"
     )
     
-
+    
     if save_path is not None:
         save_dir, _ = os.path.split(save_path)
         if not os.path.exists(save_dir):

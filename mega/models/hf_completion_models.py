@@ -174,7 +174,7 @@ def get_hf_model_pred(
         instruction=instruction,
     )
     
-    pprint(prompt_input)    
+    # pprint(prompt_input)    
     
     
     if chat_prompt:
