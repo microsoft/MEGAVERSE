@@ -29,13 +29,10 @@ SUPPORTED_MODELS = [
     "dev-gpt-35-turbo",
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
-    "meta-llama/Llama-2-70b-chat-hf"
+    "meta-llama/Llama-2-70b-chat-hf",
 ]
 
-MODEL_TYPES = [
-                "completion", 
-                "seq2seq"
-               ]
+MODEL_TYPES = ["completion", "seq2seq"]
 
 CHAT_MODELS = [
     "gpt-35-turbo",
@@ -189,7 +186,7 @@ def bloomz_completion(prompt: str, **model_params) -> str:
     return output
 
 
-def llama2_completion(prompt: str, model:str, **model_params) -> str:
+def llama2_completion(prompt: str, model: str, **model_params) -> str:
     """Runs the prompt over BLOOM model for text completion
 
     Args:
@@ -202,7 +199,11 @@ def llama2_completion(prompt: str, model:str, **model_params) -> str:
 
     def query(payload):
         payload = {"inputs": payload}
-        response = requests.post(f"https://api-inference.huggingface.co/models/{model}", headers=headers, json=payload)
+        response = requests.post(
+            f"https://api-inference.huggingface.co/models/{model}",
+            headers=headers,
+            json=payload,
+        )
         return response.json()
 
     output = ""
@@ -247,11 +248,7 @@ def model_completion(
         str: generated string
     """
 
-
-    if (
-        model
-        in CHAT_MODELS
-    ):
+    if model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
     if model == "BLOOM":
@@ -259,16 +256,15 @@ def model_completion(
 
     if model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
-    
+
     if run_substrate_llm_completion:
         llm_client = LLMClient()
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     if "Llama-2" in model:
         print(prompt)
-        
+
         prompt = llama2_completion(prompt, model, **model_params)
-        
 
 
 def get_model_pred(
@@ -312,5 +308,5 @@ def get_model_pred(
         run_substrate_llm_completion=run_substrate_llm_completion,
         **model_params,
     )
-    
+
     return {"prediction": model_prediction, "ground_truth": label}
