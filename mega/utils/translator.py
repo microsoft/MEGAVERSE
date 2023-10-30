@@ -2,20 +2,36 @@ import os
 from tqdm import tqdm
 import pdb
 import requests, uuid, json
-from typing import Union, Optional
+from typing import Union, Optional, List, Dict
 import copy
+from dotenv import load_dotenv
 from datasets import Dataset, load_dataset
-from mega.utils.env_utils import BING_TRANSLATE_KEY, BING_TRANSLATE_ENDPOINT
+from mega.utils.env_utils import ( 
+                                  BING_TRANSLATE_KEY, 
+                                  BING_TRANSLATE_ENDPOINT,  
+                                  COGNITIVE_API_ENDPOINT, 
+                                  COGNITIVE_API_REGION, 
+                                  COGNITIVE_API_VERSION,
+                                  COGNITIVE_API_KEY
+                                  )
+from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
+from azure.ai.translation.text.models import InputTextItem
+from azure.core.exceptions import HttpResponseError
+import json
+ 
+
 
 # Translator setup for bing
 
+# load_dotenv()
 
-subscription_key = BING_TRANSLATE_KEY
+
+subscription_key = os.environ['BING_TRANSLATE_KEY']
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
 location = "centralindia"
 path = "/translate?api-version=3.0"
-constructed_url = BING_TRANSLATE_ENDPOINT + path
+constructed_url = os.environ['BING_TRANSLATE_ENDPOINT'] + path
 
 headers = {
     "Ocp-Apim-Subscription-Key": subscription_key,
@@ -23,6 +39,37 @@ headers = {
     "X-ClientTraceId": str(uuid.uuid4()),
 }
 
+ 
+def translate_with_azure(
+                         texts: List[str],
+                         source: str, 
+                         targets: List[str] = ['en'],
+                        endpoint = COGNITIVE_API_ENDPOINT,
+                        region = COGNITIVE_API_REGION,
+                        api_version = COGNITIVE_API_VERSION,
+                        resource_key = COGNITIVE_API_KEY
+              ) -> Dict[str, str]:
+    
+    credential = TranslatorCredential(resource_key, region)
+    text_translator = TextTranslationClient(endpoint=endpoint, credential=credential)
+
+    try:
+        source_language = source
+        target_languages = ['en']
+        input_text_elements = [ InputTextItem(text = texts) ]
+       
+        response = text_translator.translate(content = input_text_elements, to = target_languages, from_parameter = source_language)
+        translation = response[0] if response else None
+ 
+        if translation:
+            for translated_text in translation.translations:
+                return translated_text.text
+       
+ 
+    except HttpResponseError as exception:
+        print(f"Error Code: {exception.error.code}")
+        print(f"Message: {exception.error.message}")
+    
 
 def translate_with_bing(text: str, src: str, dest: str) -> str:
     """Uses the bing translator to translate `text` from `src` language to `dest` language
@@ -70,7 +117,7 @@ def translate_xnli(
     # Translate premise
     xnli_dataset = xnli_dataset.map(
         lambda example: {"premise": translate_with_bing(example["premise"], src, dest)},
-        num_proc=4,
+        num_proc=1,
         load_from_cache_file=False,
     )
 
@@ -90,6 +137,56 @@ def translate_xnli(
         xnli_dataset.save_to_disk(save_path)
 
     return xnli_dataset
+
+
+def translate_xcopa(
+    xcopa_dataset: Dataset, src: str, dest: str, save_path: Optional[str] = None
+) -> Dataset:
+    """Translate premise, choices and questions of xnli dataset
+
+    Args:
+        xcopa_dataset (Dataset): Some split (test, val) of XNLI dataset
+        src (str): Source language to translate from
+        dest (str): Language to translate to
+        save_path (str, optional): Path to store translated dataset. Doesn't store if set to None. Defaults to None.
+
+    Returns:
+        Dataset: Translated Dataset
+    """
+
+    # Translate premise
+    xcopa_dataset = xcopa_dataset.map(
+        lambda example: {"premise": translate_with_bing(example["premise"], src, dest)},
+        num_proc=1,
+        load_from_cache_file=False,
+    )
+
+    # Translate choice1
+    xcopa_dataset = xcopa_dataset.map(
+        lambda example: {
+            "choice1": translate_with_bing(example["choice1"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+    )
+    
+    # Translate choice2
+    xcopa_dataset = xcopa_dataset.map(
+        lambda example: {
+            "choice2": translate_with_bing(example["choice2"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+    )
+    
+
+    if save_path is not None:
+        save_dir, _ = os.path.split(save_path)
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+        xcopa_dataset.save_to_disk(save_path)
+
+    return xcopa_dataset
 
 
 def translate_pawsx(
