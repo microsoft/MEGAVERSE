@@ -1,5 +1,5 @@
 import argparse
-from mega.models.completion_models import SUPPORTED_MODELS
+from mega.models.completion_models import SUPPORTED_MODELS, MODEL_TYPES
 
 
 def parse_args(args: list) -> argparse.Namespace:
@@ -85,6 +85,13 @@ def parse_args(args: list) -> argparse.Namespace:
         help="GPT-x model to use to evaluate",
     )
     parser.add_argument(
+        "--model_type",
+        default="completion",
+        choices=MODEL_TYPES,
+        type=str,
+        help="GPT-x model to use to evaluate",
+    )
+    parser.add_argument(
         "--save_dir", default="results", type=str, help="Path to store results"
     )
     parser.add_argument(
@@ -102,6 +109,13 @@ def parse_args(args: list) -> argparse.Namespace:
         action="store_true",
         help="Whether to use Validation Data for in-evaluation",
     )
+    
+    parser.add_argument(
+        "--use_api",
+        action="store_true",
+        help="Whether to use HF API",
+    )
+    
     parser.add_argument(
         "--num_evals_per_sec",
         default=2,
@@ -194,6 +208,11 @@ def parse_args(args: list) -> argparse.Namespace:
         "--chat-prompt",
         action="store_true",
         help="Whether to use chat type prompts",
+    )
+    parser.add_argument(
+        "--is-hf",
+        action="store_true",
+        help="Whether the model is hugging face model or not",
     )
     parser.add_argument(
         "--contam_lang",

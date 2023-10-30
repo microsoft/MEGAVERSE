@@ -6,7 +6,7 @@ import json
 import csv
 from promptsource.templates import DatasetTemplates
 import torch
-from transformers import XGLMTokenizer, XGLMForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 import yaml
 import random
@@ -221,8 +221,8 @@ if __name__ == "__main__":
 
     # Initialize XGLM model
     xglm_model_name = "facebook/xglm-7.5B"
-    tokenizer = XGLMTokenizer.from_pretrained(xglm_model_name)
-    model = XGLMForCausalLM.from_pretrained(xglm_model_name, load_in_8bit=True)
+    tokenizer = AutoTokenizer.from_pretrained(xglm_model_name)
+    model = AutoModelForCausalLM.from_pretrained(xglm_model_name, load_in_8bit=True)
     model.eval()
 
     for idx, test_example in pbar:

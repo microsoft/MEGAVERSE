@@ -2,7 +2,7 @@ import argparse
 from typing import Optional
 from word2word import Word2word
 from promptsource.templates import Template, DatasetTemplates
-from mega.utils.translator import translate_with_bing
+from mega.utils.translator import translate_with_bing, translate_with_azure
 from mega.prompting.prompting_utils import load_prompt_template
 from mega.models.completion_models import SUPPORTED_MODELS
 import pdb
@@ -19,7 +19,7 @@ def translate_jinja(jinja: str, tgt_lang: str, pivot_lang: str) -> str:
     translated_jinja = translated_jinja.replace(
         "[label", "[V_label"
     )  # A hack to avoid translation of placeholders
-    translated_jinja = translate_with_bing(
+    translated_jinja = translate_with_azure(
         translated_jinja, src=pivot_lang, dest=tgt_lang
     )
     translated_jinja = translated_jinja.replace("V_", "")
@@ -34,7 +34,7 @@ def translate_answer_choices(
 
     choices_list = answer_choices.split("|||")
     translated_choices_list = [
-        translate_with_bing(choice, pivot_lang, tgt_lang) for choice in choices_list
+        translate_with_azure(choice, pivot_lang, tgt_lang) for choice in choices_list
     ]
 
     return "|||".join(translated_choices_list)

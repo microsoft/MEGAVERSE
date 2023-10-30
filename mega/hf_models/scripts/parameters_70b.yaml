@@ -1,0 +1,54 @@
+key_path: ./mega/hf_models/envs/melange.env
+k: 1
+model: meta-llama/Llama-2-70b-chat-hf
+chat_prompt: True
+use_api: True
+turbo_identifier: gpt-35-turbo
+instruction_identifier: xlsum
+response_logger_root: ./llama-2-70b-all-lang-eval/
+prompt_selection: False
+sleep_period: 0.5
+langs:
+  - "swahili"
+  - "tamil"
+  - "thai"
+  - "russian"
+  - "portuguese"
+  - "arabic"
+  - "hindi"
+  - "igbo"
+  - "indonesian"
+  - "urdu"
+  - "kyrgyz"
+  - "oromo"
+  - "amharic"
+  - "azerbaijani"
+  - "burmese"
+  - "chinese_simplified"
+  - "welsh"
+  - "kirundi"
+  - "hausa"
+  - "scottish_gaelic"
+  - "nepali"
+  - "pashto"
+  - "persian"
+  - "pidgin"
+  - "serbian_cyrillic"
+  - "serbian_latin"
+  - "sinhala"
+  - "somali"
+  - "tigrinya"
+  - "turkish"
+  - "ukrainian"
+  - "uzbek"
+  - "vietnamese"
+  - "yoruba"
+dataset_frac: 1
+random_seed: 42
+max_prompt_selection_samples: 1000
+max_tokens: 100
+temperature: 0
+metric_logger_path: "xlsum_llama-2-70b_metrics.csv"
+prompt_names:
+  - DOC_write_summary_of_above
+# For xlsum language codes check https://huggingface.co/datasets/csebuetnlp/xlsum/blob/main/xlsum.py or the dataloader for xlsum

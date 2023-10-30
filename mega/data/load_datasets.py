@@ -9,6 +9,7 @@ from mega.utils.translator import (
     translate_xnli,
     translate_pawsx,
     translate_xstory_cloze,
+    translate_xcopa
 )
 from mega.data.data_utils import read_conll_data
 
@@ -85,6 +86,28 @@ def load_xnli_translate_test(
 
     return tt_dataset
 
+
+def load_xcopa_translate_test(
+    tgt_lang: str,
+    pivot_lang: str = "en",
+    test_dataset: Optional[Dataset] = None,
+    data_dir: str = "data",
+) -> Dataset:
+    tt_dir = os.path.join(
+        data_dir, "xcopa", "translate_test", f"{tgt_lang}_{pivot_lang}"
+    )
+    if not os.path.exists(f"{tt_dir}/dataset_info.json"):
+        if test_dataset is None:
+            raise ValueError(
+                "Need to provide `test_dataset`, if translate_test dataset do not exist already"
+            )
+        tt_dataset = translate_xcopa(
+            test_dataset, tgt_lang, pivot_lang, save_path=tt_dir
+        )
+    else:
+        tt_dataset = load_from_disk(tt_dir)
+
+    return tt_dataset
 
 def load_pawsx_dataset(
     lang: str, split: str, dataset_frac: float = 1.0

@@ -9,10 +9,12 @@ from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
-    BLOOMZ_API_URL,
+    # BLOOMZ_API_URL,
     HF_API_URL,
 )
 import backoff
+from huggingface_hub import InferenceClient
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
 
@@ -23,14 +25,24 @@ SUPPORTED_MODELS = [
     "gpt-35-turbo-16k",
     "gpt-4-32k",
     "gpt-4",
+    "meta-llama/Llama-2-7b-chat-hf",
+    "meta-llama/Llama-2-13b-chat-hf",
+    "meta-llama/Llama-2-70b-chat-hf"
 ]
+
+MODEL_TYPES = [
+                "completion", 
+                "seq2seq"
+               ]
 
 CHAT_MODELS = [
     "gpt-35-turbo",
     "gpt4_deployment",
     "gpt-4",
     "gpt-4-32k",
+    # "meta-llama/Llama-2-70b-chat-hf",
 ]
+
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -164,6 +176,47 @@ def bloomz_completion(prompt: str, **model_params) -> str:
     return output
 
 
+def llama2_completion(prompt: str, model:str, **model_params) -> str:
+    """Runs the prompt over BLOOM model for text completion
+
+    Args:
+        prompt (str): Prompt String to be completed by the model
+
+    Returns:
+        str: generated string
+    """
+    headers = {"Authorization": f"Bearer {HF_API_KEY}"}
+
+    def query(payload):
+        payload = {"inputs": payload}
+        response = requests.post(f"https://api-inference.huggingface.co/models/{model}", headers=headers, json=payload)
+        return response.json()
+
+    output = ""
+    while True:
+        try:
+            # signal.alarm(60)  # Wait for a minute for the response to come
+            model_output = query(prompt)
+            output = model_output[0]["generated_text"][len(prompt) :].split("\n")[0]
+            output = output.strip()
+            # signal.alarm(0)  # Reset the alarm
+            break
+        except Exception as e:
+            if (
+                "error" in model_output
+                and "must have less than 1000 tokens." in model_output["error"]
+            ):
+                raise openai.error.InvalidRequestError(
+                    model_output["error"], model_output["error_type"]
+                )
+            print("Exceeded Limit! Sleeping for a minute, will try again!")
+            # signal.alarm(0)  # Reset the alarm
+            time.sleep(60)
+            continue
+
+    return output
+
+
 def model_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
@@ -180,7 +233,11 @@ def model_completion(
         str: generated string
     """
 
-    if model in CHAT_MODELS:
+
+    if (
+        model
+        in CHAT_MODELS
+    ):
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
     if model == "BLOOM":
@@ -188,6 +245,12 @@ def model_completion(
 
     if model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
+    
+    if "Llama-2" in model:
+        print(prompt)
+        
+        prompt = llama2_completion(prompt, model, **model_params)
+        
 
 
 def get_model_pred(
@@ -222,7 +285,9 @@ def get_model_pred(
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
     )
+
     model_prediction = model_completion(
         prompt_input, model, timeout=timeout, **model_params
     )
+    
     return {"prediction": model_prediction, "ground_truth": label}
