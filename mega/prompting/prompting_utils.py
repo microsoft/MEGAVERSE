@@ -5,6 +5,30 @@ from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
 
 
+def get_substrate_prompt(messages: List[Dict[str, str]]):
+    system_prompt, user_prompt, assistant_prompt = "", "", ""
+    for message in messages:
+        if message["role"] == "system":
+            system_prompt += message["content"] + "\n"
+        elif message["role"] == "user":
+            user_prompt += message["content"] + "\n"
+        elif message["role"] == "assistant":
+            assistant_prompt += message["content"] + "\n"
+    # system string and user_string could templatized using langchain or something and then passed here
+    return f"""<|im_start|>system
+===
+# OVERALL INSTRUCTIONS
+===
+{system_prompt}
+<|im_end|>
+<|im_start|>user
+{user_prompt}
+<|im_end|>
+<|im_start|>assistant
+{assistant_prompt}
+""".strip()
+
+
 def construct_langchain_qa_prompt(
     train_examples: List[Dict[str, Union[str, int]]],
     train_prompt_template: str,
@@ -49,6 +73,7 @@ def construct_qa_prompt(
     test_prompt_template: str = None,
     chat_prompt: bool = False,
     instruction: str = "",
+    substrate_prompt: bool = False,
 ):
     def fill_template(template, example, fill_answer=True):
         if fill_answer:
@@ -108,37 +133,10 @@ def construct_qa_prompt(
         test_prompt_label = test_example["answers"]["text"][0]
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
-
-    def preprocess_qa_examples(example):
-        return {
-            "context": example["context"],
-            "question": example["question"],
-            "answer": example["answers"]["text"][0],
-        }
-
-    if test_prompt_template is None:
-        test_prompt_template = train_prompt_template
-    example_prompt = PromptTemplate(
-        input_variables=["context", "question", "answer"],
-        template=train_prompt_template,
-    )
-    if len(train_examples) != 0:
-        train_examples = list(map(preprocess_qa_examples, train_examples))
-        prompt = FewShotPromptTemplate(
-            examples=train_examples,
-            example_prompt=example_prompt,
-            suffix=test_prompt_template.replace("{answer}", ""),
-            input_variables=["context", "question"],
-        )
-    else:
-        prompt = PromptTemplate(
-            input_variables=["context", "question"],
-            template=test_prompt_template.replace("{answer}", ""),
-        )
-
-    return prompt
 
 
 def construct_prompt(
@@ -148,6 +146,7 @@ def construct_prompt(
     test_prompt_template: Template,
     chat_prompt: bool = False,
     instruction: str = "",
+    substrate_prompt: bool = False,
 ) -> Tuple[str, str]:
     """Creates the prompt using training few-shot examples and test example to evaluate
 
@@ -178,6 +177,8 @@ def construct_prompt(
         test_prompt_input, test_prompt_label = test_prompt_template.apply(test_example)
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
 
@@ -190,6 +191,7 @@ def construct_tagging_prompt(
     delimiter: str = "_",
     chat_prompt: bool = False,
     instruction: str = "",
+    substrate_prompt: bool = False,
 ) -> Tuple[str, str]:
     def apply_verbalizer(tagged_tokens):
         verbalized_tagged_tokens = []
@@ -240,6 +242,8 @@ def construct_tagging_prompt(
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
         test_prompt_label = test_example["tags"]
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
 
@@ -256,6 +260,7 @@ def construct_cmxnli_prompt(
     verbalizer: Dict[str, str],
     chat_prompt: bool = False,
     instruction: str = "",
+    substrate_prompt: bool = False,
 ) -> Tuple[str, str]:
     """Creates the prompt using training few-shot examples and test example to evaluate
 
@@ -295,14 +300,18 @@ def construct_cmxnli_prompt(
         if instruction != "":
             messages.append({"role": "system", "content": instruction})
         for example in train_examples:
-            prompt_input, prompt_label = fill_template(example, train_prompt_template)
+            prompt_input, prompt_label = fill_xnli_template(
+                example, train_prompt_template
+            )
             messages.append({"role": "user", "content": prompt_input})
             messages.append({"role": "assistant", "content": prompt_label})
-        test_prompt_input, test_prompt_label = fill_template(
+        test_prompt_input, test_prompt_label = fill_xnli_template(
             test_example, test_prompt_template
         )
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
 
@@ -315,6 +324,7 @@ def construct_xstory_prompt(
     verbalizer: Dict[Any, str],
     chat_prompt: bool = False,
     instruction: str = "",
+    substrate_prompt: bool = False,
 ) -> Tuple[str, str]:
     """Creates the prompt using training few-shot examples and test example to evaluate
 
@@ -372,6 +382,8 @@ def construct_xstory_prompt(
         )
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
 
@@ -384,6 +396,7 @@ def construct_cmsentiment_prompt(
     verbalizer: Dict[str, str],
     chat_prompt: bool = False,
     instruction: str = "",
+    substrate_prompt: bool = False,
 ) -> Tuple[str, str]:
     """Creates the prompt using training few-shot examples and test example to evaluate
 
@@ -424,6 +437,8 @@ def construct_cmsentiment_prompt(
         )
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
 

@@ -19,7 +19,12 @@ from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.prompting.prompting_utils import load_prompt_template
 from mega.utils.env_utils import load_openai_env_variables
-from mega.models.completion_models import get_model_pred, gpt3x_completion
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
@@ -210,6 +215,7 @@ def evaluate_qa_chatgpt(
     instruction="",
     chat_prompt=True,
     num_evals_per_sec=2,
+    substrate_prompt=False,
     temperature=0,
     max_tokens=20,
     log_wandb=False,
@@ -219,7 +225,7 @@ def evaluate_qa_chatgpt(
     em_sum = 0
     avg_em = 0
     avg_f1 = 0
- 
+    llm_client = LLMClient()
     squad_metric = load(metric)
 
     run_details = {"num_calls": 0}
@@ -239,21 +245,31 @@ def evaluate_qa_chatgpt(
                 test_prompt_template=prompt_template,
                 chat_prompt=chat_prompt,
                 instruction=instruction,
+                substrate_prompt=substrate_prompt,
             )
             try:
-                pred = gpt3x_completion(
-                    prompt,
-                    model,
-                    temperature=0,
-                    run_details=run_details,
-                    num_evals_per_sec=num_evals_per_sec,
-                    max_tokens=max_tokens,
-                )
+                if not substrate_prompt:
+                    pred = gpt3x_completion(
+                        prompt,
+                        model,
+                        temperature=0,
+                        run_details=run_details,
+                        num_evals_per_sec=num_evals_per_sec,
+                        max_tokens=max_tokens,
+                    )
+                else:
+                    pred = substrate_llm_completion(
+                        llm_client=llm_client,
+                        prompt=prompt,
+                        model_name=model,
+                        temperature=0,
+                        max_tokens=max_tokens,
+                    )
                 break
             # except (openai.error.InvalidRequestError, openai.error.Timeout):
             except Exception as e:
                 print(e)
-                
+
                 if len(train_examples_i) == 0:
                     pred = ""
                     print("Exausted Everything! Giving Empty Prediction Now :(")
@@ -347,8 +363,8 @@ def evaluate_qa_chatgpt(
 def main(sys_args):
     args = parse_args(sys_args)
     load_openai_env_variables()
-    print(args.log_wandb, "WANDB")
     # Set seed
+    print(args.substrate_prompt, "subs")
     random.seed(args.seed)
     np.random.seed(args.seed)
     # Initialize wandb
@@ -421,6 +437,7 @@ def main(sys_args):
         log_wandb=True,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
+        substrate_prompt=args.substrate_prompt
     )
 
     preds_df.to_csv(f"{out_dir}/preds.csv")

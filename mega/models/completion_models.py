@@ -6,6 +6,7 @@ import openai
 from typing import List, Dict, Union, Any
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
+from mega.utils.substrate_llm import LLMClient, create_request_data
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -23,6 +24,7 @@ SUPPORTED_MODELS = [
     "gpt-35-turbo-16k",
     "gpt-4-32k",
     "gpt-4",
+    "dev-gpt-35-turbo",
 ]
 
 CHAT_MODELS = [
@@ -43,8 +45,19 @@ def timeout_handler(signum, frame):
     raise openai.error.Timeout("API Response Stuck!")
 
 
+@backoff.on_exception(backoff.expo, KeyError)
+def substrate_llm_completion(
+    llm_client: LLMClient, prompt: str, model_name: str, **model_params
+) -> str:
+    request_data = create_request_data(prompt, **model_params)
+    response = llm_client.send_request(model_name, request_data)
+    text_result = response["choices"][0]["text"]
+    text_result = text_result.replace("<|im_end|>", "")
+    return text_result
+
+
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
-@backoff.on_exception(backoff.expo, openai.error.APIError)
+@backoff.on_exception(backoff.expo, openai.error.APIError, max_time=60)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
@@ -167,6 +180,7 @@ def bloomz_completion(prompt: str, **model_params) -> str:
 def model_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
+    run_substrate_llm_completion: bool = False,
     timeout: int = 0,
     **model_params,
 ) -> str:
@@ -189,6 +203,10 @@ def model_completion(
     if model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
 
+    if run_substrate_llm_completion:
+        llm_client = LLMClient()
+        return substrate_llm_completion(llm_client, prompt, model, **model_params)
+
 
 def get_model_pred(
     train_examples: List[Dict[str, Union[str, int]]],
@@ -197,6 +215,7 @@ def get_model_pred(
     test_prompt_template: Template,
     model: str,
     chat_prompt: bool = False,
+    run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
     **model_params,
@@ -223,6 +242,10 @@ def get_model_pred(
         instruction=instruction,
     )
     model_prediction = model_completion(
-        prompt_input, model, timeout=timeout, **model_params
+        prompt_input,
+        model,
+        timeout=timeout,
+        run_substrate_llm_completion=run_substrate_llm_completion,
+        **model_params,
     )
     return {"prediction": model_prediction, "ground_truth": label}

@@ -103,6 +103,11 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Whether to use Validation Data for in-evaluation",
     )
     parser.add_argument(
+        "--substrate_prompt",
+        action="store_true",
+        help="Whether to use substrate LLM to evaluate or not",
+    )
+    parser.add_argument(
         "--num_evals_per_sec",
         default=2,
         type=int,
@@ -151,7 +156,6 @@ def parse_args(args: list) -> argparse.Namespace:
         "--log_wandb",
         action="store_true",
         help="Whether to log experiments and results on wandb",
-        default=False,
     )
     parser.add_argument(
         "--no-save", action="store_true", help="Whether to not save any results"
