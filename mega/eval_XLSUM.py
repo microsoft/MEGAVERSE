@@ -17,6 +17,12 @@ import numpy as np
 from rouge_score import rouge_scorer
 from tqdm import tqdm
 import wandb
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
 
 
 def read_parameters(args_path):

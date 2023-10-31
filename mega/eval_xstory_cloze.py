@@ -21,6 +21,12 @@ from mega.prompting.prompting_utils import construct_xstory_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
 
 PROMPT_TEMPLATES = {
     "Answer Given options": """{input_sentence_1} {input_sentence_2} {input_sentence_3} {input_sentence_4}\nWhat is a possible continuation for the story given the following options ?\n-Option1: {sentence_quiz1}\n-Option2: {sentence_quiz2}""",
@@ -37,7 +43,7 @@ def dump_predictions(idx, response, response_logger_file):
     with open(response_logger_file, "a") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-def evaluate(
+def evaluate(   
     train_dataset: Dataset,
     test_dataset: Dataset,
     prompt_template: str,
@@ -51,6 +57,7 @@ def evaluate(
     num_proc: Optional[int] = None,
     log_wandb: bool = False,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     instruction: str = "",
     timeout: int = 0,
     **model_params,
@@ -69,10 +76,13 @@ def evaluate(
     running_acc = 0
     num_matches = 0
 
-    with open(save_preds_path, 'r') as file:
-        json_data = json.load(file)
+    try:
+        with open(save_preds_path, 'r') as file:
+            json_data = json.load(file)
 
-    idx_set = {obj["q_idx"] for obj in json_data}
+        idx_set = {obj["q_idx"] for obj in json_data}
+    except:
+        idx_set = set()
     pbar = tqdm(enumerate(test_dataset))
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
@@ -176,6 +186,8 @@ def main(sys_args):
 
     # Loading prompt template
     prompt_template = PROMPT_TEMPLATES[args.tgt_prompt_name]
+    print("Prompt Template: ", prompt_template)
+    # syysss
     verbalizer = VERBALIZER["default"]
 
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}wthInstruction"
@@ -191,7 +203,6 @@ def main(sys_args):
     save_preds_path = f"{out_dir}/preds.json"
 
     eval_score, preds_df = evaluate(
-        save_preds_path,
         train_dataset,
         test_dataset,
         prompt_template=prompt_template,
@@ -202,6 +213,7 @@ def main(sys_args):
         num_evals_per_sec=args.num_evals_per_sec,
         parallel_eval=args.parallel_eval,
         num_proc=args.num_proc,
+        save_preds_path = save_preds_path,
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
         instruction=instruction,
@@ -209,6 +221,7 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
         timeout=args.timeout,
+        substrate_prompt=args.substrate_prompt,
     )
     # preds_df.to_csv(f"{out_dir}/preds.json")
     print(eval_score)

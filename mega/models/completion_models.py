@@ -274,6 +274,7 @@ def get_model_pred(
     test_prompt_template: Template,
     model: str,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
@@ -299,8 +300,12 @@ def get_model_pred(
         test_prompt_template,
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
+        substrate_prompt=substrate_prompt,
     )
 
+    if substrate_prompt:
+        run_substrate_llm_completion = True
+        
     model_prediction = model_completion(
         prompt_input,
         model,

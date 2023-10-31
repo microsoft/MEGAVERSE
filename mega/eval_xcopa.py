@@ -14,6 +14,11 @@ from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
 import pdb
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
 
 
 def main(sys_args):
@@ -99,6 +104,7 @@ def main(sys_args):
         temperature=args.temperature,
         top_p=args.top_p,
         timeout=args.timeout,
+        substrate_prompt=args.substrate_prompt
     )
     print(accuracy)
     # Store results

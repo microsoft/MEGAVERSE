@@ -18,6 +18,13 @@ from mega.utils.parser import parse_args
 from mega.data.load_datasets import load_tagging_dataset
 from mega.utils.env_utils import load_openai_env_variables
 import openai
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
+
 import pdb
 
 def dump_predictions(idx, response, response_logger_file):
@@ -82,6 +89,7 @@ def evaluate(
     num_proc: Optional[int] = None,
     log_wandb: bool = False,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
     **model_params,
@@ -100,10 +108,14 @@ def evaluate(
     preds = []
     labels = []
     f1_scores = []
+    try:
+        with open(save_preds_path, 'r') as file:
+            json_data = json.load(file)
+        idx_set = {obj["q_idx"] for obj in json_data}
 
-    with open(save_preds_path, 'r') as file:
-        json_data = json.load(file)
-    idx_set = {obj["q_idx"] for obj in json_data}
+    except:
+        idx_set = set()
+
     pbar = tqdm(enumerate(test_dataset))
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
@@ -240,6 +252,7 @@ def main(sys_args):
         num_proc=args.num_proc,
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
+        substrate_prompt=args.substrate_prompt,
         instruction=instruction,
         one_shot_tag=not args.not_one_shot_tag,
         temperature=args.temperature,

@@ -28,6 +28,7 @@ def run_seq_eval(
     chat_prompt: bool = False,
     instruction: str = "",
     log_wandb: bool = False,
+    substrate_prompt=False,
     timeout: int = 0,
     **model_params,
 ) -> Tuple[float, pd.DataFrame]:
@@ -52,10 +53,13 @@ def run_seq_eval(
     num_matches = 0
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]
-    with open(save_preds_path, 'r') as file:
-        json_data = json.load(file)
+    try:
+        with open(save_preds_path, 'r') as file:
+            json_data = json.load(file)
 
-    idx_set = {obj["q_idx"] for obj in json_data}
+        idx_set = {obj["q_idx"] for obj in json_data}
+    except:
+        idx_set = set()
     pbar = tqdm(enumerate(test_dataset))
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
@@ -76,6 +80,7 @@ def run_seq_eval(
                     test_prompt_template,
                     model,
                     chat_prompt=chat_prompt,
+                    substrate_prompt=substrate_prompt,
                     instruction=instruction,
                     timeout=timeout,
                     **model_params,
@@ -97,7 +102,7 @@ def run_seq_eval(
                 )
 
         pred = pred_dict["prediction"]
-        print(pred)
+        # print(pred)
         dump_predictions(idx, pred, save_preds_path)
 
         

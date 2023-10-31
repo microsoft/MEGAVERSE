@@ -241,10 +241,13 @@ def evaluate_qa_chatgpt(
     preds = []
     labels = []
     f1s, ems = [], []
-    with open(save_preds_path, 'r') as file:
-        json_data = json.load(file)
+    try:
+        with open(save_preds_path, 'r') as file:
+            json_data = json.load(file)
 
-    idx_set = {obj["q_idx"] for obj in json_data}
+        idx_set = {obj["q_idx"] for obj in json_data}
+    except:
+        idx_set = set()
     # pbar = tqdm(enumerate(test_dataset))
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
