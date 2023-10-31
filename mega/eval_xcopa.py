@@ -81,7 +81,7 @@ def main(sys_args):
     instruction = INSTRUCTIONS[args.dataset]
     print(instruction)
 
-    pred_file_path = f"{out_dir}/preds.csv"
+    pred_file_path = f"{out_dir}/preds.json"
     accuracy = evaluate_model(
         train_dataset,
         test_dataset,

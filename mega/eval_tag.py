@@ -20,6 +20,10 @@ from mega.utils.env_utils import load_openai_env_variables
 import openai
 import pdb
 
+def dump_predictions(idx, response, response_logger_file):
+    obj = {"q_idx": idx, "prediction": response}
+    with open(response_logger_file, "a") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 udpos_verbalizer = {
     "ADJ": "adjective",
@@ -96,8 +100,20 @@ def evaluate(
     preds = []
     labels = []
     f1_scores = []
-    pbar = tqdm(test_dataset)
-    for test_example in pbar:
+
+    with open(save_preds_path, 'r') as file:
+        json_data = json.load(file)
+    idx_set = {obj["q_idx"] for obj in json_data}
+    pbar = tqdm(enumerate(test_dataset))
+    total_items = len(test_dataset)
+    if len(idx_set) == total_items:
+        print("All items already evaluated!")
+        sys.exit(0)
+        
+    for idx,test_example in pbar:
+        if idx in idx_set:
+            continue
+
         train_examples_i = train_examples
 
         while len(train_examples_i) >= 1:
@@ -134,6 +150,7 @@ def evaluate(
             pred if pred != "" else np.random.choice(valid_labels)
             for pred in pred_dict["prediction"]
         ]
+        dump_predictions(idx, pred_dict["prediction"], save_preds_path)
         preds.append(pred_dict["prediction"])
         labels.append(pred_dict["ground_truth"])
         try:
@@ -207,7 +224,9 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
+    save_preds_path = f"{out_dir}/preds.json"
     eval_score, preds_df = evaluate(
+        save_preds_path,
         train_dataset,
         test_dataset,
         prompt_template=PROMPTS_DICT[args.tgt_prompt_name],
@@ -227,7 +246,7 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
     )
-    preds_df.to_csv(f"{out_dir}/preds.csv")
+    # preds_df.to_csv(f"{out_dir}/preds.csv")
     print(eval_score)
     results_dict = vars(args)
     results_dict["metrics"] = {"f1-score": eval_score}

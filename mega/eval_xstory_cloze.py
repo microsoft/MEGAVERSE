@@ -32,6 +32,10 @@ PROMPT_TEMPLATES = {
 
 VERBALIZER = {"default": {1: "Option1", 2: "Option2"}}
 
+def dump_predictions(idx, response, response_logger_file):
+    obj = {"q_idx": idx, "prediction": response}
+    with open(response_logger_file, "a") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 def evaluate(
     train_dataset: Dataset,
@@ -64,8 +68,21 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
-    pbar = tqdm(test_dataset)
-    for test_example in pbar:
+
+    with open(save_preds_path, 'r') as file:
+        json_data = json.load(file)
+
+    idx_set = {obj["q_idx"] for obj in json_data}
+    pbar = tqdm(enumerate(test_dataset))
+    total_items = len(test_dataset)
+    if len(idx_set) == total_items:
+        print("All items already evaluated!")
+        sys.exit(0)
+
+    for idx, test_example in pbar:
+        if idx in idx_set:
+            continue
+
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
         while len(train_examples_i) >= 0:
@@ -96,6 +113,8 @@ def evaluate(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
 
+        
+        dump_predictions(idx, pred, save_preds_path)
         preds.append(pred)
         labels.append(label)
         matches.append(float(pred == label))
@@ -169,8 +188,10 @@ def main(sys_args):
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
+    save_preds_path = f"{out_dir}/preds.json"
 
     eval_score, preds_df = evaluate(
+        save_preds_path,
         train_dataset,
         test_dataset,
         prompt_template=prompt_template,
@@ -189,7 +210,7 @@ def main(sys_args):
         max_tokens=args.max_tokens,
         timeout=args.timeout,
     )
-    preds_df.to_csv(f"{out_dir}/preds.csv")
+    # preds_df.to_csv(f"{out_dir}/preds.json")
     print(eval_score)
     results_dict = vars(args)
     results_dict["metrics"] = {"accuracy": eval_score}

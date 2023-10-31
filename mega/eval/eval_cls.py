@@ -9,10 +9,16 @@ from promptsource.templates import Template
 from mega.models.completion_models import get_model_pred
 from mega.data.data_utils import choose_few_shot_examples
 import openai
+import json
+import sys
 
-
+def dump_predictions(idx, response, response_logger_file):
+    obj = {"q_idx": idx, "prediction": response}
+    with open(response_logger_file, "a") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 def run_seq_eval(
+    save_preds_path,
     train_examples: List[Dict[str, Union[str, int]]],
     test_dataset: Dataset,
     train_prompt_template: Template,
@@ -46,9 +52,21 @@ def run_seq_eval(
     num_matches = 0
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]
-    pbar = tqdm(test_dataset)
-    for test_example in pbar:
+    with open(save_preds_path, 'r') as file:
+        json_data = json.load(file)
+
+    idx_set = {obj["q_idx"] for obj in json_data}
+    pbar = tqdm(enumerate(test_dataset))
+    total_items = len(test_dataset)
+    if len(idx_set) == total_items:
+        print("All items already evaluated!")
+        sys.exit(0)
+    for idx, test_example in pbar:
         train_examples_i = train_examples
+
+        if idx in idx_set:
+            continue
+        
         while len(train_examples_i) >= 0:
             try:
                 pred_dict = get_model_pred(
@@ -80,6 +98,8 @@ def run_seq_eval(
 
         pred = pred_dict["prediction"]
         print(pred)
+        dump_predictions(idx, pred, save_preds_path)
+
         
         # if pred == "Invalid request":
         #     pdb.set_trace()
@@ -188,6 +208,12 @@ def evaluate_model(
         train_dataset, few_shot_size, selection_criteria
     )
 
+    if save_preds_path is not None:
+        preds_dir, _ = os.path.split(save_preds_path)
+        if not os.path.exists(preds_dir):
+            os.makedirs(preds_dir)
+        # results_df.to_csv(save_preds_path)
+
     if parallel_eval:
         num_proc = 4 if num_proc is None else num_proc
         accuracy, results_df = run_parallel_eval(
@@ -201,6 +227,7 @@ def evaluate_model(
         )
     else:
         accuracy, results_df = run_seq_eval(
+            save_preds_path,
             train_examples,
             test_dataset,
             train_prompt_template,
@@ -214,10 +241,6 @@ def evaluate_model(
             **model_params,
         )
 
-    if save_preds_path is not None:
-        preds_dir, _ = os.path.split(save_preds_path)
-        if not os.path.exists(preds_dir):
-            os.makedirs(preds_dir)
-        results_df.to_csv(save_preds_path)
+    
 
     return accuracy

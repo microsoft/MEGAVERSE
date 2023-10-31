@@ -77,7 +77,7 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    pred_file_path = f"{out_dir}/preds.csv"
+    pred_file_path = f"{out_dir}/preds.json"
     accuracy = evaluate_model(
         train_dataset,
         test_dataset,
