@@ -41,6 +41,35 @@ langcodes2lang = {
 }
 
 
+def load_belebele_dataset( lang: str, split: str, dataset_frac: float = 1.0) -> Union[Dataset, DatasetDict]:
+    """
+    Args:
+        lang (str): Language for which xnli dataset is to be loaded
+        split (str): Train test or validation split of the model to load
+        dataset_frac (float): Fraction of examples to load. Defaults to 1.0
+
+    Returns:
+        Union[Dataset, DatasetDict]: huggingface dataset object
+    """
+
+    if lang != "en" and split == "train":
+        warnings.warn(
+            "No Training Split for Non-English languages in Belebele. Using Validation split!"
+        )
+        split = "validation"
+    if lang == "en":
+        if split in ["train", "validation"]:
+            # For english fetch data from COPA in SuperGLUE
+            dataset = load_dataset("super_glue", "copa")[split]
+
+    else:
+        dataset = load_dataset("xcopa", lang)[split]
+
+    N = len(dataset)
+    selector = np.arange(int(N * dataset_frac))
+    return dataset.select(selector)
+
+
 def load_xnli_dataset(
     lang: str, split: str, dataset_frac: float = 1.0
 ) -> Union[Dataset, DatasetDict]:
