@@ -13,7 +13,8 @@ do
             --tgt_prompt_name "${prompt_name}" \
             -k $k --model "meta-llama/Llama-2-70b-chat-hf" \
             -e gpt4v3 --chat-prompt --temperature 0 \
-            --log_wandb --timeout 30 --use_hf_api
+            --log_wandb --timeout 30 --use_hf_api \
+            -d "belebele"
         done
     done
 done
