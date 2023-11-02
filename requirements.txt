@@ -13,3 +13,4 @@ seqeval
 tiktoken
 chromadb
 torch
+fschat
