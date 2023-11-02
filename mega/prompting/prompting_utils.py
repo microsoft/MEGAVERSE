@@ -303,6 +303,68 @@ def construct_cmxnli_prompt(
     return prompt_input, test_prompt_label
 
 
+def construct_belebele_prompt(
+    train_examples: List[Dict[str, Union[str, int]]],
+    test_example: Dict[str, Union[str, int]],
+    train_prompt_template: str,
+    test_prompt_template: str,
+    verbalizer: Dict[Any, str],
+    chat_prompt: bool = False,
+    instruction: str = "",
+    ) -> Tuple[str, str]:
+    
+    def fill_belebele_template(example, template):
+        passage = example["flores_passage"]
+        question = example["question"]
+        option1 = example["mc_answer1"]
+        option2 = example["mc_answer2"]
+        option3 = example["mc_answer3"]
+        option4 = example["mc_answer4"]
+
+        label = example["correct_answer_num"]
+
+        filled_template = (
+            template.replace("{passage}", passage)
+            .replace("{question}", question)
+            .replace("{option1}", option1)
+            .replace("{option2}", option2)
+            .replace("{option3}", option3)
+            .replace("{option4}", option4)
+        )
+
+        return filled_template, verbalizer[label]
+
+    if not chat_prompt:
+        train_prompts = [
+            "\n".join(fill_belebele_template(train_example, train_prompt_template))
+            for train_example in train_examples
+        ]
+        test_prompt_input, test_prompt_label = fill_belebele_template(
+            test_example, test_prompt_template
+        )
+        prompt_input = "\n".join(train_prompts + [test_prompt_input]) + "\n"
+
+    else:
+        messages = []
+        if instruction != "":
+            messages.append({"role": "system", "content": instruction})
+        for example in train_examples:
+            prompt_input, prompt_label = fill_belebele_template(
+                example, train_prompt_template
+            )
+            messages.append({"role": "user", "content": prompt_input})
+            messages.append({"role": "assistant", "content": prompt_label})
+        test_prompt_input, test_prompt_label = fill_belebele_template(
+            test_example, test_prompt_template
+        )
+        messages.append({"role": "user", "content": test_prompt_input})
+        prompt_input = messages
+
+    return prompt_input, test_prompt_label
+
+
+    
+
 def construct_xstory_prompt(
     train_examples: List[Dict[str, Union[str, int]]],
     test_example: Dict[str, Union[str, int]],

@@ -39,16 +39,8 @@ def hf_model_api_completion(
     
     client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
     
-    start = time.time()
-    
-    while True:
-    
-        end = time.time()
         
-        if end - start > 10:
-            output = ""
-            # print("generation done")
-            break
+    while True:
         
         try:
             output = client.text_generation(prompt)

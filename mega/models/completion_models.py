@@ -294,11 +294,7 @@ def model_completion(
 
     if model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
-    
-    if "Llama-2" in model:
-        print(prompt)
-        
-        prompt = llama2_completion(prompt, model, **model_params)
+
         
 
 
