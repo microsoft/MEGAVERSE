@@ -67,9 +67,11 @@ def main(sys_args):
         args.tgt_lang, args.tgt_prompt_name, dataset="belebele"
     )
 
-    train_examples = choose_few_shot_examples(
-        train_dataset, args.few_shot_k, args.few_shot_selection
-    )
+    # train_examples = choose_few_shot_examples(
+    #     train_dataset, args.few_shot_k, args.few_shot_selection
+    # )
+    
+    train_examples = []
 
     out_dir = f"{args.save_dir}/belebele/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"
     if args.translate_test:
