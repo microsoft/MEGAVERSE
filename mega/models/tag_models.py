@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Union
 
 import openai
 import requests
+from mega.utils.substrate_llm import LLMClient, create_request_data
 
 from mega.prompting.prompting_utils import construct_tagging_prompt
 from mega.utils.env_utils import (
@@ -273,6 +274,7 @@ def model_tagger(
     delimiter: str = "_",
     num_evals_per_second: int = 2,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     one_shot_tag: bool = True,
     run_details: Any = {},
     **model_params,
@@ -297,6 +299,10 @@ def model_tagger(
             **model_params,
         )
 
+    if substrate_prompt:
+        llm_client = LLMClient()
+        return substrate_llm_completion(llm_client, prompt, model, **model_params)
+
 
 def get_model_pred(
     train_examples: List[Dict[str, Union[str, int]]],
@@ -307,6 +313,7 @@ def get_model_pred(
     delimiter: str = "_",
     num_evals_per_second: int = 2,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
     run_details: Any = {},
@@ -321,6 +328,7 @@ def get_model_pred(
         verbalizer,
         delimiter=delimiter,
         chat_prompt=chat_prompt,
+        substrate_prompt=substrate_prompt,
         instruction=instruction,
     )
     model_prediction = model_tagger(
@@ -330,6 +338,7 @@ def get_model_pred(
         delimiter=delimiter,
         num_evals_per_second=num_evals_per_second,
         chat_prompt=chat_prompt,
+        substrate_prompt=substrate_prompt,
         one_shot_tag=one_shot_tag,
         run_details=run_details,
         **model_params,
