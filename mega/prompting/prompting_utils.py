@@ -5,7 +5,7 @@ from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
 
 
-def get_substrate_prompt(messages: List[Dict[str, str]]):
+def get_substrate_prompt(messages: List[Dict[str, str]]) -> str:
     system_prompt, user_prompt, assistant_prompt = "", "", ""
     for message in messages:
         if message["role"] == "system":
