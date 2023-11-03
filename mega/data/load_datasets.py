@@ -104,7 +104,7 @@ def load_belebele_translate_test(
             raise ValueError(
                 "Need to provide `test_dataset`, if translate_test dataset do not exist already"
             )
-        tt_dataset = translate_xcopa(
+        tt_dataset = translate_belebele(
             test_dataset, tgt_lang, pivot_lang, save_path=tt_dir
         )
     else:
