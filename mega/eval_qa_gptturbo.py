@@ -23,6 +23,7 @@ from mega.models.completion_models import (
     get_model_pred,
     gpt3x_completion,
     substrate_llm_completion,
+    palm_api_completion
 )
 from mega.utils.substrate_llm import LLMClient
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
@@ -247,37 +248,38 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-            try:
-                if not substrate_prompt:
-                    pred = gpt3x_completion(
-                        prompt,
-                        model,
-                        temperature=0,
-                        run_details=run_details,
-                        num_evals_per_sec=num_evals_per_sec,
-                        max_tokens=max_tokens,
-                    )
-                else:
-                    pred = substrate_llm_completion(
-                        llm_client=llm_client,
-                        prompt=prompt,
-                        model_name=model,
-                        temperature=0,
-                        max_tokens=max_tokens,
-                    )
-                break
-            # except (openai.error.InvalidRequestError, openai.error.Timeout):
-            except Exception as e:
-                print(e)
-
-                if len(train_examples_i) == 0:
-                    pred = ""
-                    print("Exausted Everything! Giving Empty Prediction Now :(")
-                    break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+            # try:
+            if not substrate_prompt:
+                # pred = gpt3x_completion(
+                #     prompt,
+                #     model,
+                #     temperature=0,
+                #     run_details=run_details,
+                #     num_evals_per_sec=num_evals_per_sec,
+                #     max_tokens=max_tokens,
+                # )
+                pred = palm_api_completion(prompt, temperature=0, max_output_tokens=max_tokens)
+            else:
+                pred = substrate_llm_completion(
+                    llm_client=llm_client,
+                    prompt=prompt,
+                    model_name=model,
+                    temperature=0,
+                    max_tokens=max_tokens,
                 )
+            break
+            # except (openai.error.InvalidRequestError, openai.error.Timeout):
+            # except Exception as e:
+            #     print(e)
+
+            #     if len(train_examples_i) == 0:
+            #         pred = ""
+            #         print("Exausted Everything! Giving Empty Prediction Now :(")
+            #         break
+            #     train_examples_i = train_examples_i[:-1]
+            #     print(
+            #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+            #     )
 
         pred = normalize_fn(pred)
 

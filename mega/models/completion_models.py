@@ -3,6 +3,8 @@ import warnings
 import signal
 import time
 import openai
+import vertexai
+from vertexai.language_models import TextGenerationModel
 from typing import List, Dict, Union, Any
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
@@ -64,6 +66,18 @@ def substrate_llm_completion(
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
 
+
+def palm_api_completion(
+    prompt: str,
+    model: str = 'text-bison@001',
+    **model_params,
+) -> str:
+    model = TextGenerationModel.from_pretrained("text-bison@001")
+    response = model.predict(
+        prompt,
+        **model_params,
+    )
+    return response.text
 
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 @backoff.on_exception(backoff.expo, openai.error.APIError, max_time=60)
