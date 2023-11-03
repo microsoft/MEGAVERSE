@@ -18,12 +18,13 @@ from mega.data.load_datasets import load_xnli_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.prompting.prompting_utils import load_prompt_template
+from mega.models.completion_models import CHAT_MODELS
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import (
     get_model_pred,
     gpt3x_completion,
     substrate_llm_completion,
-    palm_api_completion
+    palm_api_completion,
 )
 from mega.utils.substrate_llm import LLMClient
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
@@ -31,10 +32,12 @@ from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
 
+
 def dump_predictions(idx, response, response_logger_file):
     obj = {"q_idx": idx, "prediction": response}
     with open(response_logger_file, "a") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
 
 PUNCT = {
     chr(i)
@@ -243,7 +246,7 @@ def evaluate_qa_chatgpt(
     labels = []
     f1s, ems = [], []
     try:
-        with open(save_preds_path, 'r') as file:
+        with open(save_preds_path, "r") as file:
             json_data = json.load(file)
 
         idx_set = {obj["q_idx"] for obj in json_data}
@@ -269,38 +272,41 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-            # try:
-            if not substrate_prompt:
-                # pred = gpt3x_completion(
-                #     prompt,
-                #     model,
-                #     temperature=0,
-                #     run_details=run_details,
-                #     num_evals_per_sec=num_evals_per_sec,
-                #     max_tokens=max_tokens,
-                # )
-                pred = palm_api_completion(prompt, temperature=0, max_output_tokens=max_tokens)
-            else:
-                pred = substrate_llm_completion(
-                    llm_client=llm_client,
-                    prompt=prompt,
-                    model_name=model,
-                    temperature=0,
-                    max_tokens=max_tokens,
-                )
-            break
+            try:
+                if model == "text-bison@001" and not substrate_prompt:
+                    pred = palm_api_completion(
+                        prompt, temperature=0, max_output_tokens=max_tokens
+                    )
+                elif model in CHAT_MODELS and not substrate_prompt:
+                    pred = gpt3x_completion(
+                        prompt,
+                        model,
+                        temperature=0,
+                        run_details=run_details,
+                        num_evals_per_sec=num_evals_per_sec,
+                        max_tokens=max_tokens,
+                    )
+                else:
+                    pred = substrate_llm_completion(
+                        llm_client=llm_client,
+                        prompt=prompt,
+                        model_name=model,
+                        temperature=0,
+                        max_tokens=max_tokens,
+                    )
+                break
             # except (openai.error.InvalidRequestError, openai.error.Timeout):
-            # except Exception as e:
-            #     print(e)
+            except Exception as e:
+                print(e)
 
-            #     if len(train_examples_i) == 0:
-            #         pred = ""
-            #         print("Exausted Everything! Giving Empty Prediction Now :(")
-            #         break
-            #     train_examples_i = train_examples_i[:-1]
-            #     print(
-            #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-            #     )
+                if len(train_examples_i) == 0:
+                    pred = ""
+                    print("Exausted Everything! Giving Empty Prediction Now :(")
+                    break
+                train_examples_i = train_examples_i[:-1]
+                print(
+                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                )
 
         pred = normalize_fn(pred)
 
@@ -462,7 +468,7 @@ def main(sys_args):
         log_wandb=True,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
-        substrate_prompt=args.substrate_prompt
+        substrate_prompt=args.substrate_prompt,
     )
 
     # preds_df.to_csv(f"{out_dir}/preds.csv")
