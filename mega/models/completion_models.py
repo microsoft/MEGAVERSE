@@ -3,9 +3,10 @@ import warnings
 import signal
 import time
 import openai
-import vertexai
+
 from vertexai.language_models import TextGenerationModel
 from typing import List, Dict, Union, Any
+from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
@@ -66,7 +67,7 @@ def substrate_llm_completion(
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
 
-
+@backoff.on_exception(backoff.expo, ResourceExhausted)
 def palm_api_completion(
     prompt: str,
     model: str = 'text-bison@001',
