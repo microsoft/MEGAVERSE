@@ -6,7 +6,7 @@ import openai
 from typing import List, Dict, Union, Any
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
-from mega.utils.substrate_llm import LLMClient, create_request_data
+from mega.utils.substrate_llm import LLMClient
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -278,7 +278,6 @@ def get_model_pred(
     run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
-    dataset = None,
     **model_params,
 ) -> Dict[str, str]:
     """_summary_
@@ -302,7 +301,6 @@ def get_model_pred(
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
         substrate_prompt=substrate_prompt,
-        dataset=dataset,
 
     )
 
