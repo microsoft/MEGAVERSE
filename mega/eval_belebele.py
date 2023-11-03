@@ -35,6 +35,35 @@ VERBALIZER = {"default": {'1': "Option1",
                           '4': "Option4"}}
 
 
+
+BELEBELE2AZURE_LANG_MAP = {
+    "english": "en",
+    "spanish": "es",
+    "german": "de",
+    "japanese": "ja",
+    "french": "fr",
+    "portuguese": "pt",
+    "italian": "it",
+    "chinese_simplified": "zh-Hans",
+    "dutch": "nl",
+    "swedish": "sv",
+    "turkish": "tr",
+    "danish": "da",
+    "finnish": "fi",
+    "russian": "ru",
+    "norwegian": "nb",
+    "korean": "ko",
+    "chinese_traditional": "zh-Hant",
+    "polish": "pl", 
+    "turkish": "tr",
+    "hebrew": "he",
+    "arabic": "ar",
+    "czech": "cs",
+    "hungarian": "hu",
+    "thai": "th"
+}
+
+
 def evaluate(
     train_dataset: Dataset,
     test_dataset: Dataset,
@@ -192,7 +221,9 @@ def main(sys_args):
     # ToDO: Add Translate Test Support
     if args.translate_test:
         test_dataset = load_belebele_translate_test(
-            args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
+            BELEBELE2AZURE_LANG_MAP[args.tgt_lang], 
+            BELEBELE2AZURE_LANG_MAP[args.pivot_lang], 
+            test_dataset, data_dir="data"
         )
 
     # Load prompt templates for train and test datasets

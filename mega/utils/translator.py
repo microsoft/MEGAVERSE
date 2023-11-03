@@ -205,6 +205,7 @@ def translate_belebele(
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc= f"translating passage from {src} to {dest}"
     )
 
     # Translate question
@@ -214,6 +215,7 @@ def translate_belebele(
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc= f"translating question from {src} to {dest}"
     )
 
     # Translate mc_answer1
@@ -223,6 +225,7 @@ def translate_belebele(
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc= f"translating mc_answer1 from {src} to {dest}"
     )
 
     # Translate mc_answer2
@@ -232,6 +235,7 @@ def translate_belebele(
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc= f"translating mc_answer2 from {src} to {dest}"
     )
     
     # Translate mc_answer3
@@ -241,6 +245,7 @@ def translate_belebele(
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc= f"translating mc_answer3 from {src} to {dest}"    
     )
     
     # Translate mc_answer4
@@ -250,6 +255,7 @@ def translate_belebele(
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc= f"translating mc_answer4 from {src} to {dest}"
     )
 
 
