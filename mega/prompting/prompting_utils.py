@@ -3,6 +3,7 @@ from promptsource.templates import Template, DatasetTemplates
 import pdb
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
+import sys
 
 
 def get_substrate_prompt(messages: List[Dict[str, str]]):
@@ -147,6 +148,7 @@ def construct_prompt(
     chat_prompt: bool = False,
     instruction: str = "",
     substrate_prompt: bool = False,
+    dataset = None,
 ) -> Tuple[str, str]:
     """Creates the prompt using training few-shot examples and test example to evaluate
 
@@ -158,11 +160,39 @@ def construct_prompt(
         Tuple[str, str] : Final prompt string constructed to provide as input and the verbalized label
     """
 
+    # if dataset == "panx":
+    #     if not chat_prompt:
+    #         train_prompts = [
+    #             "\n".join(train_prompt_template.format(context=" ".join(train_example['tokens']), tagged=train_example['tagged_tokens']))
+    #             for train_example in train_examples
+    #         ]
+    #         test_prompt_input  = f"Tag the following sentence: {test_example['tokens']}"
+    #         test_prompt_label = test_example["tagged_tokens"]
+    #         print(test_prompt_input)
+    #         train_prompts.append(test_prompt_input)
+    #         prompt_input = "\n".join(train_prompts) + "\n"
+            
+    #     else:
+    #         messages = []
+    #         if instruction != "":
+    #             messages.append({"role": "system", "content": instruction})
+    #         for example in train_examples:
+    #             prompt_input, prompt_label = train_prompt_template.apply(example)
+    #             messages.append({"role": "user", "content": prompt_input})
+    #             messages.append({"role": "assistant", "content": prompt_label})
+    #         test_prompt_input  = f"Tag the following sentence: {test_example['tokens']}"
+    #         test_prompt_label = test_example["tagged_tokens"]
+    #         messages.append({"role": "user", "content": test_prompt_input})
+    #         prompt_input = messages
+    #         if substrate_prompt:
+    #             prompt_input = get_substrate_prompt(messages)
+    # else:
     if not chat_prompt:
         train_prompts = [
             "\n".join(train_prompt_template.apply(train_example))
             for train_example in train_examples
         ]
+        
         test_prompt_input, test_prompt_label = test_prompt_template.apply(test_example)
         prompt_input = "\n".join(train_prompts + [test_prompt_input]) + "\n"
 
@@ -460,6 +490,8 @@ def load_prompt_template(lang: str, prompt_name: str, dataset: str) -> Template:
     elif dataset == "xcopa" and lang == "en":
         # For xcopa english data, we need to fetch from COPA in superglue instead
         dataset_prompts = DatasetTemplates("super_glue/copa")
+    elif dataset == "xlsum":
+        dataset_prompts = DatasetTemplates("csebuetnlp/xlsum", f"{lang}")
     else:
         dataset_prompts = DatasetTemplates(f"{dataset}/{lang}")
     return dataset_prompts[prompt_name]
