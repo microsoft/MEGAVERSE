@@ -66,7 +66,12 @@ def substrate_llm_completion(
 
 
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
-@backoff.on_exception(backoff.expo, openai.error.APIError, max_time=60)
+@backoff.on_exception(backoff.expo, 
+                      (
+                        openai.error.APIError, 
+                        openai.error.RateLimitError
+                       ), 
+                      max_time=60)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,

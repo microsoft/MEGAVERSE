@@ -26,7 +26,7 @@ from transformers import AutoTokenizer
 
 
 PROMPT_TEMPLATES = {
-    "Choose the correct answer": """Passage: {passage} \nQuestion: {question}\nReferring to the passage and the question above help me pick the correct answer of the question out of the given options: \n Option 1: {option1}\n Option 2: {option2}\n Option 3: {option3} \n Option 4: {option4} \n Correct Option:""",
+    "Choose the correct answer": """Passage: {passage} \nQuestion: {question}\nReferring to the passage and the question above help me pick the correct answer of the question out of the given options: \n Option1: {option1}\n Option2: {option2}\n Option3: {option3} \n Option4: {option4} \n Correct Option:""",
     }
 
 VERBALIZER = {"default": {'1': "Option1", 
@@ -41,6 +41,7 @@ def evaluate(
     prompt_template: str,
     verbalizer: Dict[Any, str],
     model: str,
+    tokenizer: AutoTokenizer,
     few_shot_size: int,
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
@@ -52,8 +53,10 @@ def evaluate(
     instruction: str = "",
     timeout: int = 0,
     use_hf_model: bool = False,
+    out_dir: str = "",
     **model_params,
 ) -> float:
+    
     run_details = {"num_calls": 0}
 
     # train_examples = choose_few_shot_examples(
@@ -64,15 +67,28 @@ def evaluate(
     
     valid_labels = [1, 2, 3, 4]
     
-    tokenizer = AutoTokenizer.from_pretrained(model)
+    
+    if "preds.csv" in os.listdir(out_dir):
+        results = pd.read_csv(f"{out_dir}/preds.csv").to_dict("records")
+    
+    else:  
+        results = []
 
     preds = []
     labels = []
     matches = []
     running_acc = 0
     num_matches = 0
+    
+    pred_len = len(results)
     pbar = tqdm(test_dataset)
-    for test_example in pbar:
+
+    
+    for idx, test_example in enumerate(pbar):
+        if idx < pred_len:
+            print(f"skipping {idx}")
+            continue
+        
         train_examples_i = train_examples
         label = verbalizer[test_example["correct_answer_num"]]
         while len(train_examples_i) >= 0:
@@ -89,31 +105,35 @@ def evaluate(
                 if chat_prompt:
                     prompt_input = convert_to_hf_chat_prompt(prompt)
                 
-                print(prompt_input)
-                pred = hf_model_api_completion(prompt=prompt_input,
-                                                   model_name=model,
-                                                   tokenizer=tokenizer,
-                                                   timeout=timeout)
-                 
-            try:
-                pred = model_completion(
-                    prompt,
-                    model,
-                    timeout=timeout,
-                    **model_params,
-                )
-                break
-            except (openai.error.InvalidRequestError, openai.error.Timeout):
-                if len(train_examples_i) == 0:
-                    pred = np.random.choice(valid_labels)
-                    print("Exausted Everything! Giving Random Prediction Now :(")
+                # print(prompt_input)
+                pred = hf_model_api_completion(
+                                                prompt=prompt_input,
+                                                model_name=model,
+                                                tokenizer=tokenizer,
+                                                timeout=timeout
+                                                )
+            
+            else:     
+                try:
+                    pred = model_completion(
+                        prompt,
+                        model,
+                        timeout=timeout,
+                        **model_params,
+                    )
                     break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                )
+                except (openai.error.InvalidRequestError, openai.error.Timeout):
+                    if len(train_examples_i) == 0:
+                        pred = np.random.choice(valid_labels)
+                        print("Exausted Everything! Giving Random Prediction Now :(")
+                        break
+                    train_examples_i = train_examples_i[:-1]
+                    print(
+                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                    )
 
-        print("pred: ",pred)
+        # print("pred: ",pred)
+        pred = str(pred).split(":")[0]
         preds.append(pred)
         labels.append(label)
         matches.append(float(pred == label))
@@ -123,10 +143,15 @@ def evaluate(
         if log_wandb:
             wandb.log({"acuracy": running_acc})
         # time.sleep(1 / num_evals_per_sec)
+        
+        results.append({"Label": labels, "Prediction": preds, "Match": matches})
+        
+        results_df = pd.DataFrame(results)
+        results_df.to_csv(f"{out_dir}/preds.csv")
 
-    accuracy = num_matches / len(preds)
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
-
+    accuracy = results_df["Match"].mean()    
+    
     return accuracy, results_df
 
 
@@ -204,12 +229,18 @@ def main(sys_args):
     verbalizer = VERBALIZER["default"]
     
     pred_file_path = f"{out_dir}/preds.csv"
-    accuracy = evaluate(
+
+    tokenizer=None    
+    if args.use_hf_api:
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
+
+    accuracy, results_df = evaluate(
         train_dataset,
         test_dataset,
         prompt_template=prompt_template,
         verbalizer=verbalizer,
         model=args.model,
+        tokenizer=tokenizer,
         few_shot_size=args.few_shot_k,
         selection_criteria=args.few_shot_selection,
         num_evals_per_sec=args.num_evals_per_sec,
@@ -222,12 +253,17 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
         timeout=args.timeout,
-        use_hf_model=args.use_hf_api
+        use_hf_model=args.use_hf_api,
+        out_dir=out_dir,
     )
     print(accuracy)
     # Store results
     results_dict = vars(args)
     results_dict["metrics"] = {"accuracy": accuracy}
+    print(results_dict)
+    
+    results_df.to_csv(f"{out_dir}/preds.csv")
+    
     if not args.no_save:
         with open(f"{out_dir}/results.json", "w") as f:
             json.dump(results_dict, f, indent=4)
