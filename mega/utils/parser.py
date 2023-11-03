@@ -118,6 +118,11 @@ def parse_args(args: list) -> argparse.Namespace:
     
     
     parser.add_argument(
+        "--substrate_prompt",
+        action="store_true",
+        help="Whether to use substrate LLM to evaluate or not",
+    )
+    parser.add_argument(
         "--num_evals_per_sec",
         default=2,
         type=int,

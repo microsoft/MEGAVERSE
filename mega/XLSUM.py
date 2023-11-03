@@ -125,6 +125,7 @@ def construct_prompt(
     return prompt_input, test_prompt_label
 
 
+
 def dump_metrics(lang, r1, r2, rL, metric_logger_path):
     with open(metric_logger_path, "a") as f:
         csvwriter = csv.writer(f, delimiter=",")
@@ -152,9 +153,10 @@ if __name__ == "__main__":
     lang = sys.argv[1]
     prompt_name = args["prompt_names"][0]
 
-    wandb.init(project="debug", entity="scai-msri", config=args)
-    wandb.config.lang = lang
-    wandb.run.name = f"{lang}"
+    if args["wandb_log"]:
+        wandb.init(project="debug", entity="scai-msri", config=args)
+        wandb.config.lang = lang
+        wandb.run.name = f"{lang}"
 
     instruction = INSTRUCTIONS[args["instruction_identifier"]]
 
@@ -222,23 +224,24 @@ if __name__ == "__main__":
             temperature=args["temperature"],
             run_details=run_details,
         )
-        run_details["last_processed_idx"] = idx
         batched_predictions.append(pred)
+        run_details["last_processed_idx"] = idx
         dump_predictions(idx, pred, response_logger_file)
         r1, r2, rL = compute_rouge(scorer, pred, label)
         rouge1.append(r1)
         rouge2.append(r2)
         rougeL.append(rL)
         pbar.set_description(f"ROUGE-L: {np.average(rougeL)}")
-        wandb.log(run_details, step=idx + 1)
-        wandb.log(
-            {
-                "avg R1": np.average(rouge1),
-                "avg R2": np.average(rouge2),
-                "avg RL": np.average(rougeL),
-            },
-            step=idx + 1,
-        )
+        if args["wandb_log"]:
+            wandb.log(run_details, step=idx + 1)
+            wandb.log(
+                {
+                    "avg R1": np.average(rouge1),
+                    "avg R2": np.average(rouge2),
+                    "avg RL": np.average(rougeL),
+                },
+                step=idx + 1,
+            )
 
     print(
         f"Average performance for the {prompt_name} in {lang} is ({np.average(rouge1)},{np.average(rouge2)},{np.average(rougeL)})"

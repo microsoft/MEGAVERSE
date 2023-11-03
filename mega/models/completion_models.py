@@ -6,12 +6,14 @@ import openai
 from typing import List, Dict, Union, Any
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
+from mega.utils.substrate_llm import LLMClient, create_request_data
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
     # BLOOMZ_API_URL,
     HF_API_URL,
 )
+import backoff
 from huggingface_hub import InferenceClient
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
@@ -21,17 +23,16 @@ SUPPORTED_MODELS = [
     "BLOOM",
     "BLOOMZ",
     "gpt-35-turbo",
+    "gpt-35-turbo-16k",
     "gpt-4-32k",
     "gpt-4",
+    "dev-gpt-35-turbo",
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
-    "meta-llama/Llama-2-70b-chat-hf"
+    "meta-llama/Llama-2-70b-chat-hf",
 ]
 
-MODEL_TYPES = [
-                "completion", 
-                "seq2seq"
-               ]
+MODEL_TYPES = ["completion", "seq2seq"]
 
 CHAT_MODELS = [
     "gpt-35-turbo",
@@ -53,96 +54,56 @@ def timeout_handler(signum, frame):
     raise openai.error.Timeout("API Response Stuck!")
 
 
+@backoff.on_exception(backoff.expo, KeyError)
+def substrate_llm_completion(
+    llm_client: LLMClient, prompt: str, model_name: str, **model_params
+) -> str:
+    request_data = create_request_data(prompt, **model_params)
+    response = llm_client.send_request(model_name, request_data)
+    text_result = response["choices"][0]["text"]
+    text_result = text_result.replace("<|im_end|>", "")
+    return text_result
+
+
+# @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
+@backoff.on_exception(backoff.expo, openai.error.APIError, max_time=60)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
     run_details: Any = {},
     num_evals_per_sec: int = 2,
-    backoff_base: int = 2,
-    backoff_rate: int = 2,
-    backoff_ceil: int = 10,
-    timeout: int = 0,
     **model_params,
 ) -> str:
-    """Runs the prompt over the GPT3.x model for text completion
-
-    Args:
-        - prompt (str) : Prompt String to be completed by the model
-        - model (str) : GPT-3x model to use
-
-    Returns:
-        str: generated string
-    """
-
-    if model in CHAT_MODELS:
-        openai.api_version = "2023-03-15-preview"
-    else:
-        openai.api_version = "2022-12-01"
-
-    # Hit the api repeatedly till response is obtained
     output = None
-    backoff_count = 0
-    while True:
-        try:
-            if isinstance(prompt, str):
-                if timeout != 0:
-                    # Set the signal handler for the SIGALRM signa
-                    signal.signal(signal.SIGALRM, timeout_handler)
-                    signal.alarm(
-                        timeout
-                    )  # Wait for timeout seconds for the response to come
-                response = openai.Completion.create(
-                    engine=model,
-                    prompt=prompt,
-                    max_tokens=model_params.get("max_tokens", 20),
-                    temperature=model_params.get("temperature", 1),
-                    top_p=model_params.get("top_p", 1),
-                )
-                if timeout != 0:
-                    signal.alarm(0)  # Disable the alarm
-                if "num_calls" in run_details:
-                    run_details["num_calls"] += 1
-                output = response["choices"][0]["text"].strip().split("\n")[0]
-                time.sleep(1 / num_evals_per_sec)
-                backoff_count = 0
-            else:
-                if timeout != 0:
-                    # Set the signal handler for the SIGALRM signa
-                    signal.signal(signal.SIGALRM, timeout_handler)
-                    signal.alarm(
-                        timeout
-                    )  # Wait for timeout seconds for the response to come
-                response = openai.ChatCompletion.create(
-                    engine=model,
-                    messages=prompt,
-                    max_tokens=model_params.get("max_tokens", 20),
-                    temperature=model_params.get("temperature", 1),
-                    top_p=model_params.get("top_p", 1),
-                )
-                if timeout != 0:
-                    signal.alarm(0)  # Disable the alarm
-                if "num_calls" in run_details:
-                    run_details["num_calls"] += 1
-                if response["choices"][0]["finish_reason"] == "content_filter":
-                    output = ""
-                else:
-                    output = response["choices"][0]["message"][
-                        "content"
-                    ].strip()  # .split("\n")[0]
-                time.sleep(1 / num_evals_per_sec)
-                backoff_count = 0
-            break
-        except (openai.error.APIConnectionError, openai.error.RateLimitError) as e:
-            backoff_count = min(backoff_count + 1, backoff_ceil)
-            sleep_time = backoff_base**backoff_count
-            print(f"Exceeded Rate Limit. Waiting for {sleep_time} seconds")
-            time.sleep(sleep_time)
-            continue
-        except (openai.error.APIError, TypeError):
-            warnings.warn(
-                "Couldn't generate response, returning empty string as response"
-            )
-            return ""
+    if isinstance(prompt, str):
+        response = openai.Completion.create(
+            engine=model,
+            prompt=prompt,
+            max_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+            top_p=model_params.get("top_p", 1),
+        )
+        if "num_calls" in run_details:
+            run_details["num_calls"] += 1
+        output = response["choices"][0]["text"].strip().split("\n")[0]
+        time.sleep(1 / num_evals_per_sec)
+    else:
+        response = openai.ChatCompletion.create(
+            engine=model,
+            messages=prompt,
+            max_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+            top_p=model_params.get("top_p", 1),
+        )
+        if "num_calls" in run_details:
+            run_details["num_calls"] += 1
+        if response["choices"][0]["finish_reason"] == "content_filter":
+            output = ""
+        else:
+            output = response["choices"][0]["message"][
+                "content"
+            ].strip()  # .split("\n")[0]
+        time.sleep(1 / num_evals_per_sec)
 
     return output
 
@@ -225,7 +186,7 @@ def bloomz_completion(prompt: str, **model_params) -> str:
     return output
 
 
-def llama2_completion(prompt: str, model:str, **model_params) -> str:
+def llama2_completion(prompt: str, model: str, **model_params) -> str:
     """Runs the prompt over BLOOM model for text completion
 
     Args:
@@ -238,7 +199,11 @@ def llama2_completion(prompt: str, model:str, **model_params) -> str:
 
     def query(payload):
         payload = {"inputs": payload}
-        response = requests.post(f"https://api-inference.huggingface.co/models/{model}", headers=headers, json=payload)
+        response = requests.post(
+            f"https://api-inference.huggingface.co/models/{model}",
+            headers=headers,
+            json=payload,
+        )
         return response.json()
 
     output = ""
@@ -269,6 +234,7 @@ def llama2_completion(prompt: str, model:str, **model_params) -> str:
 def model_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
+    run_substrate_llm_completion: bool = False,
     timeout: int = 0,
     **model_params,
 ) -> str:
@@ -282,11 +248,7 @@ def model_completion(
         str: generated string
     """
 
-    print(model)
-    if (
-        model
-        in CHAT_MODELS
-    ):
+    if model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
     if model == "BLOOM":
@@ -295,7 +257,14 @@ def model_completion(
     if model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
 
-        
+    if run_substrate_llm_completion:
+        llm_client = LLMClient()
+        return substrate_llm_completion(llm_client, prompt, model, **model_params)
+
+    if "Llama-2" in model:
+        print(prompt)
+
+        prompt = llama2_completion(prompt, model, **model_params)
 
 
 def get_model_pred(
@@ -305,6 +274,7 @@ def get_model_pred(
     test_prompt_template: Template,
     model: str,
     chat_prompt: bool = False,
+    run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
     **model_params,
@@ -332,7 +302,11 @@ def get_model_pred(
     )
 
     model_prediction = model_completion(
-        prompt_input, model, timeout=timeout, **model_params
+        prompt_input,
+        model,
+        timeout=timeout,
+        run_substrate_llm_completion=run_substrate_llm_completion,
+        **model_params,
     )
-    
+
     return {"prediction": model_prediction, "ground_truth": label}
