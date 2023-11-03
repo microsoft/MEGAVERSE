@@ -14,6 +14,12 @@ from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
 import pdb
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
 
 
 def main(sys_args):
@@ -77,7 +83,7 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    pred_file_path = f"{out_dir}/preds.csv"
+    pred_file_path = f"{out_dir}/preds.json"
     accuracy = evaluate_model(
         train_dataset,
         test_dataset,
@@ -96,6 +102,8 @@ def main(sys_args):
         temperature=args.temperature,
         top_p=args.top_p,
         timeout=args.timeout,
+        substrate_prompt=args.substrate_prompt
+
     )
     print(accuracy)
     # Store results

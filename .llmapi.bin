@@ -1,0 +1,54 @@
+{
+    "AccessToken": {
+        "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47-login.microsoftonline.com-accesstoken-68df66a4-cad9-4bfd-872b-c6ddde00d6b2-72f988bf-86f1-41af-91ab-2d7cd011db47-api://68df66a4-cad9-4bfd-872b-c6ddde00d6b2/access": {
+            "credential_type": "AccessToken",
+            "secret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjlHbW55RlBraGMzaE91UjIybXZTdmduTG83WSJ9.eyJhdWQiOiI2OGRmNjZhNC1jYWQ5LTRiZmQtODcyYi1jNmRkZGUwMGQ2YjIiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE2OTg5OTM1NDUsIm5iZiI6MTY5ODk5MzU0NSwiZXhwIjoxNjk4OTk3NjQ0LCJhaW8iOiJBV1FBbS84VkFBQUFjOGgzbGxMcWxoTi93QjBhSnNoaWttME92ZmswanZFbVlVSjVKcFVVdk1kSmVIemw5M3lBa1cxNHZ3QkpaQWV0TUpPNG9LRzRnNjZSTmpqdGcvNm5rMnR2K0l5UGk3Qm9oVnliTWcyUzVIdStsVEFnZHVtWmtJMDBpTWtmbEZucCIsImF6cCI6IjY4ZGY2NmE0LWNhZDktNGJmZC04NzJiLWM2ZGRkZTAwZDZiMiIsImF6cGFjciI6IjAiLCJlbWFpbCI6InQtcmlzaGF2aGFkYUBtaWNyb3NvZnQuY29tIiwibmFtZSI6IlJpc2hhdiBIYWRhIiwib2lkIjoiNzQ3ODhkNmUtNWE2Yi00Mzc4LTgwZjItZGQxZDM3ZjIyZDAzIiwicHJlZmVycmVkX3VzZXJuYW1lIjoidC1yaXNoYXZoYWRhQG1pY3Jvc29mdC5jb20iLCJyaCI6IjAuQVJvQXY0ajVjdkdHcjBHUnF5MTgwQkhiUjZSbTMyalp5djFMaHl2RzNkNEExcklhQVBZLiIsInNjcCI6ImFjY2VzcyIsInN1YiI6ImVTUWt6UU5KWkhhZ0M4OEZzQ0tETm5yWkhqbERHTktXZ2hjZGd4RzdYak0iLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ1dGkiOiIxRlA1XzNneGdVS0EzZmtfdkpHTEFBIiwidmVyIjoiMi4wIiwidmVyaWZpZWRfcHJpbWFyeV9lbWFpbCI6WyJ0LXJpc2hhdmhhZGFAbWljcm9zb2Z0LmNvbSJdfQ.BXSzxNklrrLzaM87HvNf_IQZx-r088d3eyhmiiSuA2unj8w_8-Bs4Ij1C7ugMZuLTV-5Kvo6RkDkKFNt7esbDDZRWXvJeBbEpYcIT6i8phn_xa3-Hxlxscqgjx4dTf6IXpdviJbvued6rtT2lkB5yA_IWFiQIlm5KIl3iPSj-6Q8mVC6-DuaWZtHHMPKYy1MEEmPhvCum_ayp1xgvLf09ySvlNuva5TG8vGe-aKzk0mTkUp6WtyqUW2k0pU30bnYYVCBx3-VZfDSbo4WuAGgc36gYr3MoojMKnk8QGn9FUD2JK5HtrefFwzmQL91Q012Usnng_A_nRJ3PUXRTx0VmQ",
+            "home_account_id": "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "environment": "login.microsoftonline.com",
+            "client_id": "68df66a4-cad9-4bfd-872b-c6ddde00d6b2",
+            "target": "api://68df66a4-cad9-4bfd-872b-c6ddde00d6b2/access",
+            "realm": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "token_type": "Bearer",
+            "cached_at": "1698993845",
+            "expires_on": "1698997643",
+            "extended_expires_on": "1698997643"
+        }
+    },
+    "Account": {
+        "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47-login.microsoftonline.com-72f988bf-86f1-41af-91ab-2d7cd011db47": {
+            "home_account_id": "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "environment": "login.microsoftonline.com",
+            "realm": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "local_account_id": "74788d6e-5a6b-4378-80f2-dd1d37f22d03",
+            "username": "t-rishavhada@microsoft.com",
+            "authority_type": "MSSTS"
+        }
+    },
+    "IdToken": {
+        "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47-login.microsoftonline.com-idtoken-68df66a4-cad9-4bfd-872b-c6ddde00d6b2-72f988bf-86f1-41af-91ab-2d7cd011db47-": {
+            "credential_type": "IdToken",
+            "secret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjlHbW55RlBraGMzaE91UjIybXZTdmduTG83WSJ9.eyJhdWQiOiI2OGRmNjZhNC1jYWQ5LTRiZmQtODcyYi1jNmRkZGUwMGQ2YjIiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE2OTg5OTM1NDUsIm5iZiI6MTY5ODk5MzU0NSwiZXhwIjoxNjk4OTk3NDQ1LCJuYW1lIjoiUmlzaGF2IEhhZGEiLCJvaWQiOiI3NDc4OGQ2ZS01YTZiLTQzNzgtODBmMi1kZDFkMzdmMjJkMDMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0LXJpc2hhdmhhZGFAbWljcm9zb2Z0LmNvbSIsInJoIjoiMC5BUm9BdjRqNWN2R0dyMEdScXkxODBCSGJSNlJtMzJqWnl2MUxoeXZHM2Q0QTFySWFBUFkuIiwic3ViIjoiZVNRa3pRTkpaSGFnQzg4RnNDS0RObnJaSGpsREdOS1dnaGNkZ3hHN1hqTSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVwbiI6InQtcmlzaGF2aGFkYUBtaWNyb3NvZnQuY29tIiwidXRpIjoiMUZQNV8zZ3hnVUtBM2ZrX3ZKR0xBQSIsInZlciI6IjIuMCIsInZlcmlmaWVkX3ByaW1hcnlfZW1haWwiOlsidC1yaXNoYXZoYWRhQG1pY3Jvc29mdC5jb20iXX0.H6cIU0tcpM_fhRJ6wCXZSz_OZZ-0_7A2tXkNUE1zGNnUVnfhNECc09nBQjs8ANGyQ2-u83HmPmFLTnGbKdZqpSNOKMHynoSnQ5zgag1M_YI1Z0f9EikYPk9j5Xbzt4zL6lJgEKNg7l2FthTuV8gXLy7x7vfT2chcYCMvG9Sed-L0zAKfnwXtaRvZmvtmC2DYqYGDLxsb2T03ttbqLo_lGutRvQsXWxqbyVXAapw85bxcNNlk8Qhb93f55CFRDkR0zXFa0RsBn0kF6ZZT7UpmgSRS4ykVsr3UHUehVBXydpDgBJyUpOhaht5Cp7k30SssSba5mSw4ev0TCHPgOw_cHg",
+            "home_account_id": "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "environment": "login.microsoftonline.com",
+            "realm": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "client_id": "68df66a4-cad9-4bfd-872b-c6ddde00d6b2"
+        }
+    },
+    "RefreshToken": {
+        "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47-login.microsoftonline.com-refreshtoken-68df66a4-cad9-4bfd-872b-c6ddde00d6b2--api://68df66a4-cad9-4bfd-872b-c6ddde00d6b2/access": {
+            "credential_type": "RefreshToken",
+            "secret": "0.ARoAv4j5cvGGr0GRqy180BHbR6Rm32jZyv1LhyvG3d4A1rIaAPY.AgABAAEAAAAmoFfGtYxvRrNriQdPKIZ-AgDs_wUA9P8tYxpx7HbO2TbRP6qUKbc9vr2k8TEGdk6YvfPxA7DedbIsy0p5bF5krLR8OFsqvBrU96wKGtsBRU7uh8c-_4nbDofttLULt4oVhmT9uBFxbcU2vlx0bGoKEBGcvwzQg788zDtpwrhNlDzzJPHjf4K-Ey-lwIEHR8O6FuZwAF2Q86tPG4Pl6QZ1XNp6u2N2KkwPC0iCgItjgcfiD5sACHW3upR0H41g2LtdtIfGoiIrrOcGpa6dlMRkQn9vqrJWAHC0IC9h1vRyTHJj6knwtqqD_cadGQFtcYBaPsfRscx04XblG-bXHgvpi0u_WkwlC9bV2LiIx9uaCbpXmrOnAwpyH7bmjEGZzxVyoCr66nzWSJlRrlUaqcanJ5nz1yhZZSCKWjU4cZZn2IzDBkEJwxJORIbp9OhFosGWo1exkfDk5xnlu7gV0Tx7HotRpuMFB3vfJKJXPKvmKCNsB9TJyj-6_pBLNou8hYI_XBycdZK1iH8yiOKjMnm1bnttJTQC4Sxkbh4uywMt1qKQ8WRMLcEuVyJNulxqhZcKaxMHLqeQqfdNmp2uHCxnnE2nPr6ZdS5JEh5orKEtVq1qBF5SqY50r7OxOQaSG41uHZDjWdk4SJogytPMGFjFMY3WR2LJHOsftZxUpwkqTCGnRhxpbY1Etc46MsD4itOdZyK6NvfYakzAtcVcV1hiVLZ1PTECzNdPM8R79gANLW0yj7Wsocq3kJkTNikD0l9RyO3ykvTXZsAJD44gFxTQGHauEPkwQGWZSKg06g3RraUFv1w4dwp55Bky2KIwEsNC0G2r5_5p8iqR3zWbFPBR66jgRik1jIeL7lyu6xit6mXhu4iPl_3SZYHzSOdKttPXPj0Cg9-igvNw5yXJnFXwrlVFt2i1Pc7wwfCoSElZSQ",
+            "home_account_id": "74788d6e-5a6b-4378-80f2-dd1d37f22d03.72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "environment": "login.microsoftonline.com",
+            "client_id": "68df66a4-cad9-4bfd-872b-c6ddde00d6b2",
+            "target": "api://68df66a4-cad9-4bfd-872b-c6ddde00d6b2/access",
+            "last_modification_time": "1698993845"
+        }
+    },
+    "AppMetadata": {
+        "appmetadata-login.microsoftonline.com-68df66a4-cad9-4bfd-872b-c6ddde00d6b2": {
+            "client_id": "68df66a4-cad9-4bfd-872b-c6ddde00d6b2",
+            "environment": "login.microsoftonline.com"
+        }
+    }
+}
