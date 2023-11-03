@@ -19,7 +19,6 @@ from mega.data.load_datasets import load_tagging_dataset
 from mega.utils.env_utils import load_openai_env_variables
 import openai
 from mega.models.completion_models import (
-    get_model_pred,
     gpt3x_completion,
     substrate_llm_completion,
 )
@@ -92,6 +91,7 @@ def evaluate(
     substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
+    dataset = None,
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
@@ -140,8 +140,11 @@ def evaluate(
                     one_shot_tag=one_shot_tag,
                     chat_prompt=chat_prompt,
                     instruction=instruction,
+                    substrate_prompt=substrate_prompt,
+                    dataset = dataset,
                     **model_params,
                 )
+                # print("the pred dict is",pred_dict,type(pred_dict))
                 break
             except (openai.error.InvalidRequestError, openai.error.Timeout):
                 if len(train_examples_i) == 0:
@@ -157,14 +160,21 @@ def evaluate(
                 print(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
+        print("old preds", "<s>", pred_dict["prediction"].split('\n')[0], "</s>")
+
+        # for i, pred in enumerate(pred_dict["prediction"]):
+        #     print(i, pred)
 
         pred_dict["prediction"] = [
-            pred if pred != "" else np.random.choice(valid_labels)
+            ''.join(pred) if pred != "" else np.random.choice(valid_labels)
             for pred in pred_dict["prediction"]
         ]
+        # print("new preds",pred_dict["prediction"])
         dump_predictions(idx, pred_dict["prediction"], save_preds_path)
         preds.append(pred_dict["prediction"])
         labels.append(pred_dict["ground_truth"])
+        # print("preds",pred_dict["prediction"])
+        print("labels",pred_dict["ground_truth"])
         try:
             f1_scores.append(f1_score(preds, labels))
         except IndexError:
@@ -227,7 +237,7 @@ def main(sys_args):
 
     # Loading instruction for the task
     instruction = INSTRUCTIONS[args.dataset]
-    print(instruction)
+    # print(instruction)
 
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}wthInstruction"
     if args.use_val_to_prompt:
@@ -238,7 +248,6 @@ def main(sys_args):
 
     save_preds_path = f"{out_dir}/preds.json"
     eval_score, preds_df = evaluate(
-        save_preds_path,
         train_dataset,
         test_dataset,
         prompt_template=PROMPTS_DICT[args.tgt_prompt_name],
@@ -251,6 +260,8 @@ def main(sys_args):
         parallel_eval=args.parallel_eval,
         num_proc=args.num_proc,
         log_wandb=args.log_wandb,
+        save_preds_path=save_preds_path,
+        dataset=args.dataset,
         chat_prompt=args.chat_prompt,
         substrate_prompt=args.substrate_prompt,
         instruction=instruction,
@@ -259,6 +270,7 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
     )
+    # print("Value of chat_prompt",chat_prompt)
     # preds_df.to_csv(f"{out_dir}/preds.csv")
     print(eval_score)
     results_dict = vars(args)

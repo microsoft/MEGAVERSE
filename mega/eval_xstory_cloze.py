@@ -60,6 +60,7 @@ def evaluate(
     substrate_prompt: bool = False,
     instruction: str = "",
     timeout: int = 0,
+    max_tokens=20,
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
@@ -75,6 +76,7 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
+    llm_client = LLMClient()
 
     try:
         with open(save_preds_path, 'r') as file:
@@ -104,14 +106,25 @@ def evaluate(
                 verbalizer,
                 chat_prompt,
                 instruction,
+                substrate_prompt,
             )
             try:
-                pred = model_completion(
-                    prompt,
-                    model,
-                    timeout=timeout,
-                    **model_params,
-                )
+                if not substrate_prompt:
+                    pred = model_completion(
+                        prompt,
+                        model,
+                        timeout=timeout,
+                        **model_params,
+                    )
+
+                else:
+                    pred = substrate_llm_completion(
+                    llm_client=llm_client,
+                    prompt=prompt,
+                    model_name=model,
+                    temperature=0,
+                    max_tokens=max_tokens,
+                    )
                 break
             except (openai.error.InvalidRequestError, openai.error.Timeout):
                 if len(train_examples_i) == 0:

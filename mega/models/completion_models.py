@@ -278,6 +278,7 @@ def get_model_pred(
     run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
+    dataset = None,
     **model_params,
 ) -> Dict[str, str]:
     """_summary_
@@ -301,6 +302,8 @@ def get_model_pred(
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
         substrate_prompt=substrate_prompt,
+        dataset=dataset,
+
     )
 
     if substrate_prompt:
