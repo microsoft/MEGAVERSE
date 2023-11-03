@@ -2,7 +2,7 @@ import signal
 import time
 import warnings
 from typing import Any, Dict, List, Union
-
+import backoff
 import openai
 import requests
 from mega.utils.substrate_llm import LLMClient, create_request_data
@@ -59,6 +59,15 @@ panx_verbalizer = {
     "O": "non-entity",
 }
 
+@backoff.on_exception(backoff.expo, KeyError)
+def substrate_llm_completion(
+    llm_client: LLMClient, prompt: str, model_name: str, **model_params
+) -> str:
+    request_data = create_request_data(prompt, **model_params)
+    response = llm_client.send_request(model_name, request_data)
+    text_result = response["choices"][0]["text"]
+    text_result = text_result.replace("<|im_end|>", "")
+    return text_result
 
 def gpt3x_tagger(
     prompt: Union[str, List[Dict[str, str]]],

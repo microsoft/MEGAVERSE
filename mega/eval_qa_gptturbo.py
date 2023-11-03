@@ -246,8 +246,9 @@ def evaluate_qa_chatgpt(
     labels = []
     f1s, ems = [], []
     try:
-        with open(save_preds_path, "r") as file:
-            json_data = json.load(file)
+        with open(save_preds_path, 'r') as file:
+            # json_data = json.load(file)
+            json_data = [json.loads(line) for line in file]
 
         idx_set = {obj["q_idx"] for obj in json_data}
     except:

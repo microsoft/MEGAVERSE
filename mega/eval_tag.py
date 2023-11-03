@@ -110,10 +110,10 @@ def evaluate(
     f1_scores = []
     try:
         with open(save_preds_path, 'r') as file:
-            json_data = json.load(file)
+            json_data = [json.loads(line) for line in file]
         idx_set = {obj["q_idx"] for obj in json_data}
-
     except:
+        print("No preds file found")
         idx_set = set()
 
     pbar = tqdm(enumerate(test_dataset))
@@ -141,10 +141,8 @@ def evaluate(
                     chat_prompt=chat_prompt,
                     instruction=instruction,
                     substrate_prompt=substrate_prompt,
-                    dataset = dataset,
                     **model_params,
                 )
-                # print("the pred dict is",pred_dict,type(pred_dict))
                 break
             except (openai.error.InvalidRequestError, openai.error.Timeout):
                 if len(train_examples_i) == 0:
@@ -160,25 +158,29 @@ def evaluate(
                 print(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
-        print("old preds", "<s>", pred_dict["prediction"].split('\n')[0], "</s>")
-
-        # for i, pred in enumerate(pred_dict["prediction"]):
-        #     print(i, pred)
+        # print("preds","".join(pred_dict["prediction"]).split(' '))
+        preds_temp = "".join(pred_dict["prediction"]).split(' ')
+        try:
+            preds_temp = [word.split("_")[1] for word in preds_temp]
+        except:
+            continue
+        # print("preds_temp",preds_temp)
+        pred_dict["prediction"] = preds_temp
 
         pred_dict["prediction"] = [
             ''.join(pred) if pred != "" else np.random.choice(valid_labels)
             for pred in pred_dict["prediction"]
         ]
-        # print("new preds",pred_dict["prediction"])
-        dump_predictions(idx, pred_dict["prediction"], save_preds_path)
         preds.append(pred_dict["prediction"])
         labels.append(pred_dict["ground_truth"])
-        # print("preds",pred_dict["prediction"])
-        print("labels",pred_dict["ground_truth"])
+        # print("labels",pred_dict["ground_truth"])
         try:
             f1_scores.append(f1_score(preds, labels))
-        except IndexError:
-            breakpoint()
+        except:
+            print(f"Skipping {idx} due to error")
+            continue
+            # breakpoint()
+        dump_predictions(idx, pred_dict["prediction"], save_preds_path)
         running_f1 = f1_scores[-1]
         pbar.set_description(f"F1-Score: {running_f1}")
         if log_wandb:
@@ -270,7 +272,6 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
     )
-    # print("Value of chat_prompt",chat_prompt)
     # preds_df.to_csv(f"{out_dir}/preds.csv")
     print(eval_score)
     results_dict = vars(args)
