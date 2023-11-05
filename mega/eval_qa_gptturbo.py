@@ -6,8 +6,6 @@ import random
 from typing import List
 import string
 import re
-import spacy
-import openai
 import unicodedata
 from functools import partial
 import numpy as np
@@ -25,6 +23,7 @@ from mega.models.completion_models import (
     gpt3x_completion,
     substrate_llm_completion,
     palm_api_completion,
+    model_completion,
 )
 from mega.utils.substrate_llm import LLMClient
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
@@ -246,7 +245,7 @@ def evaluate_qa_chatgpt(
     labels = []
     f1s, ems = [], []
     try:
-        with open(save_preds_path, 'r') as file:
+        with open(save_preds_path, "r") as file:
             # json_data = json.load(file)
             json_data = [json.loads(line) for line in file]
 
@@ -274,27 +273,16 @@ def evaluate_qa_chatgpt(
                 substrate_prompt=substrate_prompt,
             )
             try:
-                if model == "text-bison@001" and not substrate_prompt:
-                    pred = palm_api_completion(
-                        prompt, temperature=0, max_output_tokens=max_tokens
-                    )
-                elif model in CHAT_MODELS and not substrate_prompt:
-                    pred = gpt3x_completion(
-                        prompt,
-                        model,
-                        temperature=0,
-                        run_details=run_details,
-                        num_evals_per_sec=num_evals_per_sec,
-                        max_tokens=max_tokens,
-                    )
-                else:
-                    pred = substrate_llm_completion(
-                        llm_client=llm_client,
-                        prompt=prompt,
-                        model_name=model,
-                        temperature=0,
-                        max_tokens=max_tokens,
-                    )
+                pred = model_completion(
+                    prompt,
+                    model,
+                    run_substrate_llm_completion=substrate_prompt,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    max_output_tokens=max_tokens,
+                    run_details=run_details,
+                    num_evals_per_sec=num_evals_per_sec,
+                )
                 break
             # except (openai.error.InvalidRequestError, openai.error.Timeout):
             except Exception as e:

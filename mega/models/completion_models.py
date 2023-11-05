@@ -33,7 +33,7 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
-    "text-bison@001"
+    "palm"
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -203,7 +203,7 @@ def bloomz_completion(prompt: str, **model_params) -> str:
 
 
 def llama2_completion(prompt: str, model: str, **model_params) -> str:
-    """Runs the prompt over BLOOM model for text completion
+    """Runs the prompt over LLAMA model for text completion
 
     Args:
         prompt (str): Prompt String to be completed by the model
@@ -278,9 +278,11 @@ def model_completion(
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     if "Llama-2" in model:
-        print(prompt)
 
         prompt = llama2_completion(prompt, model, **model_params)
+    
+    if model == 'palm':
+        return palm_api_completion(prompt, model, **model_params)
 
 
 def get_model_pred(
