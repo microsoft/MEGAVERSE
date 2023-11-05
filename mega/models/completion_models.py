@@ -15,7 +15,7 @@ from mega.utils.env_utils import (
 )
 import backoff
 from huggingface_hub import InferenceClient
-from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+# from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
 

@@ -161,3 +161,6 @@ Python-3.8.12/
 BLOOM/
 DV003/
 backup/
+
+# Translation dataset
+translation_dataset
