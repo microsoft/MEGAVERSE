@@ -350,7 +350,6 @@ def evaluate_qa_chatgpt(
             em_sum += results["exact"]
         avg_f1 = f1_sum / (i + 1)
         avg_em = em_sum / (i + 1)
-        # print(log_wandb, "wandb")
         log_wandb = False
         if log_wandb:
             wandb.log({"f1": avg_f1, "em": avg_em}, step=i + 1)
@@ -382,7 +381,6 @@ def main(sys_args):
     args = parse_args(sys_args)
     load_openai_env_variables()
     # Set seed
-    print(args.substrate_prompt, "subs")
     random.seed(args.seed)
     np.random.seed(args.seed)
     # Initialize wandb
