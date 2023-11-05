@@ -8,14 +8,11 @@ from datasets import Dataset
 from promptsource.templates import Template
 from mega.models.completion_models import get_model_pred
 from mega.data.data_utils import choose_few_shot_examples
+from mega.utils.misc_utils import dump_predictions
 import openai
 import json
 import sys
 
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 def run_seq_eval(
     save_preds_path,
@@ -54,7 +51,7 @@ def run_seq_eval(
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]
     try:
-        with open(save_preds_path, 'r') as file:
+        with open(save_preds_path, "r") as file:
             # json_data = json.load(file)
             json_data = [json.loads(line) for line in file]
 
@@ -71,7 +68,7 @@ def run_seq_eval(
 
         if idx in idx_set:
             continue
-        
+
         while len(train_examples_i) >= 0:
             try:
                 pred_dict = get_model_pred(
@@ -106,7 +103,6 @@ def run_seq_eval(
         # print(pred)
         dump_predictions(idx, pred, save_preds_path)
 
-        
         # if pred == "Invalid request":
         #     pdb.set_trace()
         #     continue
@@ -246,7 +242,5 @@ def evaluate_model(
             timeout=timeout,
             **model_params,
         )
-
-    
 
     return accuracy

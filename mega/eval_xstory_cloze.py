@@ -16,6 +16,7 @@ from mega.data.load_datasets import (
     load_xstory_cloze_translate_test,
 )
 from mega.data.data_utils import choose_few_shot_examples
+from mega.utils.misc_utils import dump_predictions
 from mega.models.completion_models import model_completion
 from mega.prompting.prompting_utils import construct_xstory_prompt
 from mega.prompting.instructions import INSTRUCTIONS
@@ -38,12 +39,8 @@ PROMPT_TEMPLATES = {
 
 VERBALIZER = {"default": {1: "Option1", 2: "Option2"}}
 
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-def evaluate(   
+def evaluate(
     train_dataset: Dataset,
     test_dataset: Dataset,
     prompt_template: str,
@@ -79,7 +76,7 @@ def evaluate(
     llm_client = LLMClient()
 
     try:
-        with open(save_preds_path, 'r') as file:
+        with open(save_preds_path, "r") as file:
             # json_data = json.load(file)
             json_data = [json.loads(line) for line in file]
 
@@ -120,11 +117,11 @@ def evaluate(
 
                 else:
                     pred = substrate_llm_completion(
-                    llm_client=llm_client,
-                    prompt=prompt,
-                    model_name=model,
-                    temperature=0,
-                    max_tokens=max_tokens,
+                        llm_client=llm_client,
+                        prompt=prompt,
+                        model_name=model,
+                        temperature=0,
+                        max_tokens=max_tokens,
                     )
                 break
             except (openai.error.InvalidRequestError, openai.error.Timeout):
@@ -137,7 +134,6 @@ def evaluate(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
 
-        
         dump_predictions(idx, pred, save_preds_path)
         preds.append(pred)
         labels.append(label)
@@ -227,7 +223,7 @@ def main(sys_args):
         num_evals_per_sec=args.num_evals_per_sec,
         parallel_eval=args.parallel_eval,
         num_proc=args.num_proc,
-        save_preds_path = save_preds_path,
+        save_preds_path=save_preds_path,
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
         instruction=instruction,

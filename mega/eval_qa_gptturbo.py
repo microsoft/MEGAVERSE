@@ -26,16 +26,11 @@ from mega.models.completion_models import (
     model_completion,
 )
 from mega.utils.substrate_llm import LLMClient
+from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
-
-
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 
 PUNCT = {

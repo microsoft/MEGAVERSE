@@ -11,6 +11,7 @@ import wandb
 from datasets import Dataset
 from seqeval.metrics import f1_score
 from promptsource.templates import Template
+from mega.utils.misc_utils import dump_predictions
 from mega.models.tag_models import get_model_pred
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
@@ -26,10 +27,6 @@ from mega.utils.substrate_llm import LLMClient
 
 import pdb
 
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 udpos_verbalizer = {
     "ADJ": "adjective",
@@ -91,7 +88,7 @@ def evaluate(
     substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
-    dataset = None,
+    dataset=None,
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
@@ -109,7 +106,7 @@ def evaluate(
     labels = []
     f1_scores = []
     try:
-        with open(save_preds_path, 'r') as file:
+        with open(save_preds_path, "r") as file:
             json_data = [json.loads(line) for line in file]
         idx_set = {obj["q_idx"] for obj in json_data}
     except:
@@ -121,8 +118,8 @@ def evaluate(
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         sys.exit(0)
-        
-    for idx,test_example in pbar:
+
+    for idx, test_example in pbar:
         if idx in idx_set:
             continue
 
@@ -159,7 +156,7 @@ def evaluate(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
         # print("preds","".join(pred_dict["prediction"]).split(' '))
-        preds_temp = "".join(pred_dict["prediction"]).split(' ')
+        preds_temp = "".join(pred_dict["prediction"]).split(" ")
         try:
             preds_temp = [word.split("_")[1] for word in preds_temp]
         except:
@@ -168,7 +165,7 @@ def evaluate(
         pred_dict["prediction"] = preds_temp
 
         pred_dict["prediction"] = [
-            ''.join(pred) if pred != "" else np.random.choice(valid_labels)
+            "".join(pred) if pred != "" else np.random.choice(valid_labels)
             for pred in pred_dict["prediction"]
         ]
         preds.append(pred_dict["prediction"])

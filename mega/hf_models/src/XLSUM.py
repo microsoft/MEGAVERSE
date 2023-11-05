@@ -9,9 +9,13 @@ import yaml
 import random
 import openai
 from mega.data.data_utils import choose_few_shot_examples
-from mega.models.hf_completion_models import hf_model_completion, hf_model_api_completion
+from mega.models.hf_completion_models import (
+    hf_model_completion,
+    hf_model_api_completion,
+)
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.instructions import INSTRUCTIONS
+from mega.utils.misc_utils import dump_predictions
 from mega.utils.env_utils import load_openai_env_variables
 from yaml.loader import SafeLoader
 import numpy as np
@@ -137,12 +141,6 @@ def dump_metrics(lang, r1, r2, rL, metric_logger_path):
         csvwriter.writerow([f"{lang}", f"{r1}", f"{r2}", f"{rL}"])
 
 
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
-
-
 def compute_rouge(scorer, pred, label):
     score = scorer.score(pred, label)
     return score["rouge1"], score["rouge2"], score["rougeL"]
@@ -208,19 +206,18 @@ if __name__ == "__main__":
             )
         )
     )
-    
-    if args['use_api']:
+
+    if args["use_api"]:
         model = None
-        tokenizer = AutoTokenizer.from_pretrained(model_name)   
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
     else:
         model, tokenizer = initialise_model(model_name)
-    
-    
+
     for idx, test_example in pbar:
         if f"{lang}_predictions.csv" in os.listdir(args["response_logger_root"]):
             print("file already exists")
             break
-        
+
         prompt, label = construct_prompt(
             ic_examples,
             test_example,
@@ -228,18 +225,18 @@ if __name__ == "__main__":
             test_prompt_templates,
             args["chat_prompt"],
             instruction,
-        )    
-        
+        )
+
         # print(prompt)
-        
+
         prompt = convert_to_hf_chat_prompt(prompt)
-        
+
         # print(prompt)
-        
+
         # print(args)
-        
+
         time.sleep(args["sleep_period"])
-        if args['use_api']:
+        if args["use_api"]:
             pred = hf_model_api_completion(
                 prompt=prompt,
                 model_name=model_name,

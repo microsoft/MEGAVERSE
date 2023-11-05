@@ -12,6 +12,7 @@ from mega.data.data_utils import choose_few_shot_examples
 from mega.models.completion_models import gpt3x_completion
 from mega.prompting.prompting_utils import get_substrate_prompt
 from mega.prompting.instructions import INSTRUCTIONS
+from mega.utils.misc_utils import dump_predictions
 from mega.utils.env_utils import load_openai_env_variables
 from yaml.loader import SafeLoader
 import numpy as np
@@ -135,7 +136,6 @@ def construct_prompt(
     return prompt_input, test_prompt_label
 
 
-
 def dump_metrics(lang, r1, r2, rL, metric_logger_path):
     with open(metric_logger_path, "a") as f:
         csvwriter = csv.writer(f, delimiter=",")
@@ -143,12 +143,6 @@ def dump_metrics(lang, r1, r2, rL, metric_logger_path):
             header = ["Language", "R1", "R2", "RL"]
             csvwriter.writerow(header)
         csvwriter.writerow([f"{lang}", f"{r1}", f"{r2}", f"{rL}"])
-
-
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 
 def compute_rouge(scorer, pred, label):
@@ -226,14 +220,13 @@ if __name__ == "__main__":
             test_prompt_templates,
             args["chat_prompt"],
             instruction,
-            substrate_prompt = args["substrate_prompt"],
+            substrate_prompt=args["substrate_prompt"],
         )
         # if (idx+1)%8==0:
         time.sleep(args["sleep_period"])
 
         try:
             if not args["substrate_prompt"]:
-
                 pred = gpt3x_completion(
                     prompt=prompt,
                     model=model,
