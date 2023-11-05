@@ -1,0 +1,7 @@
+_type: prompt
+input_variables:
+    ["source", "target", "sentence"]
+template: |
+    Instruction : Translate the following Sentence from {source} to {target}.
+    Sentence: {sentence}
+    Response:
