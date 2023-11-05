@@ -6,8 +6,6 @@ import random
 from typing import List
 import string
 import re
-import spacy
-import openai
 import unicodedata
 from functools import partial
 import numpy as np
@@ -18,17 +16,22 @@ from mega.data.load_datasets import load_xnli_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.prompting.prompting_utils import load_prompt_template
+from mega.models.completion_models import CHAT_MODELS
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import (
     get_model_pred,
     gpt3x_completion,
     substrate_llm_completion,
+    palm_api_completion,
+    model_completion,
 )
 from mega.utils.substrate_llm import LLMClient
+from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
+
 
 PUNCT = {
     chr(i)
@@ -207,6 +210,7 @@ def load_qa_dataset(dataset_name, lang, split, dataset_frac=1, translate_test=Fa
 
 
 def evaluate_qa_chatgpt(
+    save_preds_path,
     train_examples,
     test_dataset,
     prompt_template,
@@ -235,7 +239,23 @@ def evaluate_qa_chatgpt(
     preds = []
     labels = []
     f1s, ems = [], []
+    try:
+        with open(save_preds_path, "r") as file:
+            # json_data = json.load(file)
+            json_data = [json.loads(line) for line in file]
+
+        idx_set = {obj["q_idx"] for obj in json_data}
+    except:
+        idx_set = set()
+    # pbar = tqdm(enumerate(test_dataset))
+    total_items = len(test_dataset)
+    if len(idx_set) == total_items:
+        print("All items already evaluated!")
+        sys.exit(0)
+
     for i, test_example in pbar:
+        if i in idx_set:
+            continue
         train_examples_i = train_examples
         while len(train_examples_i) >= 0:
             prompt, label = construct_qa_prompt(
@@ -248,23 +268,16 @@ def evaluate_qa_chatgpt(
                 substrate_prompt=substrate_prompt,
             )
             try:
-                if not substrate_prompt:
-                    pred = gpt3x_completion(
-                        prompt,
-                        model,
-                        temperature=0,
-                        run_details=run_details,
-                        num_evals_per_sec=num_evals_per_sec,
-                        max_tokens=max_tokens,
-                    )
-                else:
-                    pred = substrate_llm_completion(
-                        llm_client=llm_client,
-                        prompt=prompt,
-                        model_name=model,
-                        temperature=0,
-                        max_tokens=max_tokens,
-                    )
+                pred = model_completion(
+                    prompt,
+                    model,
+                    run_substrate_llm_completion=substrate_prompt,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    max_output_tokens=max_tokens,
+                    run_details=run_details,
+                    num_evals_per_sec=num_evals_per_sec,
+                )
                 break
             # except (openai.error.InvalidRequestError, openai.error.Timeout):
             except Exception as e:
@@ -332,13 +345,12 @@ def evaluate_qa_chatgpt(
             em_sum += results["exact"]
         avg_f1 = f1_sum / (i + 1)
         avg_em = em_sum / (i + 1)
-        # print(log_wandb, "wandb")
         log_wandb = False
         if log_wandb:
             wandb.log({"f1": avg_f1, "em": avg_em}, step=i + 1)
             wandb.log(run_details, step=i + 1)
         pbar.set_description(f"em: {avg_em} f1: {avg_f1}. {i+1}/{len(test_dataset)}")
-
+        dump_predictions(i, prediction, save_preds_path)
         preds.append(prediction)
         labels.append(reference)
         f1s.append(results["f1"])
@@ -364,7 +376,6 @@ def main(sys_args):
     args = parse_args(sys_args)
     load_openai_env_variables()
     # Set seed
-    print(args.substrate_prompt, "subs")
     random.seed(args.seed)
     np.random.seed(args.seed)
     # Initialize wandb
@@ -424,7 +435,9 @@ def main(sys_args):
     normalize_fn = (
         normalize_answer if args.dataset != "mlqa" else normalize_answer_mlqa_fn
     )
+    save_preds_path = f"{out_dir}/preds.json"
     metrics, preds_df = evaluate_qa_chatgpt(
+        save_preds_path,
         train_examples,
         test_dataset,
         prompt_template,
@@ -437,10 +450,10 @@ def main(sys_args):
         log_wandb=True,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
-        substrate_prompt=args.substrate_prompt
+        substrate_prompt=args.substrate_prompt,
     )
 
-    preds_df.to_csv(f"{out_dir}/preds.csv")
+    # preds_df.to_csv(f"{out_dir}/preds.csv")
     print(metrics)
     results_dict = vars(args)
     results_dict["metrics"] = metrics

@@ -3,9 +3,10 @@ from promptsource.templates import Template, DatasetTemplates
 import pdb
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
+import sys
 
 
-def get_substrate_prompt(messages: List[Dict[str, str]]):
+def get_substrate_prompt(messages: List[Dict[str, str]]) -> str:
     system_prompt, user_prompt, assistant_prompt = "", "", ""
     for message in messages:
         if message["role"] == "system":
@@ -157,12 +158,13 @@ def construct_prompt(
     Returns:
         Tuple[str, str] : Final prompt string constructed to provide as input and the verbalized label
     """
-
+   
     if not chat_prompt:
         train_prompts = [
             "\n".join(train_prompt_template.apply(train_example))
             for train_example in train_examples
         ]
+        
         test_prompt_input, test_prompt_label = test_prompt_template.apply(test_example)
         prompt_input = "\n".join(train_prompts + [test_prompt_input]) + "\n"
 
@@ -242,6 +244,8 @@ def construct_tagging_prompt(
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
         test_prompt_label = test_example["tags"]
+        # print("tagged tokens",test_example["tagged_tokens"])
+
         if substrate_prompt:
             prompt_input = get_substrate_prompt(messages)
 
@@ -522,6 +526,8 @@ def load_prompt_template(lang: str, prompt_name: str, dataset: str) -> Template:
     elif dataset == "xcopa" and lang == "en":
         # For xcopa english data, we need to fetch from COPA in superglue instead
         dataset_prompts = DatasetTemplates("super_glue/copa")
+    elif dataset == "xlsum":
+        dataset_prompts = DatasetTemplates("csebuetnlp/xlsum", f"{lang}")
     else:
         dataset_prompts = DatasetTemplates(f"{dataset}/{lang}")
     return dataset_prompts[prompt_name]

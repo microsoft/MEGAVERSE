@@ -6,7 +6,7 @@ import random
 import json
 import wandb
 import numpy as np
-from mega.data.load_datasets import load_xcopa_dataset
+from mega.data.load_datasets import load_xlsum_data
 from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.eval_cls import evaluate_model
 from mega.prompting.prompting_utils import load_prompt_template
@@ -19,6 +19,7 @@ from mega.models.completion_models import (
     gpt3x_completion,
     substrate_llm_completion,
 )
+from mega.utils.substrate_llm import LLMClient
 
 
 def main(sys_args):
@@ -46,15 +47,14 @@ def main(sys_args):
         args.num_proc = wandb.config.num_proc
 
     # Load datasets for pivot and target languages
-    train_dataset = load_xcopa_dataset(
+    train_dataset = load_xlsum_data(
         args.pivot_lang, split="train" if not args.use_val_to_prompt else "validation"
     )
-    test_dataset = load_xcopa_dataset(
+    test_dataset = load_xlsum_data(
         args.tgt_lang,
         split="test" if not args.eval_on_val else "validation",
         dataset_frac=args.test_frac,
     )
-    # ToDO: Add Translate Test Support
     # if args.translate_test:
     #     test_dataset = load_xnli_translate_test(
     #         args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
@@ -64,17 +64,17 @@ def main(sys_args):
     if args.same_prompt_name:
         args.pivot_prompt_name = args.tgt_prompt_name
     train_prompt_template = load_prompt_template(
-        args.pivot_lang, args.pivot_prompt_name, dataset="xcopa"
+        args.pivot_lang, args.pivot_prompt_name, dataset="xlsum"
     )
     test_prompt_template = load_prompt_template(
-        args.tgt_lang, args.tgt_prompt_name, dataset="xcopa"
+        args.tgt_lang, args.tgt_prompt_name, dataset="xlsum"
     )
 
     train_examples = choose_few_shot_examples(
         train_dataset, args.few_shot_k, args.few_shot_selection
     )
 
-    out_dir = f"{args.save_dir}/xcopa/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"
+    out_dir = f"{args.save_dir}/xlsum/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}_temperature_{args.temperature}"
     if args.translate_test:
         out_dir = f"{out_dir}_translate_test"
     if args.use_val_to_prompt:
@@ -82,9 +82,6 @@ def main(sys_args):
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
-
-    instruction = INSTRUCTIONS[args.dataset]
-    print(instruction)
 
     pred_file_path = f"{out_dir}/preds.json"
     accuracy = evaluate_model(
@@ -101,10 +98,12 @@ def main(sys_args):
         num_evals_per_sec=args.num_evals_per_sec,
         parallel_eval=args.parallel_eval,
         num_proc=args.num_proc,
+        log_wandb=args.log_wandb,
         temperature=args.temperature,
         top_p=args.top_p,
         timeout=args.timeout,
         substrate_prompt=args.substrate_prompt
+
     )
     print(accuracy)
     # Store results

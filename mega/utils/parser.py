@@ -210,7 +210,7 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Whether to not use one-shot tagging. will be slower but more accurate",
     )
     parser.add_argument(
-        "--chat-prompt",
+        "--chat_prompt",
         action="store_true",
         help="Whether to use chat type prompts",
     )

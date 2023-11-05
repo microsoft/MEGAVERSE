@@ -267,6 +267,64 @@ def load_xstory_cloze_translate_test(
 
     return tt_dataset
 
+def load_xlsum_data(lang, split, dataset_frac):
+    """Loads the xlsum dataset"""
+    langs = [
+        "oromo",
+        "french",
+        "amharic",
+        "arabic",
+        "azerbaijani",
+        "bengali",
+        "burmese",
+        "chinese_simplified",
+        "chinese_traditional",
+        "welsh",
+        "english",
+        "kirundi",
+        "gujarati",
+        "hausa",
+        "hindi",
+        "igbo",
+        "indonesian",
+        "japanese",
+        "korean",
+        "kyrgyz",
+        "marathi",
+        "spanish",
+        "scottish_gaelic",
+        "nepali",
+        "pashto",
+        "persian",
+        "pidgin",
+        "portuguese",
+        "punjabi",
+        "russian",
+        "serbian_cyrillic",
+        "serbian_latin",
+        "sinhala",
+        "somali",
+        "swahili",
+        "tamil",
+        "telugu",
+        "thai",
+        "tigrinya",
+        "turkish",
+        "ukrainian",
+        "urdu",
+        "uzbek",
+        "vietnamese",
+        "yoruba",
+    ]
+    if lang in langs:
+        dataset = load_dataset("csebuetnlp/xlsum", lang)[split]
+    else:
+        print("Language not supported.")
+    N = len(dataset)
+    selector = np.arange(int(N * dataset_frac))
+    return dataset.select(selector)
+
+
 
 def parse_copa_dataset(path, split="test"):
     tree = ET.parse(f"{path}/copa-{split}.xml")

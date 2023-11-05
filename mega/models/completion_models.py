@@ -3,10 +3,13 @@ import warnings
 import signal
 import time
 import openai
+
+from vertexai.language_models import TextGenerationModel
 from typing import List, Dict, Union, Any
+from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
-from mega.utils.substrate_llm import LLMClient, create_request_data
+from mega.utils.substrate_llm import LLMClient
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -30,6 +33,7 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
+    "palm"
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -64,6 +68,18 @@ def substrate_llm_completion(
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
 
+@backoff.on_exception(backoff.expo, ResourceExhausted)
+def palm_api_completion(
+    prompt: str,
+    model: str = 'text-bison@001',
+    **model_params,
+) -> str:
+    model = TextGenerationModel.from_pretrained("text-bison@001")
+    response = model.predict(
+        prompt,
+        **model_params,
+    )
+    return response.text
 
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 @backoff.on_exception(backoff.expo, 
@@ -192,7 +208,7 @@ def bloomz_completion(prompt: str, **model_params) -> str:
 
 
 def llama2_completion(prompt: str, model: str, **model_params) -> str:
-    """Runs the prompt over BLOOM model for text completion
+    """Runs the prompt over LLAMA model for text completion
 
     Args:
         prompt (str): Prompt String to be completed by the model
@@ -267,9 +283,11 @@ def model_completion(
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     if "Llama-2" in model:
-        print(prompt)
 
         prompt = llama2_completion(prompt, model, **model_params)
+    
+    if model == 'palm':
+        return palm_api_completion(prompt, model, **model_params)
 
 
 def get_model_pred(
@@ -279,6 +297,7 @@ def get_model_pred(
     test_prompt_template: Template,
     model: str,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
@@ -304,8 +323,13 @@ def get_model_pred(
         test_prompt_template,
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
+        substrate_prompt=substrate_prompt,
+
     )
 
+    if substrate_prompt:
+        run_substrate_llm_completion = True
+        
     model_prediction = model_completion(
         prompt_input,
         model,

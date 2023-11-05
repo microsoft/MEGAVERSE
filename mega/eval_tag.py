@@ -11,6 +11,7 @@ import wandb
 from datasets import Dataset
 from seqeval.metrics import f1_score
 from promptsource.templates import Template
+from mega.utils.misc_utils import dump_predictions
 from mega.models.tag_models import get_model_pred
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
@@ -18,6 +19,12 @@ from mega.utils.parser import parse_args
 from mega.data.load_datasets import load_tagging_dataset
 from mega.utils.env_utils import load_openai_env_variables
 import openai
+from mega.models.completion_models import (
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
+
 import pdb
 
 
@@ -78,8 +85,10 @@ def evaluate(
     num_proc: Optional[int] = None,
     log_wandb: bool = False,
     chat_prompt: bool = False,
+    substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
+    dataset=None,
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
@@ -96,8 +105,24 @@ def evaluate(
     preds = []
     labels = []
     f1_scores = []
-    pbar = tqdm(test_dataset)
-    for test_example in pbar:
+    try:
+        with open(save_preds_path, "r") as file:
+            json_data = [json.loads(line) for line in file]
+        idx_set = {obj["q_idx"] for obj in json_data}
+    except:
+        print("No preds file found")
+        idx_set = set()
+
+    pbar = tqdm(enumerate(test_dataset))
+    total_items = len(test_dataset)
+    if len(idx_set) == total_items:
+        print("All items already evaluated!")
+        sys.exit(0)
+
+    for idx, test_example in pbar:
+        if idx in idx_set:
+            continue
+
         train_examples_i = train_examples
 
         while len(train_examples_i) >= 1:
@@ -112,6 +137,7 @@ def evaluate(
                     one_shot_tag=one_shot_tag,
                     chat_prompt=chat_prompt,
                     instruction=instruction,
+                    substrate_prompt=substrate_prompt,
                     **model_params,
                 )
                 break
@@ -129,17 +155,29 @@ def evaluate(
                 print(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
+        # print("preds","".join(pred_dict["prediction"]).split(' '))
+        preds_temp = "".join(pred_dict["prediction"]).split(" ")
+        try:
+            preds_temp = [word.split("_")[1] for word in preds_temp]
+        except:
+            continue
+        # print("preds_temp",preds_temp)
+        pred_dict["prediction"] = preds_temp
 
         pred_dict["prediction"] = [
-            pred if pred != "" else np.random.choice(valid_labels)
+            "".join(pred) if pred != "" else np.random.choice(valid_labels)
             for pred in pred_dict["prediction"]
         ]
         preds.append(pred_dict["prediction"])
         labels.append(pred_dict["ground_truth"])
+        # print("labels",pred_dict["ground_truth"])
         try:
             f1_scores.append(f1_score(preds, labels))
-        except IndexError:
-            breakpoint()
+        except:
+            print(f"Skipping {idx} due to error")
+            continue
+            # breakpoint()
+        dump_predictions(idx, pred_dict["prediction"], save_preds_path)
         running_f1 = f1_scores[-1]
         pbar.set_description(f"F1-Score: {running_f1}")
         if log_wandb:
@@ -198,7 +236,7 @@ def main(sys_args):
 
     # Loading instruction for the task
     instruction = INSTRUCTIONS[args.dataset]
-    print(instruction)
+    # print(instruction)
 
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}wthInstruction"
     if args.use_val_to_prompt:
@@ -207,6 +245,7 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
+    save_preds_path = f"{out_dir}/preds.json"
     eval_score, preds_df = evaluate(
         train_dataset,
         test_dataset,
@@ -220,14 +259,17 @@ def main(sys_args):
         parallel_eval=args.parallel_eval,
         num_proc=args.num_proc,
         log_wandb=args.log_wandb,
+        save_preds_path=save_preds_path,
+        dataset=args.dataset,
         chat_prompt=args.chat_prompt,
+        substrate_prompt=args.substrate_prompt,
         instruction=instruction,
         one_shot_tag=not args.not_one_shot_tag,
         temperature=args.temperature,
         top_p=args.top_p,
         max_tokens=args.max_tokens,
     )
-    preds_df.to_csv(f"{out_dir}/preds.csv")
+    # preds_df.to_csv(f"{out_dir}/preds.csv")
     print(eval_score)
     results_dict = vars(args)
     results_dict["metrics"] = {"f1-score": eval_score}

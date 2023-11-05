@@ -10,13 +10,21 @@ import random
 import openai
 from mega.data.data_utils import choose_few_shot_examples
 from mega.models.completion_models import gpt3x_completion
+from mega.prompting.prompting_utils import get_substrate_prompt
 from mega.prompting.instructions import INSTRUCTIONS
+from mega.utils.misc_utils import dump_predictions
 from mega.utils.env_utils import load_openai_env_variables
 from yaml.loader import SafeLoader
 import numpy as np
 from rouge_score import rouge_scorer
 from tqdm import tqdm
 import wandb
+from mega.models.completion_models import (
+    get_model_pred,
+    gpt3x_completion,
+    substrate_llm_completion,
+)
+from mega.utils.substrate_llm import LLMClient
 
 
 def read_parameters(args_path):
@@ -103,6 +111,7 @@ def construct_prompt(
     test_prompt_template,
     chat_prompt,
     instruction,
+    substrate_prompt,
 ):
     if not chat_prompt:
         train_prompts = [
@@ -121,9 +130,10 @@ def construct_prompt(
         test_prompt_input, test_prompt_label = test_prompt_template.apply(test_example)
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
+        if substrate_prompt:
+            prompt_input = get_substrate_prompt(messages)
 
     return prompt_input, test_prompt_label
-
 
 
 def dump_metrics(lang, r1, r2, rL, metric_logger_path):
@@ -133,12 +143,6 @@ def dump_metrics(lang, r1, r2, rL, metric_logger_path):
             header = ["Language", "R1", "R2", "RL"]
             csvwriter.writerow(header)
         csvwriter.writerow([f"{lang}", f"{r1}", f"{r2}", f"{rL}"])
-
-
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
-    with open(response_logger_file, "a") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
 
 def compute_rouge(scorer, pred, label):
@@ -199,7 +203,8 @@ if __name__ == "__main__":
     )  #  Will ideally differ
     print(f"Evaluating for {lang} on a test set of {len(test_examples)}")
     rouge1, rouge2, rougeL, batched_predictions = [], [], [], []
-
+    llm_client = LLMClient()
+    # max_tokens = args["max_tokens"]
     pbar = tqdm(
         enumerate(
             test_examples.select(
@@ -215,15 +220,31 @@ if __name__ == "__main__":
             test_prompt_templates,
             args["chat_prompt"],
             instruction,
+            substrate_prompt=args["substrate_prompt"],
         )
+        # if (idx+1)%8==0:
         time.sleep(args["sleep_period"])
-        pred = gpt3x_completion(
-            prompt=prompt,
-            model=model,
-            max_tokens=args["max_tokens"],
-            temperature=args["temperature"],
-            run_details=run_details,
-        )
+
+        try:
+            if not args["substrate_prompt"]:
+                pred = gpt3x_completion(
+                    prompt=prompt,
+                    model=model,
+                    max_tokens=args["max_tokens"],
+                    temperature=args["temperature"],
+                    run_details=run_details,
+                )
+            else:
+                pred = substrate_llm_completion(
+                    llm_client=llm_client,
+                    prompt=prompt,
+                    model_name=model,
+                    temperature=0,
+                    max_tokens=100,
+                )
+        except:
+            print("Error in completion")
+            pred = "Error in completion"
         batched_predictions.append(pred)
         run_details["last_processed_idx"] = idx
         dump_predictions(idx, pred, response_logger_file)
