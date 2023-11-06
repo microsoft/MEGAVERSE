@@ -46,6 +46,47 @@ CHAT_MODELS = [
     # "meta-llama/Llama-2-70b-chat-hf",
 ]
 
+PALM_SUPPORTED_LANGUAGES_MAP = {
+    "arabic": "ar",
+    "chinese": "zh",
+    "english": "en",
+    "bengali": "bn",
+    "bulgarian": "bg",
+    "croation": "hr",
+    "czech": "cs",
+    "danish": "da",
+    "dutch": "nl",
+    "estonian": "et",
+    "finnish": "fi",
+    "french": "fr",
+    "german": "de",
+    "greek": "el",
+    "herbrew": "he",
+    "hindi": "hi",
+    "hungarian": "hu",
+    "italian": "it",
+    "japanese": "ja",
+    "indonesian": "id",
+    "korean": "ko",
+    "latvian": "lv",
+    "lithuanian": "lt",
+    "norwegian": "no",
+    "polish": "pl",
+    "portuguese": "pt",
+    "romanian": "ro",
+    "russian": "ru",
+    "serbian": "sr",
+    "slovak": "sk",
+    "slovenian": "sl",
+    "spanish": "es",
+    "swahili": "sw",
+    "swedish": "sv",
+    "thai": "th",
+    "turkish": "tr",
+    "ukranian": "uk",
+    "vietnamese": "vi",
+}
+
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -62,7 +103,9 @@ def timeout_handler(signum, frame):
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
-    request_data = create_request_data(prompt, **model_params)
+    request_data = create_request_data(
+        prompt, model_params.get("max_tokens", 20), model_params.get("temperature", 0)
+    )
     response = llm_client.send_request(model_name, request_data)
     text_result = response["choices"][0]["text"]
     text_result = text_result.replace("<|im_end|>", "")
@@ -71,8 +114,16 @@ def substrate_llm_completion(
 
 @backoff.on_exception(backoff.expo, ResourceExhausted)
 def palm_api_completion(
-    prompt: str, model: str = "text-bison@001", **model_params
+    prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
+    if lang == "":
+        raise ValueError("Language argument is necessary for palm model")
+    if (
+        lang not in PALM_SUPPORTED_LANGUAGES_MAP.keys()
+        and lang not in PALM_SUPPORTED_LANGUAGES_MAP.values()
+    ):
+        raise ValueError("Language not supported by PALM!")
+
     model = TextGenerationModel.from_pretrained("text-bison@001")
     response = model.predict(
         prompt=prompt,
@@ -256,6 +307,7 @@ def llama2_completion(prompt: str, model: str, **model_params) -> str:
 def model_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
+    lang: str,
     run_substrate_llm_completion: bool = False,
     timeout: int = 0,
     llm_client: LLMClient = None,
@@ -290,7 +342,7 @@ def model_completion(
         prompt = llama2_completion(prompt, model, **model_params)
 
     if model == "palm":
-        return palm_api_completion(prompt, model, **model_params)
+        return palm_api_completion(prompt, model, lang, **model_params)
 
 
 def get_model_pred(

@@ -26,14 +26,13 @@ from transformers import AutoTokenizer
 
 
 PROMPT_TEMPLATES = {
-    "Choose the correct answer": """Passage: {passage} \nQuestion: {question}\nReferring to the passage and the question above help me pick the correct answer of the question out of the given options: \n Option1: {option1}\n Option2: {option2}\n Option3: {option3} \n Option4: {option4} \n Correct Option:""",
+    "Choose the correct answer": """{instruction}\n###\nPassage:\n{passage}\n###\nQuery:\n{query}\n###\nChoices:\n(A) {A}\n(B) {B}\n(C) {C}\n(D) {D}\n###\nAnswer:\n""",
     }
 
-VERBALIZER = {"default": {'1': "Option1", 
-                          '2': "Option2", 
-                          '3': "Option3", 
-                          '4': "Option4"}}
-
+VERBALIZER = {"default": {'1': "(A)", 
+                          '2': "(B)", 
+                          '3': "(C)", 
+                          '4': "(D)"}}
 
 
 BELEBELE2AZURE_LANG_MAP = {
@@ -63,6 +62,18 @@ BELEBELE2AZURE_LANG_MAP = {
     "thai": "th"
 }
 
+
+def parse_pred(pred: str)  -> str:
+    if "(A)" in pred:
+        return "(A)"
+    elif "(B)" in pred: 
+        return "(B)"
+    elif "(C)" in pred:
+        return "(C)"
+    elif "(D)" in pred:
+        return "(D)"
+    else:
+        return pred
 
 def evaluate(
     train_dataset: Dataset,
@@ -98,7 +109,8 @@ def evaluate(
     
     
     if "preds.csv" in os.listdir(out_dir):
-        results = pd.read_csv(f"{out_dir}/preds.csv").to_dict("records")
+        results_df = pd.read_csv(f"{out_dir}/preds.csv")
+        results = results_df.to_dict("records")
     
     else:  
         results = []
@@ -144,6 +156,7 @@ def evaluate(
             
             else:     
                 try:
+                    # print(prompt)
                     pred = model_completion(
                         prompt,
                         model,
@@ -161,8 +174,10 @@ def evaluate(
                         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                     )
 
+        # print("label: ",label)
         # print("pred: ",pred)
-        pred = str(pred).split(":")[0]
+        pred = parse_pred(pred)
+        # print("Parsed Pred", pred)
         preds.append(pred)
         labels.append(label)
         matches.append(float(pred == label))

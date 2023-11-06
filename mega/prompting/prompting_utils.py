@@ -342,11 +342,11 @@ def construct_belebele_prompt(
 
         filled_template = (
             template.replace("{passage}", passage)
-            .replace("{question}", question)
-            .replace("{option1}", option1)
-            .replace("{option2}", option2)
-            .replace("{option3}", option3)
-            .replace("{option4}", option4)
+            .replace("{query}", question)
+            .replace("{A}", option1)
+            .replace("{B}", option2)
+            .replace("{C}", option3)
+            .replace("{D}", option4)
         )
 
         return filled_template, verbalizer[label]

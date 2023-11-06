@@ -47,7 +47,7 @@ BELEBELE_LANG2CODES = {
     "polish": "pol_Latn",
     "turkish": "tur_Latn",
     "hebrew": "heb_Hebr",
-    "arabic": "ara_Arab",
+    "arabic": "arb_Arab",
     "czech": "ces_Latn",
     "hungarian": "hun_Latn",
     "thai": "tha_Thai"

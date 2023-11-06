@@ -215,6 +215,7 @@ def evaluate_qa_chatgpt(
     test_dataset,
     prompt_template,
     model,
+    lang,
     normalize_fn=normalize_answer,
     instruction="",
     chat_prompt=True,
@@ -224,6 +225,7 @@ def evaluate_qa_chatgpt(
     max_tokens=20,
     log_wandb=False,
     metric="squad",
+    llm_client=None,
 ):
     f1_sum = 0
     em_sum = 0
@@ -234,7 +236,6 @@ def evaluate_qa_chatgpt(
     run_details = {"num_calls": 0}
 
     pbar = tqdm(enumerate(test_dataset))
-    llm_client = LLMClient() if substrate_prompt else None
     preds = []
     labels = []
     f1s, ems = [], []
@@ -277,7 +278,18 @@ def evaluate_qa_chatgpt(
                 run_details=run_details,
                 num_evals_per_sec=num_evals_per_sec,
                 llm_client=llm_client,
+                lang=lang,
             )
+
+            # pred = substrate_llm_completion(
+            #     llm_client,
+            #     prompt,
+            #     max_tokens=max_tokens,
+            #     model_name=model,
+            #     temperature=temperature,
+            #     num_evals_per_sec=num_evals_per_sec,
+            #     run_details=run_details,
+            # )
             break
             # except (openai.error.InvalidRequestError, openai.error.Timeout):
             # except Exception as e:
@@ -436,6 +448,7 @@ def main(sys_args):
         normalize_answer if args.dataset != "mlqa" else normalize_answer_mlqa_fn
     )
     save_preds_path = f"{out_dir}/preds.json"
+    llm_client = LLMClient() if args.substrate_prompt else None
     metrics, preds_df = evaluate_qa_chatgpt(
         save_preds_path,
         train_examples,
@@ -451,6 +464,8 @@ def main(sys_args):
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
         substrate_prompt=args.substrate_prompt,
+        llm_client=llm_client,
+        lang=args.tgt_lang,
     )
 
     # preds_df.to_csv(f"{out_dir}/preds.csv")

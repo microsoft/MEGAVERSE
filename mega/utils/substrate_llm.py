@@ -1,6 +1,7 @@
 from msal import PublicClientApplication, SerializableTokenCache
 import json
 import os
+import uuid
 import atexit
 import requests
 import os
@@ -11,6 +12,8 @@ load_dotenv("envs/melange.env")
 
 SUBSTRATE_API_KEY = os.environ["SUBSTRATE_API_KEY"]
 SUBSTRATE_API_AUTHORITY = os.environ["SUBSTRATE_API_AUTHORITY"]
+SUBSTRATE_UUID = os.environ["SUBSTRATE_UUID"]
+SUBSTRATE_GUID = os.environ.get("SUBSTRATE_GUID", "")
 
 
 class LLMClient:
@@ -37,12 +40,16 @@ class LLMClient:
         # get the token
         token = self._get_token()
 
-        # populate the headers
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + token,
+            "Authorization": f"Bearer {token}",
             "X-ModelType": model_name,
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-CV": f"{SUBSTRATE_UUID}-{str(uuid.uuid4())}",
         }
+        if SUBSTRATE_GUID != "":
+            headers["X-ScenarioGUID"] = SUBSTRATE_GUID
 
         body = str.encode(json.dumps(request))
         response = requests.post(LLMClient._ENDPOINT, data=body, headers=headers)
@@ -147,13 +154,13 @@ if __name__ == "__main__":
     request_data = create_request_data(
         prompt=template,
         max_tokens=1000,
-        temperature=0,
+        temperature=1,
         top_p=1,
         n=1,
         stream=False,
         logprops=None,
         stop=None,
     )
-    completion = exec_llm(request_data, llm_client, model_name="dev-gpt-35-turbo")
-
-    print(f"{completion}")
+    for _ in range(5):
+        completion = exec_llm(request_data, llm_client, model_name="dev-gpt-35-turbo")
+        print(f"{completion}")
