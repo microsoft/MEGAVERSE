@@ -11,6 +11,7 @@ from mega.data.torch_dataset import PromptDataset
 from mega.hf_models.utils.variables import HF_DECODER_MODELS
 from huggingface_hub import InferenceClient, AsyncInferenceClient
 import huggingface_hub
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
 from mega.utils.env_utils import (
     # load_openai_env_variables,
@@ -27,15 +28,27 @@ HF_DECODER_MODELS = [
     "meta-llama/Llama-2-70b-chat-hf",
 ]
 
+MODEL2PROMPT= {
+    "meta-llama/Llama-2-7b-chat-hf": "llama-2",
+    "meta-llama/Llama-2-13b-chat-hf": "llama-2",
+    "meta-llama/Llama-2-70b-chat-hf": "llama-2",
+
+}
+
 def hf_model_api_completion(
-    prompt: Union[str, List[str]],
+    prompt: Union[str, List[Dict[str, str]]],
     model_name: str,
-    tokenizer: AutoTokenizer,
+    tokenizer: AutoTokenizer = None,
     timeout: int = 10, 
+    chat_prompt=True,
     **model_params,
 ):
     
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     # print(model_name)
+    
+    if chat_prompt:
+        prompt = convert_to_hf_chat_prompt(prompt, model_class=MODEL2PROMPT[model_name])
     
     client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
     

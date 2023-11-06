@@ -330,7 +330,8 @@ def construct_belebele_prompt(
     instruction: str = "",
     ) -> Tuple[str, str]:
     
-    def fill_belebele_template(example, template):
+    def fill_belebele_template(example, template, chat_prompt=False):
+
         passage = example["flores_passage"]
         question = example["question"]
         option1 = example["mc_answer1"]
@@ -340,14 +341,26 @@ def construct_belebele_prompt(
 
         label = example["correct_answer_num"]
 
-        filled_template = (
-            template.replace("{passage}", passage)
+        if not chat_prompt:
+            filled_template = (
+            template.replace("{instruction}", instruction)
+            .replace("{passage}", passage)
             .replace("{query}", question)
             .replace("{A}", option1)
             .replace("{B}", option2)
             .replace("{C}", option3)
             .replace("{D}", option4)
         )
+         
+        else:   
+            filled_template = (
+                template.replace("{passage}", passage)
+                .replace("{query}", question)
+                .replace("{A}", option1)
+                .replace("{B}", option2)
+                .replace("{C}", option3)
+                .replace("{D}", option4)
+            )
 
         return filled_template, verbalizer[label]
 

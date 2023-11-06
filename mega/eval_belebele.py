@@ -23,16 +23,17 @@ import pandas as pd
 import pdb
 import openai
 from transformers import AutoTokenizer
+from mega.utils.substrate_llm import LLMClient
 
 
 PROMPT_TEMPLATES = {
-    "Choose the correct answer": """{instruction}\n###\nPassage:\n{passage}\n###\nQuery:\n{query}\n###\nChoices:\n(A) {A}\n(B) {B}\n(C) {C}\n(D) {D}\n###\nAnswer:\n""",
+    "Choose the correct answer": "{instruction}\n###\nPassage:\n{passage}\n###\nQuery:\n{query}\n###\nChoices:\n(A) {A}\n(B) {B}\n(C) {C}\n(D) {D}\n###\nAnswer:\n",
     }
 
-VERBALIZER = {"default": {'1': "(A)", 
-                          '2': "(B)", 
-                          '3': "(C)", 
-                          '4': "(D)"}}
+VERBALIZER = {"default": {'1': "A", 
+                          '2': "B", 
+                          '3': "C", 
+                          '4': "D"}}
 
 
 BELEBELE2AZURE_LANG_MAP = {
@@ -62,16 +63,58 @@ BELEBELE2AZURE_LANG_MAP = {
     "thai": "th"
 }
 
+BELEBELE2PALM_MAP = {
+    "english": "en",
+    "arabic": "ar",
+    "bengali": "bn",
+    "bulgarian": "bg",
+    "chinese_simplified": "zh",
+    "chinese_traditional": "zh",
+    "croation": "hr",  
+    "czech": "cs",
+    "danish": "da",
+    "dutch": "nl",
+    "estonian": "et",
+    "finnish": "fi",
+    "french": "fr",
+    "german": "de",
+    "greek": "el",
+    "hebrew": "iw",
+    "hindi": "hi",
+    "hungarian": "hu",
+    "indonesian": "id",
+    "italian": "it",
+    "japanese": "ja",
+    "korean": "ko",
+    "latvian": "lv",
+    "lithanian": "lt",
+    "norwegian": "no",
+    "polish": "pl",
+    "portuguese": "pt",
+    "romanian": "ro",
+    "russian": "ru",
+    "serbian": "sr",
+    "slovak": "sk",
+    "slovenian": "sl",
+    "spanish": "es",
+    "swahili": "sw",
+    "swedish": "sv",
+    "thai": "th",
+    "turkish": "tr",
+    "ukranian": "uk",
+    "vietnamese": "vi"
+}
+
 
 def parse_pred(pred: str)  -> str:
-    if "(A)" in pred:
-        return "(A)"
-    elif "(B)" in pred: 
-        return "(B)"
-    elif "(C)" in pred:
-        return "(C)"
-    elif "(D)" in pred:
-        return "(D)"
+    if "A" in pred:
+        return "A"
+    elif "B" in pred: 
+        return "B"
+    elif "C" in pred:
+        return "C"
+    elif "D" in pred:
+        return "D"
     else:
         return pred
 
@@ -90,9 +133,12 @@ def evaluate(
     num_proc: Optional[int] = None,
     log_wandb: bool = False,
     chat_prompt: bool = False,
+    model_lang: str = "en",
     instruction: str = "",
     timeout: int = 0,
+    substrate_prompt: bool = False,
     use_hf_model: bool = False,
+    llm_client=None,
     out_dir: str = "",
     **model_params,
 ) -> float:
@@ -132,6 +178,7 @@ def evaluate(
         
         train_examples_i = train_examples
         label = verbalizer[test_example["correct_answer_num"]]
+                
         while len(train_examples_i) >= 0:
             prompt, _ = construct_belebele_prompt(
                 train_examples_i,
@@ -156,13 +203,19 @@ def evaluate(
             
             else:     
                 try:
-                    # print(prompt)
+                # print(prompt)
+                # print(model)
+                    # print(idx)
+                    # print(substrate_prompt)
                     pred = model_completion(
-                        prompt,
-                        model,
-                        timeout=timeout,
-                        **model_params,
-                    )
+                    prompt,
+                    model,
+                    run_substrate_llm_completion=substrate_prompt,
+                    run_details=run_details,
+                    num_evals_per_sec=num_evals_per_sec,
+                    llm_client=llm_client,
+                    lang=model_lang,
+                )
                     break
                 except (openai.error.InvalidRequestError, openai.error.Timeout):
                     if len(train_examples_i) == 0:
@@ -280,6 +333,10 @@ def main(sys_args):
     if args.use_hf_api:
         tokenizer = AutoTokenizer.from_pretrained(args.model)
 
+    model_lang = "en" if args.translate_test else args.tgt_lang
+    llm_client = LLMClient() if args.substrate_prompt else None
+
+    
     accuracy, results_df = evaluate(
         train_dataset,
         test_dataset,
@@ -295,12 +352,14 @@ def main(sys_args):
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
         instruction=instruction,
+        model_lang=BELEBELE2PALM_MAP[model_lang],
         temperature=args.temperature,
         top_p=args.top_p,
         max_tokens=args.max_tokens,
         timeout=args.timeout,
         use_hf_model=args.use_hf_api,
         out_dir=out_dir,
+        llm_client=llm_client,
     )
     print(accuracy)
     # Store results

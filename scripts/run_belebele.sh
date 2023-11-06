@@ -50,11 +50,12 @@ do
             python -m mega.eval_belebele -p $lang -t $lang \
             --pivot_prompt_name "${prompt_name}" \
             --tgt_prompt_name "${prompt_name}" \
-            -k $k --model "gpt-4" \
-            -e gpt4v3 --chat_prompt --temperature 0 \
+            -k $k --model "gpt-35-turbo" \
+            -e melange --temperature 0 \
             --log_wandb --timeout 30 \
             -d "belebele"
         done
     done
 done
+
 
