@@ -116,7 +116,7 @@ def substrate_llm_completion(
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
-    if lang is "":
+    if lang == "":
         raise ValueError("Language argument is necessary for palm model")
     if (
         lang not in PALM_SUPPORTED_LANGUAGES_MAP.keys()
