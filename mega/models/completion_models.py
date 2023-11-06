@@ -9,7 +9,7 @@ from typing import List, Dict, Union, Any
 from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
-from mega.utils.substrate_llm import LLMClient
+from mega.utils.substrate_llm import LLMClient, create_request_data
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -33,7 +33,7 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
-    "palm"
+    "palm",
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -68,18 +68,19 @@ def substrate_llm_completion(
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
 
+
 @backoff.on_exception(backoff.expo, ResourceExhausted)
 def palm_api_completion(
-    prompt: str,
-    model: str = 'text-bison@001',
-    **model_params,
+    prompt: str, model: str = "text-bison@001", **model_params
 ) -> str:
     model = TextGenerationModel.from_pretrained("text-bison@001")
     response = model.predict(
-        prompt,
-        **model_params,
+        prompt=prompt,
+        max_output_tokens=model_params.get("max_tokens", 20),
+        temperature=model_params.get("temperature", 1),
     )
     return response.text
+
 
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 @backoff.on_exception(backoff.expo, openai.error.APIError, max_time=60)
@@ -252,6 +253,7 @@ def model_completion(
     model: str,
     run_substrate_llm_completion: bool = False,
     timeout: int = 0,
+    llm_client: LLMClient = None,
     **model_params,
 ) -> str:
     """Runs the prompt over one of the `SUPPORTED_MODELS` for text completion
@@ -263,7 +265,6 @@ def model_completion(
     Returns:
         str: generated string
     """
-
     if model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
@@ -274,14 +275,16 @@ def model_completion(
         return bloomz_completion(prompt, **model_params)
 
     if run_substrate_llm_completion:
-        llm_client = LLMClient()
+        if not llm_client:
+            raise ValueError(
+                "LLM Client not provided! Please provide a valid LLM Client"
+            )
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     if "Llama-2" in model:
-
         prompt = llama2_completion(prompt, model, **model_params)
-    
-    if model == 'palm':
+
+    if model == "palm":
         return palm_api_completion(prompt, model, **model_params)
 
 
@@ -319,12 +322,11 @@ def get_model_pred(
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
         substrate_prompt=substrate_prompt,
-
     )
 
     if substrate_prompt:
         run_substrate_llm_completion = True
-        
+
     model_prediction = model_completion(
         prompt_input,
         model,
