@@ -4,7 +4,7 @@ import pdb
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
 from pprint import pprint
-# from fastchat.conversation import get_conv_template
+from fastchat.conversation import get_conv_template
 
 
 role2tag = {"user": 0, "assistant": 1}

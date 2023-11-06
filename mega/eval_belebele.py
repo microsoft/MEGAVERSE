@@ -22,6 +22,7 @@ from tqdm import tqdm
 import pandas as pd
 import pdb
 import openai
+from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
 from transformers import AutoTokenizer
 from mega.utils.substrate_llm import LLMClient
 
@@ -217,7 +218,7 @@ def evaluate(
                     lang=model_lang,
                 )
                     break
-                except (openai.error.InvalidRequestError, openai.error.Timeout):
+                except (openai.error.InvalidRequestError, openai.error.Timeout, ValidationError, OverloadedError) as e:
                     if len(train_examples_i) == 0:
                         pred = np.random.choice(valid_labels)
                         print("Exausted Everything! Giving Random Prediction Now :(")

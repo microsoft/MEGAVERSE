@@ -50,6 +50,8 @@ def hf_model_api_completion(
     if chat_prompt:
         prompt = convert_to_hf_chat_prompt(prompt, model_class=MODEL2PROMPT[model_name])
     
+    # print(prompt)
+    
     client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
     
         
@@ -72,8 +74,8 @@ def hf_model_api_completion(
     # output = client.text_generation(prompt)
     
     output = tokenizer.decode(tokenizer(output)['input_ids'], skip_special_tokens=True)
-    
-    return output.strip().strip("\n").strip("\r").strip("\t").strip('.')
+    # print(output)
+    return output
     
 
 
