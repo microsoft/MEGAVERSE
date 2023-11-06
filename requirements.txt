@@ -14,3 +14,4 @@ tiktoken
 chromadb
 torch
 azure-ai-translation-text
+google-cloud-aiplatform
