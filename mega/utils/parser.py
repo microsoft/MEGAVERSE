@@ -111,10 +111,11 @@ def parse_args(args: list) -> argparse.Namespace:
     )
     
     parser.add_argument(
-        "--use_api",
+        "--use_hf_api",
         action="store_true",
         help="Whether to use HF API",
     )
+    
     
     parser.add_argument(
         "--substrate_prompt",

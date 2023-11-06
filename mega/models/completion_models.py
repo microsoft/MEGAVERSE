@@ -10,6 +10,7 @@ from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
+from mega.models.hf_completion_models import hf_model_api_completion
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -125,6 +126,7 @@ def palm_api_completion(
         raise ValueError("Language not supported by PALM!")
 
     model = TextGenerationModel.from_pretrained("text-bison@001")
+    # print(prompt)
     response = model.predict(
         prompt=prompt,
         max_output_tokens=model_params.get("max_tokens", 20),
@@ -134,7 +136,12 @@ def palm_api_completion(
 
 
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
-@backoff.on_exception(backoff.expo, openai.error.APIError, max_time=60)
+@backoff.on_exception(backoff.expo, 
+                      (
+                        openai.error.APIError, 
+                        openai.error.RateLimitError,
+                        openai.error.Timeout,                    ), 
+                      max_time=60)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
@@ -334,10 +341,10 @@ def model_completion(
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     if "Llama-2" in model:
-        prompt = llama2_completion(prompt, model, **model_params)
+        prompt = hf_model_api_completion(prompt, model, **model_params)
 
     if model == "palm":
-        return palm_api_completion(prompt, model, lang, **model_params)
+        return palm_api_completion(prompt, lang=lang, **model_params)
 
 
 def get_model_pred(

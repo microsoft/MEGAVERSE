@@ -52,7 +52,7 @@ def main(sys_args):
     # ToDO: Add Translate Test Support
     if args.translate_test:
         test_dataset = load_xcopa_translate_test(
-            args.tgt_lang, args.pivot_lang, test_dataset, data_dir="data"
+            args.tgt_lang, args.pivot_lang, test_dataset, data_dir="./data"
         )
 
     # Load prompt templates for train and test datasets

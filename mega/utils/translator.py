@@ -4,7 +4,6 @@ import pdb
 import requests, uuid, json
 from typing import Union, Optional, List, Dict
 import copy
-from dotenv import load_dotenv
 from datasets import Dataset, load_dataset
 from mega.utils.env_utils import ( 
                                   BING_TRANSLATE_KEY, 
@@ -21,24 +20,18 @@ import json
  
 
 
-# Translator setup for bing
-
-# load_dotenv()
-
-
-subscription_key = os.environ['BING_TRANSLATE_KEY']
+subscription_key = BING_TRANSLATE_KEY
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
 location = "centralindia"
 path = "/translate?api-version=3.0"
-constructed_url = os.environ['BING_TRANSLATE_ENDPOINT'] + path
+constructed_url = BING_TRANSLATE_ENDPOINT + path
 
 headers = {
     "Ocp-Apim-Subscription-Key": subscription_key,
     "Content-type": "application/json",
     "X-ClientTraceId": str(uuid.uuid4()),
 }
-
  
 def translate_with_azure(
                          texts: List[str],
@@ -116,7 +109,7 @@ def translate_xnli(
 
     # Translate premise
     xnli_dataset = xnli_dataset.map(
-        lambda example: {"premise": translate_with_bing(example["premise"], src, dest)},
+        lambda example: {"premise": translate_with_azure(example["premise"], src, dest)},
         num_proc=1,
         load_from_cache_file=False,
     )
@@ -124,7 +117,7 @@ def translate_xnli(
     # Translate hypothesis
     xnli_dataset = xnli_dataset.map(
         lambda example: {
-            "hypothesis": translate_with_bing(example["hypothesis"], src, dest)
+            "hypothesis": translate_with_azure(example["hypothesis"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -142,10 +135,10 @@ def translate_xnli(
 def translate_xcopa(
     xcopa_dataset: Dataset, src: str, dest: str, save_path: Optional[str] = None
 ) -> Dataset:
-    """Translate premise, choices and questions of xnli dataset
+    """Translate premise, choices and questions of xcopa dataset
 
     Args:
-        xcopa_dataset (Dataset): Some split (test, val) of XNLI dataset
+        xcopa_dataset (Dataset): Some split (test, val) of XCOPA dataset
         src (str): Source language to translate from
         dest (str): Language to translate to
         save_path (str, optional): Path to store translated dataset. Doesn't store if set to None. Defaults to None.
@@ -156,30 +149,33 @@ def translate_xcopa(
 
     # Translate premise
     xcopa_dataset = xcopa_dataset.map(
-        lambda example: {"premise": translate_with_bing(example["premise"], src, dest)},
-        num_proc=1,
+        lambda example: {"premise": translate_with_azure(example["premise"], src, dest)},
+        num_proc=4,
         load_from_cache_file=False,
+        desc="translating premise"
     )
 
     # Translate choice1
     xcopa_dataset = xcopa_dataset.map(
         lambda example: {
-            "choice1": translate_with_bing(example["choice1"], src, dest)
+            "choice1": translate_with_azure(example["choice1"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc="translating choice1"
     )
     
     # Translate choice2
     xcopa_dataset = xcopa_dataset.map(
         lambda example: {
-            "choice2": translate_with_bing(example["choice2"], src, dest)
+            "choice2": translate_with_azure(example["choice2"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
+        desc="translating choice2"
     )
     
-
+    
     if save_path is not None:
         save_dir, _ = os.path.split(save_path)
         if not os.path.exists(save_dir):
@@ -187,6 +183,90 @@ def translate_xcopa(
         xcopa_dataset.save_to_disk(save_path)
 
     return xcopa_dataset
+
+def translate_belebele(
+    belebele_dataset: Dataset, src: str, dest: str, save_path: Optional[str] = None
+) -> Dataset:
+    """Translate passage, questions and choices of belebele dataset
+
+    Args:
+        belebele_dataset (Dataset): test split of belebele dataset
+        src (str): Source language to translate from
+        dest (str): Language to translate to
+        save_path (str, optional): Path to store translated dataset. Doesn't store if set to None. Defaults to None.
+
+    Returns:
+        Dataset: Translated Dataset
+    """
+    # Translate passage
+    belebele_dataset = belebele_dataset.map(
+        lambda example: {
+            "flores_passage": translate_with_azure(example["flores_passage"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+        desc= f"translating passage from {src} to {dest}"
+    )
+
+    # Translate question
+    belebele_dataset = belebele_dataset.map(
+        lambda example: {
+            "question": translate_with_azure(example["question"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+        desc= f"translating question from {src} to {dest}"
+    )
+
+    # Translate mc_answer1
+    belebele_dataset = belebele_dataset.map(
+        lambda example: {
+            "mc_answer1": translate_with_azure(example["mc_answer1"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+        desc= f"translating mc_answer1 from {src} to {dest}"
+    )
+
+    # Translate mc_answer2
+    belebele_dataset = belebele_dataset.map(
+        lambda example: {
+            "mc_answer2": translate_with_azure(example["mc_answer2"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+        desc= f"translating mc_answer2 from {src} to {dest}"
+    )
+    
+    # Translate mc_answer3
+    belebele_dataset = belebele_dataset.map(
+        lambda example: {
+            "mc_answer3": translate_with_azure(example["mc_answer3"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+        desc= f"translating mc_answer3 from {src} to {dest}"    
+    )
+    
+    # Translate mc_answer4
+    belebele_dataset = belebele_dataset.map(
+        lambda example: {
+            "mc_answer4": translate_with_azure(example["mc_answer4"], src, dest)
+        },
+        num_proc=4,
+        load_from_cache_file=False,
+        desc= f"translating mc_answer4 from {src} to {dest}"
+    )
+
+
+    if save_path is not None:
+        save_dir, _ = os.path.split(save_path)
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+        belebele_dataset.save_to_disk(save_path)
+
+    return belebele_dataset
+
 
 
 def translate_pawsx(
@@ -207,7 +287,7 @@ def translate_pawsx(
     # Translate premise
     pawsx_dataset = pawsx_dataset.map(
         lambda example: {
-            "sentence1": translate_with_bing(example["sentence1"], src, dest)
+            "sentence1": translate_with_azure(example["sentence1"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -216,7 +296,7 @@ def translate_pawsx(
     # Translate hypothesis
     pawsx_dataset = pawsx_dataset.map(
         lambda example: {
-            "sentence2": translate_with_bing(example["sentence2"], src, dest)
+            "sentence2": translate_with_azure(example["sentence2"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -249,7 +329,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_1
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_1": translate_with_bing(
+            "input_sentence_1": translate_with_azure(
                 example["input_sentence_1"], src, dest
             )
         },
@@ -260,7 +340,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_2
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_2": translate_with_bing(
+            "input_sentence_2": translate_with_azure(
                 example["input_sentence_2"], src, dest
             )
         },
@@ -271,7 +351,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_3
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_3": translate_with_bing(
+            "input_sentence_3": translate_with_azure(
                 example["input_sentence_3"], src, dest
             )
         },
@@ -282,7 +362,7 @@ def translate_xstory_cloze(
     # Translate input_sentence_4
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "input_sentence_4": translate_with_bing(
+            "input_sentence_4": translate_with_azure(
                 example["input_sentence_4"], src, dest
             )
         },
@@ -293,7 +373,7 @@ def translate_xstory_cloze(
     # Translate sentence_quiz1
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "sentence_quiz1": translate_with_bing(example["sentence_quiz1"], src, dest)
+            "sentence_quiz1": translate_with_azure(example["sentence_quiz1"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,
@@ -302,7 +382,7 @@ def translate_xstory_cloze(
     # Translate sentence_quiz2
     xstory_cloze_dataset = xstory_cloze_dataset.map(
         lambda example: {
-            "sentence_quiz2": translate_with_bing(example["sentence_quiz2"], src, dest)
+            "sentence_quiz2": translate_with_azure(example["sentence_quiz2"], src, dest)
         },
         num_proc=4,
         load_from_cache_file=False,

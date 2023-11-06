@@ -9,7 +9,8 @@ from mega.utils.translator import (
     translate_xnli,
     translate_pawsx,
     translate_xstory_cloze,
-    translate_xcopa
+    translate_xcopa,
+    translate_belebele
 )
 from mega.data.data_utils import read_conll_data
 
@@ -25,6 +26,34 @@ TYDIQA_LANG2CODES = {
     "russian": "ru",
 }
 
+BELEBELE_LANG2CODES = {
+    "english": "eng_Latn",
+    "spanish": "spa_Latn",
+    "japanese": "jpn_Jpan",
+    "french": "fra_Latn",
+    "german": "deu_Latn",
+    "portuguese": "por_Latn",
+    "italian": "ita_Latn",
+    "chinese_simplified": "zho_Hans",
+    "dutch": "nld_Latn",
+    "swedish": "swe_Latn",
+    "turkish": "tur_Latn",
+    "danish": "dan_Latn",
+    "finnish": "fin_Latn",
+    "russian": "rus_Cyrl",
+    "norwegian": "nob_Latn",
+    "korean": "kor_Hang",
+    "chinese_traditional": "zho_Hant",
+    "polish": "pol_Latn",
+    "turkish": "tur_Latn",
+    "hebrew": "heb_Hebr",
+    "arabic": "arb_Arab",
+    "czech": "ces_Latn",
+    "hungarian": "hun_Latn",
+    "thai": "tha_Thai"
+}
+
+
 langcodes2lang = {
     "en": "English",
     "ar": "Arabic",
@@ -39,6 +68,50 @@ langcodes2lang = {
     "vi": "Vietnamese",
     "zh": "Mandarin",
 }
+
+
+def load_belebele_dataset( lang: str, 
+                          split: str = "test", 
+                          dataset_frac: float = 1.0) -> Union[Dataset, DatasetDict]:
+    """
+    Args:
+        lang (str): Language for which xnli dataset is to be loaded
+        split (str): Train test or validation split of the model to load
+        dataset_frac (float): Fraction of examples to load. Defaults to 1.0
+
+    Returns:
+        Union[Dataset, DatasetDict]: huggingface dataset object
+    """
+
+    dataset = load_dataset("facebook/belebele", BELEBELE_LANG2CODES[lang], split='test')
+
+    N = len(dataset)
+    selector = np.arange(int(N * dataset_frac))
+    return dataset.select(selector)
+
+
+def load_belebele_translate_test(
+    tgt_lang: str,
+    pivot_lang: str = "en",
+    test_dataset: Optional[Dataset] = None,
+    data_dir: str = "data",
+) -> Dataset:
+    tt_dir = os.path.join(
+        data_dir, "belebele", "translate_test", f"{tgt_lang}_{pivot_lang}"
+    )
+    if not os.path.exists(f"{tt_dir}/dataset_info.json"):
+        if test_dataset is None:
+            raise ValueError(
+                "Need to provide `test_dataset`, if translate_test dataset do not exist already"
+            )
+        tt_dataset = translate_belebele(
+            test_dataset, tgt_lang, pivot_lang, save_path=tt_dir
+        )
+    else:
+        tt_dataset = load_from_disk(tt_dir)
+
+    return tt_dataset
+
 
 
 def load_xnli_dataset(
@@ -390,7 +463,7 @@ def load_xlsum_dataset(
     max_examples: int = -1,
     translate_test: bool = False,
 ):
-    datset = load_dataset("xlsum", f"xlsum.{lang}")[split]
+    dataset = load_dataset("xlsum", f"xlsum.{lang}")[split]
     if max_examples != -1:
         return dataset.select(np.arange(min(len(dataset), max_examples)))
     else:

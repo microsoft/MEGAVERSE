@@ -29,11 +29,11 @@ def convert_to_hf_chat_prompt(
     Example:
         >>> messages = [
         ...     {"role": "user", "content": "Hi, how are you?"},
-        ...     {"role": "bot", "content": "I'm doing well, thanks for asking."},
+        ...     {"role": "assistant", "content": "I'm doing well, thanks for asking."},
         ...     {"role": "user", "content": "Can you tell me a joke?"},
-        ...     {"role": "bot", "content": "Why did the tomato turn red? Because it saw the salad dressing!"},
+        ...     {"role": "assistant", "content": "Why did the tomato turn red? Because it saw the salad dressing!"},
         ...     {"role": "user", "content": "Haha, that's funny."},
-        ...     {"role": "bot", "content": "Glad you liked it!"},
+        ...     {"role": "assistant", "content": "Glad you liked it!"},
         ... ]
         >>> convert_to_hf_chat_prompt(messages)
         'user: Hi, how are you?\nbot: I\'m doing well, thanks for asking.\nuser: Can you tell me a joke?\nbot: Why did the tomato turn red? Because it saw the salad dressing!\nuser: Haha, that\'s funny.\nbot: Glad you liked it!\nuser:\n'
