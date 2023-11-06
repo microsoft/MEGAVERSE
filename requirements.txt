@@ -14,3 +14,4 @@ tiktoken
 chromadb
 torch
 fschat
+azure-ai-translation-text

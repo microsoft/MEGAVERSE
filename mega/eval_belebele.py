@@ -173,12 +173,12 @@ def evaluate(
             wandb.log({"acuracy": running_acc})
         # time.sleep(1 / num_evals_per_sec)
         
-        results.append({"Label": labels, "Prediction": preds, "Match": matches})
+        results.append({"Label": label, "Prediction": pred, "Match": matches[-1]})
         
         results_df = pd.DataFrame(results)
         results_df.to_csv(f"{out_dir}/preds.csv")
 
-    results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
+    # results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
     accuracy = results_df["Match"].mean()    
     
     return accuracy, results_df

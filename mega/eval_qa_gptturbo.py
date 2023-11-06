@@ -229,13 +229,12 @@ def evaluate_qa_chatgpt(
     em_sum = 0
     avg_em = 0
     avg_f1 = 0
-    llm_client = LLMClient()
     squad_metric = load(metric)
 
     run_details = {"num_calls": 0}
 
     pbar = tqdm(enumerate(test_dataset))
-
+    llm_client = LLMClient() if substrate_prompt else None
     preds = []
     labels = []
     f1s, ems = [], []
@@ -267,30 +266,31 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-            try:
-                pred = model_completion(
-                    prompt,
-                    model,
-                    run_substrate_llm_completion=substrate_prompt,
-                    temperature=temperature,
-                    max_tokens=max_tokens,
-                    max_output_tokens=max_tokens,
-                    run_details=run_details,
-                    num_evals_per_sec=num_evals_per_sec,
-                )
-                break
+            # try:
+            pred = model_completion(
+                prompt,
+                model,
+                run_substrate_llm_completion=substrate_prompt,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                max_output_tokens=max_tokens,
+                run_details=run_details,
+                num_evals_per_sec=num_evals_per_sec,
+                llm_client=llm_client,
+            )
+            break
             # except (openai.error.InvalidRequestError, openai.error.Timeout):
-            except Exception as e:
-                print(e)
+            # except Exception as e:
+            #     print(e)
 
-                if len(train_examples_i) == 0:
-                    pred = ""
-                    print("Exausted Everything! Giving Empty Prediction Now :(")
-                    break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                )
+            #     if len(train_examples_i) == 0:
+            #         pred = ""
+            #         print("Exausted Everything! Giving Empty Prediction Now :(")
+            #         break
+            #     train_examples_i = train_examples_i[:-1]
+            #     print(
+            #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+            #     )
 
         pred = normalize_fn(pred)
 
@@ -416,7 +416,7 @@ def main(sys_args):
     # Loading instruction for the task
     instruction = INSTRUCTIONS["xquad"]
 
-    out_dir = f"{args.save_dir}/{args.dataset}/{args.model}_rerun/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
+    out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
     if args.translate_test:
         out_dir = f"{out_dir}_translate_test"
 
