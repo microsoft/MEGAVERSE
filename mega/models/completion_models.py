@@ -62,7 +62,7 @@ def timeout_handler(signum, frame):
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
-    request_data = create_request_data(prompt, **model_params)
+    request_data = create_request_data(prompt, model_params.get("max_tokens", 20), model_params.get("temperature", 0))
     response = llm_client.send_request(model_name, request_data)
     text_result = response["choices"][0]["text"]
     text_result = text_result.replace("<|im_end|>", "")

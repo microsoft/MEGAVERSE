@@ -1,6 +1,7 @@
 from msal import PublicClientApplication, SerializableTokenCache
 import json
 import os
+import uuid
 import atexit
 import requests
 import os
@@ -11,6 +12,8 @@ load_dotenv("envs/melange.env")
 
 SUBSTRATE_API_KEY = os.environ["SUBSTRATE_API_KEY"]
 SUBSTRATE_API_AUTHORITY = os.environ["SUBSTRATE_API_AUTHORITY"]
+SUBSTRATE_UUID = os.environ["SUBSTRATE_UUID"]
+SUBSTRATE_GUID = os.environ.get("SUBSTRATE_GUID", None)
 
 
 class LLMClient:
@@ -37,12 +40,16 @@ class LLMClient:
         # get the token
         token = self._get_token()
 
-        # populate the headers
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + token,
+            "Authorization": f"Bearer {token}",
             "X-ModelType": model_name,
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-CV": f"{SUBSTRATE_UUID}-{str(uuid.uuid4())}",
         }
+        if SUBSTRATE_GUID:
+            headers["X-ScenarioGUID"] = SUBSTRATE_GUID
 
         body = str.encode(json.dumps(request))
         response = requests.post(LLMClient._ENDPOINT, data=body, headers=headers)
