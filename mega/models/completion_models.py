@@ -140,8 +140,9 @@ def palm_api_completion(
                       (
                         openai.error.APIError, 
                         openai.error.RateLimitError,
-                        openai.error.Timeout,                    ), 
-                      max_time=60)
+                        openai.error.Timeout                
+                      ), 
+                      max_time=120)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
@@ -163,6 +164,7 @@ def gpt3x_completion(
         output = response["choices"][0]["text"].strip().split("\n")[0]
         time.sleep(1 / num_evals_per_sec)
     else:
+        
         response = openai.ChatCompletion.create(
             engine=model,
             messages=prompt,
@@ -341,7 +343,7 @@ def model_completion(
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     if "Llama-2" in model:
-        prompt = hf_model_api_completion(prompt, model, **model_params)
+        return hf_model_api_completion(prompt, model, **model_params)
 
     if model == "palm":
         return palm_api_completion(prompt, lang=lang, **model_params)
