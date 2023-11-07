@@ -88,47 +88,6 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
-BELEBELE2PALM_MAP = {
-    "english": "en",
-    "arabic": "ar",
-    "bengali": "bn",
-    "bulgarian": "bg",
-    "chinese_simplified": "zh",
-    "chinese_traditional": "zh",
-    "croation": "hr",  
-    "czech": "cs",
-    "danish": "da",
-    "dutch": "nl",
-    "estonian": "et",
-    "finnish": "fi",
-    "french": "fr",
-    "german": "de",
-    "greek": "el",
-    "hebrew": "iw",
-    "hindi": "hi",
-    "hungarian": "hu",
-    "indonesian": "id",
-    "italian": "it",
-    "japanese": "ja",
-    "korean": "ko",
-    "latvian": "lv",
-    "lithanian": "lt",
-    "norwegian": "no",
-    "polish": "pl",
-    "portuguese": "pt",
-    "romanian": "ro",
-    "russian": "ru",
-    "serbian": "sr",
-    "slovak": "sk",
-    "slovenian": "sl",
-    "spanish": "es",
-    "swahili": "sw",
-    "swedish": "sv",
-    "thai": "th",
-    "turkish": "tr",
-    "ukranian": "uk",
-    "vietnamese": "vi"
-}
 
 # Register an handler for the timeout
 # def handler(signum, frame):
