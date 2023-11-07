@@ -7,27 +7,21 @@ import sys
 
 
 def get_substrate_prompt(messages: List[Dict[str, str]]) -> str:
-    system_prompt, user_prompt, assistant_prompt = "", "", ""
-    for message in messages:
-        if message["role"] == "system":
-            system_prompt += message["content"] + "\n"
-        elif message["role"] == "user":
-            user_prompt += message["content"] + "\n"
-        elif message["role"] == "assistant":
-            assistant_prompt += message["content"] + "\n"
-    # system string and user_string could templatized using langchain or something and then passed here
-    return f"""<|im_start|>system
-===
-# OVERALL INSTRUCTIONS
-===
-{system_prompt}
-<|im_end|>
-<|im_start|>user
-{user_prompt}
-<|im_end|>
-<|im_start|>assistant
-{assistant_prompt}
-""".strip()
+    prompt = ""
+    pStart = "<|im_start|>"
+    pEnd = "<|im_end|>"
+    newLine = "\n"
+
+    sz = len(messages) - 1
+    for item in messages[:sz]:
+        buf = f'{pStart}{item["role"]}{newLine}{item["content"]}{pEnd}{newLine}'
+        prompt = f"{prompt}{buf}"
+
+    item = messages[-1]
+    buf = f'{pStart}{item["role"]}{newLine}{item["content"]}{newLine}'
+    prompt = f"{prompt}{buf}"
+    prompt += pEnd + "\n" + pStart + "assistant\n"
+    return prompt
 
 
 def construct_langchain_qa_prompt(
@@ -158,13 +152,13 @@ def construct_prompt(
     Returns:
         Tuple[str, str] : Final prompt string constructed to provide as input and the verbalized label
     """
-   
+
     if not chat_prompt:
         train_prompts = [
             "\n".join(train_prompt_template.apply(train_example))
             for train_example in train_examples
         ]
-        
+
         test_prompt_input, test_prompt_label = test_prompt_template.apply(test_example)
         prompt_input = "\n".join(train_prompts + [test_prompt_input]) + "\n"
 
@@ -328,10 +322,8 @@ def construct_belebele_prompt(
     verbalizer: Dict[Any, str],
     chat_prompt: bool = False,
     instruction: str = "",
-    ) -> Tuple[str, str]:
-    
+) -> Tuple[str, str]:
     def fill_belebele_template(example, template, chat_prompt=False):
-
         passage = example["flores_passage"]
         question = example["question"]
         option1 = example["mc_answer1"]
@@ -343,16 +335,16 @@ def construct_belebele_prompt(
 
         if not chat_prompt:
             filled_template = (
-            template.replace("{instruction}", instruction)
-            .replace("{passage}", passage)
-            .replace("{query}", question)
-            .replace("{A}", option1)
-            .replace("{B}", option2)
-            .replace("{C}", option3)
-            .replace("{D}", option4)
-        )
-         
-        else:   
+                template.replace("{instruction}", instruction)
+                .replace("{passage}", passage)
+                .replace("{query}", question)
+                .replace("{A}", option1)
+                .replace("{B}", option2)
+                .replace("{C}", option3)
+                .replace("{D}", option4)
+            )
+
+        else:
             filled_template = (
                 template.replace("{passage}", passage)
                 .replace("{query}", question)
@@ -392,8 +384,6 @@ def construct_belebele_prompt(
 
     return prompt_input, test_prompt_label
 
-
-    
 
 def construct_xstory_prompt(
     train_examples: List[Dict[str, Union[str, int]]],

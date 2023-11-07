@@ -24,7 +24,7 @@ SUPPORTED_MODELS = [
     "gpt-4-32k",
     "gpt-4",
     "gpt-35-turbo",
-    "gpt-35-turbo-16k"
+    "gpt-35-turbo-16k",
 ]
 CHAT_MODELS = ["gpt-35-turbo-16k", "gpt-4", "gpt-35-turbo", "gpt-4-32k"]
 
@@ -59,6 +59,7 @@ panx_verbalizer = {
     "O": "non-entity",
 }
 
+
 @backoff.on_exception(backoff.expo, KeyError)
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
@@ -68,6 +69,7 @@ def substrate_llm_completion(
     text_result = response["choices"][0]["text"]
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
+
 
 def gpt3x_tagger(
     prompt: Union[str, List[Dict[str, str]]],
@@ -90,38 +92,33 @@ def gpt3x_tagger(
             "Chat Completion not supported for iterative tagging. Either set one_shot_tag = True or chat_prompts = False"
         )
 
+    @backoff.on_exception(
+        backoff.expo,
+        (
+            openai.error.APIError,
+            openai.error.APIConnectionError,
+            openai.error.RateLimitError,
+        ),
+        max_time=60,
+    )
     def predict_tag(prompt, token):
         prompt_with_token = f"{prompt} {token}{delimiter}"
         backoff_count = 0
         # Hit the api repeatedly till response is obtained
-        while True:
-            try:
-                response = openai.Completion.create(
-                    engine=model,
-                    prompt=prompt_with_token,
-                    max_tokens=model_params.get("max_tokens", 20),
-                    temperature=model_params.get("temperature", 1),
-                    top_p=model_params.get("top_p", 1),
-                )
-                time.sleep(1 / num_evals_per_second)
-                backoff_count = 0
-                break
-            except (
-                openai.error.APIConnectionError,
-                openai.error.RateLimitError,
-                openai.error.APIError,
-            ):
-                backoff_count = min(backoff_count + 1, backoff_ceil)
-                sleep_time = backoff_base**backoff_count
-                print(f"Exceeded Rate Limit. Waiting for {sleep_time} seconds")
-                time.sleep(sleep_time)
-                continue
+        try:
+            response = openai.Completion.create(
+                engine=model,
+                prompt=prompt_with_token,
+                max_tokens=model_params.get("max_tokens", 20),
+                temperature=model_params.get("temperature", 1),
+                top_p=model_params.get("top_p", 1),
+            )
 
-            except TypeError:
-                warnings.warn(
-                    "Couldn't generate response, returning empty string as response"
-                )
-                return ""
+        except TypeError:
+            warnings.warn(
+                "Couldn't generate response, returning empty string as response"
+            )
+            return ""
         # import pdb
         # pdb.set_trace()
         return response["choices"][0]["text"].strip().split()[0]
@@ -307,6 +304,9 @@ def model_tagger(
             delimiter,
             **model_params,
         )
+
+    elif model == "palm":
+        return
 
     if substrate_prompt:
         llm_client = LLMClient()
