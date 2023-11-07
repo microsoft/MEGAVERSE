@@ -142,7 +142,7 @@ def palm_api_completion(
                         openai.error.RateLimitError,
                         openai.error.Timeout                
                       ), 
-                      max_time=120)
+                      max_time=300)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,

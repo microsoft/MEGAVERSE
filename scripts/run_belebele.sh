@@ -53,7 +53,8 @@ do
             -k $k --model "gpt-35-turbo" \
             -e melange --temperature 0 \
             --log_wandb --timeout 30 \
-            -d "belebele"
+            --chat_prompt \
+            -d "belebele" --substrate_prompt
         done
     done
 done
