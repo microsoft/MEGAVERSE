@@ -1,0 +1,8 @@
+azure-ai-formrecognizer 
+azure-ai-translation-document
+azure-cognitiveservices-formrecognizer
+azure-common                           
+azure-core                             
+azure-identity                         
+azure-storage-blob                     
+azureml                     

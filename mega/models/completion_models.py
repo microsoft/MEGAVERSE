@@ -88,7 +88,6 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
-
 # Register an handler for the timeout
 # def handler(signum, frame):
 #     raise Exception("API Response Stuck!")
