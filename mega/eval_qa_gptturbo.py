@@ -267,6 +267,7 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
+            
             try:
                 pred = model_completion(
                     prompt,
@@ -280,6 +281,7 @@ def evaluate_qa_chatgpt(
                     llm_client=llm_client,
                     lang=lang,
                 )
+                break
 
             # pred = substrate_llm_completion(
             #     llm_client,
@@ -299,8 +301,8 @@ def evaluate_qa_chatgpt(
                     break
                 train_examples_i = train_examples_i[:-1]
                 print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                )
+                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                    )
 
         pred = normalize_fn(pred)
 
