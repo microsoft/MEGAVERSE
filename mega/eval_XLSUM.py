@@ -19,6 +19,7 @@ import numpy as np
 from rouge_score import rouge_scorer
 from tqdm import tqdm
 import wandb
+import pandas as pd
 from mega.models.completion_models import (
     get_model_pred,
     gpt3x_completion,
@@ -154,7 +155,7 @@ def compute_rouge(scorer, pred, label):
 
 if __name__ == "__main__":
     args = read_parameters("./scripts/parameters_palm.yaml")
-    env_name = "gpt4v2"
+    env_name = "melange"
     load_openai_env_variables()
     lang = sys.argv[1]
     prompt_name = args["prompt_names"][0]
@@ -170,6 +171,11 @@ if __name__ == "__main__":
         os.mkdir(args["response_logger_root"])
 
     response_logger_file = f"{args['response_logger_root']}/{lang}_predictions.csv"
+    
+    try:
+        results = pd.read_csv(response_logger_file).to_dict("records")
+    except:
+        results = []
     # Loading k in context examples to pass to the model
 
     random.seed(args["random_seed"])
@@ -215,6 +221,10 @@ if __name__ == "__main__":
         )
     )
     for idx, test_example in pbar:
+        if idx < len(results):
+            print(f"skipping {idx}")
+            continue
+        
         prompt, label = construct_prompt(
             ic_examples,
             test_example,
@@ -229,64 +239,68 @@ if __name__ == "__main__":
         # if (idx+1)%8==0:
         # time.sleep(args["sleep_period"])
 
-        try:
-            # if not args["substrate_prompt"]:
-            #     pred = gpt3x_completion(
-            #         prompt=prompt,
-            #         model=model,
-            #         max_tokens=args["max_tokens"],
-            #         temperature=args["temperature"],
-            #         run_details=run_details,
-            #     )
-            # else:
-            #     pred = substrate_llm_completion(
-            #         llm_client=llm_client,
-            #         prompt=prompt,
-            #         model_name=model,
-            #         temperature=0,
-            #         max_tokens=100,
-            #     )
+        # try:
             
-            # print(model)
             
-            pred = model_completion(
-                    prompt=prompt,
-                    model=model,
-                    max_tokens=args["max_tokens"],
-                    temperature=args["temperature"],
-                    run_details=run_details,
-                    lang = lang
-                )
+        pred = model_completion(
+                prompt=prompt,
+                model=model,
+                max_tokens=args["max_tokens"],
+                temperature=args["temperature"],
+                run_details=run_details,
+                lang = lang,
+                run_substrate_llm_completion=args["substrate_prompt"],
+            )
             
-        except:
-            print("Error in completion")
-            pred = "Error in completion"
+        # except:
+        #     print("Error in completion")
+        #     pred = "Error in completion"
         batched_predictions.append(pred)
         run_details["last_processed_idx"] = idx
-        dump_predictions(idx, pred, response_logger_file)
+        
+        # dump_predictions(idx, pred, response_logger_file)
         r1, r2, rL = compute_rouge(scorer, pred, label)
         rouge1.append(r1)
         rouge2.append(r2)
         rougeL.append(rL)
         pbar.set_description(f"ROUGE-L: {np.average(rougeL)}")
+        
+        results.append({"uuid": idx,
+                        "label": label, 
+                        "prediction": pred, 
+                        "ROUGE-1": int(r1[2]), 
+                        "ROUGE-2": int(r2[2]), 
+                        "ROUGE-L": int(rL[2]),
+                        })
+        
+        # print(results)
+        
+        results_df = pd.DataFrame(results)
+        results_df.to_csv(response_logger_file)
+        
+        
+        avg_r1 = np.average(results_df["ROUGE-1"])
+        avg_r2 = np.average(results_df['ROUGE-2'])
+        avg_rL = np.average(results_df['ROUGE-L'])
+        
         if args["wandb_log"]:
             wandb.log(run_details, step=idx + 1)
             wandb.log(
                 {
-                    "avg R1": np.average(rouge1),
-                    "avg R2": np.average(rouge2),
-                    "avg RL": np.average(rougeL),
+                    "avg R1": np.average(avg_r1),
+                    "avg R2": np.average(avg_r2),
+                    "avg RL": np.average(avg_rL),
                 },
                 step=idx + 1,
             )
 
     print(
-        f"Average performance for the {prompt_name} in {lang} is ({np.average(rouge1)},{np.average(rouge2)},{np.average(rougeL)})"
+        f"Average performance for the {prompt_name} in {lang} is ({np.average(avg_r1)},{np.average(avg_r2)},{np.average(avg_rL)})"
     )
     dump_metrics(
         lang,
-        np.average(rouge1),
-        np.average(rouge2),
-        np.average(rougeL),
+        avg_r1,
+        avg_r2,
+        avg_rL,
         args["response_logger_root"] + args["metric_logger_path"],
     )
