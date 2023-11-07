@@ -9,10 +9,10 @@ import numpy as np
 from mega.data.load_datasets import load_belebele_dataset, load_belebele_translate_test
 from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.eval_cls import evaluate_model
-from mega.models.completion_models import model_completion 
-from mega.models.hf_completion_models  import hf_model_api_completion
+from mega.models.completion_models import model_completion
+from mega.models.hf_completion_models import hf_model_api_completion
 from mega.prompting.prompting_utils import construct_belebele_prompt
-from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt 
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
@@ -29,12 +29,9 @@ from mega.utils.substrate_llm import LLMClient
 
 PROMPT_TEMPLATES = {
     "Choose the correct answer": "{instruction}\n###\nPassage:\n{passage}\n###\nQuery:\n{query}\n###\nChoices:\n(A) {A}\n(B) {B}\n(C) {C}\n(D) {D}\n###\nAnswer:\n",
-    }
+}
 
-VERBALIZER = {"default": {'1': "A", 
-                          '2': "B", 
-                          '3': "C", 
-                          '4': "D"}}
+VERBALIZER = {"default": {"1": "A", "2": "B", "3": "C", "4": "D"}}
 
 
 BELEBELE2AZURE_LANG_MAP = {
@@ -55,13 +52,13 @@ BELEBELE2AZURE_LANG_MAP = {
     "norwegian": "nb",
     "korean": "ko",
     "chinese_traditional": "zh-Hant",
-    "polish": "pl", 
+    "polish": "pl",
     "turkish": "tr",
     "hebrew": "he",
     "arabic": "ar",
     "czech": "cs",
     "hungarian": "hu",
-    "thai": "th"
+    "thai": "th",
 }
 
 BELEBELE2PALM_MAP = {
@@ -71,7 +68,7 @@ BELEBELE2PALM_MAP = {
     "bulgarian": "bg",
     "chinese_simplified": "zh",
     "chinese_traditional": "zh",
-    "croation": "hr",  
+    "croation": "hr",
     "czech": "cs",
     "danish": "da",
     "dutch": "nl",
@@ -103,14 +100,14 @@ BELEBELE2PALM_MAP = {
     "thai": "th",
     "turkish": "tr",
     "ukranian": "uk",
-    "vietnamese": "vi"
+    "vietnamese": "vi",
 }
 
 
-def parse_pred(pred: str)  -> str:
+def parse_pred(pred: str) -> str:
     if "A" in pred:
         return "A"
-    elif "B" in pred: 
+    elif "B" in pred:
         return "B"
     elif "C" in pred:
         return "C"
@@ -118,6 +115,7 @@ def parse_pred(pred: str)  -> str:
         return "D"
     else:
         return pred
+
 
 def evaluate(
     train_dataset: Dataset,
@@ -143,7 +141,6 @@ def evaluate(
     out_dir: str = "",
     **model_params,
 ) -> float:
-    
     run_details = {"num_calls": 0}
 
     # train_examples = choose_few_shot_examples(
@@ -151,15 +148,14 @@ def evaluate(
     # )
 
     train_examples = []
-    
+
     valid_labels = [1, 2, 3, 4]
-    
-    
+
     if "preds.csv" in os.listdir(out_dir):
         results_df = pd.read_csv(f"{out_dir}/preds.csv")
         results = results_df.to_dict("records")
-    
-    else:  
+
+    else:
         results = []
 
     preds = []
@@ -167,19 +163,18 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
-    
+
     pred_len = len(results)
     pbar = tqdm(test_dataset)
 
-    
     for idx, test_example in enumerate(pbar):
         if idx < pred_len:
             print(f"skipping {idx}")
             continue
-        
+
         train_examples_i = train_examples
         label = verbalizer[test_example["correct_answer_num"]]
-                
+
         while len(train_examples_i) >= 0:
             prompt, _ = construct_belebele_prompt(
                 train_examples_i,
@@ -193,32 +188,33 @@ def evaluate(
             if use_hf_model:
                 if chat_prompt:
                     prompt_input = convert_to_hf_chat_prompt(prompt)
-                
+
                 # print(prompt_input)
                 pred = hf_model_api_completion(
-                                                prompt=prompt_input,
-                                                model_name=model,
-                                                tokenizer=tokenizer,
-                                                timeout=timeout
-                                                )
-            
-            else:     
-                try:
-                # print(prompt)
-                # print(model)
-                    # print(idx)
-                    # print(substrate_prompt)
-                    pred = model_completion(
-                    prompt,
-                    model,
-                    run_substrate_llm_completion=substrate_prompt,
-                    run_details=run_details,
-                    num_evals_per_sec=num_evals_per_sec,
-                    llm_client=llm_client,
-                    lang=model_lang,
+                    prompt=prompt_input,
+                    model_name=model,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
                 )
+
+            else:
+                try:
+                    pred = model_completion(
+                        prompt,
+                        model,
+                        run_substrate_llm_completion=substrate_prompt,
+                        run_details=run_details,
+                        num_evals_per_sec=num_evals_per_sec,
+                        llm_client=llm_client,
+                        lang=model_lang,
+                    )
                     break
-                except (openai.error.InvalidRequestError, openai.error.Timeout, ValidationError, OverloadedError) as e:
+                except (
+                    openai.error.InvalidRequestError,
+                    openai.error.Timeout,
+                    ValidationError,
+                    OverloadedError,
+                ) as e:
                     if len(train_examples_i) == 0:
                         pred = np.random.choice(valid_labels)
                         print("Exausted Everything! Giving Random Prediction Now :(")
@@ -228,10 +224,8 @@ def evaluate(
                         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                     )
 
-        # print("label: ",label)
-        # print("pred: ",pred)
         pred = parse_pred(pred)
-        # print("Parsed Pred", pred)
+
         preds.append(pred)
         labels.append(label)
         matches.append(float(pred == label))
@@ -241,15 +235,15 @@ def evaluate(
         if log_wandb:
             wandb.log({"acuracy": running_acc})
         # time.sleep(1 / num_evals_per_sec)
-        
+
         results.append({"Label": label, "Prediction": pred, "Match": matches[-1]})
-        
+
         results_df = pd.DataFrame(results)
         results_df.to_csv(f"{out_dir}/preds.csv")
 
     # results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
-    accuracy = results_df["Match"].mean()    
-    
+    accuracy = results_df["Match"].mean()
+
     return accuracy, results_df
 
 
@@ -276,7 +270,6 @@ def main(sys_args):
         args.few_shot_k = wandb.config.few_shot_k
         args.temperature = wandb.config.temperature
         args.num_proc = wandb.config.num_proc
-        
 
     # Load datasets for pivot and target languages
     train_dataset = load_belebele_dataset(
@@ -290,9 +283,10 @@ def main(sys_args):
     # ToDO: Add Translate Test Support
     if args.translate_test:
         test_dataset = load_belebele_translate_test(
-            BELEBELE2AZURE_LANG_MAP[args.tgt_lang], 
-            BELEBELE2AZURE_LANG_MAP[args.pivot_lang], 
-            test_dataset, data_dir="data"
+            BELEBELE2AZURE_LANG_MAP[args.tgt_lang],
+            BELEBELE2AZURE_LANG_MAP[args.pivot_lang],
+            test_dataset,
+            data_dir="data",
         )
 
     # Load prompt templates for train and test datasets
@@ -308,7 +302,7 @@ def main(sys_args):
     # train_examples = choose_few_shot_examples(
     #     train_dataset, args.few_shot_k, args.few_shot_selection
     # )
-    
+
     train_examples = []
 
     out_dir = f"{args.save_dir}/belebele/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"
@@ -320,24 +314,22 @@ def main(sys_args):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-
     instruction = INSTRUCTIONS[args.dataset]
-    
+
     print(instruction)
-    
+
     prompt_template = PROMPT_TEMPLATES[args.tgt_prompt_name]
     verbalizer = VERBALIZER["default"]
-    
+
     pred_file_path = f"{out_dir}/preds.csv"
 
-    tokenizer=None    
+    tokenizer = None
     if args.use_hf_api:
         tokenizer = AutoTokenizer.from_pretrained(args.model)
 
     model_lang = "en" if args.translate_test else args.tgt_lang
     llm_client = LLMClient() if args.substrate_prompt else None
 
-    
     accuracy, results_df = evaluate(
         train_dataset,
         test_dataset,
@@ -368,9 +360,9 @@ def main(sys_args):
     results_dict = vars(args)
     results_dict["metrics"] = {"accuracy": accuracy}
     print(results_dict)
-    
+
     results_df.to_csv(f"{out_dir}/preds.csv")
-    
+
     if not args.no_save:
         with open(f"{out_dir}/results.json", "w") as f:
             json.dump(results_dict, f, indent=4)

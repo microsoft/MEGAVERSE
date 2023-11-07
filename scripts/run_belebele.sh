@@ -30,8 +30,8 @@ do
             python -m mega.eval_belebele -p "english" -t $lang \
             --pivot_prompt_name "${prompt_name}" \
             --tgt_prompt_name "${prompt_name}" \
-            -k $k --model "gpt-4" \
-            -e melange --substrate_prompt --temperature 0 \
+            -k $k --model "dev-moonshot" \
+            -e melange --substrate_prompt --chat_prompt --temperature 0 \
             --log_wandb --timeout 30 \
             -d "belebele" --translate-test
         done

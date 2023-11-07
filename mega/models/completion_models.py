@@ -31,6 +31,7 @@ SUPPORTED_MODELS = [
     "gpt-4-32k",
     "gpt-4",
     "dev-gpt-35-turbo",
+    "dev-moonshot",
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
@@ -99,7 +100,7 @@ def timeout_handler(signum, frame):
     raise openai.error.Timeout("API Response Stuck!")
 
 
-# @backoff.on_exception(backoff.expo, KeyError)
+@backoff.on_exception(backoff.expo, KeyError, max_time=600)
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
@@ -112,13 +113,12 @@ def substrate_llm_completion(
     return text_result
 
 
-# @backoff.on_exception(backoff.expo, ResourceExhausted)
+@backoff.on_exception(backoff.expo, ResourceExhausted)
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
-    
     # print("inside the function prompt: ", prompt)
-    
+
     if lang == "":
         raise ValueError("Language argument is necessary for palm model")
     if (
@@ -126,29 +126,24 @@ def palm_api_completion(
         and lang not in PALM_SUPPORTED_LANGUAGES_MAP.values()
     ):
         raise ValueError("Language not supported by PALM!")
-    
-    
+
     model = TextGenerationModel.from_pretrained("text-bison@001")
-    
+
     response = model.predict(
         prompt=prompt,
         max_output_tokens=model_params.get("max_tokens", 20),
         temperature=model_params.get("temperature", 1),
     )
-    
-    # print(response.text)
-    
+
     return response.text
 
 
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
-@backoff.on_exception(backoff.expo, 
-                      (
-                        openai.error.APIError, 
-                        openai.error.RateLimitError,
-                        openai.error.Timeout                
-                      ), 
-                      max_time=300)
+@backoff.on_exception(
+    backoff.expo,
+    (openai.error.APIError, openai.error.RateLimitError, openai.error.Timeout),
+    max_time=300,
+)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
@@ -170,7 +165,6 @@ def gpt3x_completion(
         output = response["choices"][0]["text"].strip().split("\n")[0]
         time.sleep(1 / num_evals_per_sec)
     else:
-        
         response = openai.ChatCompletion.create(
             engine=model,
             messages=prompt,
@@ -332,9 +326,9 @@ def model_completion(
     Returns:
         str: generated string
     """
-    
+
     # print(model)
-    
+
     if model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
