@@ -83,7 +83,7 @@ do
 done
 
 
-
+# meta llama experiments
 echo "Monolingual Evaluation"
 for prompt_name in "Choose the correct answer"
 do
@@ -95,7 +95,7 @@ do
             python -m mega.eval_belebele -p $lang -t $lang \
             --pivot_prompt_name "${prompt_name}" \
             --tgt_prompt_name "${prompt_name}" \
-            -k $k --model "meta-llama/Llama-2-7b-chat-hf" \
+            -k $k --model "meta-llama/Llama-2-70b-chat-hf" \
             -e gpt4v3 --chat_prompt --temperature 0 \
             --log_wandb --timeout 30 \
             -d "belebele"
@@ -105,7 +105,7 @@ done
 
 
 
-# gpt 3.5 turbo translate test experiments
+# meta llama translate test experiments
 
 echo "Translate Test Evaluation"
 for prompt_name in "Choose the correct answer"
@@ -118,7 +118,7 @@ do
             python -m mega.eval_belebele -p $lang -t $lang \
             --pivot_prompt_name "${prompt_name}" \
             --tgt_prompt_name "${prompt_name}" \
-            -k $k --model "meta-llama/Llama-2-7b-chat-hf" \
+            -k $k --model "meta-llama/Llama-2-70b-chat-hf" \
             -e gpt4v3 --chat_prompt --temperature 0 \
             --log_wandb --timeout 30 \
             -d "belebele" --translate_test
