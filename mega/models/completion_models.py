@@ -398,7 +398,7 @@ def model_completion(
 
     if model == "palm":
         # print("falling into palm")
-        return palm_api_completion(prompt, lang=BELEBELE2PALM_MAP[lang], **model_params)
+        return palm_api_completion(prompt, lang=lang, **model_params)
 
 
 def get_model_pred(
