@@ -1,9 +1,7 @@
 from typing import Union, List, Dict, Tuple, Optional, Any
 from promptsource.templates import Template, DatasetTemplates
-import pdb
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
-import sys
 
 
 def get_substrate_prompt(messages: List[Dict[str, str]]) -> str:
