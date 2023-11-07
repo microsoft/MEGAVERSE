@@ -3,7 +3,7 @@ do
     python -m mega.eval_XLSUM ${lang}
 done
 
-# for lang in "english"
-# do
-#     python -m mega.eval_XLSUM ${lang}
-# done
+for lang in "english"
+do
+    python -m mega.eval_XLSUM ${lang}
+done
