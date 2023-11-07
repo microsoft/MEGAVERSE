@@ -9,7 +9,7 @@ import yaml
 import random
 import openai
 from mega.data.data_utils import choose_few_shot_examples
-from mega.models.completion_models import gpt3x_completion
+from mega.models.completion_models import gpt3x_completion, model_completion
 from mega.prompting.prompting_utils import get_substrate_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.misc_utils import dump_predictions
@@ -133,6 +133,8 @@ def construct_prompt(
         if substrate_prompt:
             prompt_input = get_substrate_prompt(messages)
 
+
+    # print(prompt_input)
     return prompt_input, test_prompt_label
 
 
@@ -151,7 +153,7 @@ def compute_rouge(scorer, pred, label):
 
 
 if __name__ == "__main__":
-    args = read_parameters("./scripts/parameters.yaml")
+    args = read_parameters("./scripts/parameters_palm.yaml")
     env_name = "gpt4v2"
     load_openai_env_variables()
     lang = sys.argv[1]
@@ -222,26 +224,40 @@ if __name__ == "__main__":
             instruction,
             substrate_prompt=args["substrate_prompt"],
         )
+        
+        # print(prompt)
         # if (idx+1)%8==0:
-        time.sleep(args["sleep_period"])
+        # time.sleep(args["sleep_period"])
 
         try:
-            if not args["substrate_prompt"]:
-                pred = gpt3x_completion(
+            # if not args["substrate_prompt"]:
+            #     pred = gpt3x_completion(
+            #         prompt=prompt,
+            #         model=model,
+            #         max_tokens=args["max_tokens"],
+            #         temperature=args["temperature"],
+            #         run_details=run_details,
+            #     )
+            # else:
+            #     pred = substrate_llm_completion(
+            #         llm_client=llm_client,
+            #         prompt=prompt,
+            #         model_name=model,
+            #         temperature=0,
+            #         max_tokens=100,
+            #     )
+            
+            # print(model)
+            
+            pred = model_completion(
                     prompt=prompt,
                     model=model,
                     max_tokens=args["max_tokens"],
                     temperature=args["temperature"],
                     run_details=run_details,
+                    lang = lang
                 )
-            else:
-                pred = substrate_llm_completion(
-                    llm_client=llm_client,
-                    prompt=prompt,
-                    model_name=model,
-                    temperature=0,
-                    max_tokens=100,
-                )
+            
         except:
             print("Error in completion")
             pred = "Error in completion"

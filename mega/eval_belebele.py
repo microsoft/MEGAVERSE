@@ -361,6 +361,7 @@ def main(sys_args):
         use_hf_model=args.use_hf_api,
         out_dir=out_dir,
         llm_client=llm_client,
+        substrate_prompt=args.substrate_prompt,
     )
     print(accuracy)
     # Store results
