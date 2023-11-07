@@ -13,7 +13,7 @@ do
             --tgt_prompt_name "${prompt_name}" \
             -k $k --model "dev-moonshot" \
             -e melange --temperature 0 \
-            --log_wandb --timeout 30 \
+             --timeout 30 \
             -d "belebele" --substrate_prompt
         done
     done
@@ -32,7 +32,7 @@ do
             --tgt_prompt_name "${prompt_name}" \
             -k $k --model "dev-moonshot" \
             -e melange --substrate_prompt --chat_prompt --temperature 0 \
-            --log_wandb --timeout 30 \
+            --timeout 30 \
             -d "belebele" --translate-test
         done
     done
