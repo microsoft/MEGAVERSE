@@ -99,7 +99,7 @@ def timeout_handler(signum, frame):
     raise openai.error.Timeout("API Response Stuck!")
 
 
-@backoff.on_exception(backoff.expo, KeyError)
+# @backoff.on_exception(backoff.expo, KeyError)
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
@@ -112,10 +112,13 @@ def substrate_llm_completion(
     return text_result
 
 
-@backoff.on_exception(backoff.expo, ResourceExhausted)
+# @backoff.on_exception(backoff.expo, ResourceExhausted)
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
+    
+    # print("inside the function prompt: ", prompt)
+    
     if lang == "":
         raise ValueError("Language argument is necessary for palm model")
     if (
@@ -123,14 +126,18 @@ def palm_api_completion(
         and lang not in PALM_SUPPORTED_LANGUAGES_MAP.values()
     ):
         raise ValueError("Language not supported by PALM!")
-
+    
+    
     model = TextGenerationModel.from_pretrained("text-bison@001")
-    # print(prompt)
+    
     response = model.predict(
         prompt=prompt,
         max_output_tokens=model_params.get("max_tokens", 20),
         temperature=model_params.get("temperature", 1),
     )
+    
+    # print(response.text)
+    
     return response.text
 
 
@@ -141,7 +148,7 @@ def palm_api_completion(
                         openai.error.RateLimitError,
                         openai.error.Timeout                
                       ), 
-                      max_time=120)
+                      max_time=300)
 def gpt3x_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
@@ -325,6 +332,9 @@ def model_completion(
     Returns:
         str: generated string
     """
+    
+    # print(model)
+    
     if model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
@@ -345,6 +355,7 @@ def model_completion(
         return hf_model_api_completion(prompt, model, **model_params)
 
     if model == "palm":
+        # print("falling into palm")
         return palm_api_completion(prompt, lang=lang, **model_params)
 
 
