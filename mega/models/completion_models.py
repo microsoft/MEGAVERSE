@@ -88,6 +88,48 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
+BELEBELE2PALM_MAP = {
+    "english": "en",
+    "arabic": "ar",
+    "bengali": "bn",
+    "bulgarian": "bg",
+    "chinese_simplified": "zh",
+    "chinese_traditional": "zh",
+    "croation": "hr",  
+    "czech": "cs",
+    "danish": "da",
+    "dutch": "nl",
+    "estonian": "et",
+    "finnish": "fi",
+    "french": "fr",
+    "german": "de",
+    "greek": "el",
+    "hebrew": "iw",
+    "hindi": "hi",
+    "hungarian": "hu",
+    "indonesian": "id",
+    "italian": "it",
+    "japanese": "ja",
+    "korean": "ko",
+    "latvian": "lv",
+    "lithanian": "lt",
+    "norwegian": "no",
+    "polish": "pl",
+    "portuguese": "pt",
+    "romanian": "ro",
+    "russian": "ru",
+    "serbian": "sr",
+    "slovak": "sk",
+    "slovenian": "sl",
+    "spanish": "es",
+    "swahili": "sw",
+    "swedish": "sv",
+    "thai": "th",
+    "turkish": "tr",
+    "ukranian": "uk",
+    "vietnamese": "vi"
+}
+
 # Register an handler for the timeout
 # def handler(signum, frame):
 #     raise Exception("API Response Stuck!")
@@ -99,7 +141,7 @@ def timeout_handler(signum, frame):
     raise openai.error.Timeout("API Response Stuck!")
 
 
-# @backoff.on_exception(backoff.expo, KeyError)
+@backoff.on_exception(backoff.expo, KeyError)
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
@@ -112,7 +154,7 @@ def substrate_llm_completion(
     return text_result
 
 
-# @backoff.on_exception(backoff.expo, ResourceExhausted)
+@backoff.on_exception(backoff.expo, ResourceExhausted)
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
@@ -356,7 +398,7 @@ def model_completion(
 
     if model == "palm":
         # print("falling into palm")
-        return palm_api_completion(prompt, lang=lang, **model_params)
+        return palm_api_completion(prompt, lang=BELEBELE2PALM_MAP[lang], **model_params)
 
 
 def get_model_pred(

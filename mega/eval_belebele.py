@@ -353,7 +353,7 @@ def main(sys_args):
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
         instruction=instruction,
-        model_lang=BELEBELE2PALM_MAP[model_lang],
+        model_lang=model_lang,
         temperature=args.temperature,
         top_p=args.top_p,
         max_tokens=args.max_tokens,
