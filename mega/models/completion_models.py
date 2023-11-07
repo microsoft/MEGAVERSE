@@ -141,7 +141,7 @@ def timeout_handler(signum, frame):
     raise openai.error.Timeout("API Response Stuck!")
 
 
-@backoff.on_exception(backoff.expo, KeyError)
+@backoff.on_exception(backoff.expo, KeyError, max_time=300)
 def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
@@ -154,7 +154,7 @@ def substrate_llm_completion(
     return text_result
 
 
-@backoff.on_exception(backoff.expo, ResourceExhausted)
+@backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
