@@ -13,9 +13,9 @@ from mega.utils.env_utils import (
                                   COGNITIVE_API_VERSION,
                                   COGNITIVE_API_KEY
                                   )
-# from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
-# from azure.ai.translation.text.models import InputTextItem
-# from azure.core.exceptions import HttpResponseError
+from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
+from azure.ai.translation.text.models import InputTextItem
+from azure.core.exceptions import HttpResponseError
 import json
  
 

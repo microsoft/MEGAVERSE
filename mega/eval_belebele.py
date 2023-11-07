@@ -327,7 +327,7 @@ def main(sys_args):
     if args.use_hf_api:
         tokenizer = AutoTokenizer.from_pretrained(args.model)
 
-    model_lang = "en" if args.translate_test else args.tgt_lang
+    model_lang = "english" if args.translate_test else args.tgt_lang
     llm_client = LLMClient() if args.substrate_prompt else None
 
     accuracy, results_df = evaluate(
@@ -345,7 +345,7 @@ def main(sys_args):
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
         instruction=instruction,
-        model_lang=BELEBELE2PALM_MAP[model_lang],
+        model_lang=model_lang if args.model != "palm" else BELEBELE2PALM_MAP[model_lang],
         temperature=args.temperature,
         top_p=args.top_p,
         max_tokens=args.max_tokens,
