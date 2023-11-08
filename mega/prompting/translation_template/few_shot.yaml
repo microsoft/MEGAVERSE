@@ -1,6 +1,0 @@
-_type: prompt
-input_variables:
-    ["sentence", "response"]
-template: |
-    Sentence: {sentence}
-    Response: {response}

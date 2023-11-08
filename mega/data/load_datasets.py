@@ -13,6 +13,7 @@ from mega.utils.translator import (
     translate_belebele
 )
 from mega.data.data_utils import read_conll_data
+from typing import List
 
 TYDIQA_LANG2CODES = {
     "bengali": "bn",
@@ -68,7 +69,6 @@ langcodes2lang = {
     "vi": "Vietnamese",
     "zh": "Mandarin",
 }
-
 
 def load_belebele_dataset( lang: str, 
                           split: str = "test", 
@@ -470,6 +470,15 @@ def load_xlsum_dataset(
         return dataset.select(np.arange(int(len(dataset) * dataset_frac)))
 
 
+def load_in22_dataset(lang : str, rows : int, split : str = "gen"):
+    data = load_dataset("ai4bharat/IN22-Gen", 'eng_Latn-'+lang, split=split)
+    return data[:rows]
+
+def load_flores_test_dataset(split : str = "dev"):
+    data = load_dataset('facebook/flores', "all", split=split)
+    return data
+    
+    
 def load_dataset_mega(
     dataset: str,
     lang: str,
