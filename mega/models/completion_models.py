@@ -102,7 +102,7 @@ PALM_MAPPING ={"palm": "text-bison@001",
 
 
 def timeout_handler(signum, frame):
-    raise openai.error.Timeout("API Response Stuck!")
+    raise openai.Timeout("API Response Stuck!")
 
 
 @backoff.on_exception(backoff.expo, KeyError, max_time=600)
@@ -150,7 +150,7 @@ def palm_api_completion(
 # @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 @backoff.on_exception(
     backoff.expo,
-    (openai.error.APIError, openai.error.RateLimitError, openai.error.Timeout),
+    (openai.APIError, openai.RateLimitError, openai.Timeout),
     max_time=300,
 )
 def gpt3x_completion(
