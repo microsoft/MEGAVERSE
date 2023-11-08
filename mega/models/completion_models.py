@@ -37,8 +37,6 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
-    "text-bison@001",
-    "text-bison-32k",
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -92,6 +90,8 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
+PALM_MAPPING ={"palm": "text-bison@001",
+               "palm-32k": 'text-bison-32k'}
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -353,10 +353,8 @@ def model_completion(
 
     if "Llama-2" in model:
         return hf_model_api_completion(prompt, model, **model_params)
-
-    if model in ["text-bison@001", "text-bison-32k"]:
-        # print("falling into palm")
-        return palm_api_completion(prompt, lang=lang, **model_params)
+    if "palm" in model:
+        return palm_api_completion(prompt, model=PALM_MAPPING[model], lang=lang, **model_params)
 
 
 def get_model_pred(
