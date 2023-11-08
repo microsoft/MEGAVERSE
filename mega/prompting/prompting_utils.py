@@ -6,29 +6,45 @@ from langchain.prompts.prompt import PromptTemplate
 import sys
 
 
-def get_substrate_prompt(messages: List[Dict[str, str]]):
-    system_prompt, user_prompt, assistant_prompt = "", "", ""
-    for message in messages:
-        if message["role"] == "system":
-            system_prompt += message["content"] + "\n"
-        elif message["role"] == "user":
-            user_prompt += message["content"] + "\n"
-        elif message["role"] == "assistant":
-            assistant_prompt += message["content"] + "\n"
-    # system string and user_string could templatized using langchain or something and then passed here
-    return f"""<|im_start|>system
-===
-# OVERALL INSTRUCTIONS
-===
-{system_prompt}
-<|im_end|>
-<|im_start|>user
-{user_prompt}
-<|im_end|>
-<|im_start|>assistant
-{assistant_prompt}
-""".strip()
+# def get_substrate_prompt(messages: List[Dict[str, str]]):
+#     system_prompt, user_prompt, assistant_prompt = "", "", ""
+#     for message in messages:
+#         if message["role"] == "system":
+#             system_prompt += message["content"] + "\n"
+#         elif message["role"] == "user":
+#             user_prompt += message["content"] + "\n"
+#         elif message["role"] == "assistant":
+#             assistant_prompt += message["content"] + "\n"
+#     # system string and user_string could templatized using langchain or something and then passed here
+#     return f"""<|im_start|>system
+# ===
+# # OVERALL INSTRUCTIONS
+# ===
+# {system_prompt}
+# <|im_end|>
+# <|im_start|>user
+# {user_prompt}
+# <|im_end|>
+# <|im_start|>assistant
+# {assistant_prompt}
+# """.strip()
 
+def get_substrate_prompt(messages: List[Dict[str, str]]) -> str:
+    prompt = ""
+    pStart = "<|im_start|>"
+    pEnd = "<|im_end|>"
+    newLine = "\n"
+
+    sz = len(messages) - 1
+    for item in messages[:sz]:
+        buf = f'{pStart}{item["role"]}{newLine}{item["content"]}{pEnd}{newLine}'
+        prompt = f"{prompt}{buf}"
+
+    item = messages[-1]
+    buf = f'{pStart}{item["role"]}{newLine}{item["content"]}{newLine}'
+    prompt = f"{prompt}{buf}"
+    prompt += pEnd + "\n" + pStart + "assistant\n"
+    return prompt
 
 def construct_langchain_qa_prompt(
     train_examples: List[Dict[str, Union[str, int]]],

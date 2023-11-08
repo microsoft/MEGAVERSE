@@ -4,6 +4,7 @@ import os
 import atexit
 import requests
 import os
+import pprint
 
 from dotenv import load_dotenv
 
@@ -101,7 +102,7 @@ class LLMClient:
 
 def create_request_data(
     prompt,
-    max_tokens=800,
+    max_tokens=10,
     temperature=0,
     top_p=1,
     n=1,
@@ -109,9 +110,10 @@ def create_request_data(
     logprops=None,
     stop=None,
 ):
+    
     request_data = {
         "prompt": prompt,
-        "max_tokens": max_tokens,
+        "max_tokens": 100,
         "temperature": temperature,
         "top_p": top_p,
         "n": n,
@@ -119,7 +121,7 @@ def create_request_data(
         # "logprobs": logprops,
         "stop": stop,
     }
-
+    print("request data",request_data)
     return request_data
 
 
@@ -146,7 +148,7 @@ if __name__ == "__main__":
 
     request_data = create_request_data(
         prompt=template,
-        max_tokens=1000,
+        max_tokens=10,
         temperature=0,
         top_p=1,
         n=1,

@@ -159,13 +159,25 @@ def evaluate(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
         # print("preds","".join(pred_dict["prediction"]).split(' '))
-        preds_temp = "".join(pred_dict["prediction"]).split(' ')
-        try:
-            preds_temp = [word.split("_")[1] for word in preds_temp]
-        except:
-            continue
-        # print("preds_temp",preds_temp)
-        pred_dict["prediction"] = preds_temp
+        print("preds",pred_dict["prediction"])
+        if substrate_prompt:
+            pred_sen = "".join(pred_dict["prediction"])
+            print("This is pred sen:",pred_sen)
+            if "\n\nTag" in pred_sen:
+                pred_sen = pred_sen.split("\n\nTag")[0]
+                # print(pred_sen)
+                # sys.exit(0)
+            preds_temp = pred_sen.split(' ')
+            # print("preds_temp",preds_temp)
+            try:
+                preds_temp = [word.split("_")[1] for word in preds_temp]
+            except:
+                print("Skipping due to split problem",idx)
+                # print("preds_temp",preds_temp)
+                breakpoint()
+                continue
+            # print("preds_temp",preds_temp)
+            pred_dict["prediction"] = preds_temp
 
         pred_dict["prediction"] = [
             ''.join(pred) if pred != "" else np.random.choice(valid_labels)
@@ -173,13 +185,15 @@ def evaluate(
         ]
         preds.append(pred_dict["prediction"])
         labels.append(pred_dict["ground_truth"])
-        # print("labels",pred_dict["ground_truth"])
+        # print("preds",len(pred_dict["prediction"]))
+        # print("labels",len(pred_dict["ground_truth"]))
         try:
             f1_scores.append(f1_score(preds, labels))
         except:
             print(f"Skipping {idx} due to error")
+            # print(pred_sen)
+            breakpoint()
             continue
-            # breakpoint()
         dump_predictions(idx, pred_dict["prediction"], save_preds_path)
         running_f1 = f1_scores[-1]
         pbar.set_description(f"F1-Score: {running_f1}")

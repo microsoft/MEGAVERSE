@@ -27,6 +27,7 @@ SUPPORTED_MODELS = [
     "gpt-4-32k",
     "gpt-4",
     "dev-gpt-35-turbo",
+    "dev-text-davinci-003",
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
