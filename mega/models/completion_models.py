@@ -4,7 +4,6 @@ import signal
 import time
 import openai
 
-from vertexai.language_models import TextGenerationModel
 from typing import List, Dict, Union, Any
 from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
@@ -34,6 +33,8 @@ SUPPORTED_MODELS = [
     "dev-moonshot",
     "dev-ppo",
     "prod-ppo",
+    "palm",
+    "palm-32k",
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
@@ -90,8 +91,7 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
-PALM_MAPPING ={"palm": "text-bison@001",
-               "palm-32k": 'text-bison-32k'}
+PALM_MAPPING = {"palm": "text-bison@001", "palm-32k": "text-bison-32k"}
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -131,11 +131,14 @@ def palm_api_completion(
 
     if model == "text-bison-32k":
         from vertexai.preview.language_models import TextGenerationModel
-        model = TextGenerationModel.from_pretrained(model)
-    else: 
-        model = TextGenerationModel.from_pretrained(model)
 
-    response = model.predict(
+        model_load = TextGenerationModel.from_pretrained(model)
+    else:
+        from vertexai.language_models import TextGenerationModel
+
+        model_load = TextGenerationModel.from_pretrained(model)
+
+    response = model_load.predict(
         prompt=prompt,
         max_output_tokens=model_params.get("max_tokens", 20),
         temperature=model_params.get("temperature", 1),
@@ -354,7 +357,9 @@ def model_completion(
     if "Llama-2" in model:
         return hf_model_api_completion(prompt, model, **model_params)
     if "palm" in model:
-        return palm_api_completion(prompt, model=PALM_MAPPING[model], lang=lang, **model_params)
+        return palm_api_completion(
+            prompt, model=PALM_MAPPING[model], lang=lang, **model_params
+        )
 
 
 def get_model_pred(
@@ -363,6 +368,7 @@ def get_model_pred(
     train_prompt_template: Template,
     test_prompt_template: Template,
     model: str,
+    lang: str,
     chat_prompt: bool = False,
     substrate_prompt: bool = False,
     run_substrate_llm_completion: bool = False,
@@ -399,6 +405,7 @@ def get_model_pred(
     model_prediction = model_completion(
         prompt_input,
         model,
+        lang,
         timeout=timeout,
         run_substrate_llm_completion=run_substrate_llm_completion,
         **model_params,

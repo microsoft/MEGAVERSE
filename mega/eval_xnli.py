@@ -90,6 +90,7 @@ def main(sys_args):
         train_prompt_template,
         test_prompt_template,
         args.model,
+        args.tgt_lang,
         args.few_shot_k,
         args.few_shot_selection,
         chat_prompt=args.chat_prompt,
@@ -102,8 +103,7 @@ def main(sys_args):
         temperature=args.temperature,
         top_p=args.top_p,
         timeout=args.timeout,
-        substrate_prompt=args.substrate_prompt
-
+        substrate_prompt=args.substrate_prompt,
     )
     print(accuracy)
     # Store results
