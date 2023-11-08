@@ -15,6 +15,24 @@ from mega.utils.translator import (
 from mega.data.data_utils import read_conll_data
 from typing import List
 
+IN22_LANG2CODES = {
+    "asm_Beng": "Assamese",
+    "ben_Beng": "Bengali",
+    "eng_Latn": "English",
+    "guj_Gujr": "Gujarati",
+    "hin_Deva": "Hindi",
+    "kan_Knda": "Kannada",
+    "kas_Arab": "Kashmiri",
+    "mal_Mlym": "Malayalam",
+    "mar_Deva": "Marathi",
+    "npi_Deva": "Nepali",
+    "ory_Orya": "Odia",
+    "pan_Guru": "Punjabi",
+    "tam_Taml": "Tamil",
+    "tel_Telu": "Telugu",
+    "urd_Arab": "Urdu",
+}
+
 TYDIQA_LANG2CODES = {
     "bengali": "bn",
     "korean": "ko",
@@ -470,13 +488,11 @@ def load_xlsum_dataset(
         return dataset.select(np.arange(int(len(dataset) * dataset_frac)))
 
 
-def load_in22_dataset(lang : str, rows : int, split : str = "gen"):
-    data = load_dataset("ai4bharat/IN22-Gen", 'eng_Latn-'+lang, split=split)
-    return data[:rows]
+def load_in22_dataset(split: str = "Gen"):
+    return load_dataset(f"ai4bharat/IN22-{split}", "all", split=split.lower())
 
-def load_flores_test_dataset(split : str = "dev"):
-    data = load_dataset('facebook/flores', "all", split=split)
-    return data
+def load_flores_test_dataset(split: str = "dev"):
+    return load_dataset('facebook/flores', "all", split=split)
     
     
 def load_dataset_mega(

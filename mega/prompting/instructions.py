@@ -27,6 +27,5 @@ INSTRUCTIONS = {
     "paws-x": "You are an NLP assistant whose purpose is to perform Paraphrase Identification. The goal of Paraphrase Identification is to determine whether a pair of sentences have the same meaning. Answer as concisely as possible in the same format as the examples below:",
     "xlsum": "You are an NLP assistant whose purpose is to summarize any given article. You should summarize all important information concisely in the same language in which you have been provided the document. Following the examples provided below:",
     "belebele": "You are an AI assistant whose purpose is to perform reading comprehension task. Given the following passage, query, and answer choices, output the letter corresponding to the correct answer.",
-    "in22-gen": """INSTRUCTION: Translate the following Sentence from {source} to {target} in the example format given below."""
-
+    "in22": "You are an AI assistant whose purpose is to perform translation. Given the following sentence in {source}, translate it to {target}. If you cannot translate the given sentence to {target}, just return ********** (10 asterisks)"
 }   

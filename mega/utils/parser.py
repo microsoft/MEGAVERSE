@@ -36,9 +36,17 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Language in which few-shot examples are provided",
     )
     parser.add_argument(
+        "-s",
+        "--src_lang",
+        default="en",  # in case of translation, which variable will hold the source language
+        # choices=["en", "hi"],
+        type=str,
+        help="Language to evaluate on",
+    )
+    parser.add_argument(
         "-t",
-        "--tgt_lang",
-        default="en",
+        "--tgt_lang", # in case of translation, which variable will hold the target language
+        default="en", 
         # choices=["en", "hi"],
         type=str,
         help="Language to evaluate on",

@@ -60,23 +60,14 @@ def construct_langchain_qa_prompt(
 
     return prompt
 
-def construct_translation_prompt(sentence, source, target, examples, instruction):
-
-    example_prompt = PromptTemplate(input_variables=['source', 'target'], template="Sentence: {source}\nResponse: {target}")
-
-    prefix = instruction
-    suffix = "Sentence: {sentence}\nResponse:"
-    
-    few_shot_prompt = FewShotPromptTemplate(
-        examples=examples,
-        example_prompt=example_prompt,
-        prefix=prefix,
-        suffix=suffix,
-        input_variables=['source', 'target', 'sentence'],
-        example_separator="\n"
-    )
-
-    return few_shot_prompt.format(source=source, target=target, sentence=sentence)
+def construct_translation_prompt(sentence, examples, instruction):
+    # style: chat_prompt
+    prompt = [{"role": "system", "content": instruction}]
+    for example in examples:
+        prompt.append({"role": "user", "content": example["source"]})
+        prompt.append({"role": "assistant", "content": example["target"]})
+    prompt.append({"role": "user", "content": sentence})
+    return prompt
 
 def construct_qa_prompt(
     train_examples: List[Dict[str, Union[str, int]]],
