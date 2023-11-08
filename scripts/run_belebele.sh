@@ -11,7 +11,7 @@ do
             python -m mega.eval_belebele -p $lang -t $lang \
             --pivot_prompt_name "${prompt_name}" \
             --tgt_prompt_name "${prompt_name}" \
-            -k $k --model "dev-moonshot" \
+            -k $k --model "dev-gpt-35-turbo" \
             -e melange --temperature 0 \
              --timeout 30 \
             -d "belebele" --substrate_prompt
@@ -77,7 +77,7 @@ do
             -e melange --temperature 0 \
              --timeout 30 \
             -d "belebele" --substrate_prompt \
-            --translate_test
+            --translate-test
         done
     done
 done
