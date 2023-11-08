@@ -91,6 +91,8 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
+PALM_MAPPING ={"palm": "text-bison@001",
+               "palm-32k": 'text-bison-32k'}
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -130,7 +132,11 @@ def palm_api_completion(
     ):
         raise ValueError("Language not supported by PALM!")
 
-    model = TextGenerationModel.from_pretrained("text-bison@001")
+    if model == "text-bison-32k":
+        from vertexai.preview.language_models import TextGenerationModel
+        model = TextGenerationModel.from_pretrained(model)
+    else: 
+        model = TextGenerationModel.from_pretrained(model)
 
     response = model.predict(
         prompt=prompt,
@@ -351,9 +357,9 @@ def model_completion(
     if "Llama-2" in model:
         return hf_model_api_completion(prompt, model, **model_params)
 
-    if model == "palm":
+    if "palm" in model:
         # print("falling into palm")
-        return palm_api_completion(prompt, lang=lang, **model_params)
+        return palm_api_completion(prompt, model=PALM_MAPPING[model], lang=lang, **model_params)
 
 
 def get_model_pred(
