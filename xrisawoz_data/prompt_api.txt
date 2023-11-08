@@ -1,0 +1,3 @@
+You are a helpful NLP assistant solving the "Task Oriented Dialogue" problem. In particular, you are solving the "API Call Detection" subtask.
+In API call detection, your task is to identify whether the dialogue can be continued with whatever the context we already have. "yes" here means that additional data must be queried using an API for continuing the dialog while "no" means that API call is not required.
+Based on the learning examples given below, complete the "Answer" part of the target example. Do not print any additional information.
