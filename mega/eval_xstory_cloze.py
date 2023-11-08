@@ -46,6 +46,7 @@ def evaluate(
     prompt_template: str,
     verbalizer: Dict[Any, str],
     model: str,
+    lang: str,
     few_shot_size: int,
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
@@ -111,6 +112,7 @@ def evaluate(
                     pred = model_completion(
                         prompt,
                         model,
+                        lang,
                         timeout=timeout,
                         **model_params,
                     )
@@ -218,6 +220,7 @@ def main(sys_args):
         prompt_template=prompt_template,
         verbalizer=verbalizer,
         model=args.model,
+        lang=args.tgt_lang,
         few_shot_size=args.few_shot_k,
         selection_criteria=args.few_shot_selection,
         num_evals_per_sec=args.num_evals_per_sec,
