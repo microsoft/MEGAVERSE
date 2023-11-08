@@ -13,6 +13,7 @@ do
             --seed 1618 \
             --model_name "$model" \
             --valid_fname "compressed_0.1_valid.json" \
-            --language "$lang" 
+            --language "$lang" \
+            --substrate_llm
     done
 done

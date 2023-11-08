@@ -7,6 +7,7 @@ from tqdm import tqdm
 from dataclasses import dataclass
 from collections import defaultdict
 from simple_parsing import ArgumentParser
+from mega.utils.substrate_llm import LLMClient
 from mega.models.completion_models import model_completion
 # TODO: Unify chat and non-chat prompts
 @dataclass
@@ -17,6 +18,7 @@ class XRiSAWOZArgs:
     model_name: str = 'palm' # Name to be used in `model_completion`
     valid_fname: str = '0.1_valid.json' # remove 0.1 in case running on full dataset
     language: str = 'en' # Possible languages are ['en', 'hi', 'fr', 'ko', 'zh', 'enhi']
+    substrate_llm: bool = False # Substrate prompt
 
 def load_text(fname):
     with open(fname, 'r') as f:
@@ -106,7 +108,14 @@ def main():
                     })
                     # TODO: Check if it's a chat model and use a chat prompt
                     final_prompt = '\n'.join(x['content'] for x in messages) + '\n'
-                    response = model_completion(final_prompt, args.model_name, lang=args.language[-2:], max_tokens=256)
+                    response = model_completion(
+                        final_prompt, 
+                        args.model_name, 
+                        lang=args.language[-2:], 
+                        run_substrate_llm_completion=args.substrate_llm, 
+                        llm_client=LLMClient() if args.substrate_llm else None, 
+                        max_tokens=256
+                    )
                     print(datum['input_text'])
                     print(datum['output_text'])
                     print(response)
