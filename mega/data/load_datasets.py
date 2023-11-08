@@ -448,6 +448,9 @@ def load_qa_dataset(dataset_name, lang, split, dataset_frac=1, translate_test=Fa
             dataset_name = f"mlqa.{lang}.{lang}"
 
         dataset = load_dataset("mlqa", dataset_name)[split]
+    elif dataset_name == "afriqa":
+        dataset = load_dataset("masakhane/afriqa", lang)[split]
+        dataset = dataset.filter(lambda example: example['lang'] == lang)
 
     else:
         raise NotImplementedError()
@@ -504,7 +507,7 @@ def load_dataset_mega(
             dataset, lang, split, max_examples, dataset_frac, xtreme_dir, delimiter
         )
 
-    elif dataset in ["indicqa", "xquad", "tydiqa", "mlqa"]:
+    elif dataset in ["indicqa", "xquad", "tydiqa", "mlqa", "afriqa"]:
         return load_qa_dataset(dataset, lang, split, dataset_frac, translate_test)
 
     elif dataset == "xlsum":

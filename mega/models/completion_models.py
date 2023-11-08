@@ -37,6 +37,8 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
+    "palm",
+    "palm-32k"
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -101,7 +103,7 @@ PALM_MAPPING ={"palm": "text-bison@001",
 
 
 def timeout_handler(signum, frame):
-    raise openai.error.Timeout("API Response Stuck!")
+    raise openai.Timeout("API Response Stuck!")
 
 
 @backoff.on_exception(backoff.expo, KeyError, max_time=600)
