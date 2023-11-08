@@ -6,8 +6,9 @@ import random
 from tqdm import tqdm
 from dataclasses import dataclass
 from collections import defaultdict
-from simple_parsing import ArgumentParser
+from mega.utils.parser import parse_args
 from mega.utils.substrate_llm import LLMClient
+from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import model_completion
 # TODO: Unify chat and non-chat prompts
 @dataclass
@@ -49,21 +50,20 @@ task_to_out = {
     'rg': 'response'
 }
 
-def main():
+def main(sys_args):
     global prompts, task_to_out
-    parser = ArgumentParser()
-    parser.add_arguments(XRiSAWOZArgs, dest='xrisawoz')
-    args = parser.parse_args().xrisawoz
+    args = parse_args(sys_args)
+    load_openai_env_variables()
     
     random.seed(args.seed)
-    prompts = {k: load_text(args.root_dir + v) for k, v in prompts.items()}
-    out_fname = f'{args.root_dir}/{args.language}.{args.model_name.split("/")[-1]}.num_shots={args.num_learning_examples}.pkl'
+    prompts = {k: load_text(args.xrisawoz_root_dir + v) for k, v in prompts.items()}
+    out_fname = f'{args.xrisawoz_root_dir}/{args.tgt_lang}.{args.model.split("/")[-1]}.num_shots={args.few_shot_k}.pkl'
     if not os.path.exists(out_fname):
         out = inf_ddict()
     else:
         with open(out_fname, 'rb') as f:
             out = pickle.load(f)
-    data = load_json(f'{args.root_dir}/processed/{args.language}/{args.valid_fname}')['data']
+    data = load_json(f'{args.xrisawoz_root_dir}/processed/{args.tgt_lang}/{args.xrisawoz_valid_fname}')['data']
     inputs = defaultdict(lambda: defaultdict(list))
     for datum in data:
         inputs[datum['train_target']][datum['turn_id']].append(datum)
@@ -77,16 +77,16 @@ def main():
                 for i, datum in enumerate(tqdm(inputs[task][turn_id])):
                     if not isinstance(out[datum['dial_id']]['turns'][turn_id][task_to_out[task]], defaultdict):
                         continue
-                    if m - 1 <= args.num_learning_examples:
+                    if m - 1 <= args.few_shot_k:
                         correct_turn_id = turn_id
-                        while len(inputs[task][correct_turn_id]) - 1 <= args.num_learning_examples:
+                        while len(inputs[task][correct_turn_id]) - 1 <= args.few_shot_k:
                             correct_turn_id -= 1
                     else:
                         correct_turn_id = turn_id
                     m_dash = len(inputs[task][correct_turn_id])
                     # sample examples other than this current one
                     possible_choices = [icl_i for icl_i in range(m_dash) if icl_i != i]
-                    icl_indices = random.sample(possible_choices, args.num_learning_examples)
+                    icl_indices = random.sample(possible_choices, args.few_shot_k)
                     messages = [{
                         'role': 'system',
                         'content': prompts[task]
@@ -110,17 +110,19 @@ def main():
                     final_prompt = '\n'.join(x['content'] for x in messages) + '\n'
                     response = model_completion(
                         final_prompt, 
-                        args.model_name, 
-                        lang=args.language[-2:], 
-                        run_substrate_llm_completion=args.substrate_llm, 
-                        llm_client=LLMClient() if args.substrate_llm else None, 
+                        args.model, 
+                        lang=args.tgt_lang[-2:], 
+                        run_substrate_llm_completion=args.substrate_prompt, 
+                        llm_client=LLMClient() if args.substrate_prompt else None, 
                         max_tokens=256
                     )
                     print(datum['input_text'])
                     print(datum['output_text'])
                     print(response)
                     out[datum['dial_id']]['turns'][turn_id][task_to_out[task]] = response
-                    out[datum['dial_id']]['turns'][turn_id]['prompt_'+task_to_out[task]] = final_prompt
+                    out[datum['dial_id']]['turns'][turn_id]['prompt_'+task_to_out[task]] = final_prompt                                
+                    with open(out_fname, 'wb') as f:
+                        pickle.dump(out, f)
     except Exception as e:
         print(e)
         with open(out_fname, 'wb') as f:
@@ -129,4 +131,4 @@ def main():
         pickle.dump(out, f)
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])

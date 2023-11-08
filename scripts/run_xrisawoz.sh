@@ -8,12 +8,12 @@ do
     for lang in en hi fr ko zh enhi
     do
         python -m mega.eval_xrisawoz \
-            --root_dir "./xrisawoz_data/" \
-            --num_learning_examples 4 \
+            -k 4 \
+            --xrisawoz_root_dir "./xrisawoz_data/" \
+            --xrisawoz_valid_fname "compressed_0.1_valid.json" \
             --seed 1618 \
-            --model_name "$model" \
-            --valid_fname "compressed_0.1_valid.json" \
-            --language "$lang" \
-            --substrate_llm
+            --model "$model" \
+            --tgt_lang "$lang" \
+            --substrate_prompt
     done
 done
