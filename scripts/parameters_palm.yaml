@@ -1,5 +1,5 @@
 key_path: /home/t-hdiddee/MultilingualBlanketEval/keys/openai_key.txt
-k: 1
+k: 4
 model: palm-32k
 chat_prompt: False
 turbo_identifier: palm-32k
