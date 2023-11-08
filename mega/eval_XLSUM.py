@@ -178,6 +178,8 @@ if __name__ == "__main__":
         results = []
     # Loading k in context examples to pass to the model
 
+    # print(results)
+    
     random.seed(args["random_seed"])
     np.random.seed(args["random_seed"])
 
@@ -265,7 +267,7 @@ if __name__ == "__main__":
         rougeL.append(rL)
         pbar.set_description(f"ROUGE-L: {np.average(rougeL)}")
         
-        results.append({"uuid": idx,
+        results.append({"xlsum_uuid": f"{test_example['id']}_{lang}",
                         "label": label, 
                         "prediction": pred, 
                         "ROUGE-1": int(r1[2]), 
@@ -276,26 +278,31 @@ if __name__ == "__main__":
         # print(results)
         
         results_df = pd.DataFrame(results)
-        results_df.to_csv(response_logger_file)
+        results_df.to_csv(response_logger_file, index=False)
+    
+    results_df = pd.DataFrame(results)
         
-        
-        avg_r1 = np.average(results_df["ROUGE-1"])
-        avg_r2 = np.average(results_df['ROUGE-2'])
-        avg_rL = np.average(results_df['ROUGE-L'])
-        
-        if args["wandb_log"]:
-            wandb.log(run_details, step=idx + 1)
-            wandb.log(
-                {
-                    "avg R1": np.average(avg_r1),
-                    "avg R2": np.average(avg_r2),
-                    "avg RL": np.average(avg_rL),
-                },
-                step=idx + 1,
-            )
+    # print(results_df)
+    
+    avg_r1 = np.average(results_df["ROUGE-1"])
+    avg_r2 = np.average(results_df['ROUGE-2'])
+    avg_rL = np.average(results_df['ROUGE-L'])
+    
+    
+    
+    if args["wandb_log"]:
+        wandb.log(run_details, step=idx + 1)
+        wandb.log(
+            {
+                "avg R1": avg_r1,
+                "avg R2": avg_r2,
+                "avg RL": avg_rL,
+            },
+            step=idx + 1,
+        )
 
     print(
-        f"Average performance for the {prompt_name} in {lang} is ({np.average(avg_r1)},{np.average(avg_r2)},{np.average(avg_rL)})"
+        f"Average performance for the {prompt_name} in {lang} is ({avg_r1},{avg_r2},{avg_rL})"
     )
     dump_metrics(
         lang,

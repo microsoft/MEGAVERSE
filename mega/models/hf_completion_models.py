@@ -21,6 +21,7 @@ from mega.utils.env_utils import (
 )
 import time
 from pprint import pprint
+import backoff
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
