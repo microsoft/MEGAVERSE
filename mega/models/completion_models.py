@@ -116,7 +116,7 @@ def substrate_llm_completion(
     return text_result
 
 
-@backoff.on_exception(backoff.expo, ResourceExhausted)
+@backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
