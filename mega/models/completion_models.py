@@ -37,7 +37,6 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
     "meta-llama/Llama-2-13b-chat-hf",
     "meta-llama/Llama-2-70b-chat-hf",
-    "palm",
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -91,6 +90,8 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
     "vietnamese": "vi",
 }
 
+PALM_MAPPING ={"palm": "text-bison@001",
+               "palm-32k": 'text-bison-32k'}
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -116,12 +117,10 @@ def substrate_llm_completion(
     return text_result
 
 
-@backoff.on_exception(backoff.expo, ResourceExhausted)
+@backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
 def palm_api_completion(
     prompt: str, model: str = "text-bison@001", lang: str = "", **model_params
 ) -> str:
-    # print("inside the function prompt: ", prompt)
-
     if lang == "":
         raise ValueError("Language argument is necessary for palm model")
     if (
@@ -130,7 +129,11 @@ def palm_api_completion(
     ):
         raise ValueError("Language not supported by PALM!")
 
-    model = TextGenerationModel.from_pretrained("text-bison@001")
+    if model == "text-bison-32k":
+        from vertexai.preview.language_models import TextGenerationModel
+        model = TextGenerationModel.from_pretrained(model)
+    else: 
+        model = TextGenerationModel.from_pretrained(model)
 
     response = model.predict(
         prompt=prompt,
@@ -350,10 +353,8 @@ def model_completion(
 
     if "Llama-2" in model:
         return hf_model_api_completion(prompt, model, **model_params)
-
-    if model == "palm":
-        # print("falling into palm")
-        return palm_api_completion(prompt, lang=lang, **model_params)
+    if "palm" in model:
+        return palm_api_completion(prompt, model=PALM_MAPPING[model], lang=lang, **model_params)
 
 
 def get_model_pred(
