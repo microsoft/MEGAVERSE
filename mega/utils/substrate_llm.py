@@ -121,7 +121,7 @@ def create_request_data(
         # "logprobs": logprops,
         "stop": stop,
     }
-    print("request data",request_data)
+    # print("request data",request_data)
     return request_data
 
 

@@ -11,9 +11,10 @@ from mega.data.data_utils import choose_few_shot_examples
 import openai
 import json
 import sys
+import tiktoken
 
-def dump_predictions(idx, response, response_logger_file):
-    obj = {"q_idx": idx, "prediction": response}
+def dump_predictions(idx, response,label, response_logger_file):
+    obj = {"q_idx": idx, "prediction": response, "ground_truth": label}
     with open(response_logger_file, "a") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
@@ -59,9 +60,12 @@ def run_seq_eval(
             json_data = [json.loads(line) for line in file]
 
         idx_set = {obj["q_idx"] for obj in json_data}
+        preds = [obj["prediction"] for obj in json_data]
+        labels = [obj["ground_truth"] for obj in json_data]
     except:
         idx_set = set()
-    pbar = tqdm(enumerate(test_dataset))
+    # print(type(test_dataset))
+    pbar = tqdm(enumerate(test_dataset.shuffle(seed=42).select(range(101))))
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
         print("All items already evaluated!")
@@ -71,7 +75,6 @@ def run_seq_eval(
 
         if idx in idx_set:
             continue
-        
         while len(train_examples_i) >= 0:
             try:
                 pred_dict = get_model_pred(
@@ -102,15 +105,24 @@ def run_seq_eval(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
 
-        pred = pred_dict["prediction"]
+        pred = pred_dict["prediction"].split("\n")[0]
+        label = pred_dict["ground_truth"]
+
         # print(pred)
-        dump_predictions(idx, pred, save_preds_path)
+        dump_predictions(idx, pred,label, save_preds_path)
 
         
         # if pred == "Invalid request":
         #     pdb.set_trace()
         #     continue
-        label = pred_dict["ground_truth"]
+        # enc = tiktoken.get_encoding("cl100k_base")
+        # label = enc.encode(label)
+        # pred = enc.encode(pred)
+        # print(f"Label: {label}")
+        # print(f"Prediction: {pred}")
+        # print(f"label decoded: {enc.decode(label)}")
+        # print(f"pred decoded: {enc.decode(pred)}")
+        # sys.exit(0)
         num_matches += float(pred == label)
         preds.append(pred)
         labels.append(label)

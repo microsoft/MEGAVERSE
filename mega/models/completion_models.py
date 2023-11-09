@@ -6,6 +6,7 @@ import openai
 from typing import List, Dict, Union, Any
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
+from mega.utils.substrate_llm import LLMClient, create_request_data
 from mega.utils.substrate_llm import LLMClient
 from mega.utils.env_utils import (
     load_openai_env_variables,
