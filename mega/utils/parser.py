@@ -4,7 +4,6 @@ from mega.models.completion_models import SUPPORTED_MODELS, MODEL_TYPES
 
 def parse_args(args: list) -> argparse.Namespace:
     """Parses the arguments provided in the command line
-
     Args:
         args (list): List of command line arguments to parse
 
