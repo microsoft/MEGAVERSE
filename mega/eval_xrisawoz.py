@@ -67,12 +67,10 @@ def main(sys_args):
     inputs = defaultdict(lambda: defaultdict(list))
     for datum in data:
         inputs[datum['train_target']][datum['turn_id']].append(datum)
-    print(inputs.keys())
     try:
         for task in inputs.keys():
             for turn_id in inputs[task]:
                 # Sample from the thing and make prediction
-                print(task, turn_id)
                 m = len(inputs[task][turn_id])
                 for i, datum in enumerate(tqdm(inputs[task][turn_id])):
                     if not isinstance(out[datum['dial_id']]['turns'][turn_id][task_to_out[task]], defaultdict):
@@ -116,9 +114,6 @@ def main(sys_args):
                         llm_client=LLMClient() if args.substrate_prompt else None, 
                         max_tokens=256
                     )
-                    print(datum['input_text'])
-                    print(datum['output_text'])
-                    print(response)
                     out[datum['dial_id']]['turns'][turn_id][task_to_out[task]] = response
                     out[datum['dial_id']]['turns'][turn_id]['prompt_'+task_to_out[task]] = final_prompt                                
                     with open(out_fname, 'wb') as f:
