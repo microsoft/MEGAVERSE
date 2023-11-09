@@ -58,7 +58,13 @@ def construct_langchain_qa_prompt(
 
     return prompt
 
-def construct_translation_prompt(sentence, examples, instruction, substrate_prompt=False):
+
+def construct_translation_prompt(
+    sentence: str,
+    examples: List[Dict[str, str]],
+    instruction: str,
+    substrate_prompt: bool = False,
+):
     # style: chat_prompt
     prompt = [{"role": "system", "content": instruction}]
     for example in examples:
@@ -66,6 +72,7 @@ def construct_translation_prompt(sentence, examples, instruction, substrate_prom
         prompt.append({"role": "assistant", "content": example["target"]})
     prompt.append({"role": "user", "content": sentence})
     return prompt if not substrate_prompt else get_substrate_prompt(prompt)
+
 
 def construct_qa_prompt(
     train_examples: List[Dict[str, Union[str, int]]],

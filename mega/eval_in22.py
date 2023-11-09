@@ -124,7 +124,7 @@ def main(sys_args):
     )
     example_dataset = load_flores_test_dataset(split="dev")
 
-    out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.src_lang}-{args.tgt_lang}_FewShotK_{args.few_shot_k}"
+    out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.src_trans_lang}-{args.tgt_trans_lang}_FewShotK_{args.few_shot_k}"
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
@@ -137,8 +137,8 @@ def main(sys_args):
         train_dataset,
         example_dataset,
         model=args.model,
-        source=args.src_lang,
-        target=args.tgt_lang,
+        source=args.src_trans_lang,
+        target=args.tgt_trans_lang,
         few_shot_k=args.few_shot_k,
         num_evals_per_sec=args.num_evals_per_sec,
         substrate_prompt=args.substrate_prompt,
