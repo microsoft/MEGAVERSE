@@ -13,6 +13,7 @@ import openai
 import json
 import sys
 
+
 def run_seq_eval(
     save_preds_path,
     train_examples: List[Dict[str, Union[str, int]]],
@@ -106,7 +107,7 @@ def run_seq_eval(
         label = pred_dict["ground_truth"]
 
         # print(pred)
-        dump_predictions(idx, pred,label, save_preds_path)
+        dump_predictions(idx, pred, label, save_preds_path)
 
         # if pred == "Invalid request":
         #     pdb.set_trace()

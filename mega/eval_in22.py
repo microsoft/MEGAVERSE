@@ -42,9 +42,12 @@ def evaluate_IN22(
 
     try:
         with open(save_preds_path, "r") as file:
+            # json_data = json.load(file)
             json_data = [json.loads(line) for line in file]
 
         idx_set = {obj["q_idx"] for obj in json_data}
+        preds = [obj["prediction"] for obj in json_data]
+        labels = [obj["ground_truth"] for obj in json_data]
     except:
         idx_set = set()
 
@@ -102,7 +105,7 @@ def evaluate_IN22(
             "prediction": pred,
         }
 
-        dump_predictions(i, prediction, save_preds_path)
+        dump_predictions(i, prediction, datapoint[f"sentence_{target}"], save_preds_path)
         preds.append(prediction)
 
     return None, pd.DataFrame(preds)
