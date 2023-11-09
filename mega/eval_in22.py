@@ -2,13 +2,9 @@ import sys
 import os
 import json
 import random
+from tqdm import tqdm
 import numpy as np
 import pandas as pd
-from mega.data.load_datasets import (
-    load_in22_dataset,
-    load_flores_test_dataset,
-    IN22_LANG2CODES,
-)
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.env_utils import load_openai_env_variables
@@ -17,7 +13,12 @@ from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_translation_prompt
 from mega.utils.parser import parse_args
-from tqdm import tqdm
+
+from mega.data.load_datasets import (
+    load_in22_dataset,
+    load_flores_test_dataset,
+    IN22_LANG2CODES,
+)
 
 
 def evaluate_IN22(
@@ -36,7 +37,7 @@ def evaluate_IN22(
 ):
     run_details = {"num_calls": 0}
 
-    pbar = tqdm(enumerate(train_dataset))
+    pbar = tqdm(enumerate(train_dataset), total=len(train_dataset))
     preds = []
 
     try:
@@ -65,16 +66,16 @@ def evaluate_IN22(
             for val in incontext_examples
         ]
 
+        instruction = INSTRUCTIONS["in22"].format(
+            source=IN22_LANG2CODES[source], target=IN22_LANG2CODES[target]
+        )
+
         prompt = construct_translation_prompt(
             datapoint[f"sentence_{source}"],
             examples=incontext_examples,
-            instruction=INSTRUCTIONS["in22"].format(
-                source=IN22_LANG2CODES[source], target=IN22_LANG2CODES[target]
-            ),
+            instruction=instruction,
+            substrate_prompt=substrate_prompt,
         )
-
-        print(prompt)
-        sys.exit(0)
 
         try:
             pred = model_completion(
@@ -92,7 +93,7 @@ def evaluate_IN22(
         except Exception as e:
             pred = "**********"
             print(
-                f'Unable to make prediction due {e}.\nLanguage Pair: {source}-{target}, id: {datapoint["id"]}, prompt: {prompt}\n'
+                f'Unable to make prediction due {e}.\nLanguage Pair: {source}-{target}, id: {datapoint["id"]}'
             )
 
         prediction = {
@@ -104,8 +105,7 @@ def evaluate_IN22(
         dump_predictions(i, prediction, save_preds_path)
         preds.append(prediction)
 
-    results_df = pd.DataFrame(prediction)
-    return None, results_df
+    return None, pd.DataFrame(preds)
 
 
 def main(sys_args):
@@ -116,7 +116,12 @@ def main(sys_args):
     np.random.seed(args.seed)
 
     train_split = args.dataset.split("-")[1].capitalize()
-    train_dataset = load_in22_dataset(split=train_split)
+    train_dataset = load_in22_dataset(
+        split=train_split,
+        max_examples=args.test_examples,
+        dataset_frac=args.test_frac,
+        seed=args.seed,
+    )
     example_dataset = load_flores_test_dataset(split="dev")
 
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.src_lang}-{args.tgt_lang}_FewShotK_{args.few_shot_k}"
@@ -142,11 +147,9 @@ def main(sys_args):
         llm_client=llm_client,
     )
 
-    results_dict = vars(args)
-
     if not args.no_save:
         with open(f"{out_dir}/results.json", "w") as f:
-            json.dump(results_dict, f, indent=4)
+            json.dump(vars(args), fp=f, indent=4, sort_keys=True, ensure_ascii=False)
         print(f"Results written in {out_dir}")
 
 

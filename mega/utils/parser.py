@@ -79,6 +79,12 @@ def parse_args(args: list) -> argparse.Namespace:
         help="How to select few-shot examples",
     )
     parser.add_argument(
+        "--test_examples",
+        default=-1,
+        type=int,
+        help="Maximum number of examples from test data to evaluate on",
+    )
+    parser.add_argument(
         "--test_frac",
         default=1.0,
         type=float,

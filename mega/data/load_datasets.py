@@ -10,7 +10,7 @@ from mega.utils.translator import (
     translate_pawsx,
     translate_xstory_cloze,
     translate_xcopa,
-    translate_belebele
+    translate_belebele,
 )
 from mega.data.data_utils import read_conll_data
 from typing import List
@@ -69,7 +69,7 @@ BELEBELE_LANG2CODES = {
     "arabic": "arb_Arab",
     "czech": "ces_Latn",
     "hungarian": "hun_Latn",
-    "thai": "tha_Thai"
+    "thai": "tha_Thai",
 }
 
 
@@ -88,9 +88,10 @@ langcodes2lang = {
     "zh": "Mandarin",
 }
 
-def load_belebele_dataset( lang: str, 
-                          split: str = "test", 
-                          dataset_frac: float = 1.0) -> Union[Dataset, DatasetDict]:
+
+def load_belebele_dataset(
+    lang: str, split: str = "test", dataset_frac: float = 1.0
+) -> Union[Dataset, DatasetDict]:
     """
     Args:
         lang (str): Language for which xnli dataset is to be loaded
@@ -101,7 +102,7 @@ def load_belebele_dataset( lang: str,
         Union[Dataset, DatasetDict]: huggingface dataset object
     """
 
-    dataset = load_dataset("facebook/belebele", BELEBELE_LANG2CODES[lang], split='test')
+    dataset = load_dataset("facebook/belebele", BELEBELE_LANG2CODES[lang], split="test")
 
     N = len(dataset)
     selector = np.arange(int(N * dataset_frac))
@@ -129,7 +130,6 @@ def load_belebele_translate_test(
         tt_dataset = load_from_disk(tt_dir)
 
     return tt_dataset
-
 
 
 def load_xnli_dataset(
@@ -199,6 +199,7 @@ def load_xcopa_translate_test(
         tt_dataset = load_from_disk(tt_dir)
 
     return tt_dataset
+
 
 def load_pawsx_dataset(
     lang: str, split: str, dataset_frac: float = 1.0
@@ -285,6 +286,7 @@ def load_xstory_cloze_translate_test(
 
     return tt_dataset
 
+
 def load_xlsum_data(lang, split, dataset_frac):
     """Loads the xlsum dataset"""
     langs = [
@@ -341,7 +343,6 @@ def load_xlsum_data(lang, split, dataset_frac):
     N = len(dataset)
     selector = np.arange(int(N * dataset_frac))
     return dataset.select(selector)
-
 
 
 def parse_copa_dataset(path, split="test"):
@@ -488,13 +489,25 @@ def load_xlsum_dataset(
         return dataset.select(np.arange(int(len(dataset) * dataset_frac)))
 
 
-def load_in22_dataset(split: str = "Gen"):
-    return load_dataset(f"ai4bharat/IN22-{split}", "all", split=split.lower())
+def load_in22_dataset(
+    split: str, max_examples: int = -1, dataset_frac: float = 1.0, seed: int = 42
+):
+    dataset = load_dataset(f"ai4bharat/IN22-{split}", "all", split=split.lower())
+    if max_examples != -1:
+        dataset = dataset.shuffle(seed=seed).select(
+            np.arange(min(len(dataset), max_examples))
+        )
+    if dataset_frac < 1.0:
+        dataset = dataset.shuffle(seed=42).select(
+            np.arange(int(len(dataset) * dataset_frac))
+        )
+    return dataset
+
 
 def load_flores_test_dataset(split: str = "dev"):
-    return load_dataset('facebook/flores', "all", split=split)
-    
-    
+    return load_dataset("facebook/flores", "all", split=split)
+
+
 def load_dataset_mega(
     dataset: str,
     lang: str,

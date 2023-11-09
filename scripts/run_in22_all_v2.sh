@@ -12,11 +12,12 @@ do
         -t eng_Latn \
         -k 8 \
         -e gpt4v2 \
-        --model "meta-llama/Llama-2-70b-chat-hf" \
+        --model dev-gpt-35-turbo \
+        --substrate_prompt \
         --temperature 0 \
         --num_evals_per_sec 2 \
         --save_dir results \
-        --max_tokens 5120 \
+        --max_tokens 900 \
         --seed 42
 
         echo "Running for language eng_Latn-${lang}"
@@ -26,11 +27,12 @@ do
         -t $lang \
         -k 8 \
         -e gpt4v2 \
-        --model "meta-llama/Llama-2-70b-chat-hf" \
+        --model dev-gpt-35-turbo \
+        --substrate_prompt \
         --temperature 0 \
         --num_evals_per_sec 2 \
         --save_dir results \
-        --max_tokens 5120 \
+        --max_tokens 900 \
         --seed 42
     done
 done
