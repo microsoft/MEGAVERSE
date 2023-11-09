@@ -54,12 +54,12 @@ def hf_model_api_completion(
     # print(prompt)
     
     client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
-    
+    client.headers["x-use-cache"] = "0" # clears the cache for HF API (@Divyanshu, please check)
         
     while True:
         
         try:
-            output = client.text_generation(prompt)
+            output = client.text_generation(prompt, **model_params)
             break
          
         except ValidationError:

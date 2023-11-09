@@ -36,9 +36,21 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Language in which few-shot examples are provided",
     )
     parser.add_argument(
+        "--src_trans_lang",
+        default="eng_Latn",
+        type=str,
+        help="Source language for translation",
+    )
+    parser.add_argument(
+        "--tgt_trans_lang",
+        default="hin_Deva",
+        type=str,
+        help="Target language for translation",
+    )
+    parser.add_argument(
         "-t",
         "--tgt_lang",
-        default="en",
+        default="en", 
         # choices=["en", "hi"],
         type=str,
         help="Language to evaluate on",
@@ -69,6 +81,12 @@ def parse_args(args: list) -> argparse.Namespace:
         choices=["random", "first_k", "random_atleast_one_unanswerable"],
         type=str,
         help="How to select few-shot examples",
+    )
+    parser.add_argument(
+        "--test_examples",
+        default=-1,
+        type=int,
+        help="Maximum number of examples from test data to evaluate on",
     )
     parser.add_argument(
         "--test_frac",
@@ -248,5 +266,17 @@ def parse_args(args: list) -> argparse.Namespace:
         type=int,
         default=0,
         help="Timeout for each call to the model. 0 means no timeout",
+    )
+
+    parser.add_argument(
+        '--xrisawoz_root_dir',
+        type=str,
+        default='./xrisawoz_data/'
+    )
+
+    parser.add_argument(
+        '--xrisawoz_valid_fname',
+        type=str,
+        default='compressed_0.1_valid'
     )
     return parser.parse_args(args)

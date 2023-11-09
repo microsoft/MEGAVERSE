@@ -18,7 +18,7 @@ from mega.utils.env_utils import (
 )
 import backoff
 from huggingface_hub import InferenceClient
-from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+# from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
 
@@ -149,7 +149,6 @@ def palm_api_completion(
     return response.text
 
 
-# @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 @backoff.on_exception(
     backoff.expo,
     (openai.error.APIError, openai.error.RateLimitError, openai.error.Timeout),
