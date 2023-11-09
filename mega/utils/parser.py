@@ -36,9 +36,21 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Language in which few-shot examples are provided",
     )
     parser.add_argument(
+        "--src_trans_lang",
+        default="eng_Latn",
+        type=str,
+        help="Source language for translation",
+    )
+    parser.add_argument(
+        "--tgt_trans_lang",
+        default="hin_Deva",
+        type=str,
+        help="Target language for translation",
+    )
+    parser.add_argument(
         "-t",
         "--tgt_lang",
-        default="en",
+        default="en", 
         # choices=["en", "hi"],
         type=str,
         help="Language to evaluate on",
@@ -69,6 +81,12 @@ def parse_args(args: list) -> argparse.Namespace:
         choices=["random", "first_k", "random_atleast_one_unanswerable"],
         type=str,
         help="How to select few-shot examples",
+    )
+    parser.add_argument(
+        "--test_examples",
+        default=-1,
+        type=int,
+        help="Maximum number of examples from test data to evaluate on",
     )
     parser.add_argument(
         "--test_frac",
