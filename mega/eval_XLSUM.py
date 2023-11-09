@@ -165,6 +165,7 @@ if __name__ == "__main__":
         os.mkdir(args["response_logger_root"])
 
     response_logger_file = f"{args['response_logger_root']}/{lang}_predictions.csv"
+    # response_logger_file = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
 
     try:
         results = pd.read_csv(response_logger_file).to_dict("records")
