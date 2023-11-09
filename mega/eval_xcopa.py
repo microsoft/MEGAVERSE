@@ -93,6 +93,7 @@ def main(sys_args):
         train_prompt_template,
         test_prompt_template,
         args.model,
+        args.tgt_lang,
         args.few_shot_k,
         args.few_shot_selection,
         chat_prompt=args.chat_prompt,

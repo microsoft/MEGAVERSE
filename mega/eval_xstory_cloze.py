@@ -136,7 +136,7 @@ def evaluate(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
 
-        dump_predictions(idx, pred, save_preds_path)
+        dump_predictions(idx, pred, label, save_preds_path)
         preds.append(pred)
         labels.append(label)
         matches.append(float(pred in label))

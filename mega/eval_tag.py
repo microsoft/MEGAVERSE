@@ -177,7 +177,7 @@ def evaluate(
             print(f"Skipping {idx} due to error")
             continue
             # breakpoint()
-        dump_predictions(idx, pred_dict["prediction"], save_preds_path)
+        dump_predictions(idx, pred_dict["prediction"], labels, save_preds_path)
         running_f1 = f1_scores[-1]
         pbar.set_description(f"F1-Score: {running_f1}")
         if log_wandb:
