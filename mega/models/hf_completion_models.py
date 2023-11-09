@@ -59,7 +59,7 @@ def hf_model_api_completion(
     while True:
         
         try:
-            output = client.text_generation(prompt)
+            output = client.text_generation(prompt, **model_params)
             break
          
         except ValidationError:

@@ -249,4 +249,16 @@ def parse_args(args: list) -> argparse.Namespace:
         default=0,
         help="Timeout for each call to the model. 0 means no timeout",
     )
+
+    parser.add_argument(
+        '--xrisawoz_root_dir',
+        type=str,
+        default='./xrisawoz_data/'
+    )
+
+    parser.add_argument(
+        '--xrisawoz_valid_fname',
+        type=str,
+        default='compressed_0.1_valid'
+    )
     return parser.parse_args(args)
