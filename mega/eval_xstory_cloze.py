@@ -139,8 +139,8 @@ def evaluate(
         dump_predictions(idx, pred, save_preds_path)
         preds.append(pred)
         labels.append(label)
-        matches.append(float(pred == label))
-        num_matches += float(pred == label)
+        matches.append(float(pred in label))
+        num_matches += float(pred in label)
         running_acc = np.mean(matches)
         pbar.set_description(f"Accuracy: {running_acc}")
         if log_wandb:
@@ -194,11 +194,9 @@ def main(sys_args):
         )
     # Loading instruction for the task
     instruction = INSTRUCTIONS.get(args.dataset, "")
-    print(instruction)
 
     # Loading prompt template
     prompt_template = PROMPT_TEMPLATES[args.tgt_prompt_name]
-    print("Prompt Template: ", prompt_template)
     # syysss
     verbalizer = VERBALIZER["default"]
 
@@ -249,5 +247,30 @@ def main(sys_args):
         wandb.log({"accuracy": eval_score})
 
 
+def fix_eval_numbers(lang, path):
+    test_ds = load_xstory_cloze_dataset(lang, split="test")
+    labels = [test["answer_right_ending"] for test in test_ds]
+    verbalizer = VERBALIZER["default"]
+    labels = [verbalizer[label] for label in labels]
+    with open(
+        os.path.join(
+            path,
+            f"PivotLang_{lang}_PromptName_Answer Given options_Verbalizer_identity_FewShotK_8wthInstruction",
+            "preds.json",
+        ),
+        "r",
+    ) as f:
+        preds = [json.loads(line) for line in f]
+    preds = [pred["prediction"] for pred in preds]
+    cnt = 0
+    print(path)
+    assert len(preds) == len(labels)
+    for pred, label in zip(preds, labels):
+        if pred in label:
+            cnt += 1
+    return cnt / len(labels)
+
+
 if __name__ == "__main__":
     main(sys.argv[1:])
+"/home/t-sahuja/MultilingualBlanketEval/results/xstory_cloze/palm/es/PivotLang_es_PromptName_Answer Given options_Verbalizer_identity_FewShotK_8wthInstruction"
