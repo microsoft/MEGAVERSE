@@ -4,7 +4,7 @@ from word2word import Word2word
 from promptsource.templates import Template, DatasetTemplates
 from mega.utils.translator import translate_with_bing, translate_with_azure
 from mega.prompting.prompting_utils import load_prompt_template
-from mega.models.completion_models import SUPPORTED_MODELS
+from mega.utils.const import SUPPORTED_MODELS
 import pdb
 
 dataset2langs = {"xnli": "ar,bg,de,el,es,fr,hi,ru,sw,th,tr,ur,vi,zh"}

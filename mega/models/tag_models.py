@@ -1,4 +1,3 @@
-import signal
 import time
 import warnings
 from typing import Any, Dict, List, Union
@@ -6,6 +5,12 @@ import backoff
 import openai
 import requests
 from mega.utils.substrate_llm import LLMClient, create_request_data
+from google.api_core.exceptions import ResourceExhausted
+from mega.utils.const import (
+    PALM_SUPPORTED_LANGUAGES_MAP,
+    CHAT_MODELS,
+    PALM_MAPPING,
+)
 
 from mega.prompting.prompting_utils import construct_tagging_prompt
 from mega.utils.env_utils import (
@@ -16,17 +21,6 @@ from mega.utils.env_utils import (
 )
 
 load_openai_env_variables()
-
-
-SUPPORTED_MODELS = [
-    "BLOOM",
-    "BLOOMZ",
-    "gpt-4-32k",
-    "gpt-4",
-    "gpt-35-turbo",
-    "gpt-35-turbo-16k",
-]
-CHAT_MODELS = ["gpt-35-turbo-16k", "gpt-4", "gpt-35-turbo", "gpt-4-32k"]
 
 
 udpos_verbalizer = {
@@ -123,59 +117,52 @@ def gpt3x_tagger(
         # pdb.set_trace()
         return response["choices"][0]["text"].strip().split()[0]
 
+    @backoff.on_exception(
+        backoff.expo,
+        (
+            openai.error.APIError,
+            openai.error.APIConnectionError,
+            openai.error.RateLimitError,
+        ),
+        max_time=60,
+    )
     def predict_one_shot():
         output = None
-        backoff_count = 0
-        while True:
-            try:
-                if isinstance(prompt, str):
-                    response = openai.Completion.create(
-                        engine=model,
-                        prompt=prompt,
-                        max_tokens=model_params.get("max_tokens", 20),
-                        temperature=model_params.get("temperature", 1),
-                        top_p=model_params.get("top_p", 1),
-                    )
-                    if "num_calls" in run_details:
-                        run_details["num_calls"] += 1
-                    output = response["choices"][0]["text"].strip().split("\n")[0]
-                    time.sleep(1 / num_evals_per_second)
-                    backoff_count = 0
-                else:
-                    response = openai.ChatCompletion.create(
-                        engine=model,
-                        messages=prompt,
-                        max_tokens=model_params.get("max_tokens", 20),
-                        temperature=model_params.get("temperature", 1),
-                        top_p=model_params.get("top_p", 1),
-                    )
-                    if "num_calls" in run_details:
-                        run_details["num_calls"] += 1
-                    if response["choices"][0]["finish_reason"] == "content_filter":
-                        output = ""
-                    else:
-                        output = (
-                            response["choices"][0]["message"]["content"]
-                            .strip()
-                            .split("\n")[0]
-                        )
-                    time.sleep(1 / num_evals_per_second)
-                    backoff_count = 0
-                break
-            except (
-                openai.error.APIConnectionError,
-                openai.error.RateLimitError,
-            ) as e:
-                backoff_count = min(backoff_count + 1, backoff_ceil)
-                sleep_time = backoff_base**backoff_count
-                print(f"Exceeded Rate Limit. Waiting for {sleep_time} seconds")
-                time.sleep(sleep_time)
-                continue
-            except (openai.error.APIError, TypeError):
-                warnings.warn(
-                    "Couldn't generate response, returning empty string as response"
+        try:
+            if isinstance(prompt, str):
+                response = openai.Completion.create(
+                    engine=model,
+                    prompt=prompt,
+                    max_tokens=model_params.get("max_tokens", 20),
+                    temperature=model_params.get("temperature", 1),
+                    top_p=model_params.get("top_p", 1),
                 )
-                return ""
+                if "num_calls" in run_details:
+                    run_details["num_calls"] += 1
+                output = response["choices"][0]["text"].strip().split("\n")[0]
+            else:
+                response = openai.ChatCompletion.create(
+                    engine=model,
+                    messages=prompt,
+                    max_tokens=model_params.get("max_tokens", 20),
+                    temperature=model_params.get("temperature", 1),
+                    top_p=model_params.get("top_p", 1),
+                )
+                if "num_calls" in run_details:
+                    run_details["num_calls"] += 1
+                if response["choices"][0]["finish_reason"] == "content_filter":
+                    output = ""
+                else:
+                    output = (
+                        response["choices"][0]["message"]["content"]
+                        .strip()
+                        .split("\n")[0]
+                    )
+        except TypeError:
+            warnings.warn(
+                "Couldn't generate response, returning empty string as response"
+            )
+            return ""
 
         return output
 
@@ -211,6 +198,51 @@ def gpt3x_tagger(
             prompt_with_decodings += f" {token}{delimiter}{predicted_tag}"
             predicted_tags.append(predicted_tag)
         return predicted_tags
+
+
+@backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
+def palm_tagger(
+    prompt: str,
+    model: str = "text-bison@001",
+    lang: str = "",
+    test_tokens: List[str] = [],
+    delimiter: str = "_",
+    **model_params,
+) -> str:
+    if lang == "":
+        raise ValueError("Language argument is necessary for palm model")
+    if (
+        lang not in PALM_SUPPORTED_LANGUAGES_MAP.keys()
+        and lang not in PALM_SUPPORTED_LANGUAGES_MAP.values()
+    ):
+        raise ValueError("Language not supported by PALM!")
+
+    if model == "text-bison-32k":
+        from vertexai.preview.language_models import TextGenerationModel
+
+        model_load = TextGenerationModel.from_pretrained(model)
+    else:
+        from vertexai.language_models import TextGenerationModel
+
+        model_load = TextGenerationModel.from_pretrained(model)
+
+    def predict_tag(prompt, token):
+        prompt_with_token = f"{prompt} {token}{delimiter}"
+        model_output = model_load.predict(
+            prompt_with_token,
+            max_output_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+        )
+        return model_output.text.strip().split()[0]
+
+    predicted_tags = []
+    prompt_with_decodings = prompt
+
+    for token in test_tokens:
+        predicted_tag = predict_tag(prompt_with_decodings, token)
+        prompt_with_decodings += f" {token}{delimiter}{predicted_tag}"
+        predicted_tags.append(predicted_tag)
+    return predicted_tags
 
 
 def bloom_tagger(
@@ -276,6 +308,7 @@ def bloom_tagger(
 def model_tagger(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
+    lang: str,
     test_tokens: List[str],
     delimiter: str = "_",
     num_evals_per_second: int = 2,
@@ -305,8 +338,15 @@ def model_tagger(
             **model_params,
         )
 
-    elif model == "palm":
-        return
+    elif "palm" in model:
+        return palm_tagger(
+            prompt,
+            PALM_MAPPING[model],
+            lang,
+            test_tokens,
+            delimiter,
+            **model_params,
+        )
 
     if substrate_prompt:
         llm_client = LLMClient()
@@ -319,6 +359,7 @@ def get_model_pred(
     prompt_template: str,
     verbalizer: Dict[str, str],
     model: str,
+    lang: str,
     delimiter: str = "_",
     num_evals_per_second: int = 2,
     chat_prompt: bool = False,
@@ -343,6 +384,7 @@ def get_model_pred(
     model_prediction = model_tagger(
         prompt_input,
         model,
+        lang,
         test_tokens=test_example["tokens"],
         delimiter=delimiter,
         num_evals_per_second=num_evals_per_second,

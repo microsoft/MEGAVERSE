@@ -162,5 +162,5 @@ if __name__ == "__main__":
         stop=None,
     )
     for _ in range(5):
-        completion = exec_llm(request_data, llm_client, model_name="dev-gpt-35-turbo")
+        completion = exec_llm(request_data, llm_client, model_name="dev-moonshot")
         print(f"{completion}")

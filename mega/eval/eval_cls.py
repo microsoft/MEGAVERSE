@@ -62,7 +62,9 @@ def run_seq_eval(
     except:
         idx_set = set()
     # print(type(test_dataset))
-    pbar = tqdm(enumerate(test_dataset.shuffle(seed=42).select(range(101))))
+    pbar = tqdm(
+        enumerate(test_dataset.shuffle(seed=42).select(range(len(test_dataset))))
+    )
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
         print("All items already evaluated!")

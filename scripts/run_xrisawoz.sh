@@ -3,7 +3,7 @@ set -e
 set -x
 echo "Monolingual Evaluation"
 
-for model in dev-gpt-35-turbo;
+for model in dev-moonshot;
 do
     for lang in en hi fr ko zh enhi
     do

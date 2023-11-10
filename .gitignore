@@ -157,8 +157,9 @@ llama-2-all-lang-eval/
 # other files
 Python-3.8.12.tgz
 Python-3.8.12/
-
+xtreme/
 BLOOM/
 DV003/
 backup/
 *.bin
+*.pkl
