@@ -89,7 +89,6 @@ class LLMClient:
 
             # Now let's try to find a token in cache for this account
             result = self._app.acquire_token_silent(LLMClient._SCOPES, account=chosen)
-
         if not result:
             # So no suitable token exists in cache. Let's get a new one from AAD.
             flow = self._app.initiate_device_flow(scopes=LLMClient._SCOPES)

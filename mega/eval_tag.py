@@ -118,7 +118,16 @@ def evaluate(
     total_items = len(test_dataset)
     if len(idx_set) == total_items:
         print("All items already evaluated!")
-        sys.exit(0)
+        if os.path.exists(save_preds_path):
+            print("Here")
+            with open(save_preds_path, "r") as file:
+                print("Loading preds from file")
+                json_data = [json.loads(line) for line in file]
+                labels = [obj["label"] for obj in json_data]
+                prediction = [obj["prediction"] for obj in json_data]
+            eval_score = f1_score(labels, prediction)
+
+        return eval_score
 
     for idx, test_example in pbar:
         if idx in idx_set:
@@ -157,41 +166,40 @@ def evaluate(
                 print(
                     f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                 )
-        # print("preds","".join(pred_dict["prediction"]).split(' '))
-        preds_temp = "".join(pred_dict["prediction"]).split(" ")
-        try:
-            preds_temp = [word.split("_")[1] for word in preds_temp]
-        except:
-            continue
-        # print("preds_temp",preds_temp)
-        pred_dict["prediction"] = preds_temp
-
         pred_dict["prediction"] = [
             "".join(pred) if pred != "" else np.random.choice(valid_labels)
             for pred in pred_dict["prediction"]
         ]
         preds.append(pred_dict["prediction"])
         labels.append(pred_dict["ground_truth"])
+        dump_predictions(
+            idx, pred_dict["prediction"], pred_dict["ground_truth"], save_preds_path
+        )
         # print("labels",pred_dict["ground_truth"])
         try:
             f1_scores.append(f1_score(preds, labels))
-        except:
+        except Exception as e:
+            print(e)
             print(f"Skipping {idx} due to error")
             continue
             # breakpoint()
-        dump_predictions(idx, pred_dict["prediction"], labels, save_preds_path)
         running_f1 = f1_scores[-1]
         pbar.set_description(f"F1-Score: {running_f1}")
         if log_wandb:
             wandb.log({"f1": running_f1})
         # time.sleep(1 / num_evals_per_sec)
 
-    eval_score = f1_score(labels, preds)
-    results_df = pd.DataFrame(
-        {"Label": labels, "Prediction": preds, "F1-Score": f1_scores}
-    )
+    print(save_preds_path, "path")
+    if os.path.exists(save_preds_path):
+        print("Here")
+        with open(save_preds_path, "r") as file:
+            print("Loading preds from file")
+            json_data = [json.loads(line) for line in file]
+            labels = [obj["label"] for obj in json_data]
+            prediction = [obj["prediction"] for obj in json_data]
+        eval_score = f1_score(labels, prediction)
 
-    return eval_score, results_df
+    return eval_score
 
 
 def main(sys_args):
@@ -248,7 +256,7 @@ def main(sys_args):
         os.makedirs(out_dir)
 
     save_preds_path = f"{out_dir}/preds.json"
-    eval_score, preds_df = evaluate(
+    eval_score  = evaluate(
         train_dataset,
         test_dataset,
         prompt_template=PROMPTS_DICT[args.tgt_prompt_name],

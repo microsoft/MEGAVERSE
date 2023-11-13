@@ -79,7 +79,7 @@ def main(sys_args):
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
-        
+
     instruction = INSTRUCTIONS[args.dataset]
     # print(instruction)
 
@@ -90,6 +90,7 @@ def main(sys_args):
         train_prompt_template,
         test_prompt_template,
         args.model,
+        args.tgt_lang,
         args.few_shot_k,
         args.few_shot_selection,
         chat_prompt=args.chat_prompt,
@@ -99,8 +100,7 @@ def main(sys_args):
         num_proc=args.num_proc,
         temperature=args.temperature,
         top_p=args.top_p,
-        substrate_prompt=args.substrate_prompt
-
+        substrate_prompt=args.substrate_prompt,
     )
     print(accuracy)
     # Store results

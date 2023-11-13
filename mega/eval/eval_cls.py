@@ -51,21 +51,18 @@ def run_seq_eval(
     num_matches = 0
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]
+
     try:
         with open(save_preds_path, "r") as file:
-            # json_data = json.load(file)
             json_data = [json.loads(line) for line in file]
-
         idx_set = {obj["q_idx"] for obj in json_data}
-        preds = [obj["prediction"] for obj in json_data]
-        labels = [obj["ground_truth"] for obj in json_data]
     except:
+        print("No preds file found")
         idx_set = set()
-    # print(type(test_dataset))
-    pbar = tqdm(
-        enumerate(test_dataset.shuffle(seed=42).select(range(len(test_dataset))))
-    )
+    # # print(type(test_dataset))
+    pbar = tqdm(enumerate(test_dataset))
     total_items = len(test_dataset)
+    print("Len of test_set", total_items)
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         sys.exit(0)

@@ -206,6 +206,7 @@ def palm_tagger(
     model: str = "text-bison@001",
     lang: str = "",
     test_tokens: List[str] = [],
+    one_shot_tag: bool = True,
     delimiter: str = "_",
     **model_params,
 ) -> str:
@@ -234,6 +235,35 @@ def palm_tagger(
             temperature=model_params.get("temperature", 1),
         )
         return model_output.text.strip().split()[0]
+
+    def predict_one_shot():
+        model_output = model_load.predict(
+            prompt,
+            max_output_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+        )
+        
+        return model_output.text
+    
+    if one_shot_tag:
+        predicted_tokens_wth_tags = predict_one_shot()
+        predicted_tokens_wth_tags = predicted_tokens_wth_tags.split()
+        predicted_tags = []
+        for i, token in enumerate(test_tokens):
+            if i >= len(predicted_tokens_wth_tags):
+                predicted_tags.append("")
+                continue
+            pred_token_nd_tag = predicted_tokens_wth_tags[i].split(delimiter)
+            if len(pred_token_nd_tag) == 2:
+                pred_token, pred_tag = pred_token_nd_tag
+            else:
+                pred_token = ""
+                pred_tag = ""
+            if token == pred_token:
+                predicted_tags.append(pred_tag)
+            else:
+                predicted_tags.append("")
+        return predicted_tags
 
     predicted_tags = []
     prompt_with_decodings = prompt

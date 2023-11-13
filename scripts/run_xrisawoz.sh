@@ -7,6 +7,7 @@ for model in dev-moonshot;
 do
     for lang in en hi fr ko zh enhi
     do
+        echo "Running for lang $lang"
         python -m mega.eval_xrisawoz \
             -k 4 \
             --xrisawoz_root_dir "./xrisawoz_data/" \
