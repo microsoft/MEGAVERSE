@@ -11,7 +11,7 @@ from contamination.templates import (
     TEMPLATES,
     VERBALIZER_XNLI,
 )
-from typing import Dict, Any, List, Union
+from typing import Dict, Any, List, Union, Tuple
 
 # suppress warnings
 import warnings
@@ -33,6 +33,17 @@ LANGS = {
     "th": "Thai",
     "ur": "Urdu",
     "sw": "Swahili",
+    "bg": "Bulgarian",
+    "el": "Greek",
+    "sw": "Swahili",
+    "it": "Italian",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "pt": "Portuguese",
+    "ro": "Romanian",
+    "pl": "Polish",
+    "cs": "Czech",
+    "da": "Danish",
 }
 
 
@@ -54,6 +65,7 @@ def get_xnli_prompt(
 
     if not chat_prompt:
         return prompt
+
     else:
         messages = [
             {"role": "system", "content": instruction.format(lang=LANGS[lang])},
@@ -64,8 +76,8 @@ def get_xnli_prompt(
         ]
 
         if substrate_prompt:
-            messages = get_substrate_prompt(messages)
-            return messages
+            prompt = get_substrate_prompt(messages)
+            return prompt
         else:
             return messages
 
@@ -90,7 +102,7 @@ def construct_quiz_generation_prompt(
         str: _description_
     """
     if dataset_name == "xnli":
-        return get_xnli_prompt(
+        prompt = get_xnli_prompt(
             dataset_example,
             template,
             instruction,
@@ -98,6 +110,10 @@ def construct_quiz_generation_prompt(
             substrate_prompt,
             lang,
         )
+        original_example = get_xnli_prompt(
+            dataset_example, template, "", False, False, lang
+        ).replace("--TEXT--", "")
+        return prompt, original_example
 
     return ""
 
@@ -114,11 +130,16 @@ def run_quiz_creation(
     chat_prompt: bool,
     substrate_prompt: bool,
     num_points: int = 100,
+    llm_client: LLMClient = None,
 ):
     ds = load_dataset(dataset_name, lang)
     ds = ds[dataset_split]
     ds = ds.select(range(num_points))
-    pbar = tqdm(total=len(ds))
+    pbar = tqdm(ds)
+    out_dir = f"{out_dir}/{lang}"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
     if "quiz_options.csv" in os.listdir(out_dir):
         results_df = pd.read_csv(f"{out_dir}/quiz_options.csv")
         results = results_df.to_dict("records")
@@ -131,7 +152,7 @@ def run_quiz_creation(
         if idx < pred_len:
             print(f"skipping {idx}")
             continue
-        prompt = construct_quiz_generation_prompt(
+        prompt, original_example = construct_quiz_generation_prompt(
             dataset_name,
             test_example,
             TEMPLATES[template_name],
@@ -140,32 +161,28 @@ def run_quiz_creation(
             substrate_prompt=substrate_prompt,
             lang=lang,
         )
+
         response = model_completion(
             prompt,
             model_name,
             lang,
             max_tokens=max_tokens,
             temperature=temperature,
+            run_substrate_llm_completion=substrate_prompt,
+            llm_client=llm_client,
         )
-
-        original_example = ""
-        # remove instruction from prompt
-        if chat_prompt:
-            orginal_example = prompt[1]["content"]
-        else:
-            original_example = prompt.replace(INSTRUCTION_FOR_QUIZ_GENERATION, "")
 
         results.append(
             {"generated_response": response, "original_example": original_example}
         )
 
         results_df = pd.DataFrame(results)
-        results_df.to_csv(f"{out_dir}/quiz_options.csv")
+        results_df.to_csv(f"{out_dir}/quiz_options.csv", index=False)
 
 
 if __name__ == "__main__":
     # Parse args.yaml
-    with open("contamination/configs/xnli_args.yaml", "r") as file:
+    with open("contamination/configs/xnli_palm_args.yaml", "r") as file:
         args = yaml.load(file, Loader=yaml.FullLoader)
 
     dataset_name = args["dataset_name"]
@@ -180,20 +197,52 @@ if __name__ == "__main__":
     substrate_prompt = args["substrate_prompt"]
     num_points = args["num_points"]
     out_dir = f"{save_dir}/{dataset_name}/{model_name}/{dataset_split}"
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
+    llm_client = LLMClient() if substrate_prompt else None
+
+    # test_example = load_dataset(dataset_name, "en")[dataset_split][0]
+    # lang = "en"
+    # create_prompt = construct_quiz_generation_prompt(
+    #     dataset_name,
+    #     test_example,
+    #     TEMPLATES[template_name],
+    #     INSTRUCTION_FOR_QUIZ_GENERATION,
+    #     chat_prompt=chat_prompt,
+    #     substrate_prompt=substrate_prompt,
+    #     lang=lang,
+    # )
+
+    # response = model_completion(
+    #     create_prompt,
+    #     model_name,
+    #     lang,
+    #     max_tokens=max_tokens,
+    #     temperature=temperature,
+    # )
+
+    # print(response)
+
+    # if not os.path.exists(out_dir):
+    #     os.makedirs(out_dir)
 
     for lang in langs:
-        run_quiz_creation(
-            dataset_name,
-            lang,
-            out_dir,
-            model_name,
-            max_tokens,
-            temperature,
-            template_name,
-            dataset_split,
-            chat_prompt,
-            substrate_prompt,
-            num_points,
-        )
+        print("creating dataset for lang", lang)
+        try:
+            run_quiz_creation(
+                dataset_name,
+                lang,
+                out_dir,
+                model_name,
+                max_tokens,
+                temperature,
+                template_name,
+                dataset_split,
+                chat_prompt,
+                substrate_prompt,
+                num_points,
+                llm_client,
+            )
+
+        except ValueError as e:
+            print(f"Error for {lang}, not supported by Palm2")
+            print(e)
+            continue
