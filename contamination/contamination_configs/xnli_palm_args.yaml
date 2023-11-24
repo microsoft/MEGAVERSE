@@ -8,4 +8,4 @@ dataset_split: test # default is test, if test is not available use validation e
 chat_prompt: False
 substrate_prompt: False
 langs: ['ar','bg', 'de', 'el', 'es', 'en', 'fr', 'hi', 'ru', 'sw', 'th', 'tr', 'ur', 'vi', 'zh']
-num_points: 100
+num_points: 110

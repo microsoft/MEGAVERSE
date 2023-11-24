@@ -160,12 +160,12 @@ def run_quiz_creation(
         try:
             parsed_response = pydantic_parser.parse(response)
             results.append(
-            {
-                "generated_response": parsed_response.json(),
-                "original_example": original_example,
-            }
-        )
-        
+                {
+                    "generated_response": parsed_response.json(),
+                    "original_example": original_example,
+                }
+            )
+
         except ValueError as e:
             print(f"Error for {idx}")
             print(e)
