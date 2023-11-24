@@ -7,7 +7,7 @@ from mega.prompting.prompting_utils import get_substrate_prompt
 from tqdm import tqdm
 import pandas as pd
 from mega.utils.substrate_llm import LLMClient
-from contamination.pydantic_models import XNLIGeneratedResponse
+from contamination.consts import PYDANTIC_DICT, LANGS
 from langchain.output_parsers import PydanticOutputParser
 from contamination.templates import (
     INSTRUCTION_FOR_QUIZ_GENERATION,
@@ -20,37 +20,6 @@ from typing import Dict, Any, List, Union, Tuple
 import warnings
 
 warnings.filterwarnings("ignore")
-
-PYDANTIC_DICT = {
-    "xnli": XNLIGeneratedResponse,
-}
-
-LANGS = {
-    "hi": "Hindi",
-    "en": "English",
-    "fr": "French",
-    "de": "German",
-    "es": "Spanish",
-    "ru": "Russian",
-    "zh": "Chinese",
-    "ar": "Arabic",
-    "tr": "Turkish",
-    "vi": "Vietnamese",
-    "th": "Thai",
-    "ur": "Urdu",
-    "sw": "Swahili",
-    "bg": "Bulgarian",
-    "el": "Greek",
-    "sw": "Swahili",
-    "it": "Italian",
-    "ja": "Japanese",
-    "ko": "Korean",
-    "pt": "Portuguese",
-    "ro": "Romanian",
-    "pl": "Polish",
-    "cs": "Czech",
-    "da": "Danish",
-}
 
 
 def get_xnli_prompt(
@@ -188,13 +157,19 @@ def run_quiz_creation(
             run_substrate_llm_completion=substrate_prompt,
             llm_client=llm_client,
         )
-        parsed_response = pydantic_parser.parse(response)
-        results.append(
+        try:
+            parsed_response = pydantic_parser.parse(response)
+            results.append(
             {
                 "generated_response": parsed_response.json(),
                 "original_example": original_example,
             }
         )
+        
+        except ValueError as e:
+            print(f"Error for {idx}")
+            print(e)
+            continue
 
         results_df = pd.DataFrame(results)
         results_df.to_csv(f"{out_dir}/quiz_options.csv", index=False)
