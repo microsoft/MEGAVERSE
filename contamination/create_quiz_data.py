@@ -2,6 +2,7 @@ from datasets import load_dataset
 import os
 from mega.models.completion_models import model_completion
 import yaml
+import sys
 from mega.prompting.prompting_utils import get_substrate_prompt
 from tqdm import tqdm
 import pandas as pd
@@ -182,7 +183,11 @@ def run_quiz_creation(
 
 if __name__ == "__main__":
     # Parse args.yaml
-    with open("contamination/configs/xnli_palm_args.yaml", "r") as file:
+    args_path = sys.argv[1]
+    if not os.path.exists(args_path):
+        raise ValueError(f"{args_path} does not exist")
+
+    with open(args_path, "r") as file:
         args = yaml.load(file, Loader=yaml.FullLoader)
 
     dataset_name = args["dataset_name"]

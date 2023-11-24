@@ -1,0 +1,11 @@
+save_dir: 'contamination/quizzes'
+dataset_name: xnli
+model_name: dev-moonshot
+max_tokens: 5000
+temperature: 1.0
+template_name: xnli
+dataset_split: test # default is test, if test is not available use validation else use train
+chat_prompt: True
+substrate_prompt: True
+langs: ['ar','bg', 'de', 'el', 'es', 'en', 'fr', 'hi', 'ru', 'sw', 'th', 'tr', 'ur', 'vi', 'zh']
+num_points: 100
