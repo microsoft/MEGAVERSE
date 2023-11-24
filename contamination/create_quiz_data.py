@@ -7,6 +7,8 @@ from mega.prompting.prompting_utils import get_substrate_prompt
 from tqdm import tqdm
 import pandas as pd
 from mega.utils.substrate_llm import LLMClient
+from contamination.pydantic_models import XNLIGeneratedResponse
+from langchain.output_parsers import PydanticOutputParser
 from contamination.templates import (
     INSTRUCTION_FOR_QUIZ_GENERATION,
     TEMPLATES,
@@ -19,6 +21,9 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+PYDANTIC_DICT = {
+    "xnli": XNLIGeneratedResponse,
+}
 
 LANGS = {
     "hi": "Hindi",
@@ -55,6 +60,7 @@ def get_xnli_prompt(
     chat_prompt: bool,
     substrate_prompt: bool,
     lang: str,
+    format_instructions: str,
 ) -> str:
     prompt = template.format(
         instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
@@ -62,6 +68,7 @@ def get_xnli_prompt(
         hypothesis=dataset_example["hypothesis"],
         label=dataset_example["label"],
         verbalized_label=VERBALIZER_XNLI[dataset_example["label"]],
+        format_instructions=format_instructions,
     )
 
     if not chat_prompt:
@@ -85,6 +92,7 @@ def get_xnli_prompt(
 
 def construct_quiz_generation_prompt(
     dataset_name: str,
+    pydantic_parser: PydanticOutputParser,
     dataset_example: Dict[str, Any],
     template: str,
     instruction: str,
@@ -103,6 +111,8 @@ def construct_quiz_generation_prompt(
         str: _description_
     """
     if dataset_name == "xnli":
+        format_instructions = pydantic_parser.get_format_instructions()
+
         prompt = get_xnli_prompt(
             dataset_example,
             template,
@@ -110,10 +120,14 @@ def construct_quiz_generation_prompt(
             chat_prompt,
             substrate_prompt,
             lang,
+            format_instructions,
         )
-        original_example = get_xnli_prompt(
-            dataset_example, template, "", False, False, lang
-        ).replace("--TEXT--", "")
+
+        original_example = (
+            get_xnli_prompt(dataset_example, template, "", False, False, lang, "")
+            .replace("--TEXT--", "")
+            .strip()
+        )
         return prompt, original_example
 
     return ""
@@ -132,11 +146,10 @@ def run_quiz_creation(
     substrate_prompt: bool,
     num_points: int = 100,
     llm_client: LLMClient = None,
+    pydantic_parser: PydanticOutputParser = None,
 ):
     ds = load_dataset(dataset_name, lang)
     ds = ds[dataset_split]
-    ds = ds.select(range(num_points))
-    pbar = tqdm(ds)
     out_dir = f"{out_dir}/{lang}"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
@@ -148,6 +161,8 @@ def run_quiz_creation(
     else:
         results = []
 
+    ds = ds.select(range(num_points))
+    pbar = tqdm(ds)
     pred_len = len(results)
     for idx, test_example in enumerate(pbar):
         if idx < pred_len:
@@ -155,6 +170,7 @@ def run_quiz_creation(
             continue
         prompt, original_example = construct_quiz_generation_prompt(
             dataset_name,
+            pydantic_parser,
             test_example,
             TEMPLATES[template_name],
             INSTRUCTION_FOR_QUIZ_GENERATION,
@@ -172,9 +188,12 @@ def run_quiz_creation(
             run_substrate_llm_completion=substrate_prompt,
             llm_client=llm_client,
         )
-
+        parsed_response = pydantic_parser.parse(response)
         results.append(
-            {"generated_response": response, "original_example": original_example}
+            {
+                "generated_response": parsed_response.json(),
+                "original_example": original_example,
+            }
         )
 
         results_df = pd.DataFrame(results)
@@ -201,8 +220,9 @@ if __name__ == "__main__":
     chat_prompt = args["chat_prompt"]
     substrate_prompt = args["substrate_prompt"]
     num_points = args["num_points"]
-    out_dir = f"{save_dir}/{dataset_name}/{model_name}/{dataset_split}"
+    out_dir = f"{save_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
+    pydantic_parser = PydanticOutputParser(pydantic_object=PYDANTIC_DICT[dataset_name])
 
     # test_example = load_dataset(dataset_name, "en")[dataset_split][0]
     # lang = "en"
@@ -245,6 +265,7 @@ if __name__ == "__main__":
                 substrate_prompt,
                 num_points,
                 llm_client,
+                pydantic_parser,
             )
 
         except ValueError as e:
