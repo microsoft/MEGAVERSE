@@ -1,32 +1,10 @@
 from contamination.pydantic_models import XNLIGeneratedResponse
+from contamination.prompting_utils import get_xnli_quiz_generation_prompt
 
 PYDANTIC_DICT = {
     "xnli": XNLIGeneratedResponse,
 }
 
-LANGS = {
-    "hi": "Hindi",
-    "en": "English",
-    "fr": "French",
-    "de": "German",
-    "es": "Spanish",
-    "ru": "Russian",
-    "zh": "Chinese",
-    "ar": "Arabic",
-    "tr": "Turkish",
-    "vi": "Vietnamese",
-    "th": "Thai",
-    "ur": "Urdu",
-    "sw": "Swahili",
-    "bg": "Bulgarian",
-    "el": "Greek",
-    "sw": "Swahili",
-    "it": "Italian",
-    "ja": "Japanese",
-    "ko": "Korean",
-    "pt": "Portuguese",
-    "ro": "Romanian",
-    "pl": "Polish",
-    "cs": "Czech",
-    "da": "Danish",
-}
+# QUIZ_GENERATION_PROMPT_UTILS = {
+#     "xnli": get_xnli_quiz_generation_prompt,
+# }

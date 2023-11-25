@@ -8,6 +8,10 @@ class XNLIResponse(BaseModel):
     Label: str = Field(description="Label in XNLI")
 
 
+class AnswerResponse(BaseModel):
+    answer: str = Field(description="Answer to the question")
+
+
 class XNLIGeneratedResponse(BaseModel):
     options: List[XNLIResponse]
 

@@ -3,60 +3,22 @@ import os
 from mega.models.completion_models import model_completion
 import yaml
 import sys
-from mega.prompting.prompting_utils import get_substrate_prompt
 from tqdm import tqdm
 import pandas as pd
 from mega.utils.substrate_llm import LLMClient
-from contamination.consts import PYDANTIC_DICT, LANGS
+from contamination.consts import PYDANTIC_DICT
 from langchain.output_parsers import PydanticOutputParser
 from contamination.templates import (
     INSTRUCTION_FOR_QUIZ_GENERATION,
     TEMPLATES,
-    VERBALIZER_XNLI,
 )
-from typing import Dict, Any, List, Union, Tuple
+from typing import Dict, Any, Union, List
+from contamination.prompting_registry import QUIZ_GENERATION_PROMPT_REGISTRY
 
 # suppress warnings
 import warnings
 
 warnings.filterwarnings("ignore")
-
-
-def get_xnli_prompt(
-    dataset_example: Dict[str, any],
-    template: str,
-    instruction: str,
-    chat_prompt: bool,
-    substrate_prompt: bool,
-    lang: str,
-    format_instructions: str,
-) -> str:
-    prompt = template.format(
-        instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
-        premise=dataset_example["premise"],
-        hypothesis=dataset_example["hypothesis"],
-        label=dataset_example["label"],
-        verbalized_label=VERBALIZER_XNLI[dataset_example["label"]],
-        format_instructions=format_instructions,
-    )
-
-    if not chat_prompt:
-        return prompt
-
-    else:
-        messages = [
-            {"role": "system", "content": instruction.format(lang=LANGS[lang])},
-            {
-                "role": "user",
-                "content": prompt,
-            },
-        ]
-
-        if substrate_prompt:
-            prompt = get_substrate_prompt(messages)
-            return prompt
-        else:
-            return messages
 
 
 def construct_quiz_generation_prompt(
@@ -68,6 +30,7 @@ def construct_quiz_generation_prompt(
     chat_prompt: bool = False,
     substrate_prompt: bool = False,
     lang: str = "en",
+    **kwargs,
 ) -> Union[str, List[Dict[str, str]]]:
     """Constructs prompt for quiz generation
 
@@ -79,10 +42,10 @@ def construct_quiz_generation_prompt(
     Returns:
         str: _description_
     """
-    if dataset_name == "xnli":
+    if dataset_name in QUIZ_GENERATION_PROMPT_REGISTRY:
         format_instructions = pydantic_parser.get_format_instructions()
 
-        prompt = get_xnli_prompt(
+        prompt = QUIZ_GENERATION_PROMPT_REGISTRY[dataset_name](
             dataset_example,
             template,
             instruction,
@@ -90,16 +53,19 @@ def construct_quiz_generation_prompt(
             substrate_prompt,
             lang,
             format_instructions,
+            **kwargs,
         )
 
         original_example = (
-            get_xnli_prompt(dataset_example, template, "", False, False, lang, "")
+            QUIZ_GENERATION_PROMPT_REGISTRY[dataset_name](
+                dataset_example, template, "", False, False, lang, "", **kwargs
+            )
             .replace("--TEXT--", "")
             .strip()
         )
         return prompt, original_example
-
-    return ""
+    else:
+        raise ValueError(f"{dataset_name} not supported")
 
 
 def run_quiz_creation(

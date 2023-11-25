@@ -20,5 +20,11 @@ Label: {label} ({verbalized_label})
 
 VERBALIZER_XNLI = {0: "entailment", 1: "neutral", 2: "contradiction"}
 
-INSTRUCTION_FOR_QUIZ_ANSWER = """Your task is to accurately select the option that corresponds exactly to an instance from the train split of the
-{dataset} dataset. Only generate a single option letter as your answer. You must not include any extra explanation."""
+INSTRUCTION_FOR_QUIZ_ANSWER = """Your task is to accurately select the option that corresponds exactly to an instance from the {dataset_split} split of the {dataset} dataset and of {lang} language. Only generate a single option letter as your answer. You must not include any extra explanation."""
+
+TEMPLATE_FOR_QUIZ_ANSWER = """{instruction}
+---
+{options}
+---
+{format_instructions}
+"""
