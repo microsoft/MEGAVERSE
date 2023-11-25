@@ -1,7 +1,7 @@
 from contamination.templates import VERBALIZER_XNLI
 from mega.prompting.prompting_utils import get_substrate_prompt
 from typing import Dict, List
-from contamination.langs_registry import LANGS
+from contamination.registry.langs_registry import LANGS
 
 
 def get_xnli_quiz_generation_prompt(

@@ -9,7 +9,7 @@ import pandas as pd
 import json
 from typing import Dict, List, Union
 from contamination.pydantic_models import AnswerResponse
-from contamination.prompting_registry import GENERATED_RESPONSE_REGISTRY
+from contamination.registry.prompting_registry import GENERATED_RESPONSE_REGISTRY
 
 
 def create_quiz_answer_template(

@@ -1,4 +1,4 @@
-save_dir: 'contamination/quizzes'
+save_dir: 'contamination/generated_quizzes'
 dataset_name: xnli
 model_name: dev-moonshot
 max_tokens: 5000

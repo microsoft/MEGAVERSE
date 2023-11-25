@@ -164,4 +164,4 @@ backup/
 *.bin
 *.pkl
 *xtreme
-*contamination/quizzes
+*contamination/generated_quizzes

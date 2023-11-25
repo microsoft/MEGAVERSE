@@ -13,7 +13,7 @@ from contamination.templates import (
     TEMPLATES,
 )
 from typing import Dict, Any, Union, List
-from contamination.prompting_registry import QUIZ_GENERATION_PROMPT_REGISTRY
+from contamination.registry.prompting_registry import QUIZ_GENERATION_PROMPT_REGISTRY
 
 # suppress warnings
 import warnings
