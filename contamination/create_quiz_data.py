@@ -6,7 +6,7 @@ import sys
 from tqdm import tqdm
 import pandas as pd
 from mega.utils.substrate_llm import LLMClient
-from contamination.consts import PYDANTIC_DICT
+from contamination.registry.pydantic_registry import PYDANTIC_REGISTRY
 from langchain.output_parsers import PydanticOutputParser
 from contamination.templates import (
     INSTRUCTION_FOR_QUIZ_GENERATION,
@@ -163,7 +163,9 @@ if __name__ == "__main__":
     num_points = args["num_points"]
     out_dir = f"{save_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
-    pydantic_parser = PydanticOutputParser(pydantic_object=PYDANTIC_DICT[dataset_name])
+    pydantic_parser = PydanticOutputParser(
+        pydantic_object=PYDANTIC_REGISTRY[dataset_name]
+    )
 
     # test_example = load_dataset(dataset_name, "en")[dataset_split][0]
     # lang = "en"
