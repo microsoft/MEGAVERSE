@@ -1,5 +1,6 @@
 save_dir: 'contamination/generated_quiz_answers'
-quiz_dir: 'contamination/generated_quizzes/xnli/palm-32k_rerun/test'
+# quiz_dir: 'contamination/generated_quizzes/xnli/palm-32k_rerun/test'
+quiz_dir: 'contamination/generated_quizzes'
 dataset_name: xnli
 model_name: palm-32k
 max_tokens: 10

@@ -1,5 +1,6 @@
 save_dir: 'contamination/generated_quiz_answers'
-quiz_dir: 'contamination/generated_quizzes/xnli/dev-moonshot_rerun/test'
+# quiz_dir: 'contamination/generated_quizzes/xnli/dev-moonshot_rerun/test'
+quiz_dir: 'contamination/generated_quizzes'
 dataset_name: xnli
 model_name: dev-moonshot
 max_tokens: 10

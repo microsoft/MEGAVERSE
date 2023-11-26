@@ -161,7 +161,7 @@ if __name__ == "__main__":
     chat_prompt = args["chat_prompt"]
     substrate_prompt = args["substrate_prompt"]
     num_points = args["num_points"]
-    out_dir = f"{save_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
+    out_dir = f"{save_dir}/{dataset_name}/{model_name}/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
     pydantic_parser = PydanticOutputParser(
         pydantic_object=PYDANTIC_REGISTRY[dataset_name]
