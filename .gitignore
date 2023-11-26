@@ -165,3 +165,4 @@ backup/
 *.pkl
 *xtreme
 *contamination/generated_quizzes
+*contamination/generated_quiz_answers

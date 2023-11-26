@@ -1,0 +1,12 @@
+save_dir: 'contamination/generated_quiz_answers'
+quiz_dir: 'contamination/generated_quizzes/xnli/palm-32k_rerun/test'
+dataset_name: xnli
+model_name: palm-32k
+max_tokens: 10
+temperature: 0.0
+template_name: xnli
+dataset_split: test # default is test, if test is not available use validation else use train
+chat_prompt: False
+substrate_prompt: False
+langs: ['ar','bg', 'de', 'el', 'es', 'en', 'fr', 'hi', 'ru', 'sw', 'th', 'tr', 'ur', 'vi', 'zh']
+# langs: ['en']

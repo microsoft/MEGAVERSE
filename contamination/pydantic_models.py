@@ -9,7 +9,7 @@ class XNLIResponse(BaseModel):
 
 
 class AnswerResponse(BaseModel):
-    answer: str = Field(description="Answer to the question")
+    answer: str = Field(description="Answer to the above multiple choice question")
 
 
 class XNLIGeneratedResponse(BaseModel):

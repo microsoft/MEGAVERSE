@@ -5,9 +5,15 @@ from contamination.templates import (
 from langchain.output_parsers import PydanticOutputParser
 from mega.models.completion_models import model_completion
 from mega.prompting.prompting_utils import get_substrate_prompt
+from mega.utils.substrate_llm import LLMClient
+
 import pandas as pd
+import sys
+import yaml
+import os
 import json
-from typing import Dict, List, Union
+from tqdm import tqdm
+from typing import Dict, List, Union, Any
 from contamination.pydantic_models import AnswerResponse
 from contamination.registry.prompting_registry import GENERATED_RESPONSE_REGISTRY
 
@@ -50,7 +56,7 @@ def create_quiz_answer_template(
     )
     prompt = TEMPLATE_FOR_QUIZ_ANSWER.format(
         instruction=instruction if not chat_prompt else "",
-        options=option_str,
+        options=option_str.strip(),
         format_instructions=format_instructions,
     )
 
@@ -78,14 +84,150 @@ def create_quiz_answer_template(
             return messages
 
 
-if __name__ == "__main__":
-    df = pd.read_csv(
-        "/home/t-sahuja/MultilingualBlanketEval/contamination/quizzes/xnli/dev-moonshot_rerun/test/ar/quiz_options.csv"
+def kappa_fixed_value(observed_agreement_probability: float) -> float:
+    kappa_fixed = (observed_agreement_probability - 0.25) / 0.75
+    return kappa_fixed
+
+
+def calculate_contamination(results_df: pd.DataFrame, **kwargs):
+    total_correct = 0
+    total = len(results_df)
+
+    select_samples = min(100, total)
+
+    for idx, row in results_df.sample(select_samples).iterrows():
+        answer = json.loads(row["answer"])["answer"].strip()
+        if "D" or "d" in answer:
+            total_correct += 1
+
+    score = total_correct / total
+    contamination = kappa_fixed_value(score)
+    out_dir = kwargs["out_dir"]
+    kwargs["score"] = score
+    kwargs["contamination"] = contamination
+    # dump kwargs, score and contamination into a json file in out_dir
+    with open(f"{out_dir}/contamination.json", "w") as f:
+        json.dump(kwargs, f)
+
+
+def get_quiz_answers(
+    dataset_name: str,
+    dataset_split: str,
+    model_name: str,
+    lang: str,
+    out_dir: str,
+    df: pd.DataFrame,
+    chat_prompt: bool,
+    substrate_prompt: bool,
+    pydantic_parser: PydanticOutputParser,
+    max_tokens: int,
+    temperature: float,
+    llm_client: LLMClient = None,
+):
+    out_dir = f"{out_dir}/{lang}"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    if "quiz_answers.csv" in os.listdir(out_dir):
+        results_df = pd.read_csv(f"{out_dir}/quiz_answers.csv")
+        results = results_df.to_dict("records")
+
+    else:
+        results = []
+
+    pred_len = len(results)
+
+    for idx, row in tqdm(df.iterrows(), total=df.shape[0]):
+        if idx < pred_len:
+            print(f"skipping {idx}")
+            continue
+        prompt = create_quiz_answer_template(
+            dataset_name,
+            lang,
+            row,
+            dataset_split,
+            chat_prompt,
+            substrate_prompt,
+            pydantic_parser,
+        ).strip()
+
+        answer = model_completion(
+            prompt,
+            model_name,
+            lang,
+            run_substrate_llm_completion=substrate_prompt,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            llm_client=llm_client,
+        )
+        try:
+            parsed_response = pydantic_parser.parse(answer)
+            results.append(
+                {
+                    "answer": parsed_response.json(),
+                    "prompt": prompt,
+                }
+            )
+
+        except ValueError as e:
+            print(f"Error for {idx}")
+            print(e)
+            continue
+        results_df = pd.DataFrame(results)
+
+        results_df.to_csv(f"{out_dir}/quiz_answers.csv", index=False)
+
+    calculate_contamination(
+        results_df,
+        dataset_name=dataset_name,
+        dataset_split=dataset_split,
+        model_name=model_name,
+        lang=lang,
+        out_dir=out_dir,
+        chat_prompt=chat_prompt,
+        substrate_prompt=substrate_prompt,
+        max_tokens=max_tokens,
+        temperature=temperature,
     )
-    row = df.iloc[0]
+
+
+if __name__ == "__main__":
+    args_path = sys.argv[1]
+    if not os.path.exists(args_path):
+        raise ValueError(f"{args_path} does not exist")
+
+    with open(args_path, "r") as file:
+        args = yaml.load(file, Loader=yaml.FullLoader)
+
+    dataset_name = args["dataset_name"]
+    save_dir = args["save_dir"]
+    quiz_dir = args["quiz_dir"]
+    model_name = args["model_name"]
+    max_tokens = args["max_tokens"]
+    temperature = args["temperature"]
+    template_name = args["template_name"]
+    langs = args["langs"]
+    dataset_split = args["dataset_split"]
+    chat_prompt = args["chat_prompt"]
+    substrate_prompt = args["substrate_prompt"]
+    out_dir = f"{save_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
+    llm_client = LLMClient() if substrate_prompt else None
     pydantic_parser = PydanticOutputParser(pydantic_object=AnswerResponse)
-    prompt = create_quiz_answer_template(
-        "xnli", "ar", row, "test", True, True, pydantic_parser
-    ).strip()
-    print(prompt)
-    pass
+    for lang in langs:
+        print("Generating quiz answers for", lang)
+        df = pd.read_csv(f"{quiz_dir}/{lang}/quiz_options.csv")
+
+        get_quiz_answers(
+            dataset_name,
+            dataset_split,
+            model_name,
+            lang,
+            out_dir,
+            df,
+            chat_prompt,
+            substrate_prompt,
+            pydantic_parser,
+            max_tokens,
+            temperature,
+            llm_client,
+        )
