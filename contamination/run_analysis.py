@@ -13,9 +13,11 @@ import yaml
 import os
 import json
 from tqdm import tqdm
-from typing import Dict, List, Union, Any
+from typing import Dict, List, Union
 from contamination.pydantic_models import AnswerResponse
-from contamination.registry.prompting_registry import GENERATED_RESPONSE_REGISTRY
+from contamination.registry.generated_response_registry import (
+    GENERATED_RESPONSE_REGISTRY,
+)
 
 
 def create_quiz_answer_template(
