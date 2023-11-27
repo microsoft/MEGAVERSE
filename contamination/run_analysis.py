@@ -218,7 +218,14 @@ if __name__ == "__main__":
     pydantic_parser = PydanticOutputParser(pydantic_object=AnswerResponse)
     for lang in langs:
         print("Generating quiz answers for", lang)
-        df = pd.read_csv(f"{quiz_dir}/{lang}/quiz_options.csv")
+        quiz_path = f"{quiz_dir}/{dataset_name}/{model_name}/{dataset_split}/{lang}/quiz_options.csv"
+        if not os.path.exists(quiz_path):
+            print(
+                f"Either {quiz_path} does not exist or {lang} is not supported by PaLM2"
+            )
+            continue
+
+        df = pd.read_csv(quiz_path)
 
         get_quiz_answers(
             dataset_name,
