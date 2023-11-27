@@ -1,4 +1,4 @@
-from contamination.parse_generated_response_utils import (
+from contamination.utils.parse_generated_response_utils import (
     generate_xnli_str_from_generated_response,
 )
 

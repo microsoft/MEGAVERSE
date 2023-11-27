@@ -99,14 +99,15 @@ def calculate_contamination(results_df: pd.DataFrame, **kwargs):
 
     for idx, row in results_df.sample(select_samples).iterrows():
         answer = json.loads(row["answer"])["answer"].strip()
-        if "D" or "d" in answer:
+        if answer.upper() == "D":
             total_correct += 1
 
-    score = total_correct / total
+    score = total_correct / select_samples
     contamination = kappa_fixed_value(score)
     out_dir = kwargs["out_dir"]
     kwargs["score"] = score
     kwargs["contamination"] = contamination
+    
     # dump kwargs, score and contamination into a json file in out_dir
     with open(f"{out_dir}/contamination.json", "w") as f:
         json.dump(kwargs, f)
@@ -178,9 +179,9 @@ def get_quiz_answers(
         results_df = pd.DataFrame(results)
 
         results_df.to_csv(f"{out_dir}/quiz_answers.csv", index=False)
-
+    
     calculate_contamination(
-        results_df,
+        results_df=results_df,
         dataset_name=dataset_name,
         dataset_split=dataset_split,
         model_name=model_name,
@@ -212,13 +213,13 @@ if __name__ == "__main__":
     dataset_split = args["dataset_split"]
     chat_prompt = args["chat_prompt"]
     substrate_prompt = args["substrate_prompt"]
-    out_dir = f"{save_dir}/{dataset_name}/{model_name}/{dataset_split}"
+    out_dir = f"{save_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
-    quiz_dir = f"{quiz_dir}/{dataset_name}/{model_name}/{dataset_split}"
+    quiz_dir = f"{quiz_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
     pydantic_parser = PydanticOutputParser(pydantic_object=AnswerResponse)
     for lang in langs:
+        quiz_path = f"{quiz_dir}/{lang}/quiz_options.csv"
         print("Generating quiz answers for", lang)
-        quiz_path = f"{quiz_dir}/{dataset_name}/{model_name}/{dataset_split}/{lang}/quiz_options.csv"
         if not os.path.exists(quiz_path):
             print(
                 f"Either {quiz_path} does not exist or {lang} is not supported by PaLM2"

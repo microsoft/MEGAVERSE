@@ -2,15 +2,13 @@ from pydantic import BaseModel, Field, validator
 from typing import List
 
 
+class AnswerResponse(BaseModel):
+    answer: str = Field(description="Answer to the above multiple choice question")
+
 class XNLIResponse(BaseModel):
     Premise: str = Field(description="Premise in XNLI")
     Question: str = Field(description="Question in XNLI")
     Label: str = Field(description="Label in XNLI")
-
-
-class AnswerResponse(BaseModel):
-    answer: str = Field(description="Answer to the above multiple choice question")
-
 
 class XNLIGeneratedResponse(BaseModel):
     options: List[XNLIResponse]

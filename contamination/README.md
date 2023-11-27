@@ -19,3 +19,32 @@ This code is implementation of the work done by Golchin et. al [here](https://ar
 
 ### Caveats
 For now, this only supports huggingface's datasets. So, ensure that you copy the dataset_id from huggingface.
+
+### Code directory structure
+
+```
+├── README.md
+├── contamination_configs
+│   ├── quiz_answer_configs
+│   │   ├── xnli_gpt_args.yaml
+│   │   └── xnli_palm_args.yaml
+│   └── quiz_generation_configs
+│       ├── xcopa_gpt_args.yaml.yml
+│       ├── xcopa_palm_args.yaml
+│       ├── xnli_gpt_args.yaml
+│       └── xnli_palm_args.yaml
+├── create_quiz_data.py
+├── generated_quiz_answers
+├── generated_quizzes
+├── pydantic_models.py
+├── registry
+│   ├── langs_registry.py
+│   ├── prompting_registry.py
+│   └── pydantic_registry.py
+├── run_analysis.py
+├── templates.py
+└── utils
+    ├── general_utils.py
+    ├── parse_generated_response_utils.py
+    └── prompting_utils.py
+```
