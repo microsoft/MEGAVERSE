@@ -15,16 +15,16 @@ Question: {hypothesis}
 Label: {label} ({verbalized_label})
 {format_instructions}
 """,
-
     "xcopa": """{instruction}
 --TEXT--
-'{{ premise }} {% if question == "cause" %}This happened because... {% else %} As a consequence... {% endif %}\nHelp me pick the more plausible option:\n- choice1: {{choice1}}\n- choice2: {{choice2}} \nAnswer: {% if label != -1 %}{{ answer_choices[label] }}{%endif%}
+'premise': {premise}
+'choice1': {choice1}
+'choice2': {choice2}
+'answer': {answer}
 {format_instructions}
 """,
 }
 
-
-VERBALIZER_XNLI = {0: "entailment", 1: "neutral", 2: "contradiction"}
 
 INSTRUCTION_FOR_QUIZ_ANSWER = """Your task is to accurately select the option that corresponds exactly to an instance from the {dataset_split} split of the {dataset} dataset and of {lang} language. Only generate a single option letter as your answer. You must not include any extra explanation."""
 

@@ -1,8 +1,6 @@
-from contamination.templates import VERBALIZER_XNLI
 from mega.prompting.prompting_utils import get_substrate_prompt
 from typing import Dict, List
 from contamination.registry.langs_registry import LANGS
-from contamination.utils.general_utils import render_jinja_template
 
 
 def generate_gpt4_style_prompt(
@@ -15,7 +13,7 @@ def generate_gpt4_style_prompt(
 
     if substrate_prompt:
         sub_prompt = get_substrate_prompt(messages)
-        return sub_prompt
+        return sub_prompt.strip()
     else:
         return messages
 
@@ -29,6 +27,7 @@ def get_xnli_quiz_generation_prompt(
     lang: str,
     format_instructions: str,
 ) -> str:
+    VERBALIZER_XNLI = {0: "entailment", 1: "neutral", 2: "contradiction"}
     prompt = template.format(
         instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
         premise=dataset_example["premise"],
@@ -54,22 +53,20 @@ def get_xcopa_quiz_generation_prompt(
     lang: str,
     format_instructions: str,
 ) -> str:
-    
-    
-    rendered_prompt = render_jinja_template(prompt, dataset_example)
-    
-    prompt = rendered_prompt.format(
-        instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
-        format_instructions=format_instructions,
-    )
-    dataset_example["answer_choices"] = {
+    VERBALIZER = {
         0: "choice1",
         1: "choice2",
     }
+    prompt = template.format(
+        instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
+        premise=dataset_example["premise"],
+        choice1=dataset_example["choice1"],
+        choice2=dataset_example["choice2"],
+        answer=VERBALIZER[dataset_example["label"]],
+        format_instructions=format_instructions,
+    )
 
     if not chat_prompt:
         return prompt
     else:
-        return generate_gpt4_style_prompt(
-            instruction, prompt, substrate_prompt, lang
-        )
+        return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
