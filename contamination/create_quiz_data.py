@@ -216,3 +216,6 @@ if __name__ == "__main__":
             print(f"Error for {lang}, not supported by Palm2")
             print(e)
             continue
+        except KeyError as e:
+            print(f"Language {lang} not registered in registry. Please register it. Skipping this for now")
+            continue
