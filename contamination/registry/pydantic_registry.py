@@ -1,5 +1,6 @@
-from contamination.pydantic_models import XNLIGeneratedResponse
+from contamination.pydantic_models import XNLIGeneratedResponse, PAWSXGeneratedResponse
 
-PYDANTIC_DICT = {
+PYDANTIC_REGISTRY = {
     "xnli": XNLIGeneratedResponse,
+    'paws-x': PAWSXGeneratedResponse,
 }

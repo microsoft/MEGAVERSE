@@ -1,0 +1,172 @@
+generated_response,original_example
+"
+Possible variations are:
+
+--Option 1--
+Premise: Eh bien, je ne réfléchissais même pas à cela, mais j'étais si agacé, et j'ai fini par lui adresser la parole.
+Question: Je ne lui ai pas parlé de nouveau
+Label: 2 (contradiction)
+
+--Option 2--
+Premise: Eh bien, je ne considérais même pas cela, mais j'étais si énervé, et j'ai fini par lui parler à nouveau.
+Question: Je ne lui ai pas parlé de nouveau
+Label: 2 (contradiction)
+
+--Option 3--
+Premise: Eh bien, je ne songeais même pas à cela, mais j'étais si irrité, et j'ai fini par lui redire quelque chose.
+Question: Je ne lui ai pas parlé de nouveau
+Label: 2 (contradiction)","
+
+Premise: Eh bien, je ne pensais même pas à cela, mais j'étais si frustré, et j'ai fini par lui reparler.
+Question: Je ne lui ai pas parlé de nouveau
+Label: 2 (contradiction)"
+"--Options--
+Premise: Eh bien, je ne songeais même pas à cela, mais j'étais si irrité, et j'ai abouti à lui recauser.
+Question: J'étais si fâché que je me mettais juste à lui parler à nouveau.
+Label: 0 (entailment)
+
+Premise: Eh bien, je ne réfléchissais même pas à cela, mais j'étais si agacé, et j'ai terminé par lui reparler.
+Question: J'étais si en colère que je recommençais juste à lui parler à nouveau.
+Label: 0 (entailment)
+
+Premise: Eh bien, je ne méditais même pas à cela, mais j'étais si exaspéré, et j'ai achevé par lui recontacter.
+Question: J'étais si vexé que je redémarrais juste à lui parler à nouveau.
+Label: 0 (entailment)","
+
+Premise: Eh bien, je ne pensais même pas à cela, mais j'étais si frustré, et j'ai fini par lui reparler.
+Question: J'étais si contrarié que je commençais juste à lui parler à nouveau.
+Label: 0 (entailment)"
+"Premise: Bon, je ne réfléchissais même pas à ça, mais j'étais tellement énervé, et je lui ai redonné la parole.
+Question: Nous avons eu une forte dispute.
+Label: 1 (neutral)
+
+Premise: Eh bien, je ne songeais même pas à cela, mais j'étais si agacé, et je lui ai reparlé de nouveau.
+Question: Nous avons eu une grosse altercation.
+Label: 1 (neutral)
+
+Premise: Bon, je ne considérais même pas ça, mais j'étais tellement irrité, et je lui ai renouvelé la conversation.
+Question: Nous avons eu une vive controverse.
+Label: 1 (neutral)","
+
+Premise: Eh bien, je ne pensais même pas à cela, mais j'étais si frustré, et j'ai fini par lui reparler.
+Question: Nous avons eu une grande discussion.
+Label: 1 (neutral)"
+"Here are three possible variations of the TEXT in French:
+
+--TEXT--
+Premise: Et je croyais que c'était un honneur, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais accompli ma carrière dans l'AFFC Air Force.
+Question: Je n'avais pas réalisé que je n'étais pas la seule personne à être sur le terrain ce jour-là.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Et je supposais que c'était un mérite, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais achevé ma carrière dans l'AFFC Air Force.
+Question: Je n'avais pas compris que je n'étais pas la seule personne à être sur le terrain ce jour-là.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Et je considérais que c'était un avantage, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais terminé ma carrière dans l'AFFC Air Force.
+Question: Je n'avais pas saisi que je n'étais pas la seule personne à être sur le terrain ce jour-là.
+Label: 1 (neutral)","
+
+Premise: Et je pensais que c'était un privilège, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais effectué ma carrière dans l'AFFC Air Force.
+Question: Je n'avais pas conscience que je n'étais pas la seule personne à être sur le terrain ce jour-là.
+Label: 1 (neutral)"
+"--Options--
+Premise: Et je pensais que c'était un honneur, et ça l'est toujours, toujours, j'étais l'unique 922 Ex-O, c'est là que j'avais accompli ma carrière dans l'AFFC Air Force.
+Question: J'avais l'impression que j'étais le seul à avoir ce numéro dans le domaine de carrière de l'AFFC Air Force.
+Label: 0 (entailment)
+
+Premise: Et je pensais que c'était une faveur, et ça l'est toujours, toujours, j'étais le singulier 922 Ex-O, c'est là que j'avais réalisé ma carrière dans l'AFFC Air Force.
+Question: J'avais l'impression que j'étais le seul à avoir ce numéro dans le domaine de carrière de l'AFFC Air Force.
+Label: 0 (entailment)
+
+Premise: Et je pensais que c'était un avantage, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais mené ma carrière dans l'AFFC Air Force.
+Question: J'avais l'impression que j'étais le seul à avoir ce numéro dans le domaine de carrière de l'AFFC Air Force.
+Label: 0 (entailment)","
+
+Premise: Et je pensais que c'était un privilège, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais effectué ma carrière dans l'AFFC Air Force.
+Question: J'avais l'impression que j'étais le seul à avoir ce numéro dans le domaine de carrière de l'AFFC Air Force.
+Label: 0 (entailment)"
+"--Options--
+Premise: Et je croyais que c'était un honneur, et ça le demeure, demeure, j'étais l'unique 922 Ex-O, c'est ici que j'avais réalisé ma carrière dans l'AFFC Air Force.
+Question: Nous avons tous obtenu le même chiffre exact, peu importe les honneurs qu'on nous a assurés de nous octroyer, c'était un leurre.
+Label: 2 (contradiction)
+
+Premise: Et je supposais que c'était un avantage, et ça l'est encore, encore, j'étais le seul 922 Ex-O, c'est là que j'avais accompli ma carrière dans l'AFFC Air Force.
+Question: Nous avons tous reçu le même nombre précis, peu importe les avantages qu'on nous a garantis de nous donner, c'était une tromperie.
+Label: 2 (contradiction)
+
+Premise: Et je estimais que c'était un mérite, et ça le reste, reste, j'étais le seul 922 Ex-O, c'est ici que j'avais effectué ma carrière dans l'AFFC Air Force.
+Question: Nous avons tous obtenu le même chiffre précis, peu importe les mérites qu'on nous a promis de nous accorder, c'était une illusion.
+Label: 2 (contradiction)","
+
+Premise: Et je pensais que c'était un privilège, et ça l'est toujours, toujours, j'étais le seul 922 Ex-O, c'est là que j'avais effectué ma carrière dans l'AFFC Air Force.
+Question: Nous avons tous reçu le même nombre exact, peu importe les privilèges qu'on nous a promis de nous accorder, c'était un mensonge.
+Label: 2 (contradiction)"
+"--Option 1--
+Premise: Ils m'ont annoncé qu'à la fin, on m'apporterait un homme pour que je le connaisse.
+Question: On ne m'a jamais parlé de connaître qui que ce soit.
+Label: 2 (contradiction)
+
+--Option 2--
+Premise: Ils m'ont révélé qu'à la fin, on m'emmènerait un homme pour que je le voie.
+Question: On ne m'a jamais mentionné de voir qui que ce soit.
+Label: 2 (contradiction)
+
+--Option 3--
+Premise: Ils m'ont informé qu'à la fin, on m'envoyerait un homme pour que je le découvre.
+Question: On ne m'a jamais signalé de découvrir qui que ce soit.
+Label: 2 (contradiction)","
+
+Premise: Ils m'ont dit qu'à la fin, on m'amènerait un homme pour que je le rencontre.
+Question: On ne m'a jamais dit de rencontrer qui que ce soit.
+Label: 2 (contradiction)"
+"
+Possible variations:
+
+--Option 1--
+Premise: Ils m'ont informé qu'au terme, on m'apporterait un type pour que je fasse sa connaissance.
+Question: On m'a annoncé qu'un mec avait été convoqué pour faire ma connaissance.
+Label: 0 (entailment)
+
+--Option 2--
+Premise: Ils m'ont révélé qu'à la conclusion, on m'emmenait un individu pour que je le connaisse.
+Question: On m'a signalé qu'un gars avait été invité pour me connaître.
+Label: 0 (entailment)
+
+--Option 3--
+Premise: Ils m'ont confié qu'au final, on m'amenait un homme pour que je le voie.
+Question: On m'a indiqué qu'un type avait été sollicité pour me voir.
+Label: 0 (entailment)","
+
+Premise: Ils m'ont dit qu'à la fin, on m'amènerait un homme pour que je le rencontre.
+Question: On m'a dit qu'un gars avait été appelé pour me rencontrer.
+Label: 0 (entailment)"
+"--OPTIONS--
+
+Option A: Le type arriva avec un léger retard.
+Option B: Le mec arriva un peu après l'heure.
+Option C: Le bonhomme arriva légèrement en retard.","
+
+Premise: Ils m'ont dit qu'à la fin, on m'amènerait un homme pour que je le rencontre.
+Question: Le gars arriva un peu en retard.
+Label: 1 (neutral)"
+"--OPTIONS--
+Option 1:
+Premise: Il y a tant de sujets dont vous pourriez discuter que je vais simplement m'en abstenir.
+Question: J'aimerais vous révéler tout ce que je connais à ce sujet !
+Label: 2 (contradiction)
+
+Option 2:
+Premise: Il y a beaucoup de choses dont vous pourriez échanger que je vais juste m'en désintéresser.
+Question: J'aimerais vous confier tout ce que je maîtrise à propos de cela !
+Label: 2 (contradiction)
+
+Option 3:
+Premise: Il y a énormément de choses dont vous pourriez dialoguer que je vais simplement m'en dispenser.
+Question: J'aimerais vous communiquer tout ce que je comprends à ce sujet !
+Label: 2 (contradiction)","
+
+Premise: Il y a tellement de choses dont vous pourriez parler que je vais juste m'en passer.
+Question: J'aimerais vous dire tout ce que je sais à propos de cela !
+Label: 2 (contradiction)"

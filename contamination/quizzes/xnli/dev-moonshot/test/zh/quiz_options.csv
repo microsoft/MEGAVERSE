@@ -1,0 +1,183 @@
+generated_response,original_example
+"
+Possible variations of the TEXT are:
+
+--Option A--
+Premise: 呃，我完全没考虑过，不过我很灰心，最终我又和他聊了。
+Question: 我还没有和他重新交流。
+Label: 2 (contradiction)
+
+--Option B--
+Premise: 哦，我一点也没思考过，可是我很失落，最后我又和他讲话了。
+Question: 我还没有和他再次交谈。
+Label: 2 (contradiction)
+
+--Option C--
+Premise: 啊，我全然没想过，然而我很难过，最终我又和他说了。
+Question: 我还没有和他重新谈论。
+Label: 2 (contradiction)","
+
+Premise: 嗯，我根本没想过，但是我很沮丧，最后我又和他说话了。
+Question: 我还没有和他再次谈论。
+Label: 2 (contradiction)"
+"Some possible variations are:
+
+--Option 1--
+Premise: 哼，我完全没考虑，可是我很郁闷，最终我还是和他聊了。
+Question: 我非常郁闷，我刚刚开始跟他聊。
+Label: 0 (entailment)
+
+--Option 2--
+Premise: 哼，我一点没想，但是我很悲观，最后我又和他交谈了。
+Question: 我非常悲观，我刚刚开始跟他交谈。
+Label: 0 (entailment)
+
+--Option 3--
+Premise: 哼，我毫无思考，可是我很消沉，最终我还是和他说了。
+Question: 我非常消沉，我刚刚开始跟他说。
+Label: 0 (entailment)","
+
+Premise: 嗯，我根本没想过，但是我很沮丧，最后我又和他说话了。
+Question: 我非常沮丧，我刚刚开始跟他说话。
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--Option 1--
+Premise: 呃，我压根不在意，可是我很失望，最终我还是跟他聊了。
+Question: 我们谈得很顺利。
+Label: 1 (neutral)
+
+--Option 2--
+Premise: 啊，我完全不关心，但是我很泄气，到头来我又和他交谈了。
+Question: 我们谈得很开心。
+Label: 1 (neutral)
+
+--Option 3--
+Premise: 哎，我一点不在乎，但是我很郁闷，最后我还是和他说了几句。
+Question: 我们谈得很平和。
+Label: 1 (neutral)","
+
+Premise: 嗯，我根本没想过，但是我很沮丧，最后我又和他说话了。
+Question: 我们谈得很好。
+Label: 1 (neutral)"
+"--Option A--
+Premise: 而我起初理解这是一个优势，我现在还是这样认为，我是独一无二的922 Ex-O，也是我的AFFC空军事业生涯。
+Question: 我不清楚那天我并非唯一一个在场的人。
+Label: 1 (neutral)
+
+--Option B--
+Premise: 而我最初觉得这是一个优点，我现在依然这样想，我是仅有的922 Ex-O，也是我的AFFC空军职业生涯。
+Question: 我不明白那天我并不是唯一一个在场的人。
+Label: 1 (neutral)
+
+--Option C--
+Premise: 而我首先感受到这是一个长处，我现在仍旧这样想，我是唯一的922 Ex-O，也是我的AFFC空军事业生涯。
+Question: 我不了解那天我不是唯一一个在场的人。
+Label: 1 (neutral)","
+
+Premise: 而我当初认为这是一个特权，我现在仍然这样想，我是唯一的922 Ex-O，也是我的AFFC空军职业生涯。
+Question: 我不知道那天我不是唯一一个在场的人。
+Label: 1 (neutral)"
+"Possible variations:
+
+--TEXT-1--
+Premise: 而我起初以为这是一个优势，我现在依旧这样认为，我是独一无二的922 Ex-O，也是我的AFFC飞行事业生涯。
+Question: 我的感觉是，我是AFFC飞行领域里唯一具有这个编号的人。
+Label: 0 (entailment)
+
+--TEXT-2--
+Premise: 而我最初觉得这是一个特殊，我现在仍旧这样觉得，我是唯一一个的922 Ex-O，也是我的AFFC空中职业生涯。
+Question: 我的想法是，我是AFFC空中领域里唯一拥有这个代号的人。
+Label: 0 (entailment)
+
+--TEXT-3--
+Premise: 而我一开始认为这是一个特别，我现在还是这样认为，我是惟一的922 Ex-O，也是我的AFFC飞行职业生涯。
+Question: 我的印象是，我是AFFC飞行领域里惟一具有这个标识的人。
+Label: 0 (entailment)","
+
+Premise: 而我当初认为这是一个特权，我现在仍然这样想，我是唯一的922 Ex-O，也是我的AFFC空军职业生涯。
+Question: 我的印象是，我是AFFC空军职业领域唯一拥有这个数字的人。
+Label: 0 (entailment)"
+"
+Possible variations:
+
+--TEXT--
+Premise: 我起初以为这是一种优惠，到现在也没变，我是唯一一个922的前O，也是我AFFC空军的职业生涯。
+Question: 我们都被分配了一样的精确数字，不管我们被承诺了什么样的优待，都是虚假的。
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: 我本来觉得这是个特别，我现在依然这么认为，我是唯一的922的前任O，也是我AFFC空军的事业生涯。
+Question: 我们都被给予了相同的准确数字，无论我们被保证了何种特别，都是谎话。
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: 我最初认为这是一种特殊，我现在仍旧这样想，我是唯一的922的往事O，也是我AFFC空军的职业历程。
+Question: 我们都被赋予了一样的确切数字，不论我们被承诺了什么样的特殊，都是假话。
+Label: 2 (contradiction)","
+
+Premise: 而我当初认为这是一个特权，我现在仍然这样想，我是唯一的922 Ex-O，也是我的AFFC空军职业生涯。
+Question: 我们都被赋予了相同的确切数字，无论我们被许诺了何种特权，都是谎言。
+Label: 2 (contradiction)"
+"--Option A--
+Premise: 他们通知我，嗯，我最终会被带到一个人那里去会面。
+Question: 我从未收到过任何与任何人见面的消息。
+Label: 2 (contradiction)
+
+--Option B--
+Premise: 他们向我透露，哼，我终究会被送到一个人那里去碰面。
+Question: 我永远没有得到过任何与任何人相见的通知。
+Label: 2 (contradiction)
+
+--Option C--
+Premise: 他们报告我，啊，我最后会被领到一个人那里去交流。
+Question: 我一直没有收到过任何与任何人联系的消息。
+Label: 2 (contradiction)","
+
+Premise: 他们告诉我，呃，我最后会被叫到一个人那里去见面。
+Question: 我从来没有被告知任何与任何人会面。
+Label: 2 (contradiction)"
+"--Options--
+Option 1: 我被通知会有一个人进来和我会面。
+Option 2: 我被知会将有一个人走进去与我见面。
+Option 3: 我被告知会有一个人前来同我会面。","
+
+Premise: 他们告诉我，呃，我最后会被叫到一个人那里去见面。
+Question: 我被告知将有一个人被叫进来与我见面。
+Label: 0 (entailment)"
+"--Option 1--
+Premise: 他们通知我，嗯，我最终会被叫到一个人那里去会面。
+Question: 那个人来得有点迟。
+Label: 1 (neutral)
+
+--Option 2--
+Premise: 他们告知我，呃，我终于会被叫到一个人那里去碰面。
+Question: 那个人来得有点迟缓。
+Label: 1 (neutral)
+
+--Option 3--
+Premise: 他们讲明我，嗯，我最后会被叫到一个人那里去见一见。
+Question: 那个人来得有点延误。
+Label: 1 (neutral)","
+
+Premise: 他们告诉我，呃，我最后会被叫到一个人那里去见面。
+Question: 那个人来得有点晚。
+Label: 1 (neutral)"
+"Some possible variations of the TEXT in Chinese are:
+
+--TEXT Option 1--
+Premise: 你话多得很，我就免了。
+Question: 我想把我了解的有关那件事全部都透露给你！
+
+--TEXT Option 2--
+Premise: 你说得太多了，我就省了。
+Question: 我想把我掌握的关于那件事所有都告知你！
+
+--TEXT Option 3--
+Premise: 你讲得很多了，我就省略了。
+Question: 我想把我明白的有关那件事整个都揭露给你！","
+
+Premise: 你可以讲的太多了，我就不提了。
+Question: 我想把我知道的关于那件事一切都告诉你！
+Label: 2 (contradiction)"

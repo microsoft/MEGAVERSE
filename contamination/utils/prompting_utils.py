@@ -1,4 +1,4 @@
-from contamination.templates import VERBALIZER_XNLI
+from contamination.templates import VERBALIZER_XNLI, VERBALIZER_PAWSX
 from mega.prompting.prompting_utils import get_substrate_prompt
 from typing import Dict, List
 from contamination.registry.langs_registry import LANGS
@@ -73,3 +73,27 @@ def get_xcopa_quiz_generation_prompt(
         return generate_gpt4_style_prompt(
             instruction, prompt, substrate_prompt, lang
         )
+
+def get_pawsx_quiz_generation_prompt(
+    dataset_example: Dict[str, any],
+    template: str,
+    instruction: str,
+    chat_prompt: bool,
+    substrate_prompt: bool,
+    lang: str,
+    format_instructions: str,
+) -> str:
+    prompt = template.format(
+        instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
+        sentence1=dataset_example["sentence1"],
+        sentence2=dataset_example["sentence2"],
+        label=dataset_example["label"],
+        verbalized_label=VERBALIZER_PAWSX[dataset_example["label"]],
+        format_instructions=format_instructions,
+    )
+
+    if not chat_prompt:
+        return prompt
+
+    else:
+        return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)

@@ -1,0 +1,207 @@
+generated_response,original_example
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: Đúng rồi, tôi chẳng bận tâm đến điều ấy, nhưng tôi đã rất buồn, và, tôi tiếp tục nói chuyện với anh ấy lần nữa.
+Question: Tôi đã không nói chuyện với anh ấy nữa.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Phải, tôi không hề quan tâm đến điều đó, nhưng tôi đã rất đau khổ, và, tôi lại trò chuyện với anh ấy lần nữa.
+Question: Tôi đã không nói chuyện với anh ấy nữa.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Vậy, tôi không có suy nghĩ gì về điều đó, nhưng tôi đã rất chán nản, và, tôi lại tán gẫu với anh ấy lần nữa.
+Question: Tôi đã không nói chuyện với anh ấy nữa.
+Label: 2 (contradiction)","
+
+Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi đã không nói chuyện với anh ta nữa.
+Label: 2 (contradiction)"
+"
+Some possible variations of the TEXT are:
+
+--Option 1--
+Premise: Ừ, tôi thậm chí không hề suy nghĩ về chuyện đó, nhưng tôi đã cực kỳ chán nản, và, tôi lại trò chuyện với anh ta lần nữa.
+Question: Tôi đau khổ tới mức tôi lại bắt đầu trò chuyện lại với anh ta.
+Label: 0 (entailment)
+
+--Option 2--
+Premise: Phải, tôi thậm chí không để ý về vấn đề đó, nhưng tôi đã vô cùng buồn bã, và, tôi lại giao tiếp với anh ta lần nữa.
+Question: Tôi thất vọng tới mức tôi lại bắt đầu giao tiếp lại với anh ta.
+Label: 0 (entailment)
+
+--Option 3--
+Premise: Đúng, tôi thậm chí không quan tâm về điều đó, nhưng tôi đã hoàn toàn thất thần, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi chán nản tới mức tôi lại bắt đầu nói chuyện lại với anh ta.
+Label: 0 (entailment)","
+
+Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi buồn tới mức tôi lại bắt đầu nói chuyện lại với anh ta.
+Label: 0 (entailment)"
+"
+Some possible variations based on the TEXT are:
+
+- Options:
+(1) Premise: Ừ, tôi cũng không suy nghĩ về chuyện đó, nhưng tôi đã rất buồn, và, tôi lại trò chuyện với anh ta một lần nữa.
+Question: Chúng tôi có cuộc tâm sự hay lắm.
+Label: 1 (neutral)
+
+(2) Premise: Đúng, tôi cũng không quan tâm về điều đó, nhưng tôi đã rất khó chịu, và, tôi lại giao tiếp với anh ta lần nữa.
+Question: Chúng tôi có hội thoại thú vị.
+Label: 1 (neutral)
+
+(3) Premise: Phải, tôi cũng không cân nhắc về vấn đề đó, nhưng tôi đã rất chán nản, và, tôi lại nói chuyện với anh ta một lần nữa.
+Question: Chúng tôi có cuộc nói chuyện tốt đẹp.
+Label: 1 (neutral)","
+
+Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Chúng tôi có buổi nói chuyện tuyệt vời.
+Label: 1 (neutral)"
+"
+Possible variations:
+
+--TEXT--
+Premise: Và tôi cho rằng đó là một ân huệ, và nó vẫn tồn tại, nó vẫn là, tôi là chín hai hai Ex-O là lãnh địa công tác không quân AFFC của tôi.
+Question: Tôi không biết rằng tôi không phải là kẻ duy nhất ở trong sân ngày ấy. 
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Và tôi thấy rằng đó là một ơn ban, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là phạm vi nhiệm vụ không quân AFFC của tôi. 
+Question: Tôi không nhận thức rằng tôi không phải là người duy nhất ở trong sân ngày đó. 
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Và tôi kỳ vọng rằng đó là một phước lành, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực hoạt động không quân AFFC của tôi. 
+Question: Tôi không nhận biết rằng tôi không phải là kẻ duy nhất ở trong sân ngày ấy. 
+Label: 1 (neutral)","
+
+Premise: Và tôi nghĩ đó là một đặc ân, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tôi không nhận ra rằng tôi không phải là người duy nhất ở trong sân ngày hôm đó.
+Label: 1 (neutral)"
+"--TEXT--
+Premise: Và tôi nghĩ đó là một ân huệ, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là ngành nghề không quân AFFC của tôi.
+Question: Tôi có cảm tưởng là tôi là người duy nhất có số đó ở ngành Không quân AFFC.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Và tôi nghĩ đó là một ơn phúc, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là sự nghiệp không quân AFFC của tôi.
+Question: Tôi có cảm giác là tôi là người duy nhất có số đó ở sự nghiệp Không quân AFFC.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Và tôi nghĩ đó là một lợi ích, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là hạng mục nghề nghiệp không quân AFFC của tôi.
+Question: Tôi có ấn tượng là tôi là người duy nhất có số đó ở hạng mục Không quân AFFC.
+Label: 0 (entailment)
+","
+
+Premise: Và tôi nghĩ đó là một đặc ân, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tôi có ấn tượng là tôi là người duy nhất có số đó ở lĩnh vực Không quân AFFC.
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--TEXT--
+Premise: Và tôi cho rằng đó là một ân huệ, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tất cả chúng ta đều được cấp cùng một con số chính xác bất kể chúng ta được hẹn được thụ hưởng những đặc ân nào, nó là một lừa dối.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Và tôi nghĩ đó là một lợi ích, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tất cả chúng ta đều được trao cùng một con số chính xác bất kể chúng ta được đảm bảo được hưởng những ưu đãi nào, nó là một gian dối.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Và tôi nghĩ đó là một phúc lợi, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tất cả chúng ta đều được nhận cùng một con số chính xác bất kể chúng ta được bảo đảm được hưởng những lợi thế nào, nó là một giả dối.
+Label: 2 (contradiction)","
+
+Premise: Và tôi nghĩ đó là một đặc ân, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tất cả chúng ta đều được cung cấp cùng một con số chính xác bất kể chúng ta được hứa được hưởng những đặc quyền nào, nó là một lời nói dối.
+Label: 2 (contradiction)"
+"
+Possible variations of the TEXT are:
+
+--TEXT--
+Premise: Họ cho tôi biết rằng, ờ, rằng tôi sẽ được liên lạc bởi một anh chàng vào cuối cùng để hẹn hò.
+Question: Tôi chưa từng nói gì về việc hẹn ai cả.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Họ báo tôi rằng, à, rằng tôi sẽ được nhắn tin bởi một chàng trai vào cuối cùng để gặp gỡ.
+Question: Tôi chưa bao giờ nói gì về việc gặp ai cả.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Họ thông báo tôi rằng, ừm, rằng tôi sẽ được gọi điện bởi một anh chàng vào cuối cùng để hẹn hò.
+Question: Tôi chưa từng nói gì về việc hẹn ai cả.
+Label: 2 (contradiction)","
+
+Premise: Họ nói với tôi rằng, ừ, rằng tôi sẽ được gọi bởi một chàng trai vào cuối cùng để gặp nhau.
+Question: Tôi chưa bao giờ nói gì về việc gặp ai cả.
+Label: 2 (contradiction)"
+"
+Some possible variations of the TEXT are:
+
+--Option 1--
+Premise: Người ta truyền đạt cho tôi biết, ờ, rằng tôi sẽ được nhận cuộc gọi từ một anh chàng ở phút chót để gặp nhau.
+Question: Tôi được thông báo rằng sẽ có một người được gọi lên để tôi gặp.
+Label: 0 (entailment)
+
+--Option 2--
+Premise: Bọn họ bảo với tôi rằng, uh, rằng tôi sẽ được liên lạc bởi một chàng trai vào khoảnh khắc cuối cùng để gặp nhau.
+Question: Tôi được cho hay rằng sẽ có một người được gọi ra để tôi gặp.
+Label: 0 (entailment)
+
+--Option 3--
+Premise: Họ cho tôi thấy, à, rằng tôi sẽ được đón tiếp bởi một anh chàng ở thời điểm cuối cùng để gặp nhau.
+Question: Tôi được báo trước rằng sẽ có một người được gọi vào để tôi gặp.
+Label: 0 (entailment)","
+
+Premise: Họ nói với tôi rằng, ừ, rằng tôi sẽ được gọi bởi một chàng trai vào cuối cùng để gặp nhau.
+Question: Tôi được báo rằng sẽ có một người được gọi vào để tôi gặp.
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--Option 1--
+Premise: Họ cho tôi biết, à, rằng tôi sẽ được liên lạc bởi một anh chàng vào cuối để gặp mặt.
+Question: Anh chàng đến trễ một tí.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: Họ bảo tôi, ờ, rằng tôi sẽ được nhận cuộc gọi từ một bạn trai vào cuối cùng để hẹn hò.
+Question: Bạn trai đến muộn một chút.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: Họ nói cho tôi nghe, ừ, rằng tôi sẽ được phản hồi bởi một người yêu vào cuối để cùng nhau.
+Question: Người yêu đến chậm một tí.
+Label: 1 (neutral)","
+
+Premise: Họ nói với tôi rằng, ừ, rằng tôi sẽ được gọi bởi một chàng trai vào cuối cùng để gặp nhau.
+Question: Anh chàng xuất hiện muộn một chút.
+Label: 1 (neutral)"
+"
+Some possible variations for the TEXT are:
+
+--TEXT--
+Premise: Nhiều lời bạn có thể trình bày mà tôi chỉ thờ ơ với nó thôi.
+Question: Tôi muốn nói cho bạn nghe tất cả mọi điều tôi hiểu về vấn đề đó!
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Không ít câu bạn có thể nêu ra mà tôi chỉ phớt lờ nó thôi.
+Question: Tôi muốn nói với bạn tất tần tật những gì tôi biết rõ về chuyện đó!
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Vô số lời bạn có thể bày tỏ mà tôi chỉ xem nhẹ nó thôi.
+Question: Tôi muốn nói cho bạn nghe hết thảy mọi điều tôi nắm rõ về sự việc đó!
+Label: 2 (contradiction)","
+
+Premise: Có rất nhiều điều bạn có thể nói mà tôi sẽ chỉ bỏ qua điều đó thôi.
+Question: Tôi muốn nói với bạn tất cả mọi thứ tôi biết về điều đó!
+Label: 2 (contradiction)"

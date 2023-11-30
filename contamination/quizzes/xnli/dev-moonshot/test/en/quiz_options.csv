@@ -1,0 +1,190 @@
+generated_response,original_example
+"Some possible variations are:
+
+--Option 1--
+Premise: Well, I wasn't even considering that, but I was so annoyed, and, I wound up talking to him again.
+Question: I havent spoken to him again.
+Label: 2 (contradiction)
+
+--Option 2--
+Premise: Well, I wasn't even pondering that, but I was so irritated, and, I ended up conversing with him again.
+Question: I havent spoken to him again.
+Label: 2 (contradiction)
+
+--Option 3--
+Premise: Well, I wasn't even contemplating that, but I was so vexed, and, I wound up chatting with him again. 
+Question: I havent spoken to him again.
+Label: 2 (contradiction)","
+
+Premise: Well, I wasn't even thinking about that, but I was so frustrated, and, I ended up talking to him again.
+Question: I havent spoken to him again.
+Label: 2 (contradiction)"
+"
+Some possible variations are:
+
+--TEXT--
+Premise: Well, I wasn't even considering that, but I was so annoyed, and, I wound up conversing with him again.
+Question: I was so angry that I just resumed communicating with him again.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Well, I wasn't even pondering that, but I was so irritated, and, I ended up chatting with him again.
+Question: I was so vexed that I just recommenced talking to him again.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Well, I wasn't even contemplating that, but I was so aggravated, and, I finished up speaking with him again.
+Question: I was so enraged that I just restarted conversing with him again.
+Label: 0 (entailment)","
+
+Premise: Well, I wasn't even thinking about that, but I was so frustrated, and, I ended up talking to him again.
+Question: I was so upset that I just started talking to him again.
+Label: 0 (entailment)"
+"--Option 1--
+Premise: Well, I wasn't even considering that, but I was so annoyed, and, I wound up chatting with him again.
+Question: We had a great talk.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: Well, I wasn't even reflecting on that, but I was so irritated, and, I finished up conversing with him again.
+Question: We had a great talk.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: Well, I wasn't even pondering that, but I was so exasperated, and, I ended up speaking to him again.
+Question: We had a great talk.
+Label: 1 (neutral)","
+
+Premise: Well, I wasn't even thinking about that, but I was so frustrated, and, I ended up talking to him again.
+Question: We had a great talk.
+Label: 1 (neutral)"
+"Some possible variations are:
+
+--Option 1--
+Premise: And I assumed that was an advantage, and it's still, it's still, I was the only nine two-two Deputy Officer which was my AFFC Air Force Occupation.
+Question: I was not conscious that I was not the only individual to be at the field that day.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: And I believed that was a benefit, and it's still, it's still, I was the only nine two-two Assistant Chief which was my AFFC Air Force Job.
+Question: I was not cognizant that I was not the only person to be at the field that day.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: And I regarded that as a perk, and it's still, it's still, I was the only nine two-two Subordinate Officer which was my AFFC Air Force Profession.
+Question: I was not aware that I was not the only individual to be at the field that day.
+Label: 1 (neutral)","
+
+Premise: And I thought that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was not aware that I was not the only person to be at the field that day.
+Label: 1 (neutral)"
+"--Option 1--
+Premise: And I believed that was an advantage, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was under the impression that I was the only one with that number at the AFFC Air Force Career field.
+Label: 0 (entailment)
+
+--Option 2--
+Premise: And I assumed that was a benefit, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was under the impression that I was the only one with that number at the AFFC Air Force Career field.
+Label: 0 (entailment)
+
+--Option 3--
+Premise: And I considered that was a perk, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was under the impression that I was the only one with that number at the AFFC Air Force Career field.
+Label: 0 (entailment)","
+
+Premise: And I thought that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was under the impression that I was the only one with that number at the AFFC Air Force Career field.
+Label: 0 (entailment)"
+"--OPTIONS--
+Option 1: Premise: And I believed that was a benefit, and it's still, it's still, I was the sole nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: We all received the same identical number no matter what advantages we were assured to have, it was all a deception.
+Label: 2 (contradiction)
+
+Option 2: Premise: And I assumed that was a boon, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: We all got the same exact number regardless of what perks we were guaranteed to obtain, it was all a hoax.
+Label: 2 (contradiction)
+
+Option 3: Premise: And I considered that was a reward, and it's still, it's still, I was the lone nine two-two Ex-O which was my AFFC Air Force Career field. 
+Question: We all had the same precise number irrespective of what privileges we were promised to access, it was all a fraud.
+Label: 2 (contradiction) ","
+
+Premise: And I thought that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: We all were given the same exact number no matter what privileges we were promised to be granted, it was all a lie.
+Label: 2 (contradiction)"
+"--Options--
+Premise: They said that, uh, that I would be introduced to a man at the conclusion for me to encounter.
+Question: I was never informed anything about encountering anyone.
+Label: 2 (contradiction)
+
+Premise: They informed me that, uh, that I would be presented to a guy at the close for me to see.
+Question: I was never notified anything about seeing anyone.
+Label: 2 (contradiction)
+
+Premise: They communicated to me that, uh, that I would be brought to a man at the finish for me to greet.
+Question: I was never advised anything about greeting anyone.
+Label: 2 (contradiction)","
+
+Premise: They told me that, uh, that I would be called in a guy at the end for me to meet.
+Question: I was never told anything about meeting anyone.
+Label: 2 (contradiction)"
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: They said that, um, that a man would be summoned at the end for me to see.
+Question: I was informed a man would be summoned for me to see.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: They informed me that, er, that a guy would be brought in at the end for me to talk to.
+Question: I was notified a guy would be brought in for me to talk to.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: They notified me that, uh, that a man would be sent in at the end for me to converse with.
+Question: I was advised a man would be sent in for me to converse with.
+Label: 0 (entailment)","
+
+Premise: They told me that, uh, that I would be called in a guy at the end for me to meet.
+Question: I was told a guy would be called in for me to meet.
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--Option 1--
+Premise: They informed me that, uh, that I would be introduced to a guy at the end for me to meet.
+Question: The guy arrived a little late.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: They advised me that, uh, that I would be presented with a guy at the end for me to meet.
+Question: The guy came a bit tardy.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: They notified me that, uh, that I would be shown a guy at the end for me to meet.
+Question: The guy appeared a little delayed.
+Label: 1 (neutral)","
+
+Premise: They told me that, uh, that I would be called in a guy at the end for me to meet.
+Question: The guy showed up a bit late.
+Label: 1 (neutral)"
+"--Option A--
+Premise: There's too much you could discuss on that I'll just omit that.
+Question: I want to share with you everything I know about that!
+Label: 2 (contradiction)
+
+--Option B--
+Premise: There's a lot you could converse on that I'll just ignore that.
+Question: I want to reveal to you everything I know about that!
+Label: 2 (contradiction)
+
+--Option C--
+Premise: There's so much you could chat about on that I'll just bypass that.
+Question: I want to disclose to you everything I know about that!
+Label: 2 (contradiction)","
+
+Premise: There's so much you could talk about on that I'll just skip that.
+Question: I want to tell you everything I know about that!
+Label: 2 (contradiction)"

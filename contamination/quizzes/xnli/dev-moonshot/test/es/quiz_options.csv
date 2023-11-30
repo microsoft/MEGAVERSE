@@ -1,0 +1,186 @@
+generated_response,original_example
+"--Option 1--
+Premise: Bueno, ni me lo planteaba, pero estaba tan enfadada y comencé a conversar con él otra vez.
+Question: No he retomado el contacto con él.
+Label: 2 (contradiction)
+
+--Option 2--
+Premise: Vale, ni lo tenía en mente, pero estaba tan irritada y inicié un diálogo con él de nuevo.
+Question: No he reanudado la comunicación con él.
+Label: 2 (contradiction)
+
+--Option 3--
+Premise: Está bien, ni lo consideraba, pero estaba tan molesta y me puse a charlar con él otra vez.
+Question: No he restablecido la relación con él.
+Label: 2 (contradiction)","
+
+Premise: Bien, ni estaba pensando en eso, pero estaba tan frustrada y empecé a hablar con él de nuevo.
+Question: No he vuelto a hablar con él.
+Label: 2 (contradiction)"
+"Possible variations:
+
+--TEXT--
+Premise: Bueno, ni me planteaba eso, pero estaba tan enojada y comencé a conversar con él de nuevo.
+Question: Estaba tan fastidiada que comencé a conversar con él de nuevo.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Vale, ni me lo proponía, pero estaba tan irritada y inicié a charlar con él de nuevo.
+Question: Estaba tan enfadada que inicié a charlar con él de nuevo.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Pues, ni lo consideraba, pero estaba tan disgustada y arranqué a dialogar con él de nuevo.
+Question: Estaba tan furiosa que arranqué a dialogar con él de nuevo.
+Label: 0 (entailment)","
+
+Premise: Bien, ni estaba pensando en eso, pero estaba tan frustrada y empecé a hablar con él de nuevo.
+Question: Estaba tan molesto que empecé a hablar con él de nuevo.
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--Option A--
+Premise: Bueno, ni me lo había planteado, pero estaba tan enfadada y comencé a conversar con él otra vez.
+Question: Mantuvimos una buena plática.
+Label: 1 (neutral)
+
+--Option B--
+Premise: Pues, ni lo había considerado, pero estaba tan irritada y inicié un diálogo con él de nuevo.
+Question: Tuvimos una excelente charla.
+Label: 1 (neutral)
+
+--Option C--
+Premise: Vaya, ni lo había pensado, pero estaba tan molesta y arranqué a hablar con él otra vez.
+Question: Sostuvimos una magnífica charla.
+Label: 1 (neutral)","
+
+Premise: Bien, ni estaba pensando en eso, pero estaba tan frustrada y empecé a hablar con él de nuevo.
+Question: Tuvimos una gran charla.
+Label: 1 (neutral)"
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: Y creí que era un honor, y aún lo es, aún lo es, yo era el único 922 Ex-O que estaba en mi ámbito de trabajo AFFC de la Fuerza Aérea.
+Question: No sabía que no era la única persona en el área ese día.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Y supuse que era un privilegio, y todavía lo es, todavía lo es, yo era el único 922 Ex-O que estaba en mi sector de carrera AFFC de la Fuerza Aérea.
+Question: No sabía que no era la única persona en el lugar ese día.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Y consideré que era un honor, y aún lo es, aún lo es, yo era el único 922 Ex-O que estaba en mi campo de trabajo AFFC de la Fuerza Aérea.
+Question: No sabía que no era la única persona en el sitio ese día.
+Label: 1 (neutral)","
+
+Premise: Y pensé que era un privilegio, y todavía es, todavía es, yo era el único 922 Ex-O que estaba en mi campo de carrera AFFC de la Fuerza Aérea.
+Question: No sabía que no era la única persona en el campo ese día.
+Label: 1 (neutral)"
+"--OPTIONS--
+Premise: Y pensé que era una ventaja, y aún lo es, aún lo es, yo era el único 922 Ex-O que estaba en mi campo de trabajo AFFC de la Fuerza Aérea.
+Question: Tenía la impresión de que era el único con ese número en el campo AFFC Air Force Career.
+Label: 0 (entailment)
+
+Premise: Y pensé que era un beneficio, y sigue siendo, sigue siendo, yo era el único 922 Ex-O que estaba en mi campo de actividad AFFC de la Fuerza Aérea.
+Question: Tenía la impresión de que era el único con ese número en el campo AFFC Air Force Career.
+Label: 0 (entailment)
+
+Premise: Y pensé que era una oportunidad, y todavía es, todavía es, yo era el único 922 Ex-O que estaba en mi campo de desempeño AFFC de la Fuerza Aérea.
+Question: Tenía la impresión de que era el único con ese número en el campo AFFC Air Force Career.
+Label: 0 (entailment)","
+
+Premise: Y pensé que era un privilegio, y todavía es, todavía es, yo era el único 922 Ex-O que estaba en mi campo de carrera AFFC de la Fuerza Aérea.
+Question: Tenía la impresión de que era el único con ese número en el campo AFFC Air Force Career.
+Label: 0 (entailment)"
+"
+Some possible variations of the given TEXT in Spanish are:
+
+--TEXT--
+Premise: Y creí que era una ventaja, y aún lo es, aún lo es, yo era el único 922 Ex-O que estaba en mi ámbito de profesión AFFC de la Fuerza Aérea.
+Question: A todos nos asignaron el mismo número idéntico, sin importar las ventajas que nos aseguraron que nos otorgarían, todo era un engaño.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Y supuse que era un beneficio, y sigue siendo, sigue siendo, yo era el único 922 Ex-O que estaba en mi área de trabajo AFFC de la Fuerza Aérea.
+Question: A todos nos dieron el mismo número igual, sin importar los beneficios que nos garantizaron que nos darían, todo era una falsedad.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Y pensé que era un mérito, y todavía lo es, todavía lo es, yo era el único 922 Ex-O que estaba en mi campo de actividad AFFC de la Fuerza Aérea.
+Question: A todos nos asignaron el mismo número exacto, sin importar los méritos que nos prometieron que nos concederían, todo era una mentira.
+Label: 2 (contradiction)","
+
+Premise: Y pensé que era un privilegio, y todavía es, todavía es, yo era el único 922 Ex-O que estaba en mi campo de carrera AFFC de la Fuerza Aérea.
+Question: A todos nos dieron el mismo número exacto, sin importar los privilegios que nos prometieron que se nos concedieran, todo era una mentira.
+Label: 2 (contradiction)"
+"--Option 1--
+Premise: Me informaron que, bueno... que un sujeto me contactaría al final para encontrarnos.
+Question: Nunca me informaron nada sobre conocer a alguien.
+Label: 2 (contradiction)
+
+--Option 2--
+Premise: Me comunicaron que, esto... que un individuo me hablaría al final para citarnos.
+Question: Nunca me comunicaron nada sobre conocer a alguien.
+Label: 2 (contradiction)
+
+--Option 3--
+Premise: Me notificaron que, bueno... que un hombre me llamaría al final para reunirnos.
+Question: Nunca me notificaron nada sobre conocer a alguien.
+Label: 2 (contradiction)","
+
+Premise: Me dijeron que, esto... que un tipo me llamaría al final para vernos.
+Question: Nunca me dijeron nada sobre conocer a alguien.
+Label: 2 (contradiction)"
+"--Options--
+Premise: Me comentaron que, esto... que un sujeto me telefonearía al final para encontrarnos.
+Question: Me comentaron que telefonearían a un sujeto para que me conociera.
+Label: 0 (entailment)
+
+Premise: Me indicaron que, esto... que un individuo me contactaría al final para reunirnos.
+Question: Me indicaron que contactarían a un individuo para que me conociera.
+Label: 0 (entailment)
+
+Premise: Me informaron que, esto... que un hombre me haría una llamada al final para citarnos.
+Question: Me informaron que harían una llamada a un hombre para que me conociera.
+Label: 0 (entailment)","
+
+Premise: Me dijeron que, esto... que un tipo me llamaría al final para vernos.
+Question: Me dijeron que llamarían a un tipo para que me conociera.
+Label: 0 (entailment)"
+"
+Some possible variations based on the given TEXT are:
+
+-Premise: Oí que, bueno... que un individuo me contactaría luego para encontrarnos.
+Question: El individuo llegó un poco demorado.
+Label: 1 (neutral)
+
+-Premise: Me contaron que, verás... que un sujeto me haría una llamada después para citarnos.
+Question: El sujeto se presentó un poco retrasado.
+Label: 1 (neutral)
+
+-Premise: Me informaron que, eh... que un hombre me comunicaría al final para quedar.
+Question: El hombre se mostró un poco tardío.
+Label: 1 (neutral)","
+
+Premise: Me dijeron que, esto... que un tipo me llamaría al final para vernos.
+Question: El tipo apareció un poco tarde.
+Label: 1 (neutral)"
+"--Options--
+Premise: Hay tanto que se puede comentar sobre eso, que simplemente me voy a omitir eso.
+Question: ¡Quiero contarte todo lo que sé sobre eso!
+Label: 2 (contradiction)
+
+Premise: Hay tanto que se puede expresar sobre eso, que llanamente me voy a eludir eso.
+Question: ¡Quiero contarte todo lo que sé sobre eso!
+Label: 2 (contradiction)
+
+Premise: Hay tanto que se puede hablar sobre eso, que claramente me voy a evitar eso.
+Question: ¡Quiero contarte todo lo que sé sobre eso!
+Label: 2 (contradiction)","
+
+Premise: Hay tanto que se puede decir sobre eso, que sencillamente me voy a saltar eso.
+Question: ¡Quiero contarte todo lo que sé sobre eso!
+Label: 2 (contradiction)"

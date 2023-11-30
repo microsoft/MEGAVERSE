@@ -215,7 +215,7 @@ if __name__ == "__main__":
     substrate_prompt = args["substrate_prompt"]
     out_dir = f"{save_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
-    quiz_dir = f"{quiz_dir}/{dataset_name}/{model_name}_rerun/{dataset_split}"
+    quiz_dir = args["quiz_dir"]
     pydantic_parser = PydanticOutputParser(pydantic_object=AnswerResponse)
     for lang in langs:
         quiz_path = f"{quiz_dir}/{lang}/quiz_options.csv"

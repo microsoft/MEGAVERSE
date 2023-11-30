@@ -1,0 +1,167 @@
+generated_response,original_example
+"--OPTIONS--
+A) Onunla yeniden irtibat kurmadım.
+B) Onunla tekrar iletişime geçmedim.
+C) Onunla bir daha muhabbet etmedim.","
+
+Premise: Pekala, bunu hiç düşünmemiştim ancak kafam çok karıştı ve onunla tekrar konuşmadım.
+Question: Onunla bir daha konuşmadım.
+Label: 2 (contradiction)"
+"--Options--
+A) Çok fazla pişmanlık duyuyordum ki onunla yeniden iletişime geçtim.
+Label: 0 (entailment)
+
+B) O kadar çok kederlenmiştim ki onunla tekrar muhabbete koyuldum.
+Label: 0 (entailment)
+
+C) Çok aşırı üzüntü içindeydim ki onunla yeniden sohbete girdim.
+Label: 0 (entailment)","
+
+Premise: Pekala, bunu hiç düşünmemiştim ancak kafam çok karıştı ve onunla tekrar konuşmadım.
+Question: O kadar çok üzgündüm ki onunla tekrar konuşmaya başladım.
+Label: 0 (entailment)"
+"--Possible variations--
+
+Premise: Tamam, bunu hiç akıl etmemiştim ama kafam çok bulanık ve onunla bir daha görüşmedim.
+Question: Müthiş bir sohbet ettik.
+Label: 1 (neutral)
+
+Premise: Tamam, bunu hiç hesaba katmamıştım fakat kafam çok karman çorman ve onunla yeniden iletişim kurmadım.
+Question: Harikulade bir muhabbet yaptık.
+Label: 1 (neutral)
+
+Premise: Pekala, bunu hiç aklıma getirmemiştim ama kafam çok karmaşık ve onunla tekrar irtibat sağlamadım.
+Question: Fevkalade bir dialog yaptık.
+Label: 1 (neutral)","
+
+Premise: Pekala, bunu hiç düşünmemiştim ancak kafam çok karıştı ve onunla tekrar konuşmadım.
+Question: Harika bir konuşma yaptık.
+Label: 1 (neutral)"
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: Ve bunun bir üstünlük olduğunu düşünüyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Meslek branşım olan dokuz tane iki iki X-O'ydu.
+Question: O gün arazideki yalnız kişi olmadığımı anlamamıştım.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Ve bunun bir avantaj olduğunu zannediyordum, ve hala, hala benim, AFFC Hava Kuvvetleri İş alanım olan dokuz tane iki iki X-O'ydu.
+Question: O gün sahadaki tek başına kişi olmadığımı kavramamıştım.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Ve bunun bir farklık olduğunu tahmin ediyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Kariyer dalım olan dokuz tane iki iki X-O'ydu.
+Question: O gün alanda yegane kişi olmadığımı idrak etmemiştim.
+Label: 1 (neutral)","
+
+Premise: Ve bunun bir ayrıcalık olduğunu sanıyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Kariyer alanım olan dokuz tane iki iki X-O'ydu.
+Question: O gün tarladaki tek kişi olmadığımın farkında değildim.
+Label: 1 (neutral)"
+"--OPTIONS--
+Option 1: AFFC Hava Kuvvetleri Kariyer mesleğinde o rakama erişebilen yalnızca ben olduğumu düşünüyordum.
+Option 2: AFFC Hava Kuvvetleri Kariyer branşında o sayıya ulaşan sadece kendim olduğumu sanıyordum.
+Option 3: AFFC Hava Kuvvetleri Kariyer dalında o çıtaya varan tek başıma ben olduğumu zannediyordum.","
+
+Premise: Ve bunun bir ayrıcalık olduğunu sanıyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Kariyer alanım olan dokuz tane iki iki X-O'ydu.
+Question: AFFC Hava Kuvvetleri Kariyer alanında o numaraya sahip olan tek kişi olduğum izlenimindeydim.
+Label: 0 (entailment)"
+"
+Some possible variations of the TEXT are:
+
+-- Variation 1 --
+Premise: Ve bunun bir imtiyaz olduğunu düşünüyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Meslek saham olan dokuz adet iki iki X-O'ydu.
+Question: Her ne kadar imtiyaz sağlanacağına dair güvence alsak da, hepimize tamamen aynı numara tahsis edildi, hepsi bir sahtekârlıkmış.
+Label: 2 (contradiction)
+
+-- Variation 2 --
+Premise: Ve bunun bir iltimas olduğunu zannediyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Branşım olan dokuz tane iki iki X-O'ydu.
+Question: Her ne kadar iltimas gösterileceğine dair vaatte bulunsalar da, hepimize bire bir aynı numara dağıtıldı, hepsi bir yalanmamış.
+Label: 2 (contradiction)
+
+-- Variation 3 --
+Premise: Ve bunun bir kayırma olduğunu sanıyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Uzmanlık alanım olan dokuz tane iki iki X-O'ydu.
+Question: Her ne kadar kayırma yapılacağına dair söz verseler de, hepimize aynı şekilde aynı numara verildi, hepsi bir dolanmış.
+Label: 2 (contradiction)","
+
+Premise: Ve bunun bir ayrıcalık olduğunu sanıyordum, ve hala, hala benim, AFFC Hava Kuvvetleri Kariyer alanım olan dokuz tane iki iki X-O'ydu.
+Question: Her ne kadar ayrıcalık tanınacağına söz verilmiş olsak da, hepimize tıpa tıp aynı numara verildi, hepsi bir yalanmış.
+Label: 2 (contradiction)"
+"--Options--
+Premise: Bitirmem gereken bir erkekle buluşmam istendi.
+Question: Kimseyle tanışma mevzusu bana anlatılmadı.
+Label: 2 (contradiction)
+
+Premise: Tamamlamam şart olan bir adamla tanışmam talep edildi.
+Question: Hiç kimseyle görüşme hususu bana ifade edilmedi.
+Label: 2 (contradiction)
+
+Premise: Sonlanması lazım olan bir erkekle tanışmam beklendi.
+Question: Herhangi birisiyle buluşma konusu bana belirtilmedi.
+Label: 2 (contradiction)","
+
+Premise: Sonunda tanışmam için bir adam tarafından çağrılmamı söylediler.
+Question: Bana herhangi birisiyle görüşme konusunda hiç bir şey söylenmedi.
+Label: 2 (contradiction)"
+"
+Possible variations:
+
+--VARIATION 1--
+Premise: Bir adamla tanışmam gerektiğini bildiren bir çağrı aldım.
+Question: Bana bir adamla tanışacağım bildirildi.
+Label: 0 (entailment)
+
+--VARIATION 2--
+Premise: Bir adamın tanışmak istediği bir çağrıyı duydum.
+Question: Bana bir adamın tanışmak üzere olduğu duyuruldu.
+Label: 0 (entailment)
+
+--VARIATION 3--
+Premise: Bir adamın tanışmak için aradığı bir mesaj aldım.
+Question: Bana bir adamın tanışma niyeti mesajlaşıldı.
+Label: 0 (entailment)","
+
+Premise: Sonunda tanışmam için bir adam tarafından çağrılmamı söylediler.
+Question: Tanışmam için bana bir adamın çağrılıcağı söylendi.
+Label: 0 (entailment)"
+"
+Possible variations:
+
+--Option 1--
+Premise: Sonunda buluşmam için bir kişi tarafından davet edilmemi söylediler.
+Question: Kişi biraz gecikerek geldi.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: Sonunda görüşmem için bir erkek tarafından talep edilmemi söylediler.
+Question: Erkek biraz ertelenerek ulaştı.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: Sonunda tanımam için bir bey tarafından istenilmemi söylediler.
+Question: Bey biraz geçikmeyle arzı endam eyledi.
+Label: 1 (neutral)","
+
+Premise: Sonunda tanışmam için bir adam tarafından çağrılmamı söylediler.
+Question: Adam biraz geç teşrif etti.
+Label: 1 (neutral)"
+"Three variations of the TEXT are:
+
+--TEXT--
+Premise: Bu mesele üzerine söyleyecek çok şeyin var atlıyorum.
+Question: O meselede bildiğim her şeyi sana açıklamak istiyorum.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Bu mevzu hakkında konuşacak çok şeyin var es geçiyorum.
+Question: O mevzu ile ilgili bildiğim her şeyi sana aktarmak istiyorum.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Bu husus üzerine anlatacak çok şeyin var geçiyorum.
+Question: O hususta öğrendiğim her şeyi sana paylaşmak istiyorum.
+Label: 2 (contradiction)","
+
+Premise: Bu konu hakkında söyleyebileceğin çok şey var pas geçiyorum.
+Question: O konuda bildiğim her şeyi sana anlatmak istiyorum.
+Label: 2 (contradiction)"
