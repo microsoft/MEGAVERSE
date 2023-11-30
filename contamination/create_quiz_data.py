@@ -79,7 +79,6 @@ def run_quiz_creation(
     dataset_split: str,
     chat_prompt: bool,
     substrate_prompt: bool,
-    is_jinja_template: bool = False,
     num_points: int = 100,
     llm_client: LLMClient = None,
     pydantic_parser: PydanticOutputParser = None,
@@ -162,8 +161,7 @@ if __name__ == "__main__":
     chat_prompt = args["chat_prompt"]
     substrate_prompt = args["substrate_prompt"]
     num_points = args["num_points"]
-    is_jinja_template = args["is_jinja_template"]
-    
+
     out_dir = f"{save_dir}/{dataset_name}/{model_name}/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
     pydantic_parser = PydanticOutputParser(
@@ -209,7 +207,6 @@ if __name__ == "__main__":
                 dataset_split,
                 chat_prompt,
                 substrate_prompt,
-                is_jinja_template,
                 num_points,
                 llm_client,
                 pydantic_parser,
@@ -218,4 +215,7 @@ if __name__ == "__main__":
         except ValueError as e:
             print(f"Error for {lang}, not supported by Palm2")
             print(e)
+            continue
+        except KeyError as e:
+            print(f"Language {lang} not registered in registry. Please register it. Skipping this for now")
             continue

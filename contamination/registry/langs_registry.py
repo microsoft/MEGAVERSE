@@ -22,5 +22,9 @@ LANGS = {
     "ro": "Romanian",
     "pl": "Polish",
     "cs": "Czech",
+    "et": "Estonian",
     "da": "Danish",
+    "id": "Indonesian",
+    "ht": "Haitian Creole",
+    "ta": "Tamil",
 }

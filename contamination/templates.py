@@ -15,10 +15,12 @@ Question: {hypothesis}
 Label: {label} ({verbalized_label})
 {format_instructions}
 """,
-
     "xcopa": """{instruction}
 --TEXT--
-'{{ premise }} {% if question == "cause" %}This happened because... {% else %} As a consequence... {% endif %}\nHelp me pick the more plausible option:\n- choice1: {{choice1}}\n- choice2: {{choice2}} \nAnswer: {% if label != -1 %}{{ answer_choices[label] }}{%endif%}
+'premise': {premise}
+'choice1': {choice1}
+'choice2': {choice2}
+'answer': {answer}
 {format_instructions}
 """,
 
