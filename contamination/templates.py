@@ -23,7 +23,19 @@ Label: {label} ({verbalized_label})
 'answer': {answer}
 {format_instructions}
 """,
+
+    "paws-x": """{instruction}
+--TEXT--
+Sentence 1: {sentence1} 
+Sentence 2: {sentence2} True or False?
+Label: {label} ({verbalized_label})
+{format_instructions}
+""",
 }
+
+
+VERBALIZER_XNLI = {0: "entailment", 1: "neutral", 2: "contradiction"}
+VERBALIZER_PAWSX = {1: "True", 0: "False"}
 
 
 INSTRUCTION_FOR_QUIZ_ANSWER = """Your task is to accurately select the option that corresponds exactly to an instance from the {dataset_split} split of the {dataset} dataset and of {lang} language. Only generate a single option letter as your answer. You must not include any extra explanation."""

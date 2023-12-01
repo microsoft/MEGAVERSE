@@ -1,0 +1,201 @@
+,generated_response,original_example
+0," 1) Premise: Well, I wasn't even pondering that, but I was so exasperated, and, I ended up talking to him once more.
+Question: I haven't conversed with him once more.
+Label: 2 (contradiction)
+
+2) Premise: Well, I wasn't even musing on that, but I was so annoyed, and, I wound up conversing with him yet again.
+Question: I haven't conversed with him yet again.
+Label: 2 (contradiction)
+
+3) Premise: Well, I wasn't even deliberating on that, but I was so nettled, and, I finished up talking to him again.
+Question: I haven't spoken to him again.
+Label: 2 (contradiction)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: Well, I wasn't even thinking about that, but I was so frustrated, and, I ended up talking to him again.
+Question: I havent spoken to him again.
+Label: 2 (contradiction)"
+1," 1. Premise: Well, I wasn't even pondering that, but I was so aggravated, and, I wound up speaking to him again.
+Question: I was so resentful that I just opened up communicating with him again.
+Label: 0 (entailment)
+2. Premise: Well, I wasn't even musing on that, but I was so annoyed, and, I ended up conversing with him again.
+Question: I was so irked that I just conversed with him once more.
+Label: 0 (entailment)
+3. Premise: Well, I wasn't even reflecting on that, but I was so exasperated, and, I finished up dialoguing with him again.
+Question: I was so peeved that I just fell into discourse with him once again.
+Label: 0 (entailment)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: Well, I wasn't even thinking about that, but I was so frustrated, and, I ended up talking to him again.
+Question: I was so upset that I just started talking to him again.
+Label: 0 (entailment)"
+2," 1. Premise: Well, I wasn't even considering about that, but I was so irritated, and, I finished up talking to him again.
+Question: We had a satisfying confab.
+Label: 1 (neutral)
+2. Premise: Well, I wasn't even pondering about that, but I was so exasperated, and, I wound up conversing with him again.
+Question: We conversed considerably.
+Label: 1 (neutral)
+3. Premise: Well, I wasn't even deliberating about that, but I was so annoyed, and, I ended up speaking to him again.
+Question: We had a nice discussion. 
+Label: 1 (neutral)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: Well, I wasn't even thinking about that, but I was so frustrated, and, I ended up talking to him again.
+Question: We had a great talk.
+Label: 1 (neutral)"
+3," 1. Premise: And I believed that was a privilege, and it's yet, it's yet, I was the lone nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I didn't understand that I wasn't the sole person to be at the field that day.
+Label: 1 (neutral)
+
+2. Premise: And I reckoned that was a privilege, and it's nevertheless, it's nevertheless, I was the lone nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: It escaped my notice that I wasn't the lone person to transpire at the field that day.
+Label: 1 (neutral)
+
+3. Premise: And I supposed that was a privilege, and it's even so, it's even so, I was the sole nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I failed to realize that I was not the single person to arrive at the field that day.
+Label: 1 (neutral)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: And I thought that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was not aware that I was not the only person to be at the field that day.
+Label: 1 (neutral)"
+4," 1. Premise: And I believed that was a privilege, and it's continuing, it's proceeding, I was the sole nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was of the opinion that I used to be the sole person with this number at AFFC Air Force Career field.
+Label: 0 (entailment)
+
+
+2. Premise: And I reckoned that was an honor, and it's persistent, it's advancing, I used to be the exclusive nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was of the belief that I used to be the sole person with that number in the AFFC Air Force Career field.
+Label: 0 (entailment)
+
+
+3. Premise: And I opined that was a privilege, and it's durable, it's developing, I was the lone nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was of the belief that I was the lone person with that number at the AFFC Air Force Career field.
+Label: 0 (entailment)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: And I thought that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: I was under the impression that I was the only one with that number at the AFFC Air Force Career field.
+Label: 0 (entailment)"
+5," 1) Premise: And I believed that was a privilege, and it's nevertheless , it's nevertheless , I was the only nine two-two Ex-O which was my AFSC Air Force Career field.
+Question: Each one of us were granted the equivalent precise number regardless of what privileges we were promised to be granted, it was all a fabrication .
+Label: 2 (contradiction)
+
+
+2) Premise: And I opined that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFSC Air Force Career field.
+Question: We all were provided the same identical number notwithstanding what privileges we were assured to be supplied , it was all a lie .
+Label: 2 (contradiction)
+
+
+3) Premise: And I believed that was an honor, and it's still, it's still, I was the only nine two-two Ex-O which was my AFSC Air Force Career field.
+Question: Every single one of us were granted the equivalent identical number no matter what privileges we were promised to be furnished , it was all a deception .
+Label: 2 (contradiction)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: And I thought that was a privilege, and it's still, it's still, I was the only nine two-two Ex-O which was my AFFC Air Force Career field.
+Question: We all were given the same exact number no matter what privileges we were promised to be granted, it was all a lie.
+Label: 2 (contradiction)"
+6," 1. Premise: They informed me that, uh, that I would be summoned in a gentleman at the conclusion for me to see.
+Question: I was never informed anything with regard to seeing someone.
+Label: 2 (contradiction)
+2. Premise: They relayed to me that, uh, that I would be beckoned in a guy at the finale for me to run into.
+Question: I was not made privy to anything concerning running into anyone.
+Label: 2 (contradiction)
+3. Premise: They communicated to me that, uh, that I would be called in a fellow at the culmination for me to encounter.
+Question: I was not privy to anything regarding encountering someone.
+Label: 2 (contradiction)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: They told me that, uh, that I would be called in a guy at the end for me to meet.
+Question: I was never told anything about meeting anyone.
+Label: 2 (contradiction)"
+7," 1. Premise: They informed me that, uh, that I would be getting a guy in eventually so I can have a meeting with him.
+Question: A guy would eventually be invited in to have a discussion with me.
+Label: 0 (entailment)
+
+
+2. Premise: They relayed to me that, uh, that I would be having a male eventually appear for me so I can have an audience with him.
+Question: Eventually, I would be able to have a meeting with a male.
+Label: 0 (entailment)
+
+
+3. Premise: They communicated to me that, uh, that I would acquire a man in the end for me to go to a gathering with him.
+Question: I would eventually get a man to go to a conference with me.
+Label: 1 (not-entailment)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: They told me that, uh, that I would be called in a guy at the end for me to meet.
+Question: I was told a guy would be called in for me to meet.
+Label: 0 (entailment)"
+8," 1. Premise: They informed me that, uh, that I would be summoned in a man at the conclusion for me to run into.
+Question: The man presented himself a tad tardy.
+Label: 1 (neutral)
+2. Premise: They said to me that, uh, that I would be called in a dude at the end for me to see.
+Question: The dude arrived a bit late.
+Label: 1 (neutral)
+3. Premise: They communicated to me that, uh, that I would be invited in a fella at the finale for me to encounter.
+Question: The fella turned up a bit late.
+Label: 1 (neutral)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: They told me that, uh, that I would be called in a guy at the end for me to meet.
+Question: The guy showed up a bit late.
+Label: 1 (neutral)"
+9," 1. Premise: There's such a lot you could talk about on that I will just pass that. 
+Question: I want to talk to you everything I know about that! 
+Label: 2 (contradiction) 
+
+
+2. Premise: There are so many things you could say about that I will not even address them. 
+Question: I want to tell you all the information I have about that! 
+Label: 2 (contradiction) 
+
+
+3. Premise: There is a lot of issues you might discuss on that I will not discuss them. 
+Question: I would like to convey to you every piece of knowledge I am aware of in relation to that! 
+Label: 2 (contradiction)","
+Your task is to create three variations of the given TEXT in English by only replacing the words in the provided TEXT with their synonyms. The meaning and sentence structure of the three new options must exactly mirror every detail in the TEXT. You must not include the provided TEXT as an option. You must make sure that:
+(1) You generate three distinct options based on the provided TEXT;
+(2) Options are ordered;
+(3) There is not any extra explanation; and
+(4) You comply with every specific symbol and letter detail in the given TEXT.
+--TEXT--
+Premise: There's so much you could talk about on that I'll just skip that.
+Question: I want to tell you everything I know about that!
+Label: 2 (contradiction)"

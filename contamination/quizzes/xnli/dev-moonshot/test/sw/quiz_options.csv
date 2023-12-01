@@ -1,0 +1,189 @@
+generated_response,original_example
+"Possible options:
+
+-- Option A --
+Premise: Kweli, sikukuwa nikifikiria hilo, lakini nilikuwa mpotevu sana, na, mwishowe nikaamua kumwongelesha tena.
+Question: Sijawasiliana na yeye tena.
+Label: 2 (contradiction)
+
+-- Option B --
+Premise: Hapana, sikukuwa najali kuhusu hilo, lakini nilikuwa mkanganyiko sana, na, hatimaye nikakubali kumpigia tena.
+Question: Sijazungumza na yeye tena.
+Label: 2 (contradiction)
+
+-- Option C --
+Premise: La, sikukuwa nazingatia hilo, lakini nilikuwa mchanganyiko sana, na, mwishowe nikanuia kumsemesha tena.
+Question: Sijapiga na yeye tena.
+Label: 2 (contradiction)","
+
+Premise: Naam, sikukuwa nafikiri juu ya hilo, lakini nilichanganyikiwa sana, na, hatimaye nikaendelea kuzungumza naye tena.
+Question: Sijaongea na yeye tena.
+Label: 2 (contradiction)"
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: Ndio, sikuwa na mawazo kuhusu hilo, lakini nilikuwa na mkanganyiko mwingi, na, hatimaye nikaamua kuongea naye tena.
+Question: Nilikasirika mwingi kwamba nikaanza kuongea naye tena.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Kweli, sikuwa na fikra juu ya hilo, lakini nilikuwa na vurugu nyingi, na, hatimaye nikajikuta nikimsemesha tena.
+Question: Nilikasirika nyingi kwamba nikaanza kumsemesha tena.
+Label: 0 (entailment)
+
+--TEXT--
+Premise: Hakika, sikuwa na dhana kuhusu hilo, lakini nilikuwa na msukosuko mwingi, na, hatimaye nikajilazimisha kumzungumzia tena.
+Question: Nilikasirika mwingi kwamba nikaanza kumzungumzia tena.
+Label: 0 (entailment)","
+
+Premise: Naam, sikukuwa nafikiri juu ya hilo, lakini nilichanganyikiwa sana, na, hatimaye nikaendelea kuzungumza naye tena.
+Question: Nilikasirika sana kwamba nikaanza kuzungumza naye tena.
+Label: 0 (entailment)"
+"Options:
+
+(a) Ukweli: Kweli, sikujali kuhusu hilo, lakini nilikuwa na wasiwasi mno, na, mwishowe nikaamua kumwongea yeye upya.
+Question: Tulifanya mazungumzo mazuri.
+Label: 1 (neutral)
+
+(b) Halisi: Bila shaka, sikutilia maanani hilo, lakini nilivurugika vibaya, na, hatimaye nikachagua kuongea naye tena.
+Question: Tulipata mijadala mizuri.
+Label: 1 (neutral)
+
+(c) Haki: Yap, sikuzingatia hilo, lakini nilipotea sana, na, hatimaye nikajaribu kumsemesha yeye mara nyingine.
+Question: Tuliepuka mabishano mazuri.
+Label: 1 (neutral)","
+
+Premise: Naam, sikukuwa nafikiri juu ya hilo, lakini nilichanganyikiwa sana, na, hatimaye nikaendelea kuzungumza naye tena.
+Question: Tulikuwa na majadiliano mazuri.
+Label: 1 (neutral)"
+"Some possible variations are:
+
+--Option A--
+Premise: Nami nilidhani kwamba ilikuwa ni nafasi, na hata hivyo, hata hivyo, nilikuwa mmoja wa tisa mbili na mbili Ex-O ambayo ilikuwa eneo langu la AFFC Jeshi la Anga Career.
+Question: Sikufahamu kwamba sikuwa mmoja wa pekee kuwa eneo leo.
+Label: 1 (neutral)
+
+--Option B--
+Premise: Nami niliona kwamba ilikuwa ni fainali, na lakini, lakini, nilikuwa mwenyewe wa tisa mbili na mbili Ex-O ambayo ilikuwa mahali pangu pa AFFC Air Force Career.
+Question: Sikugundua kwamba sikuwa peke yangu kuwa mahali leo.
+Label: 1 (neutral)
+
+--Option C--
+Premise: Nami niliamini kwamba ilikuwa ni mwanya, na hivyo basi, hivyo basi, nilikuwa mtu pekee wa tisa mbili na mbili Ex-O ambayo ilikuwa sehemu yangu ya AFFC Air Force Career.
+Question: Sikuelewa kwamba sikuwa mtu pekee kuwa sehemu leo.
+Label: 1 (neutral)","
+
+Premise: Nami nilifikiri kwamba ilikuwa ni fursa, na bado, bado, nilikuwa pekee wa tisa mbili na mbili Ex-O ambayo ilikuwa uwanja wangu wa AFFC Air Force Career.
+Question: Sikujua kwamba sikuwa mtu wa pekee kuwa uwanjani leo.
+Label: 1 (neutral)"
+"--OPTIONS--
+a) Premise: Nami nilidhani kwamba ilikuwa ni nafasi, na hata hivyo, hivyo tu, nilikuwa mmoja wa tisa mbili na mbili Ex-O ambayo ilikuwa eneo langu la AFFC Air Force Career.
+Question: Nilikuwa na dhana kwamba nilikuwa mmoja na nambari hiyo katika eneo la Kazi ya Air Force ya AFFC.
+Label: 0 (entailment)
+
+b) Premise: Nami niliamini kwamba ilikuwa ni bahati, na bado, bado tu, nilikuwa pekee wa tisa mbili na mbili Ex-O ambayo ilikuwa shamba langu la AFFC Air Force Career.
+Question: Nilikuwa na imani kwamba nilikuwa pekee na nambari hiyo katika shamba la Kazi ya Air Force ya AFFC.
+Label: 0 (entailment)
+
+c) Premise: Nami niliadhiri kwamba ilikuwa ni fadhila, na hata, hata, nilikuwa pekee wa tisa mbili na mbili Ex-O ambayo ilikuwa sehemu yangu ya AFFC Air Force Career.
+Question: Nilikuwa na fikra kwamba nilikuwa pekee na nambari hiyo katika sehemu ya Kazi ya Air Force ya AFFC.
+Label: 0 (entailment)","
+
+Premise: Nami nilifikiri kwamba ilikuwa ni fursa, na bado, bado, nilikuwa pekee wa tisa mbili na mbili Ex-O ambayo ilikuwa uwanja wangu wa AFFC Air Force Career.
+Question: Nilikuwa chini ya hisia kwamba nilikuwa pekee na nambari hiyo katika uwanja wa Kazi ya Air Force ya AFFC.
+Label: 0 (entailment)"
+"Some possible variations are:
+
+--TEXT--
+Premise: Nami nilidhani kwamba ilikuwa ni nafasi, na hata hivyo, hata hivyo, nilikuwa mwisho wa tisa mbili na mbili Ex-O ambayo ilikuwa shamba langu la AFFC Air Force Career.
+Question: Sisi sote tumeandikiwa idadi ile ile bila kuzingatia marupurupu tuliyotarajia kupokea, ilikuwa ni uwongo.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Nami niliamini kwamba ilikuwa ni faida, na lakini, lakini, nilikuwa mmoja wa tisa mbili na mbili Ex-O ambayo ilikuwa eneo langu la AFFC Air Force Career.
+Question: Sisi sote tumepeanwa idadi moja moja bila kufikiria marupurupu tuliyokubali kupata, ilikuwa ni uongo.
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Nami nilitumaini kwamba ilikuwa ni mwanya, na ingawa, ingawa, nilikuwa kati ya tisa mbili na mbili Ex-O ambayo ilikuwa sehemu yangu ya AFFC Air Force Career.
+Question: Sisi sote tumetoa idadi sawa sawa bila kujali marupurupu tuliyostahili kupewa, ilikuwa ni uongo.
+Label: 2 (contradiction)","
+
+Premise: Nami nilifikiri kwamba ilikuwa ni fursa, na bado, bado, nilikuwa pekee wa tisa mbili na mbili Ex-O ambayo ilikuwa uwanja wangu wa AFFC Air Force Career.
+Question: Sisi sote tumepewa idadi sawa sawa bila kujali marupurupu tuliyoahidi kupewa, ilikuwa ni uongo.
+Label: 2 (contradiction)"
+"--Options--
+Premise: Walinieleza ya kwamba mwishowe ningeitiwa jamaa fulani ambaye tungepatana naye.
+Question: Sikuarifiwa lolote kuhusu kukutana na mtu yeyote.
+Label: 2 (contradiction)
+
+Premise: Walinieleza ya kwamba mwishowe ningeitiwa jamaa fulani ambaye tungepatana naye.
+Question: Sikufahamishwa chochote kuhusu kukutana na mtu yeyote.
+Label: 2 (contradiction)
+
+Premise: Walinieleza ya kwamba mwishowe ningeitiwa jamaa fulani ambaye tungepatana naye.
+Question: Sikujulishwa lolote kuhusu kukutana na mtu yeyote.
+Label: 2 (contradiction)","
+
+Premise: Walinieleza ya kwamba mwishowe ningeitiwa jamaa fulani ambaye tungepatana naye.
+Question: Sikuambiwa chochote kuhusu kukutana na mtu yeyote.
+Label: 2 (contradiction)"
+"--Options--
+Premise: Walinijulisha ya kwamba kwa mwisho ningeandikiwa ndugu fulani ambaye tungefanana naye.
+Question: Niliarifiwa mtu angependekezwa aje ili nishirikiane naye.
+Label: 0 (entailment)
+
+Premise: Walinitaarifu ya kwamba hatimaye ningepelekewa mjomba fulani ambaye tungeelewana naye.
+Question: Nilisikia mtu angekusudiwa aje ili nifahamiane naye.
+Label: 0 (entailment)
+
+Premise: Walinifahamisha ya kwamba mwisho ningebarikiwa shemeji fulani ambaye tungenaelekea naye.
+Question: Nilipewa habari mtu angeagizwa aje ili nizoeane naye.
+Label: 0 (entailment)","
+
+Premise: Walinieleza ya kwamba mwishowe ningeitiwa jamaa fulani ambaye tungepatana naye.
+Question: Niliambiwa mtu angeitwa aje ili nikutane naye.
+Label: 0 (entailment)"
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: Waliniarifu ya kwamba hatimaye ningeonana na jamaa fulani ambaye tungeendana naye.
+Question: Alikaja akiwa amekawia.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Waliniambia ya kwamba mwisho ningealikwa jamaa fulani ambaye tungefanana naye.
+Question: Alikaribia akiwa amepoteza muda.
+Label: 1 (neutral)
+
+--TEXT--
+Premise: Walininong'oneza ya kwamba kwa mwisho ningeunganishwa na jamaa fulani ambaye tungeshabihiana naye.
+Question: Alifika akiwa amesahau saa.
+Label: 1 (neutral)","
+
+Premise: Walinieleza ya kwamba mwishowe ningeitiwa jamaa fulani ambaye tungepatana naye.
+Question: Alikuja akiwa amechelewa.
+Label: 1 (neutral)"
+"
+Some possible variations are:
+
+--Option A--
+Premise: Kuna vingi ambavyo unaweza kusema kuhusu hilo lakini nitaacha hilo tu.
+Question: Nataka kukueleza kila kitu ninachokifahamu kuhusu mambo hayo
+Label: 2 (contradiction)
+
+--Option B--
+Premise: Kuna chungu ambacho unaweza kutoa maelezo kuhusu hilo lakini nitaacha tu.
+Question: Nataka kukutajia kila kitu ninachokiona kuhusu mambo hayo
+Label: 2 (contradiction)
+
+--Option C--
+Premise: Kuna tele ambacho unaweza kuongea kuhusu hilo lakini nitasitisha hilo tu.
+Question: Nataka kukufahamisha kila kitu ninachokitambua kuhusu mambo hayo
+Label: 2 (contradiction)","
+
+Premise: Kuna mengi ambayo unaweza kuzungumzia kuhusu hilo lakini  nitaachana nayo tu.
+Question: Nataka kukuambia kila kitu ninachokijua kuhusu mambo hayo
+Label: 2 (contradiction)"

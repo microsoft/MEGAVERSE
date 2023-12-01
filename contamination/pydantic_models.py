@@ -58,3 +58,24 @@ class XNLIGeneratedResponse(BaseModel):
             if premise is None or question is None or label is None:
                 raise ValueError("Premise, question, or label is missing")
         return v
+
+class PAWSXResponse(BaseModel):
+    Sentence1: str = Field(description="Sentence 1 in pawsx")
+    Sentence2: str = Field(description="Sentence 2 in pawsx")
+    Label: str = Field(description="Label in pawsx")
+
+class PAWSXGeneratedResponse(BaseModel):
+    options: List[PAWSXResponse]
+
+    @validator("options", pre=True)
+    def validate_options(cls, v):
+        if len(v) != 3:
+            raise ValueError("There must be 3 options")
+
+        for option in v:
+            sentence1 = option.get("Sentence1", None)
+            sentence2 = option.get("Sentence2", None)
+            label = option.get("Label", None)
+            if sentence1 is None or sentence2 is None or label is None:
+                raise ValueError("sentence1, sentence2, or label is missing")
+        return v

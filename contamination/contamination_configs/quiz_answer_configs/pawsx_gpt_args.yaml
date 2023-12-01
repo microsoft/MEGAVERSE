@@ -1,0 +1,12 @@
+save_dir: 'contamination/generated_quiz_answers'
+# quiz_dir: 'contamination/generated_quizzes/xnli/dev-moonshot_rerun/test'
+quiz_dir: 'contamination/generated_quizzes/paws-x/dev-moonshot/test'
+dataset_name: paws-x
+model_name: dev-moonshot
+max_tokens: 10
+temperature: 0.0
+template_name: paws-x
+dataset_split: test # default is test, if test is not available use validation else use train
+chat_prompt: True
+substrate_prompt: True
+langs: ['de', 'en', 'es', 'fr', 'ja', 'ko', 'zh']

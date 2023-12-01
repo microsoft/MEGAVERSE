@@ -1,0 +1,190 @@
+generated_response,original_example
+"--Option A--
+Premise: Nun, daran hatte ich nicht ein Mal gedacht, aber ich war so verärgert, dass ich schließlich doch mit ihm sprach.
+Question: Ich habe nicht wieder mit ihm gesprochen.
+Label: 2 (contradiction)
+
+--Option B--
+Premise: Nun, daran erinnerte ich mich nicht einmal, aber ich war so genervt, dass ich letztendlich doch mit ihm redete.
+Question: Ich habe nicht wieder mit ihm gesprochen.
+Label: 2 (contradiction)
+
+--Option C--
+Premise: Nun, daran kam mir nicht ein Mal in den Sinn, aber ich war so sauer, dass ich zuletzt doch mit ihm sprach.
+Question: Ich habe nicht wieder mit ihm gesprochen.
+Label: 2 (contradiction)","
+
+Premise: Nun, daran dachte ich nicht einmal, aber ich war so frustriert, dass ich am Ende doch mit ihm redete.
+Question: Ich habe nicht wieder mit ihm gesprochen.
+Label: 2 (contradiction)"
+"--Option 1--
+Premise: Nun, daran hatte ich nicht mal gedacht, aber ich war so verärgert, dass ich schließlich doch mit ihm sprach.
+Question: Ich war so aufgewühlt, dass ich einfach wieder begann, mit ihm zu reden.
+Label: 0 (entailment)
+
+--Option 2--
+Premise: Nun, daran war ich nicht einmal interessiert, aber ich war so genervt, dass ich letztlich doch mit ihm redete.
+Question: Ich war so erregt, dass ich einfach wieder anknüpfte, mit ihm zu reden.
+Label: 0 (entailment)
+
+--Option 3--
+Premise: Nun, daran machte ich mir nicht mal Gedanken, aber ich war so sauer, dass ich schlussendlich doch mit ihm sprach.
+Question: Ich war so aufgeregt, dass ich einfach wieder fortfuhr, mit ihm zu reden.
+Label: 0 (entailment)","
+
+Premise: Nun, daran dachte ich nicht einmal, aber ich war so frustriert, dass ich am Ende doch mit ihm redete.
+Question: Ich war so mitgenommen, dass ich einfach wieder anfing mit ihm zu reden.
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--Option 1--
+Premise: Nun, daran hatte ich gar nicht gedacht, aber ich war so verärgert, dass ich schließlich doch mit ihm sprach.
+Question: Wir führten eine prima Unterhaltung.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: Nun, das kam mir nicht in den Sinn, aber ich war so genervt, dass ich letztendlich doch mit ihm redete.
+Question: Wir hatten eine tolle Plauderei.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: Nun, das fiel mir nicht ein, aber ich war so sauer, dass ich am Ende doch mit ihm sprach.
+Question: Wir hielten einen super Dialog.
+Label: 1 (neutral)","
+
+Premise: Nun, daran dachte ich nicht einmal, aber ich war so frustriert, dass ich am Ende doch mit ihm redete.
+Question: Wir hatten ein tolles Gespräch.
+Label: 1 (neutral)"
+"Some variations are:
+
+--Option 1--
+Premise: „Und ich glaubte, das wäre eine Ehre, und das ist es nach wie vor, das ist es nach wie vor. Ich war der einzige 229 Ehemalige-O, was mein AFCF Luftwaffe-Berufs-Bereich war.“
+Question: Mir war nicht klar, dass ich nicht die einzige Person auf dem Bereich war an diesem Tag.
+Label: 1 (neutral)
+
+--Option 2--
+Premise: „Und ich meinte, das wäre ein Vorrecht, und das ist es weiterhin, das ist es weiterhin. Ich war der einzige 229 Ex-O, was mein AFCF Flieger-Korps-Karriere-Feld war.“
+Question: Mir war nicht bekannt, dass ich nicht die einzige Person auf dem Feld war an diesem Tag.
+Label: 1 (neutral)
+
+--Option 3--
+Premise: „Und ich hielt, das wäre ein Anrecht, und das ist es noch immer, das ist es noch immer. Ich war der einzige 229 Ehemalige-O, was mein AFCF Luftheer-Laufbahn-Bereich war.“
+Question: Mir war nicht ersichtlich, dass ich nicht die einzige Person auf dem Bereich war an diesem Tag.
+Label: 1 (neutral)","
+
+Premise: „Und ich dachte, das wäre ein Privileg, und das ist es immer noch, das ist esi mmer noch. Ich war der einzige 229 Ex-O, was mein AFCF Air Force-Karriere-Feld war.“
+Question: Mir war nicht bewusst, dass ich nicht die einzige Person auf dem Feld war an diesem Tag.
+Label: 1 (neutral)"
+"Possible variations:
+
+--Option 1--
+Premise: „Und ich glaubte, das wäre eine Ehre, und das ist es nach wie vor, das ist es nach wie vor. Ich war der einzige 229 Ex-O, was mein AFCF Luftwaffe-Berufsfeld war.“
+Question: Ich war der Ansicht, dass ich im AFCF Luftwaffe Career Field der einzige mit dieser Nummer war.
+Label: 0 (entailment)
+
+--Option 2--
+Premise: „Und ich meinte, das wäre ein Vorrecht, und das ist es weiterhin, das ist es weiterhin. Ich war der einzige 229 Ex-O, was mein AFCF Luftstreitkräfte-Karriere-Feld war.“
+Question: Ich vermutete, dass ich im AFCF Luftstreitkräfte Career Field der einzige mit dieser Nummer war.
+Label: 0 (entailment)
+
+--Option 3--
+Premise: „Und ich annahm, das wäre eine Auszeichnung, und das ist es noch immer, das ist es noch immer. Ich war der einzige 229 Ex-O, was mein AFCF Heeresflieger-Karriere-Feld war.“
+Question: Ich schätzte, dass ich im AFCF Heeresflieger Career Field der einzige mit dieser Nummer war.
+Label: 0 (entailment)","
+
+Premise: „Und ich dachte, das wäre ein Privileg, und das ist es immer noch, das ist esi mmer noch. Ich war der einzige 229 Ex-O, was mein AFCF Air Force-Karriere-Feld war.“
+Question: Ich hatte den Eindruck, dass ich im AFCF Air Force Career Field der einzige mit dieser Nummer war.
+Label: 0 (entailment)"
+"--Option 1--
+Prämisse: „Und ich glaubte, das wäre ein Vorrecht, und das ist es immer noch, das ist es immer noch. Ich war der einzige 229 Ex-O, was mein AFCF Luftwaffe-Berufs-Feld war.“
+Frage: Uns wurden allen die gleiche Menge zugeteilt, ungeachtet dessen, was für Vorteile uns vorher zugesagt worden waren. Es war alles erlogen.
+Label: 2 (Widerspruch)
+
+--Option 2--
+Prämisse: „Und ich meinte, das wäre ein Vorteil, und das ist es immer noch, das ist es immer noch. Ich war der einzige 229 Ex-O, was mein AFCF Flieger-Karriere-Feld war.“
+Frage: Uns erhielten allen die gleiche Nummer, unabhängig davon, was für Rechte uns vorher gewährt worden waren. Es war alles falsch.
+Label: 2 (Widerspruch)
+
+--Option 3--
+Prämisse: „Und ich annahm, das wäre ein Nutzen, und das ist es immer noch, das ist es immer noch. Ich war der einzige 229 Ex-O, was mein AFCF Luftstreitkräfte-Berufs-Feld war.“
+Frage: Uns bekamen allen die gleiche Summe, ungeachtet dessen, was für Vorzüge uns vorher versichert worden waren. Es war alles gelogen.
+Label: 2 (Widerspruch)","
+
+Premise: „Und ich dachte, das wäre ein Privileg, und das ist es immer noch, das ist esi mmer noch. Ich war der einzige 229 Ex-O, was mein AFCF Air Force-Karriere-Feld war.“
+Question: Uns wurde allen die gleiche Anzahl gegeben, unabhängig davon, was für Privilegien uns vorher versprochen worden waren. Es war alles gelogen.
+Label: 2 (contradiction)"
+"--Options--
+Premise: Sie erklärten mir, dass ich zum Schluss von einem Typen kontaktiert werden würde, um mich zu sehen.
+Question: Mir wurde nie mitgeteilt, dass ich jemanden sehen würde.
+Label: 2 (contradiction)
+
+Premise: Sie teilten mir mit, dass ich zuletzt von einem Mann angerufen werden würde, um mich zu treffen.
+Question: Mir wurde nie angekündigt, dass ich jemanden treffen würde.
+Label: 2 (contradiction)
+
+Premise: Sie informierten mich, dass ich am Ende von einem Kerl telefonisch erreicht werden würde, um mich zu sehen.
+Question: Mir wurde nie bekanntgegeben, dass ich jemanden sehen würde.
+Label: 2 (contradiction)","
+
+Premise: Sie sagten mir, dass ich am Ende von einem Kerl angerufen werden würde, um mich zu treffen.
+Question: Mir wurde nie gesagt, dass ich jemanden treffen würde.
+Label: 2 (contradiction)"
+"--OPTIONS--
+Premise: Sie erklärten mir, dass ich am Schluss von einem Mann kontaktiert werden würde, um mich zu sehen.
+Question: Mir wurde erklärt, dass ein Mann informiert werden würde, sich mit mir zu sehen.
+Label: 0 (entailment)
+
+Premise: Sie teilten mir mit, dass ich zum Schluss von einem Kerl angerufen werden würde, um mich zu verabreden.
+Question: Mir wurde mitgeteilt, dass ein Kerl benachrichtigt werden würde, sich mit mir zu verabreden.
+Label: 0 (entailment)
+
+Premise: Sie informierten mich, dass ich am Ende von einem Mann kontaktiert werden würde, um mich zu treffen.
+Question: Mir wurde informiert, dass ein Mann Bescheid wissen würde, sich mit mir zu treffen.
+Label: 0 (entailment)","
+
+Premise: Sie sagten mir, dass ich am Ende von einem Kerl angerufen werden würde, um mich zu treffen.
+Question: Mir wurde gesagt, dass ein Typ Bescheid bekommen würde, sich mit mir zu treffen.
+Label: 0 (entailment)"
+"
+Some possible variations are:
+
+--OPTION-1--
+Premise: Sie teilten mir mit, dass ich zuletzt von einem Mann kontaktiert werden würde, um mich zu verabreden.
+Question: Der Mann verspätete sich etwas.
+Label: 1 (neutral)
+
+--OPTION-2--
+Premise: Sie informierten mich, dass ich als Letzte von einem Kerl erreicht werden würde, um mich zu treffen.
+Question: Der Kerl kam ein wenig zu spät.
+Label: 1 (neutral)
+
+--OPTION-3--
+Premise: Sie gaben mir Bescheid, dass ich schließlich von einem Mann angerufen werden würde, um mich zu daten.
+Question: Der Mann kam leicht verspätet.
+Label: 1 (neutral)","
+
+Premise: Sie sagten mir, dass ich am Ende von einem Kerl angerufen werden würde, um mich zu treffen.
+Question: Der Typ kam etwas spät.
+Label: 1 (neutral)"
+"
+Some possible variations of the TEXT are:
+
+--TEXT--
+Premise: Es gibt so viel was ich darüber berichten könnte, ich lasse das einfach weg.
+Question: Ich möchte dir alles erzählen, was ich darüber weiß!
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Es gibt so viel was ich darüber schildern könnte, ich verzichte darauf.
+Question: Ich möchte dir alles erzählen, was ich darüber weiß!
+Label: 2 (contradiction)
+
+--TEXT--
+Premise: Es gibt so viel was ich darüber ausführen könnte, ich spare mir das.
+Question: Ich möchte dir alles erzählen, was ich darüber weiß!
+Label: 2 (contradiction)","
+
+Premise: Es gibt so viel was ich darüber erzählen könnte, ich überspringe das einfach.
+Question: Ich möchte dir alles erzählen, was ich darüber weiß!
+Label: 2 (contradiction)"
