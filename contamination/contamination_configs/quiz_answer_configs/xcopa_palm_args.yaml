@@ -1,13 +1,14 @@
 save_dir: 'contamination/generated_quiz_answers'
-# quiz_dir: 'contamination/generated_quizzes/xnli/palm-32k_rerun/test'
+dataset_name: xcopa
 quiz_dir: 'contamination/generated_quizzes'
-dataset_name: xnli
 model_name: palm-32k
 max_tokens: 10
 temperature: 0.0
-template_name: xnli
+template_name: xcopa
 dataset_split: test # default is test, if test is not available use validation else use train
 chat_prompt: False
 substrate_prompt: False
-langs: ['en', 'ar','bg', 'de', 'el', 'es', 'en', 'fr', 'hi', 'ru', 'sw', 'th', 'tr', 'vi', 'zh']
-# langs: ['en']
+# langs: ['ar','bg', 'de', 'el', 'es', 'en', 'fr', 'hi', 'ru', 'sw', 'th', 'tr', 'ur', 'vi', 'zh']
+langs: ['et', 'id', 'it', 'qu', 'th', 'vi', 'ht', 'sw', 'ta', 'tr', 'zh']
+is_jinja_template: True
+num_points: 110

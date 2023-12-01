@@ -18,6 +18,7 @@ from contamination.pydantic_models import AnswerResponse
 from contamination.registry.generated_response_registry import (
     GENERATED_RESPONSE_REGISTRY,
 )
+from contamination.registry.langs_registry import LANGS
 
 
 def create_quiz_answer_template(
@@ -45,8 +46,12 @@ def create_quiz_answer_template(
     """
     if dataset_name not in GENERATED_RESPONSE_REGISTRY:
         raise ValueError(f"Dataset {dataset_name} not supported")
+
+    row_df['generated_response'] = row_df["generated_response"].replace("answer", "label")
     generated_response = json.loads(row_df["generated_response"])["options"]
     original_response = row_df["original_example"]
+    # original_response = original_response.replace("answer", "label")
+
     option_str = GENERATED_RESPONSE_REGISTRY[dataset_name](generated_response)
 
     option_str += "D) " + original_response.strip() + "\n"
@@ -54,7 +59,7 @@ def create_quiz_answer_template(
     format_instructions = pydantic_parser.get_format_instructions()
 
     instruction = INSTRUCTION_FOR_QUIZ_ANSWER.format(
-        dataset=dataset_name, lang=lang, dataset_split=dataset_split
+        dataset=dataset_name, lang=LANGS[lang], dataset_split=dataset_split
     )
     prompt = TEMPLATE_FOR_QUIZ_ANSWER.format(
         instruction=instruction if not chat_prompt else "",
@@ -107,7 +112,7 @@ def calculate_contamination(results_df: pd.DataFrame, **kwargs):
     out_dir = kwargs["out_dir"]
     kwargs["score"] = score
     kwargs["contamination"] = contamination
-    
+
     # dump kwargs, score and contamination into a json file in out_dir
     with open(f"{out_dir}/contamination.json", "w") as f:
         json.dump(kwargs, f)
@@ -153,7 +158,6 @@ def get_quiz_answers(
             substrate_prompt,
             pydantic_parser,
         ).strip()
-
         answer = model_completion(
             prompt,
             model_name,
@@ -179,7 +183,7 @@ def get_quiz_answers(
         results_df = pd.DataFrame(results)
 
         results_df.to_csv(f"{out_dir}/quiz_answers.csv", index=False)
-    
+
     calculate_contamination(
         results_df=results_df,
         dataset_name=dataset_name,

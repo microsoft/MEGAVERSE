@@ -1,0 +1,14 @@
+save_dir: 'contamination/generated_quiz_answers'
+dataset_name: xcopa
+quiz_dir: 'contamination/generated_quizzes'
+model_name: dev-moonshot
+max_tokens: 10
+temperature: 0.0
+template_name: xcopa
+dataset_split: test # default is test, if test is not available use validation else use train
+chat_prompt: True
+substrate_prompt: True
+# langs: ['ar','bg', 'de', 'el', 'es', 'en', 'fr', 'hi', 'ru', 'sw', 'th', 'tr', 'ur', 'vi', 'zh']
+langs: ['et', 'id', 'it', 'qu', 'th', 'vi', 'ht', 'sw', 'ta', 'tr', 'zh']
+is_jinja_template: True
+num_points: 110

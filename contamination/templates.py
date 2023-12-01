@@ -31,6 +31,7 @@ INSTRUCTION_FOR_QUIZ_ANSWER = """Your task is to accurately select the option th
 TEMPLATE_FOR_QUIZ_ANSWER = """{instruction}
 ---
 Options are listed below:
+
 {options}
 ---
 {format_instructions}

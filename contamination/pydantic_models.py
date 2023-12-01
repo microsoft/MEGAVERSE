@@ -3,7 +3,13 @@ from typing import List
 
 
 class AnswerResponse(BaseModel):
-    answer: str = Field(description="Answer to the above multiple choice question")
+    answer: str = Field(description="Answer to the above multiple choice question. Answer must either be A, B, C, or D")
+
+    @validator("answer", pre=True)
+    def validate_answer(cls, v):
+        if v not in ["A", "B", "C", "D"]:
+            raise ValueError("Answer must be A, B, C, or D")
+        return v
 
 
 class XNLIResponse(BaseModel):
@@ -16,7 +22,7 @@ class XCOPAResponse(BaseModel):
     premise: str = Field(description="Premise in XCOPA")
     choice1: str = Field(description="Choice 1 in XCOPA")
     choice2: str = Field(description="Choice 2 in XCOPA")
-    answer: str = Field(description="Answer in XCOPA")
+    label: str = Field(description="Answer in XCOPA")
 
 
 class XCOPAGeneratedResponse(BaseModel):
@@ -31,8 +37,8 @@ class XCOPAGeneratedResponse(BaseModel):
             premise = option.get("premise", None)
             choice1 = option.get("choice1", None)
             choice2 = option.get("choice2", None)
-            answer = option.get("answer", None)
-            if premise is None or choice1 is None or choice2 is None or answer is None:
+            label = option.get("label", None)
+            if premise is None or choice1 is None or choice2 is None or label is None:
                 raise ValueError("Premise, choice1, choice2, or answer is missing")
         return v
 

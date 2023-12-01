@@ -14,6 +14,7 @@ LANGS = {
     "sw": "Swahili",
     "bg": "Bulgarian",
     "el": "Greek",
+    "qu": "Quechua",
     "sw": "Swahili",
     "it": "Italian",
     "ja": "Japanese",
