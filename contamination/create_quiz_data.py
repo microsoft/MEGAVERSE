@@ -1,6 +1,7 @@
 from datasets import load_dataset
 import os
 from mega.models.completion_models import model_completion
+from mega.data.load_datasets import load_tagging_dataset
 import yaml
 import sys
 from tqdm import tqdm
@@ -80,11 +81,24 @@ def run_quiz_creation(
     chat_prompt: bool,
     substrate_prompt: bool,
     num_points: int = 100,
+    is_tagging_dataset: bool = False,
     llm_client: LLMClient = None,
     pydantic_parser: PydanticOutputParser = None,
 ):
-    ds = load_dataset(dataset_name, lang)
-    ds = ds[dataset_split]
+    if is_tagging_dataset:
+        
+        def join_func(example):
+            example['tokens'] = ' '.join(example['tokens']).strip()
+            example['tagged_tokens'] = ' '.join(example['tagged_tokens']).strip()
+            example['tags'] = ' '.join(example['tags']).strip()
+            return example
+        
+        ds = load_tagging_dataset(dataset_name, lang, dataset_split)
+        ds = ds.map(join_func)
+    else:
+        ds = load_dataset(dataset_name, lang)
+        ds = ds[dataset_split]
+
     out_dir = f"{out_dir}/{lang}"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
@@ -217,5 +231,7 @@ if __name__ == "__main__":
             print(e)
             continue
         except KeyError as e:
-            print(f"Language {lang} not registered in registry. Please register it. Skipping this for now")
+            print(
+                f"Language {lang} not registered in registry. Please register it. Skipping this for now"
+            )
             continue

@@ -31,6 +31,13 @@ Sentence 2: {sentence2} True or False?
 Label: {label} ({verbalized_label})
 {format_instructions}
 """,
+"udpos": """{instruction}
+--TEXT--
+tokens: {tokens}
+tags: {tags}
+tagged_tokens: {tagged_tokens}
+{format_instructions}
+"""
 }
 
 

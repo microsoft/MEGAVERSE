@@ -42,8 +42,9 @@ def generate_xcopa_str_from_generated_response(
         generated_str += "choice1: " + option["choice1"].strip() + "\n"
         generated_str += "choice2: " + option["choice2"].strip() + "\n"
         generated_str += "label: " + option["label"].strip() + "\n"
+        generated_str += "\n"
 
-    return generated_str
+    return generated_str.strip()
 
 
 def generate_pawsx_str_from_generated_response(

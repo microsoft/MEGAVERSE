@@ -79,3 +79,24 @@ class PAWSXGeneratedResponse(BaseModel):
             if sentence1 is None or sentence2 is None or label is None:
                 raise ValueError("sentence1, sentence2, or label is missing")
         return v
+
+class UDPOSResponse(BaseModel):
+    tokens: str = Field(description="Tokens in UDPOS")
+    tags: str = Field(description="Tags in UDPOS")
+    tagged_tokens: str = Field(description="Tagged tokens in UDPOS")
+
+class UDPOSGeneratedResponse(BaseModel):
+    options: List[UDPOSResponse]
+
+    @validator("options", pre=True)
+    def validate_options(cls, v):
+        if len(v) != 3:
+            raise ValueError("There must be 3 options")
+
+        for option in v:
+            tokens = option.get("tokens", None)
+            tags = option.get("tags", None)
+            tagged_tokens = option.get("tagged_tokens", None)
+            if tokens is None or tags is None or tagged_tokens is None:
+                raise ValueError("tokens, tags, or tagged_tokens is missing")
+        return v
