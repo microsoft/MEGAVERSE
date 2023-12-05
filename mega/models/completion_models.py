@@ -54,7 +54,6 @@ def substrate_llm_completion(
         model_params.get("n", 1),
         model_params.get("stream", False),
         model_params.get("logprops", 1),
-        model_params.get("stop", "\n"),
     )
     response = llm_client.send_request(model_name, request_data)
     text_result = response["choices"][0]["text"]

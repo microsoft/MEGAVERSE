@@ -3,7 +3,9 @@ from typing import List
 
 
 class AnswerResponse(BaseModel):
-    answer: str = Field(description="Answer to the above multiple choice question. Answer must either be A, B, C, or D")
+    answer: str = Field(
+        description="Answer to the above multiple choice question. Answer must either be A, B, C, or D"
+    )
 
     @validator("answer", pre=True)
     def validate_answer(cls, v):
@@ -59,10 +61,12 @@ class XNLIGeneratedResponse(BaseModel):
                 raise ValueError("Premise, question, or label is missing")
         return v
 
+
 class PAWSXResponse(BaseModel):
     Sentence1: str = Field(description="Sentence 1 in pawsx")
     Sentence2: str = Field(description="Sentence 2 in pawsx")
     Label: str = Field(description="Label in pawsx")
+
 
 class PAWSXGeneratedResponse(BaseModel):
     options: List[PAWSXResponse]
@@ -80,10 +84,12 @@ class PAWSXGeneratedResponse(BaseModel):
                 raise ValueError("sentence1, sentence2, or label is missing")
         return v
 
+
 class UDPOSResponse(BaseModel):
     tokens: str = Field(description="Tokens in UDPOS")
     tags: str = Field(description="Tags in UDPOS")
     tagged_tokens: str = Field(description="Tagged tokens in UDPOS")
+
 
 class UDPOSGeneratedResponse(BaseModel):
     options: List[UDPOSResponse]

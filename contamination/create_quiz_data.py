@@ -129,7 +129,7 @@ def run_quiz_creation(
         )
 
         response = model_completion(
-            prompt,
+            prompt.strip(),
             model_name,
             lang,
             max_tokens=max_tokens,
@@ -175,6 +175,7 @@ if __name__ == "__main__":
     chat_prompt = args["chat_prompt"]
     substrate_prompt = args["substrate_prompt"]
     num_points = args["num_points"]
+    is_tagging_dataset = args.get("is_tagging_dataset", False)
 
     out_dir = f"{save_dir}/{dataset_name}/{model_name}/{dataset_split}"
     llm_client = LLMClient() if substrate_prompt else None
@@ -222,6 +223,7 @@ if __name__ == "__main__":
                 chat_prompt,
                 substrate_prompt,
                 num_points,
+                is_tagging_dataset,
                 llm_client,
                 pydantic_parser,
             )
