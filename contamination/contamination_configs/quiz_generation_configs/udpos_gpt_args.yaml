@@ -1,0 +1,13 @@
+save_dir: 'contamination/generated_quizzes'
+dataset_name: udpos
+model_name: dev-moonshot
+max_tokens: 5000
+temperature: 1.0
+template_name: udpos
+dataset_split: test # default is test, if test is not available use validation else use train
+chat_prompt: True
+substrate_prompt: True
+# langs: ['et', 'id', 'it', 'qu', 'th', 'vi', 'ht', 'sw', 'ta', 'tr', 'zh']
+langs: [ro, te, zh, ar, el, et, fi, hi, it, lt, pl, ru, tr, vi, bg, eu, fr, hu, ja, mr, pt, ta, uk, wo]
+num_points: 110
+is_jinja_template: True

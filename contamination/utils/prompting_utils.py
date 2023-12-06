@@ -98,7 +98,7 @@ def get_pawsx_quiz_generation_prompt(
     else:
         return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
 
-def get_pawsx_quiz_generation_prompt(
+def get_udpos_quiz_generation_prompt(
     dataset_example: Dict[str, any],
     template: str,
     instruction: str,
@@ -109,11 +109,10 @@ def get_pawsx_quiz_generation_prompt(
 ) -> str:
     prompt = template.format(
         instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
-        sentence1=dataset_example["sentence1"],
-        sentence2=dataset_example["sentence2"],
-        label=dataset_example["label"],
-        verbalized_label=VERBALIZER_PAWSX[dataset_example["label"]],
-        format_instructions=format_instructions,
+        tokens=dataset_example["tokens"],
+        tags=dataset_example["tags"],
+        tagged_tokens=dataset_example["tagged_tokens"],
+        format_instructions=format_instructions.strip(),
     )
 
     if not chat_prompt:

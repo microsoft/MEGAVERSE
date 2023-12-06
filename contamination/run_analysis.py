@@ -47,7 +47,9 @@ def create_quiz_answer_template(
     if dataset_name not in GENERATED_RESPONSE_REGISTRY:
         raise ValueError(f"Dataset {dataset_name} not supported")
 
-    row_df['generated_response'] = row_df["generated_response"].replace("answer", "label")
+    row_df["generated_response"] = row_df["generated_response"].replace(
+        "answer", "label"
+    )
     generated_response = json.loads(row_df["generated_response"])["options"]
     original_response = row_df["original_example"]
     # original_response = original_response.replace("answer", "label")
@@ -98,6 +100,10 @@ def kappa_fixed_value(observed_agreement_probability: float) -> float:
 
 def calculate_contamination(results_df: pd.DataFrame, **kwargs):
     total_correct = 0
+
+    results_df = results_df[results_df["answer"] != "NA"]
+    # remove those rows where answer is Nan
+    results_df = results_df[results_df["answer"].notna()]
     total = len(results_df)
 
     select_samples = min(100, total)
@@ -141,6 +147,7 @@ def get_quiz_answers(
         results = results_df.to_dict("records")
 
     else:
+        results_df = pd.DataFrame()
         results = []
 
     pred_len = len(results)
@@ -175,14 +182,23 @@ def get_quiz_answers(
                     "prompt": prompt,
                 }
             )
+            results_df = pd.DataFrame(results)
+
+            results_df.to_csv(f"{out_dir}/quiz_answers.csv", index=False)
 
         except ValueError as e:
             print(f"Error for {idx}")
+            results.append(
+                {
+                    "answer": "NA",
+                    "prompt": prompt,
+                }
+            )
             print(e)
-            continue
-        results_df = pd.DataFrame(results)
+            results_df = pd.DataFrame(results)
 
-        results_df.to_csv(f"{out_dir}/quiz_answers.csv", index=False)
+            results_df.to_csv(f"{out_dir}/quiz_answers.csv", index=False)
+            continue
 
     calculate_contamination(
         results_df=results_df,

@@ -10,7 +10,13 @@ from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
 from mega.models.hf_completion_models import hf_model_api_completion
-from mega.utils.const import SUPPORTED_MODELS, CHAT_MODELS, PALM_MAPPING, MODEL_TYPES, PALM_SUPPORTED_LANGUAGES_MAP
+from mega.utils.const import (
+    SUPPORTED_MODELS,
+    CHAT_MODELS,
+    PALM_MAPPING,
+    MODEL_TYPES,
+    PALM_SUPPORTED_LANGUAGES_MAP,
+)
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
@@ -19,6 +25,7 @@ from mega.utils.env_utils import (
 )
 import backoff
 from huggingface_hub import InferenceClient
+
 # from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
@@ -40,7 +47,13 @@ def substrate_llm_completion(
     llm_client: LLMClient, prompt: str, model_name: str, **model_params
 ) -> str:
     request_data = create_request_data(
-        prompt, model_params.get("max_tokens", 20), model_params.get("temperature", 0)
+        prompt,
+        model_params.get("max_tokens", 20),
+        model_params.get("temperature", 0),
+        model_params.get("top_p", 1),
+        model_params.get("n", 1),
+        model_params.get("stream", False),
+        model_params.get("logprops", 1),
     )
     response = llm_client.send_request(model_name, request_data)
     text_result = response["choices"][0]["text"]

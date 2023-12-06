@@ -1,14 +1,13 @@
-<<<<<<< HEAD
-from contamination.pydantic_models import XNLIGeneratedResponse, PAWSXGeneratedResponse
+from contamination.pydantic_models import (
+    XNLIGeneratedResponse,
+    PAWSXGeneratedResponse,
+    XCOPAGeneratedResponse,
+    UDPOSGeneratedResponse,
+)
 
 PYDANTIC_REGISTRY = {
     "xnli": XNLIGeneratedResponse,
-    'paws-x': PAWSXGeneratedResponse,
-=======
-from contamination.pydantic_models import XNLIGeneratedResponse, XCOPAGeneratedResponse
-
-PYDANTIC_REGISTRY = {
-    "xnli": XNLIGeneratedResponse,
+    "paws-x": PAWSXGeneratedResponse,
     "xcopa": XCOPAGeneratedResponse,
->>>>>>> 134eb21c20e93d0cdd897bef366f5d75da4b1266
+    "udpos": UDPOSGeneratedResponse,
 }
