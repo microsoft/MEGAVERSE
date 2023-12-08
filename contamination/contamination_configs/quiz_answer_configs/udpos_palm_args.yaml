@@ -1,8 +1,9 @@
-save_dir: 'contamination/generated_quizzes'
+save_dir: 'contamination/generated_quiz_answers'
 dataset_name: udpos
+quiz_dir: contamination/generated_quizzes/udpos/palm-32k/test
 model_name: palm-32k
-max_tokens: 5000
-temperature: 1.0
+max_tokens: 10
+temperature: 0.0
 template_name: udpos
 dataset_split: test # default is test, if test is not available use validation else use train
 chat_prompt: False
