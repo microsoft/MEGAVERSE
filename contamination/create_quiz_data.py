@@ -86,13 +86,13 @@ def run_quiz_creation(
     pydantic_parser: PydanticOutputParser = None,
 ):
     if is_tagging_dataset:
-        
+
         def join_func(example):
-            example['tokens'] = ' '.join(example['tokens']).strip()
-            example['tagged_tokens'] = ' '.join(example['tagged_tokens']).strip()
-            example['tags'] = ' '.join(example['tags']).strip()
+            example["tokens"] = " ".join(example["tokens"]).strip()
+            example["tagged_tokens"] = " ".join(example["tagged_tokens"]).strip()
+            example["tags"] = " ".join(example["tags"]).strip()
             return example
-        
+
         ds = load_tagging_dataset(dataset_name, lang, dataset_split)
         ds = ds.map(join_func)
     elif dataset_name == "tydiqa":
@@ -126,6 +126,7 @@ def run_quiz_creation(
     else:
         results = []
 
+    num_points = min(num_points, len(ds))
     ds = ds.select(range(num_points))
     pbar = tqdm(ds)
     pred_len = len(results)

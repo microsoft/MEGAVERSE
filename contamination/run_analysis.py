@@ -190,7 +190,7 @@ def get_quiz_answers(
             print(f"Error for {idx}")
             results.append(
                 {
-                    "answer": "NA",
+                    "answer": answer,
                     "prompt": prompt,
                 }
             )

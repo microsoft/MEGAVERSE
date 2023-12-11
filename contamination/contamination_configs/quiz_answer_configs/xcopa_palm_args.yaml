@@ -1,6 +1,6 @@
 save_dir: 'contamination/generated_quiz_answers'
 dataset_name: xcopa
-quiz_dir: 'contamination/generated_quizzes'
+quiz_dir: contamination/generated_quizzes/xcopa/palm-32k/test
 model_name: palm-32k
 max_tokens: 10
 temperature: 0.0
