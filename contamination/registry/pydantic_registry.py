@@ -3,6 +3,7 @@ from contamination.pydantic_models import (
     PAWSXGeneratedResponse,
     XCOPAGeneratedResponse,
     UDPOSGeneratedResponse,
+    tydiqaGeneratedResponse
 )
 
 PYDANTIC_REGISTRY = {
@@ -10,4 +11,5 @@ PYDANTIC_REGISTRY = {
     "paws-x": PAWSXGeneratedResponse,
     "xcopa": XCOPAGeneratedResponse,
     "udpos": UDPOSGeneratedResponse,
+    "tydiqa": tydiqaGeneratedResponse
 }
