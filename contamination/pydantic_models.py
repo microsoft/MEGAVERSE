@@ -84,6 +84,27 @@ class PAWSXGeneratedResponse(BaseModel):
                 raise ValueError("sentence1, sentence2, or label is missing")
         return v
 
+class tydiqaResponse(BaseModel):
+    context: str = Field(description="context in tydiqa")
+    question: str = Field(description="question in tydiqa")
+    answer: dict = Field(description="answer in tydiqa")
+
+
+class tydiqaGeneratedResponse(BaseModel):
+    options: List[tydiqaResponse]
+
+    @validator("options", pre=True)
+    def validate_options(cls, v):
+        if len(v) != 3:
+            raise ValueError("There must be 3 options")
+        for option in v:
+            context = option.get("context", None)
+            question = option.get("question", None)
+            answer = option.get("answer", None)
+            if context is None or question is None or answer is None:
+                raise ValueError("context, question, or answer is missing")
+        return v
+
 
 class UDPOSResponse(BaseModel):
     tokens: str = Field(description="Tokens in UDPOS")

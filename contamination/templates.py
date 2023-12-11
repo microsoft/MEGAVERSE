@@ -37,7 +37,15 @@ tokens: {tokens}
 tags: {tags}
 tagged_tokens: {tagged_tokens}
 {format_instructions}
-"""
+""",
+"tydiqa": """{instruction}
+--TEXT--
+Context: {context}
+Question: {question}
+Referring to the passage above, the correct answer to the given question is:
+Answer: {answer}
+{format_instructions}
+""",
 }
 
 

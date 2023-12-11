@@ -1,0 +1,12 @@
+save_dir: 'contamination/generated_quizzes'
+dataset_name: tydiqa
+model_name: dev-moonshot
+max_tokens: 5000
+temperature: 1.0
+template_name: tydiqa
+dataset_split: validation # default is test, if test is not available use validation else use train
+chat_prompt: True
+substrate_prompt: True
+langs: ['ar', 'bn', 'en', 'fi', 'id', 'ja', 'ko', 'ru', 'sw', 'te', 'th']
+num_points: 110
+is_jinja_template: False

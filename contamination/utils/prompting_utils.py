@@ -98,6 +98,29 @@ def get_pawsx_quiz_generation_prompt(
     else:
         return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
 
+def get_tydiqa_quiz_generation_prompt(
+    dataset_example: Dict[str, any],
+    template: str,
+    instruction: str,
+    chat_prompt: bool,
+    substrate_prompt: bool,
+    lang: str,
+    format_instructions: str,
+) -> str:
+    prompt = template.format(
+        instruction=instruction.format(lang=LANGS[lang]) if not chat_prompt else "",
+        context=dataset_example["context"],
+        question=dataset_example["question"],
+        answer=dataset_example["answers"],
+        format_instructions=format_instructions,
+    )
+
+    if not chat_prompt:
+        return prompt
+
+    else:
+        return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
+
 def get_udpos_quiz_generation_prompt(
     dataset_example: Dict[str, any],
     template: str,
