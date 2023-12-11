@@ -100,9 +100,10 @@ class tydiqaGeneratedResponse(BaseModel):
         for option in v:
             context = option.get("context", None)
             question = option.get("question", None)
-            answer = option.get("answer", None)
+            answer = str(option.get("answer", None))
             if context is None or question is None or answer is None:
                 raise ValueError("context, question, or answer is missing")
+        # print(contex)
         return v
 
 

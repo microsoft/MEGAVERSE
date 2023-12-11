@@ -176,6 +176,7 @@ def get_quiz_answers(
         )
         try:
             parsed_response = pydantic_parser.parse(answer)
+            
             results.append(
                 {
                     "answer": parsed_response.json(),
@@ -188,6 +189,7 @@ def get_quiz_answers(
 
         except ValueError as e:
             print(f"Error for {idx}")
+            print(f"Answer for {idx} is {answer}")
             results.append(
                 {
                     "answer": answer,

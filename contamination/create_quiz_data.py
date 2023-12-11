@@ -146,7 +146,7 @@ def run_quiz_creation(
         )
 
         response = model_completion(
-            prompt.strip(),
+            prompt,
             model_name,
             lang,
             max_tokens=max_tokens,
@@ -164,6 +164,10 @@ def run_quiz_creation(
             )
 
         except ValueError as e:
+            # print("="*100)
+            # print(response)
+            # print("="*100)
+            # sys.exit()
             print(f"Error for {idx}")
             print(e)
             continue
