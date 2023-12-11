@@ -1,0 +1,1 @@
+{"dataset_name": "xcopa", "dataset_split": "test", "model_name": "palm-32k", "lang": "et", "out_dir": "contamination/generated_quiz_answers/xcopa/palm-32k/test/et", "chat_prompt": false, "substrate_prompt": false, "max_tokens": 10, "temperature": 0.0, "score": 0.21, "contamination": -0.053333333333333344}

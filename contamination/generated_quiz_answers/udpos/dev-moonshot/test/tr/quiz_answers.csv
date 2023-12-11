@@ -1,0 +1,3411 @@
+answer,prompt
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: O hep yemeklerini restoranda yer .
+tags: PRON DET NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: O_PRON hep_DET yemeklerini_NOUN restoranda_NOUN yer_VERB ._PUNCT
+
+B) tokens: O sürekli yemeklerini mekanda yer .
+tags: PRON ADV NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: O_PRON sürekli_ADV yemeklerini_NOUN mekanda_NOUN yer_VERB ._PUNCT
+
+C) tokens: O daima yemeklerini kafede yer .
+tags: PRON ADV NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: O_PRON daima_ADV yemeklerini_NOUN kafede_NOUN yer_VERB ._PUNCTD) tokens: O her zaman yemeklerini lokantada yer .
+tags: PRON DET NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: O_PRON her_DET zaman_NOUN yemeklerini_NOUN lokantada_NOUN yer_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Geçen çocuklar mektebe gittiler mi ?
+tags: ADV NOUN NOUN VERB AUX PUNCT
+tagged_tokens: Geçen_ADV çocuklar_NOUN mektebe_NOUN gittiler_VERB mi_AUX ?_PUNCT
+
+B) tokens: Dün yavrular eğitime giderler mi ?
+tags: NOUN NOUN NOUN VERB AUX PUNCT
+tagged_tokens: Dün_NOUN yavrular_NOUN eğitime_NOUN giderler_VERB mi_AUX ?_PUNCT
+
+C) tokens: Önceki çocuklar öğrenime vardılar mı ?
+tags: ADJ NOUN NOUN VERB AUX PUNCT
+tagged_tokens: Önceki_ADJ çocuklar_NOUN öğrenime_NOUN vardılar_VERB mı_AUX ?_PUNCTD) tokens: Dün çocuklar okula gitti mi ?
+tags: NOUN NOUN NOUN VERB AUX PUNCT
+tagged_tokens: Dün_NOUN çocuklar_NOUN okula_NOUN gitti_VERB mi_AUX ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Hangi gün nereye gidiyorsun ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Hangi_DET gün_NOUN nereye_PRON gidiyorsun_VERB ?_PUNCT
+
+B) tokens: Her gün nereye vardığında ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Her_DET gün_NOUN nereye_PRON vardığında_VERB ?_PUNCT
+
+C) tokens: Her gün nereye varıyorsun ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Her_DET gün_NOUN nereye_PRON varıyorsun_VERB ?_PUNCTD) tokens: Her gün nereye gidiyorsun ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Her_DET gün_NOUN nereye_PRON gidiyorsun_VERB ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Şayet sokakta dolaşmak niyetindeysen …
+tags: SCONJ NOUN VERB VERB PUNCT
+tagged_tokens: Şayet_SCONJ sokakta_NOUN dolaşmak_VERB niyetindeysen_VERB …_PUNCT
+
+B) tokens: Eğer caddede gezmek arzu ediyorsan …
+tags: SCONJ NOUN VERB VERB PUNCT
+tagged_tokens: Eğer_SCONJ caddede_NOUN gezmek_VERB arzu ediyorsan_VERB …_PUNCT
+
+C) tokens: Madem yolda yürümek istekliysen …
+tags: SCONJ NOUN VERB VERB PUNCT
+tagged_tokens: Madem_SCONJ yolda_NOUN yürümek_VERB istekliysen_VERB …_PUNCTD) tokens: Eğer sokağa çıkmak istiyorsan …
+tags: SCONJ NOUN VERB VERB PUNCT
+tagged_tokens: Eğer_SCONJ sokağa_NOUN çıkmak_VERB istiyorsan_VERB …_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bugün Ziya ile görüştüğün anda …
+tags: NOUN PROPN ADP VERB NOUN PUNCT
+tagged_tokens: Bugün_NOUN Ziya ile_PROPN görüştüğün_VERB anda_NOUN …_PUNCT
+
+B) tokens: Bugün Ziya’la muhabbet ettiğin vakit …
+tags: NOUN PROPN VERB NOUN PUNCT
+tagged_tokens: Bugün_NOUN Ziya’la_PROPN muhabbet ettiğin_VERB vakit_NOUN …_PUNCT
+
+C) tokens: Bugün Ziya ile sohbet ettiğin esnada …
+tags: NOUN PROPN ADP VERB NOUN PUNCT
+tagged_tokens: Bugün_NOUN Ziya ile_PROPN sohbet ettiğin_VERB esnada_NOUN …_PUNCTD) tokens: Bugün Ziya’yla buluştuğun zaman …
+tags: NOUN PROPN VERB NOUN PUNCT
+tagged_tokens: Bugün_NOUN Ziya’yla_PROPN buluştuğun_VERB zaman_NOUN …_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Evime_NOUN vardım_VERB ,_PUNCT sırtımdaki_NOUN çıkarıp_VERB …_PUNCT
+tags: NOUN VERB PUNCT NOUN VERB PUNCT
+tagged_tokens: Evime_NOUN vardım_VERB ,_PUNCT sırtımdaki_NOUN çıkarıp_VERB …_PUNCT
+
+B) tokens: Yuvama_NOUN döndüm_VERB ,_PUNCT eşyamı_NOUN kapıp_VERB …_PUNCT
+tags: NOUN VERB PUNCT NOUN VERB PUNCT
+tagged_tokens: Yuvama_NOUN döndüm_VERB ,_PUNCT eşyamı_NOUN kapıp_VERB …_PUNCT
+
+C) tokens: Konuta_NOUN ulaştım_VERB ,_PUNCT çapamı_NOUN alıp_VERB …_PUNCT
+tags: NOUN VERB PUNCT NOUN VERB PUNCT
+tagged_tokens: Konuta_NOUN ulaştım_VERB ,_PUNCT çapamı_NOUN alıp_VERB …_PUNCTD) tokens: Eve gittim , çantamı aldım …
+tags: NOUN VERB PUNCT NOUN VERB PUNCT
+tagged_tokens: Eve_NOUN gittim_VERB ,_PUNCT çantamı_NOUN aldım_VERB …_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Erdem benden çiçek aldı .
+tags: PROPN PRON NOUN VERB PUNCT
+tagged_tokens: Erdem_PROPN benden_PRON çiçek_NOUN aldı_VERB ._PUNCT
+
+B) tokens: Emre yanıma gül getirdi .
+tags: PROPN PRON NOUN VERB PUNCT
+tagged_tokens: Emre_PROPN yanıma_PRON gül_NOUN getirdi_VERB ._PUNCT
+
+C) tokens: Deniz bana karanfil götürdü .
+tags: PROPN PRON NOUN VERB PUNCT
+tagged_tokens: Deniz_PROPN bana_PRON karanfil_NOUN götürdü_VERB ._PUNCTD) tokens: Aydın bana çiçek getirdi .
+tags: PROPN PRON NOUN VERB PUNCT
+tagged_tokens: Aydın_PROPN bana_PRON çiçek_NOUN getirdi_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bu anahtar hanginizin olacak ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Bu_DET anahtar_NOUN hanginizin_PRON olacak_VERB ?_PUNCT
+
+B) tokens: Hanginiz bu anahtara sahip olmak istiyor ?
+tags: PRON DET NOUN VERB VERB PUNCT
+tagged_tokens: Hanginiz_PRON bu_DET anahtara_NOUN sahip_VERB olmak_VERB istiyor_VERB ?_PUNCT
+
+C) tokens: Bu anahtarı kiminize teslim edeyim ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Bu_DET anahtarı_NOUN kiminize_PRON teslim_VERB edeyim_VERB ?_PUNCTD) tokens: Şu anahtarı hanginize vereyim ?
+tags: DET NOUN PRON VERB PUNCT
+tagged_tokens: Şu_DET anahtarı_NOUN hanginize_PRON vereyim_VERB ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Havada bir kedi mevcut .
+tags: NOUN DET NOUN ADJ PUNCT
+tagged_tokens: Havada_NOUN bir_DET kedi_NOUN mevcut_ADJ ._PUNCT
+
+B) tokens: Orada bir it bulunuyor .
+tags: ADV DET NOUN AUX PUNCT
+tagged_tokens: Orada_ADV bir_DET it_NOUN bulunuyor_AUX ._PUNCT
+
+C) tokens: Haricinde bir köpek söz konusu .
+tags: NOUN DET NOUN ADJ PUNCT
+tagged_tokens: Haricinde_NOUN bir_DET köpek_NOUN söz konusu_ADJ ._PUNCTD) tokens: Dışarda bir köpek var .
+tags: NOUN DET NOUN ADJ PUNCT
+tagged_tokens: Dışarda_NOUN bir_DET köpek_NOUN var_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Londra'ya mı seyahat edeceksiniz ?
+tags: PROPN AUX VERB PUNCT
+tagged_tokens: Londra'ya_PROPN mı_AUX seyahat_VERB edeceksiniz_VERB ?_PUNCT
+
+B) tokens: Londra'ya mı yolculuk yapacaksınız ?
+tags: PROPN AUX NOUN VERB PUNCT
+tagged_tokens: Londra'ya_PROPN mı_AUX yolculuk_NOUN yapacaksınız_VERB ?_PUNCT
+
+C) tokens: Londra'ya mı varacaksınız ?
+tags: PROPN AUX VERB PUNCT
+tagged_tokens: Londra'ya_PROPN mı_AUX varacaksınız_VERB ?_PUNCTD) tokens: Londra’ya mı gideceksiniz ?
+tags: PROPN AUX VERB PUNCT
+tagged_tokens: Londra’ya_PROPN mı_AUX gideceksiniz_VERB ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Londra’ya gidecek misin ?
+tags: PROPN VERB AUX PUNCT
+tagged_tokens: Londra’ya_PROPN gidecek_VERB misin_AUX ?_PUNCT
+
+B) tokens: Londra’ya gidiyor musunuz ?
+tags: PROPN VERB AUX PUNCT
+tagged_tokens: Londra’ya_PROPN gidiyor_VERB musunuz_AUX ?_PUNCT
+
+C) tokens: Londra’ya varacak mısınız ?
+tags: PROPN VERB AUX PUNCT
+tagged_tokens: Londra’ya_PROPN varacak_VERB mısınız_AUX ?_PUNCTD) tokens: Londra’ya gidecek misiniz ?
+tags: PROPN VERB AUX PUNCT
+tagged_tokens: Londra’ya_PROPN gidecek_VERB misiniz_AUX ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Ahmet’te de şunlardan bir tanesi mevcut .
+tags: PROPN ADV PRON NUM NOUN ADJ PUNCT
+tagged_tokens: Ahmet’te_PROPN de_ADV şunlardan_PRON bir_NUM tanesi_NOUN mevcut_ADJ ._PUNCT
+
+B) tokens: Ahmet’te de onlardan bir nesne bulunuyor .
+tags: PROPN ADV PRON NUM NOUN ADJ PUNCT
+tagged_tokens: Ahmet’te_PROPN de_ADV onlardan_PRON bir_NUM nesne_NOUN bulunuyor_ADJ ._PUNCT
+
+C) tokens: Ahmet’te de bunlara benzeyen bir adet varlık sahip .
+tags: PROPN ADV PRON VERB NUM NOUN ADJ PUNCT
+tagged_tokens: Ahmet’te_PROPN de_ADV bunlara_PRON benzeyen_VERB bir_NUM adet_NOUN varlık_NOUN sahip_ADJ ._PUNCTD) tokens: Ahmet’te de bunlardan bir tane var .
+tags: PROPN ADV PRON NUM NOUN ADJ PUNCT
+tagged_tokens: Ahmet’te_PROPN de_ADV bunlardan_PRON bir_NUM tane_NOUN var_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Turgut ne yapsın ki ?
+tags: PROPN PRON VERB ADV PUNCT
+tagged_tokens: Turgut_PROPN ne_PRON yapsın_VERB ki_ADV ?_PUNCT
+
+B) tokens: Turgut nereden bilsin ki ?
+tags: PROPN ADV VERB ADV PUNCT
+tagged_tokens: Turgut_PROPN nereden_ADV bilsin_VERB ki_ADV ?_PUNCT
+
+C) tokens: Turgut nasıl öğrensin ki ?
+tags: PROPN ADV VERB ADV PUNCT
+tagged_tokens: Turgut_PROPN nasıl_ADV öğrensin_VERB ki_ADV ?_PUNCTD) tokens: Turgut nasıl bilsin ki ?
+tags: PROPN ADV VERB ADV PUNCT
+tagged_tokens: Turgut_PROPN nasıl_ADV bilsin_VERB ki_ADV ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Hepinizin burada bulunduğunu fark etmemiştim .
+tags: PRON PRON AUX VERB PUNCT
+tagged_tokens: Hepinizin_PRON burada_PRON bulunduğunu_AUX fark etmemiştim_VERB ._PUNCT
+
+B) tokens: Her birinizin burada var olduğunu anlamamıştım .
+tags: PRON PRON AUX VERB PUNCT
+tagged_tokens: Her birinizin_PRON burada_PRON var olduğunu_AUX anlamamıştım_VERB ._PUNCT
+
+C) tokens: Tümünüzün burada mevcut olduğunu kavrayamamıştım .
+tags: PRON PRON AUX VERB PUNCT
+tagged_tokens: Tümünüzün_PRON burada_PRON mevcut olduğunu_AUX kavrayamamıştım_VERB ._PUNCTD) tokens: Herkesin burada olduğunu bilmiyordum .
+tags: PRON PRON AUX VERB PUNCT
+tagged_tokens: Herkesin_PRON burada_PRON olduğunu_AUX bilmiyordum_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Zeki babasına onbeş yıl boyunca ulaşamamış , annesini asla .
+tags: PROPN NOUN NUM NOUN ADV VERB PUNCT NOUN ADV PUNCT
+tagged_tokens: Zeki_PROPN babasına_NOUN onbeş_NUM yıl_NOUN boyunca_ADV ulaşamamış_VERB ,_PUNCT annesini_NOUN asla_ADV ._PUNCT
+
+B) tokens: Zeki babasını onbeş yıldan beri görememiş , annesine hiç .
+tags: PROPN NOUN NUM NOUN POST VERB PUNCT NOUN ADV PUNCT
+tagged_tokens: Zeki_PROPN babasını_NOUN onbeş_NUM yıldan_POST beri_POST görememiş_VERB ,_PUNCT annesine_NOUN hiç_ADV ._PUNCT
+
+C) tokens: Zeki babasına onbeş yıl süreyle bakamamış , annesine meydan .
+tags: PROPN NOUN NUM NOUN NOUN VERB PUNCT NOUN NOUN PUNCT
+tagged_tokens: Zeki_PROPN babasına_NOUN onbeş_NUM yıl_NOUN süreyle_NOUN bakamamış_VERB ,_PUNCT annesine_NOUN meydan_NOUN ._PUNCTD) tokens: Zeki babasını onbeş yıldır görmüyormuş , annesini değil .
+tags: PROPN NOUN NUM NOUN VERB PUNCT NOUN AUX PUNCT
+tagged_tokens: Zeki_PROPN babasını_NOUN onbeş_NUM yıldır_NOUN görmüyormuş_VERB ,_PUNCT annesini_NOUN değil_AUX ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Eski Zeki’nin ablaları meslekten çekilmiş .
+tags: ADJ PROPN NOUN NOUN VERB PUNCT
+tagged_tokens: Eski_ADJ Zeki’nin_PROPN ablaları_NOUN meslekten_NOUN çekilmiş_VERB ._PUNCT
+
+B) tokens: Evvel Zeki’nin abisi emeklilikten vazgeçmiş .
+tags: ADV PROPN NOUN NOUN VERB PUNCT
+tagged_tokens: Evvel_ADV Zeki’nin_PROPN abisi_NOUN emeklilikten_NOUN vazgeçmiş_VERB ._PUNCT
+
+C) tokens: Önceden Zeki’nin yaşıtı görevden istifa etmiş .
+tags: ADV PROPN NOUN NOUN VERB PUNCT
+tagged_tokens: Önceden_ADV Zeki’nin_PROPN yaşıtı_NOUN görevden_NOUN istifa_VERB etmiş_PUNCT ._PUNCTD) tokens: Dün Zeki’nin ablası işten ayrılmış .
+tags: NOUN PROPN NOUN NOUN VERB PUNCT
+tagged_tokens: Dün_NOUN Zeki’nin_PROPN ablası_NOUN işten_NOUN ayrılmış_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Kankalarımızla şurada görüşeceğiz .
+tags: NOUN PRON VERB PUNCT
+tagged_tokens: Kankalarımızla_NOUN şurada_PRON görüşeceğiz_VERB ._PUNCT
+
+B) tokens: Yakınlarımızla orada toplanacağız .
+tags: NOUN PRON VERB PUNCT
+tagged_tokens: Yakınlarımızla_NOUN orada_PRON toplanacağız_VERB ._PUNCT
+
+C) tokens: Dostlarımızla burada kaynaşacağız .
+tags: NOUN PRON VERB PUNCT
+tagged_tokens: Dostlarımızla_NOUN burada_PRON kaynaşacağız_VERB ._PUNCTD) tokens: Arkadaşlarımızla burada buluşacağız .
+tags: NOUN PRON VERB PUNCT
+tagged_tokens: Arkadaşlarımızla_NOUN burada_PRON buluşacağız_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Kıyafetleri hep çamaşır makinesinin içerisinde unutmuşum .
+tags: NOUN ADV NOUN ADP VERB PUNCT
+tagged_tokens: Kıyafetleri_NOUN hep_ADV çamaşır makinesinin_NOUN içerisinde_ADP unutmuşum_VERB ._PUNCT
+
+B) tokens: Elbiseleri yine yıkama makinesinin içinde koymuşum .
+tags: NOUN ADV NOUN ADP VERB PUNCT
+tagged_tokens: Elbiseleri_NOUN yine_ADV yıkama makinesinin_NOUN içinde_ADP koymuşum_VERB ._PUNCT
+
+C) tokens: Giysileri gene yıkayıcı makinesinin içinde bırakmışım .
+tags: NOUN ADV NOUN ADP VERB PUNCT
+tagged_tokens: Giysileri_NOUN gene_ADV yıkayıcı makinesinin_NOUN içinde_ADP bırakmışım_VERB ._PUNCTD) tokens: Çamaşırları gene makinanın içinde bırakmışım .
+tags: NOUN ADV NOUN ADP VERB PUNCT
+tagged_tokens: Çamaşırları_NOUN gene_ADV makinanın_NOUN içinde_ADP bırakmışım_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Kitaplarını sürekli zeminde unutuyorsun .
+tags: NOUN ADV NOUN VERB PUNCT
+tagged_tokens: Kitaplarını_NOUN sürekli_ADV zeminde_NOUN unutuyorsun_VERB ._PUNCT
+
+B) tokens: Yayınları daima yerde terkediyorsun .
+tags: NOUN ADV NOUN VERB PUNCT
+tagged_tokens: Yayınları_NOUN daima_ADV yerde_NOUN terkediyorsun_VERB ._PUNCT
+
+C) tokens: Eserleri her zaman zeminde bırakıyorsun .
+tags: NOUN ADV NOUN VERB PUNCT
+tagged_tokens: Eserleri_NOUN her zaman_ADV zeminde_NOUN bırakıyorsun_VERB ._PUNCTD) tokens: Kitapları hep yerde bırakıyorsun .
+tags: NOUN ADV NOUN VERB PUNCT
+tagged_tokens: Kitapları_NOUN hep_ADV yerde_NOUN bırakıyorsun_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Onun yerine daha elverişli bir kelime bulamıyorum .
+tags: PRON NOUN ADV ADJ DET NOUN VERB PUNCT
+tagged_tokens: Onun_PRON yerine_NOUN daha_ADV elverişli_ADJ bir_DET kelime_NOUN bulamıyorum_VERB ._PUNCT
+
+B) tokens: Bunun haricinde daha yeterli bir ifade aklıma gelmiyor .
+tags: PRON NOUN ADV ADJ DET NOUN NOUN PRON VERB PUNCT
+tagged_tokens: Bunun_PRON haricinde_NOUN daha_ADV yeterli_ADJ bir_DET ifade_NOUN aklıma_NOUN gelmiyor_VERB ._PUNCT
+
+C) tokens: Bunu dışında daha uygun bir terim hatırlamıyorum .
+tags: PRON NOUN ADV ADJ DET NOUN VERB PUNCT
+tagged_tokens: Bunu_PRON dışında_NOUN daha_ADV uygun_ADJ bir_DET terim_NOUN hatırlamıyorum_VERB ._PUNCTD) tokens: Bundan daha uygun bir sözcük düşünemiyorum .
+tags: PRON ADV ADJ DET NOUN VERB PUNCT
+tagged_tokens: Bundan_PRON daha_ADV uygun_ADJ bir_DET sözcük_NOUN düşünemiyorum_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bu yaratıkların içinde en acımasızı aslanmış .
+tags: DET NOUN ADP ADV ADJ NOUN PUNCT
+tagged_tokens: Bu_DET yaratıkların_NOUN içinde_ADP en_ADV acımasızı_ADJ aslanmış_NOUN ._PUNCT
+
+B) tokens: Bu canlıların ortasında en gaddarı çitamış .
+tags: DET NOUN ADP ADV ADJ NOUN PUNCT
+tagged_tokens: Bu_DET canlıların_NOUN ortasında_ADP en_ADV gaddarı_ADJ çitamış_NOUN ._PUNCT
+
+C) tokens: Bu varlıkların arasında en zalimi parsmış .
+tags: DET NOUN ADP ADV ADJ NOUN PUNCT
+tagged_tokens: Bu_DET varlıkların_NOUN arasında_ADP en_ADV zalimi_ADJ parsmış_NOUN ._PUNCTD) tokens: Bu hayvanların arasında en vahşisi kaplanmış .
+tags: DET NOUN ADP ADV NOUN NOUN PUNCT
+tagged_tokens: Bu_DET hayvanların_NOUN arasında_ADP en_ADV vahşisi_NOUN kaplanmış_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Vatandaş politikacıların birçoğuna itimat etmiyor .
+tags: NOUN NOUN DET VERB PUNCT
+tagged_tokens: Vatandaş_NOUN politikacıların_NOUN birçoğuna_DET itimat etmiyor_VERB ._PUNCT
+
+B) tokens: Millet siyasetçilerin pek çoğuna inanmıyor .
+tags: NOUN NOUN DET VERB PUNCT
+tagged_tokens: Millet_NOUN siyasetçilerin_NOUN pek çoğuna_DET inanmıyor_VERB ._PUNCT
+
+C) tokens: Toplum politikacıların ekseriyetine güven duymuyor .
+tags: NOUN NOUN DET VERB PUNCT
+tagged_tokens: Toplum_NOUN politikacıların_NOUN ekseriyetine_DET güven duymuyor_VERB ._PUNCTD) tokens: Halk politikacıların çoğuna güvenmiyor .
+tags: NOUN NOUN DET VERB PUNCT
+tagged_tokens: Halk_NOUN politikacıların_NOUN çoğuna_DET güvenmiyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bugün Ziya ile görüştüğünüzde bana arayın .
+tags: NOUN PROPN ADP VERB ADP PRON VERB PUNCT
+tagged_tokens: Bugün_NOUN Ziya_PROPN ile_ADP görüştüğünüz_VERB de_ADP bana_PRON arayın_VERB ._PUNCT
+
+B) tokens: Bugün Ziya’ya ulaştığınız an bana çalın .
+tags: NOUN PROPN ADP VERB NOUN PRON VERB PUNCT
+tagged_tokens: Bugün_NOUN Ziya’ya_PROPN ulaştığınız_VERB an_NOUN bana_PRON çalın_VERB ._PUNCT
+
+C) tokens: Bugün Ziya’dan haber aldığınız vakit bana iletin .
+tags: NOUN PROPN ABL NOUN VERB NOUN PRON VERB PUNCT
+tagged_tokens: Bugün_NOUN Ziya’dan_PROPN haber_NOUN aldığınız_VERB vakit_NOUN bana_PRON iletin_VERB ._PUNCTD) tokens: Bugün Ziya’yla buluştuğunuz zaman bana telefon edin .
+tags: NOUN PROPN VERB ADP PRON NOUN VERB PUNCT
+tagged_tokens: Bugün_NOUN Ziya’yla_PROPN buluştuğunuz_VERB zaman_ADP bana_PRON telefon_NOUN edin_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Biletleri satın aldıysan dışarı girmeyelim .
+tags: NOUN VERB NOUN PART VERB PUNCT
+tagged_tokens: Biletleri_NOUN satın_VERB aldıysan_PART dışarı_NOUN girmeyelim_VERB ._PUNCT
+
+B) tokens: Biletleri edindiysen içerdekini girebiliriz .
+tags: NOUN VERB ADJ VERB PUNCT
+tagged_tokens: Biletleri_NOUN edindiysen_VERB içerdekini_ADJ girebiliriz_VERB ._PUNCT
+
+C) tokens: Biletleri temin ettiysen içerinin görünelim .
+tags: NOUN VERB CONJ ADJ VERB PUNCT
+tagged_tokens: Biletleri_NOUN temin_VERB ettiysen_CONJ içerinin_ADJ görünelim_VERB ._PUNCTD) tokens: Biletleri aldıysan içeri girelim .
+tags: NOUN VERB NOUN VERB PUNCT
+tagged_tokens: Biletleri_NOUN aldıysan_VERB içeri_NOUN girelim_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: hatalıysa mı
+tags: ADJ AUX
+tagged_tokens: hatalıysa_ADJ mı_AUX
+
+B) tokens: kusurluysa mı
+tags: ADJ AUX
+tagged_tokens: kusurluysa_ADJ mı_AUX
+
+C) tokens: suçluysa mı
+tags: ADJ AUX
+tagged_tokens: suçluysa_ADJ mı_AUXD) tokens: suçlulukla mı
+tags: NOUN AUX
+tagged_tokens: suçlulukla_NOUN mı_AUX
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: metinlerimde
+tags: NOUN
+tagged_tokens: metinlerimde_NOUN
+
+B) tokens: yazılarımde
+tags: NOUN
+tagged_tokens: yazılarımde_NOUN
+
+C) tokens: sözcüklerimde
+tags: NOUN
+tagged_tokens: sözcüklerimde_NOUND) tokens: dizgelerimde
+tags: NOUN
+tagged_tokens: dizgelerimde_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: yapısallaştırılmamış
+tags: VERB
+tagged_tokens: yapısallaştırılmamış_VERB
+
+B) tokens: biçimlendirilmemiş
+tags: VERB
+tagged_tokens: biçimlendirilmemiş_VERB
+
+C) tokens: düzenlenmemiş
+tags: VERB
+tagged_tokens: düzenlenmemiş_VERBD) tokens: yapılaştırılmamış
+tags: VERB
+tagged_tokens: yapılaştırılmamış_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Gidemem de .
+tags: VERB ADV PUNCT
+tagged_tokens: Gidemem_VERB de_ADV ._PUNCT
+
+B) tokens: Gidiveririm de .
+tags: VERB ADV PUNCT
+tagged_tokens: Gidiveririm_VERB de_ADV ._PUNCT
+
+C) tokens: Gidiyorum da .
+tags: VERB ADV PUNCT
+tagged_tokens: Gidiyorum_VERB da_ADV ._PUNCTD) tokens: Gidebilirim de .
+tags: VERB ADV PUNCT
+tagged_tokens: Gidebilirim_VERB de_ADV ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bağlantı kurulamaya da yetiyordunuz ?
+tags: VERB ADV AUX AUX PUNCT
+tagged_tokens: Bağlantı_VERB kurulamaya_VERB da_ADV yetiyor_AUX dunuz_AUX ?_PUNCT
+
+B) tokens: Konuşturulamaya da inanıyor muydunuz ?
+tags: VERB ADV AUX AUX PUNCT
+tagged_tokens: Konuşturulamaya_VERB da_ADV inanıyor_AUX muydunuz_AUX ?_PUNCT
+
+C) tokens: Yönlendirilemeye de hakim miydiniz ?
+tags: VERB ADV AUX AUX PUNCT
+tagged_tokens: Yönlendirilemeye_VERB da_ADV hakim_AUX miydiniz_AUX ?_PUNCTD) tokens: Görüştürülemeye de biliyor muydunuz ?
+tags: VERB ADV AUX AUX PUNCT
+tagged_tokens: Görüştürülemeye_VERB de_ADV biliyor_AUX muydunuz_AUX ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: çocuklarının
+tags: NOUN
+tagged_tokens: çocuklarının_NOUN
+
+B) tokens: evlatlarına
+tags: NOUN
+tagged_tokens: evlatlarına_NOUN
+
+C) tokens: yavrularına
+tags: NOUN
+tagged_tokens: yavrularına_NOUND) tokens: çocuklarına
+tags: NOUN
+tagged_tokens: çocuklarına_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Yerlerimizdeymişler .
+tags: NOUN PUNCT
+tagged_tokens: Yerlerimizdeymişler_NOUN ._PUNCT
+
+B) tokens: Konutlarımızdaymişler .
+tags: NOUN PUNCT
+tagged_tokens: Konutlarımızdaymişler_NOUN ._PUNCT
+
+C) tokens: Mekanlarımızdaymişler .
+tags: NOUN PUNCT
+tagged_tokens: Mekanlarımızdaymişler_NOUN ._PUNCTD) tokens: Evlerimizdeymişler .
+tags: NOUN PUNCT
+tagged_tokens: Evlerimizdeymişler_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Yerleşeceğim .
+tags: VERB PUNCT
+tagged_tokens: Yerleşeceğim_VERB ._PUNCT
+
+B) tokens: Konuşlanacağım .
+tags: VERB PUNCT
+tagged_tokens: Konuşlanacağım_VERB ._PUNCT
+
+C) tokens: Oturaklanacağım .
+tags: VERB PUNCT
+tagged_tokens: Oturaklanacağım_VERB ._PUNCTD) tokens: Oturacağım .
+tags: VERB PUNCT
+tagged_tokens: Oturacağım_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bu esnada evi terk etti .
+tags: DET NOUN NOUN VERB PUNCT
+tagged_tokens: Bu_DET esnada_NOUN evi_NOUN terk_VERB etti_PUNCT ._PUNCT
+
+B) tokens: O sırada evden ayrıldı .
+tags: PRON NOUN NOUN VERB PUNCT
+tagged_tokens: O_PRON sırada_NOUN evden_NOUN ayrıldı_VERB ._PUNCT
+
+C) tokens: Şu halde evden koptu .
+tags: DET NOUN NOUN VERB PUNCT
+tagged_tokens: Şu_DET halde_NOUN evden_NOUN koptu_VERB ._PUNCTD) tokens: Şu anda evden çıktı .
+tags: DET NOUN NOUN VERB PUNCT
+tagged_tokens: Şu_DET anda_NOUN evden_NOUN çıktı_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Yıkılıp gitmemişti .
+tags: VERB AUX PUNCT
+tagged_tokens: Yıkılıp_VERB gitmemişti_AUX ._PUNCT
+
+B) tokens: Yıkım görmemişti .
+tags: NOUN AUX PUNCT
+tagged_tokens: Yıkım_NOUN görmemişti_AUX ._PUNCT
+
+C) tokens: Yıkılmaya dayanmıştı .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Yıkılmaya_VERB dayanmıştı_NOUN ._PUNCTD) tokens: Yıkılmamıştı .
+tags: VERB PUNCT
+tagged_tokens: Yıkılmamıştı_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Çarpıştırılmayabilme.
+tags: VERB PUNCT
+tagged_tokens: Çarpıştırılmayabilme_VERB ._PUNCT
+
+B) tokens: Yumuştatılmayabilme.
+tags: VERB PUNCT
+tagged_tokens: Yumuştatılmayabilme_VERB ._PUNCT
+
+C) tokens: Kırıştırılmayabilme.
+tags: VERB PUNCT
+tagged_tokens: Kırıştırılmayabilme_VERB ._PUNCTD) tokens: Döğüştürülmeyebiliyor .
+tags: VERB PUNCT
+tagged_tokens: Döğüştürülmeyebiliyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: uymakla
+tags: VERB
+tagged_tokens: uymakla_VERB
+
+B) tokens: benzemekle
+tags: VERB
+tagged_tokens: benzemekle_VERB
+
+C) tokens: katlanmakla
+tags: VERB
+tagged_tokens: katlanmakla_VERBD) tokens: sevmekle
+tags: VERB
+tagged_tokens: sevmekle_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: bakdırmadığından
+tags: VERB
+tagged_tokens: bakdırmadığından_VERB
+
+B) tokens: baktırtmadığından
+tags: VERB
+tagged_tokens: baktırtmadığından_VERB
+
+C) tokens: bakıltmadığından
+tags: VERB
+tagged_tokens: bakıltmadığından_VERBD) tokens: baktırmadığından
+tags: VERB
+tagged_tokens: baktırmadığından_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bitirdin .
+tags: VERB PUNCT
+tagged_tokens: Bitirdin_VERB ._PUNCT
+
+B) tokens: Tükettin .
+tags: VERB PUNCT
+tagged_tokens: Tükettin_VERB ._PUNCT
+
+C) tokens: Tamamladın .
+tags: VERB PUNCT
+tagged_tokens: Tamamladın_VERB ._PUNCTD) tokens: Geçtin .
+tags: VERB PUNCT
+tagged_tokens: Geçtin_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Tamamlamamıştır .
+tags: VERB PUNCT
+tagged_tokens: Tamamlamamıştır_VERB ._PUNCT
+
+B) tokens: Bitirmemiştir .
+tags: VERB PUNCT
+tagged_tokens: Bitirmemiştir_VERB ._PUNCT
+
+C) tokens: Sonlandıramamıştır .
+tags: VERB PUNCT
+tagged_tokens: Sonlandıramamıştır_VERB ._PUNCTD) tokens: Bitirememiştir .
+tags: VERB PUNCT
+tagged_tokens: Bitirememiştir_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Okuyabiliyormuş .
+tags: VERB PUNCT
+tagged_tokens: Okuyabiliyormuş_VERB ._PUNCT
+
+B) tokens: Okuyabileli .
+tags: VERB PUNCT
+tagged_tokens: Okuyabileli_VERB ._PUNCT
+
+C) tokens: Okuyabilirmiş .
+tags: VERB PUNCT
+tagged_tokens: Okuyabilirmiş_VERB ._PUNCTD) tokens: Okuyabilecekmiş .
+tags: VERB PUNCT
+tagged_tokens: Okuyabilecekmiş_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Yaz_NOUN Fransa'daydık_PROPN ._PUNCT
+tags: NOUN PROPN PUNCT
+tagged_tokens: Yaz_NOUN Fransa'daydık_PROPN ._PUNCT
+
+B) tokens: Yaz mevsimi_NOUN Paris'te_PROPN idik_AUX ._PUNCT
+tags: NOUN PROPN AUX PUNCT
+tagged_tokens: Yaz mevsimi_NOUN Paris'te_PROPN idik_AUX ._PUNCT
+
+C) tokens: Yaz aylarında_NOUN Paris'teymişiz_PROPN ._PUNCT
+tags: NOUN PROPN PUNCT
+tagged_tokens: Yaz aylarında_NOUN Paris'teymişiz_PROPN ._PUNCTD) tokens: Yazın Paris'teydik .
+tags: NOUN PROPN PUNCT
+tagged_tokens: Yazın_NOUN Paris'teydik_PROPN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Elbette saati mevcuttur .
+tags: ADV NOUN ADJ PUNCT
+tagged_tokens: Elbette_ADV saati_NOUN mevcuttur_ADJ ._PUNCT
+
+B) tokens: Kuşkusuz anı bulunur .
+tags: ADV NOUN ADJ PUNCT
+tagged_tokens: Kuşkusuz_ADV anı_NOUN bulunur_ADJ ._PUNCT
+
+C) tokens: Şüphesiz zamanı meydana gelir .
+tags: ADV NOUN ADJ PUNCT
+tagged_tokens: Şüphesiz_ADV zamanı_NOUN meydana gelir_ADJ ._PUNCTD) tokens: Mutlaka zamanı vardır .
+tags: ADV NOUN ADJ PUNCT
+tagged_tokens: Mutlaka_ADV zamanı_NOUN vardır_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: kurulabilmek
+tags: VERB
+tagged_tokens: kurulabilmek_VERB
+
+B) tokens: yerleştirebilmek
+tags: VERB
+tagged_tokens: yerleştirebilmek_VERB
+
+C) tokens: yerine getirebilmek
+tags: VERB
+tagged_tokens: yerine getirebilmek_VERBD) tokens: oturabilmek
+tags: VERB
+tagged_tokens: oturabilmek_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Düşünürdü .
+tags: VERB AUX PUNCT
+tagged_tokens: Düşünürdü_VERB ._PUNCT
+
+B) tokens: Yayar idi .
+tags: VERB AUX PUNCT
+tagged_tokens: Yayar_VERB idi_AUX ._PUNCT
+
+C) tokens: Hayran olurdu .
+tags: VERB AUX PUNCT
+tagged_tokens: Hayran_VERB olurdu_AUX ._PUNCTD) tokens: Sever idi .
+tags: VERB AUX PUNCT
+tagged_tokens: Sever_VERB idi_AUX ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: talebe değillerdi .
+tags: NOUN AUX PUNCT
+tagged_tokens: talebe_NOUN değillerdi_AUX ._PUNCT
+
+B) tokens: öğrenci idiler .
+tags: NOUN AUX PUNCT
+tagged_tokens: öğrenci_NOUN idiler_AUX ._PUNCT
+
+C) tokens: talebe idiler .
+tags: NOUN AUX PUNCT
+tagged_tokens: talebe_NOUN idiler_AUX ._PUNCTD) tokens: öğrenci değillerdi .
+tags: NOUN AUX PUNCT
+tagged_tokens: öğrenci_NOUN değillerdi_AUX ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: hane-i saadet yoklarmış .
+tags: NN NOUN ADJ PUNCT
+tagged_tokens: hane-i_NN saadet_NOUN yoklarmış_ADJ ._PUNCT
+
+B) tokens: konut yokmuşlar .
+tags: NOUN AUX PUNCT
+tagged_tokens: konut_NOUN yokmuşlar_AUX ._PUNCT
+
+C) tokens: mesken yokturmuş .
+tags: NOUN AOR COP PUNCT
+tagged_tokens: mesken_NOUN yoktur_AOR_COP ._PUNCTD) tokens: evde yoklarmış .
+tags: NOUN ADJ PUNCT
+tagged_tokens: evde_NOUN yoklarmış_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Eğitmenler .
+tags: NOUN PUNCT
+tagged_tokens: Eğitmenler_NOUN ._PUNCT
+
+B) tokens: Öğreticiler .
+tags: NOUN PUNCT
+tagged_tokens: Öğreticiler_NOUN ._PUNCT
+
+C) tokens: Hocalar .
+tags: NOUN PUNCT
+tagged_tokens: Hocalar_NOUN ._PUNCTD) tokens: Öğretmenler .
+tags: NOUN PUNCT
+tagged_tokens: Öğretmenler_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Mesele çıkaracağı açık .
+tags: NOUN VERB ADJ PUNCT
+tagged_tokens: Mesele_NOUN çıkaracağı_VERB açık_ADJ ._PUNCT
+
+B) tokens: Problem ortaya koyacağı net .
+tags: NOUN VERB ADJ PUNCT
+tagged_tokens: Problem_NOUN ortaya koyacağı_VERB net_ADJ ._PUNCT
+
+C) tokens: Sıkıntı doğuracağı kesin .
+tags: NOUN VERB ADJ PUNCT
+tagged_tokens: Sıkıntı_NOUN doğuracağı_VERB kesin_ADJ ._PUNCTD) tokens: Sorun yaratacağı belli .
+tags: NOUN VERB ADJ PUNCT
+tagged_tokens: Sorun_NOUN yaratacağı_VERB belli_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Mesele çıkaran yapılar ikaz edildi .
+tags: NOUN VERB NOUN VERB PUNCT
+tagged_tokens: Mesele_NOUN çıkaran_VERB yapılar_NOUN ikaz_VERB edildi_VERB ._PUNCT
+
+B) tokens: Sıkıntı yaratan birimler kınandı .
+tags: NOUN VERB NOUN VERB PUNCT
+tagged_tokens: Sıkıntı_NOUN yaratan_VERB birimler_NOUN kınan_VERB dı_VERB ._PUNCT
+
+C) tokens: Problem oluşturan kurumlar azarlandı .
+tags: NOUN VERB NOUN VERB PUNCT
+tagged_tokens: Problem_NOUN oluşturan_VERB kurumlar_NOUN azarlan_VERB dı_VERB ._PUNCTD) tokens: Sorun yaratan kuruluşlar uyarıldı .
+tags: NOUN VERB NOUN VERB PUNCT
+tagged_tokens: Sorun_NOUN yaratan_VERB kuruluşlar_NOUN uyarıldı_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Mesele neden olmaktansa neticeleri benimsedi .
+tags: NOUN VERB VERB NOUN VERB PUNCT
+tagged_tokens: Mesele_NOUN neden_olmaktansa_VERB neticeleri_NOUN benimsedi_VERB ._PUNCT
+
+B) tokens: Problem sebep olmaktansa akıbetleri onayladı .
+tags: NOUN VERB VERB NOUN VERB PUNCT
+tagged_tokens: Problem_NOUN sebep_olmaktansa_VERB akıbetleri_NOUN onayladı_VERB ._PUNCT
+
+C) tokens: Sıkıntı yol açmaktansa sonlarını tasdik etti .
+tags: NOUN VERB VERB NOUN VERB PUNCT
+tagged_tokens: Sıkıntı_NOUN yol_açmaktansa_VERB sonlarını_NOUN tasdik_etti_VERB ._PUNCTD) tokens: Sorun yaratmaktansa sonuçları kabullendi .
+tags: NOUN VERB NOUN VERB PUNCT
+tagged_tokens: Sorun_NOUN yaratmaktansa_VERB sonuçları_NOUN kabullendi_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: yürümek için
+tags: VERB ADP
+tagged_tokens: yürümek_VERB için_ADP
+
+B) tokens: sürmekte için
+tags: VERB ADP
+tagged_tokens: sürmekte_VERB için_ADP
+
+C) tokens: ilerlemek için
+tags: VERB ADP
+tagged_tokens: ilerlemek_VERB için_ADPD) tokens: koşmak için
+tags: VERB ADP
+tagged_tokens: koşmak_VERB için_ADP
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: koşturmak için
+tags: VERB ADP
+tagged_tokens: koşturmak_VERB için_ADP
+
+B) tokens: yürümek için
+tags: VERB ADP
+tagged_tokens: yürümek_VERB için_ADP
+
+C) tokens: sürat yapmak için
+tags: VERB ADP
+tagged_tokens: sürat yapmak_VERB için_ADPD) tokens: koşmak için
+tags: VERB ADP
+tagged_tokens: koşmak_VERB için_ADP
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: yürümem için
+tags: VERB ADP
+tagged_tokens: yürümem_VERB için_ADP
+
+B) tokens: koşum için
+tags: NOUN ADP
+tagged_tokens: koşum_NOUN için_ADP
+
+C) tokens: fırlamam için
+tags: VERB ADP
+tagged_tokens: fırlamam_VERB için_ADPD) tokens: koşmam için
+tags: VERB ADP
+tagged_tokens: koşmam_VERB için_ADP
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Ayrılmayı sabırsızlanıyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Ayrılmayı_VERB sabırsızlanıyor_VERB ._PUNCT
+
+B) tokens: Çıkmayı istiyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Çıkmayı_VERB istiyor_VERB ._PUNCT
+
+C) tokens: Gidişi özlüyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Gidişi_VERB özlüyor_VERB ._PUNCTD) tokens: Gitmeyi bekliyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Gitmeyi_VERB bekliyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Gidişinizi bekliyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Gidişinizi_VERB bekliyor_VERB ._PUNCT
+
+B) tokens: Çıkmanızı umuyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Çıkmanızı_VERB umuyor_VERB ._PUNCT
+
+C) tokens: Ayrılmanızı diliyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Ayrılmanızı_VERB diliyor_VERB ._PUNCTD) tokens: Gitmenizi bekliyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Gitmenizi_VERB bekliyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Müzik yapmanı severim .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Müzik_NOUN yapmanı_VERB severim_VERB ._PUNCT
+
+B) tokens: Notalar söylemeni beğenirim .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Notalar_NOUN söylemeni_VERB beğenirim_VERB ._PUNCT
+
+C) tokens: Melodi okumanı isterim .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Melodi_NOUN okumanı_VERB isterim_VERB ._PUNCTD) tokens: Şarkı söylemene bayılır .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Şarkı_NOUN söylemene_VERB bayılır_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Türkü söylemekten hoşlanır .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Türkü_NOUN söylemekten_VERB hoşlanır_VERB ._PUNCT
+
+B) tokens: Ezgi seslendirmeye bayram eder .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Ezgi_NOUN seslendirmeye_VERB bayram_VERB eder_VERB ._PUNCT
+
+C) tokens: Nakarat okumaya düşkündür .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Nakarat_NOUN okumaya_VERB düşkün_VERB dür_VERB ._PUNCTD) tokens: Şarkı söylemeye bayılır .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Şarkı_NOUN söylemeye_VERB bayılır_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Söylememde diretti .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Söylememde_VERB diretti_NOUN VERB ._PUNCT
+
+B) tokens: Sözümde ısrarcı oldu .
+tags: NOUN ADJ VERB PUNCT
+tagged_tokens: Sözümde_NOUN ısrarcı_ADJ oldu_VERB ._PUNCT
+
+C) tokens: Konuşmamı talep etti .
+tags: NOUN VERB VERB PUNCT
+tagged_tokens: Konuşmamı_NOUN talep_VERB etti_VERB ._PUNCTD) tokens: Konuşmamda ısrar etti .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Konuşmamda_VERB ısrar_NOUN etti_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Söylemekte diretti .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Söylemekte_VERB diretti_NOUN ._PUNCT
+
+B) tokens: Konuşmada ayak diretii .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Konuşmada_VERB ayak_NOUN diretii_VERB ._PUNCT
+
+C) tokens: Deyişmekte inat etti .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Deyişmekte_VERB inat_NOUN etti_VERB ._PUNCTD) tokens: Konuşmakta ısrar etti .
+tags: VERB NOUN VERB PUNCT
+tagged_tokens: Konuşmakta_VERB ısrar_NOUN etti_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Konuşmamdan korkmuyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Konuşmamdan_VERB korkmuyor_VERB ._PUNCT
+
+B) tokens: Söylememden çekiniyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Söylememden_VERB çekiniyor_VERB ._PUNCT
+
+C) tokens: Anlatmamdan ürker .
+tags: VERB VERB PUNCT
+tagged_tokens: Anlatmamdan_VERB ürker_VERB ._PUNCTD) tokens: Konuşmamdan korkuyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Konuşmamdan_VERB korkuyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Konuşmaya çekiniyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Konuşmaya_VERB çekiniyor_VERB ._PUNCT
+
+B) tokens: Konuşmaktan korkar .
+tags: VERB VERB PUNCT
+tagged_tokens: Konuşmaktan_VERB korkar_VERB ._PUNCT
+
+C) tokens: Konuşmaya tırsıyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Konuşmaya_VERB tırsıyor_VERB ._PUNCTD) tokens: Konuşmaktan korkuyor .
+tags: VERB VERB PUNCT
+tagged_tokens: Konuşmaktan_VERB korkuyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Doktor ilk hastanın gözüne közüne baktı , ardından sorunu kavrayamadığını belirtti .
+tags: NOUN ADV NOUN NOUN NOUN VERB PUNCT ADV NOUN VERB VERB PUNCT
+tagged_tokens: Doktor_NOUN ilk_ADV hastanın_NOUN gözüne_NOUN közüne_NOUN baktı_VERB ,_PUNCT ardından_ADV sorunu_NOUN kavrayamadığını_VERB belirtti_VERB ._PUNCT
+
+B) tokens: Doktor evvel hastanın gözüne nazı baktı , sonrasında sorunu çözemediğini ifade etti .
+tags: NOUN ADV NOUN NOUN NOUN VERB PUNCT ADV NOUN VERB VERB PUNCT
+tagged_tokens: Doktor_NOUN evvel_ADV hastanın_NOUN gözüne_NOUN nazı_NOUN baktı_VERB ,_PUNCT sonrasında_ADV sorunu_NOUN çözemediğini_VERB ifade_NOUN etti_VERB ._PUNCT
+
+C) tokens: Doktor daha önce hastanın gözüne çözüne baktı , daha sonra sorunu idrak edemediğini dile getirdi .
+tags: NOUN ADV NOUN NOUN NOUN VERB PUNCT ADV NOUN VERB VERB PUNCT
+tagged_tokens: Doktor_NOUN daha_ADV önce_ADV hastanın_NOUN gözüne_NOUN çözüne_NOUN baktı_VERB ,_PUNCT daha_ADV sonra_ADV sorunu_NOUN idrak_NOUN edemediğini_VERB dile_NOUN getirdi_VERB ._PUNCTD) tokens: Doktor önce hastanın gözüne mözüne baktı , sonra sorunu anlamadığını söyledi .
+tags: NOUN ADV NOUN NOUN NOUN VERB PUNCT ADV NOUN VERB VERB PUNCT
+tagged_tokens: Doktor_NOUN önce_ADV hastanın_NOUN gözüne_NOUN mözüne_NOUN baktı_VERB ,_PUNCT sonra_ADV sorunu_NOUN anlamadığını_VERB söyledi_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Eve zil zurna bir satın alıcı geldi , odaları tarzları gezdi .
+tags: NOUN X NOUN DET NOUN VERB PUNCT NOUN NOUN VERB PUNCT
+tagged_tokens: Eve_NOUN zil_X zurna_NOUN bir_DET satın alıcı_NOUN geldi_VERB ,_PUNCT odaları_NOUN tarzları_NOUN gezdi_VERB ._PUNCT
+
+B) tokens: Eve pat diye bir müşteri geldi , odaları tasarımları inceledi .
+tags: NOUN X NOUN DET NOUN VERB PUNCT NOUN NOUN VERB PUNCT
+tagged_tokens: Eve_NOUN pat_X diye_NOUN bir_DET müşteri_NOUN geldi_VERB ,_PUNCT odaları_NOUN tasarımları_NOUN inceledi_VERB ._PUNCT
+
+C) tokens: Eve aniden bir alım yapan geldi , odaları stilleri gördü .
+tags: NOUN X NOUN DET NOUN VERB PUNCT NOUN NOUN VERB PUNCT
+tagged_tokens: Eve_NOUN aniden_X bir_DET alım yapan_NOUN geldi_VERB ,_PUNCT odaları_NOUN stilleri_NOUN gördü_VERB ._PUNCTD) tokens: Eve çat kapı bir alıcı geldi , odaları modaları dolaştı .
+tags: NOUN X NOUN DET NOUN VERB PUNCT NOUN NOUN VERB PUNCT
+tagged_tokens: Eve_NOUN çat_X kapı_NOUN bir_DET alıcı_NOUN geldi_VERB ,_PUNCT odaları_NOUN modaları_NOUN dolaştı_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Soner’i ferdi göremedim .
+tags: PROPN PROPN VERB PUNCT
+tagged_tokens: Soner’i_PROPN ferdi_PROPN göremedim_VERB ._PUNCT
+
+B) tokens: Soner’i caner fark etmedim .
+tags: PROPN PROPN VERB PUNCT
+tagged_tokens: Soner’i_PROPN caner_PROPN fark etmedim_VERB ._PUNCT
+
+C) tokens: Soner’i tarık sezemedim .
+tags: PROPN PROPN VERB PUNCT
+tagged_tokens: Soner’i_PROPN tarık_PROPN sezemedim_VERB ._PUNCTD) tokens: Soner’i moneri görmedim .
+tags: PROPN PROPN VERB PUNCT
+tagged_tokens: Soner’i_PROPN moneri_PROPN görmedim_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Bana erkek geçmiş öğretmeniymiş biyoloji öğretmeniymiş umurumda değil .
+tags: PRON NOUN NOUN NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Bana_PRON erkek_NOUN geçmiş_NOUN öğretmeniymiş_NOUN biyoloji_NOUN öğretmeniymiş_NOUN umurumda_VERB değil_VERB ._PUNCT
+
+B) tokens: Bende kişi tarihten hocalarmış ilim hocalarmış farketmez .
+tags: PRON NOUN NOUN NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Bende_PRON kişi_NOUN tarihten_NOUN hocalarmış_NOUN ilim_NOUN hocalarmış_NOUN farketmez_VERB ._PUNCT
+
+C) tokens: Bize insan eskiden öğrencisiymiş fen öğrencisiymiş aldırmam .
+tags: PRON NOUN NOUN NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Bize_PRON insan_NOUN eskiden_NOUN öğrencisiymiş_NOUN fen_NOUN öğrencisiymiş_NOUN aldırmam_VERB ._PUNCTD) tokens: Ben adam tarih hocasıymış marih hocasıymış anlamam .
+tags: PRON NOUN NOUN NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Ben_PRON adam_NOUN tarih_NOUN hocasıymış_NOUN marih_NOUN hocasıymış_NOUN anlamam_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Ağır ağır gel .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Ağır_ADV ağır_ADV gel_VERB ._PUNCT
+
+B) tokens: Sakin sakin gel .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Sakin_ADV sakin_ADV gel_VERB ._PUNCT
+
+C) tokens: Usul usul gel .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Usul_ADV usul_ADV gel_VERB ._PUNCTD) tokens: Yavaş yavaş gel .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Yavaş_ADV yavaş_ADV gel_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Büyük büyük ağaçları yıkıyorlar .
+tags: ADJ ADJ NOUN VERB PUNCT
+tagged_tokens: Büyük_ADJ büyük_ADJ ağaçları_NOUN yıkıyorlar_VERB ._PUNCT
+
+B) tokens: İri iri ağaçları biçiyorlar .
+tags: ADJ ADJ NOUN VERB PUNCT
+tagged_tokens: İri_ADJ iri_ADJ ağaçları_NOUN biçiyorlar_VERB ._PUNCT
+
+C) tokens: Ulu ulu ağaçları doyuyorlar .
+tags: ADJ ADJ NOUN VERB PUNCT
+tagged_tokens: Ulu_ADJ ulu_ADJ ağaçları_NOUN doyuyorlar_VERB ._PUNCTD) tokens: Koca koca ağaçları kesiyorlar .
+tags: ADJ ADJ NOUN VERB PUNCT
+tagged_tokens: Koca_ADJ koca_ADJ ağaçları_NOUN kesiyorlar_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Sandık sandık kitap aktardık .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Sandık_NOUN sandık_NOUN kitap_NOUN aktardık_VERB ._PUNCT
+
+B) tokens: Koli koli kitap çektik .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Koli_NOUN koli_NOUN kitap_NOUN çektik_VERB ._PUNCT
+
+C) tokens: Kasa kasa kitap götürdük .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Kasa_NOUN kasa_NOUN kitap_NOUN götürdük_VERB ._PUNCTD) tokens: Kutu kutu kitap taşıdık .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Kutu_NOUN kutu_NOUN kitap_NOUN taşıdık_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Erkek cin mı cin .
+tags: NOUN ADJ ADV ADJ PUNCT
+tagged_tokens: Erkek_NOUN cin_ADJ mı_ADV cin_ADJ ._PUNCT
+
+B) tokens: Kişi zeki mi zeki .
+tags: NOUN ADJ ADV ADJ PUNCT
+tagged_tokens: Kişi_NOUN zeki_ADJ mi_ADV zeki_ADJ ._PUNCT
+
+C) tokens: Bey akıllı mı akıllı .
+tags: NOUN ADJ ADV ADJ PUNCT
+tagged_tokens: Bey_NOUN akıllı_ADJ mı_ADV akıllı_ADJ ._PUNCTD) tokens: Adam kurnaz mı kurnaz .
+tags: NOUN ADJ ADV ADJ PUNCT
+tagged_tokens: Adam_NOUN kurnaz_ADJ mı_ADV kurnaz_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Hoş mu hoş bir kız .
+tags: ADJ ADV ADJ DET NOUN PUNCT
+tagged_tokens: Hoş_ADJ mu_ADV hoş_ADJ bir_DET kız_NOUN ._PUNCT
+
+B) tokens: Fazla mı fazla güzel bir kız .
+tags: ADV ADV ADV DET NOUN PUNCT
+tagged_tokens: Fazla_ADV mı_ADV fazla_ADV güzel_DET kız_NOUN ._PUNCT
+
+C) tokens: Şirin mi şirin bir kız .
+tags: ADJ ADV ADJ DET NOUN PUNCT
+tagged_tokens: Şirin_ADJ mi_ADV şirin_ADJ bir_DET kız_NOUN ._PUNCTD) tokens: Güzel mi güzel bir kız .
+tags: ADJ ADV ADJ DET NOUN PUNCT
+tagged_tokens: Güzel_ADJ mi_ADV güzel_ADJ bir_DET kız_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Uzun mu uzun düşünüyor .
+tags: ADV ADV ADV VERB PUNCT
+tagged_tokens: Uzun_ADV mu_ADV uzun_ADV düşünüyor_VERB ._PUNCT
+
+B) tokens: Derin mi derin araştırıyor .
+tags: ADV ADV ADV VERB PUNCT
+tagged_tokens: Derin_ADV mi_ADV derin_ADV araştırıyor_VERB ._PUNCT
+
+C) tokens: Ağır mı ağır yazıyor .
+tags: ADV ADV ADV VERB PUNCT
+tagged_tokens: Ağır_ADV mi_ADV ağır_ADV yazıyor_VERB ._PUNCTD) tokens: Yavaş mı yavaş okuyor .
+tags: ADV ADV ADV VERB PUNCT
+tagged_tokens: Yavaş_ADV mı_ADV yavaş_ADV okuyor_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Mesele hısım destek olmaya geldi .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Mesele_NOUN hısım_NOUN destek_NOUN olmaya_VERB ._PUNCT
+
+B) tokens: Gaye akraba imdada koştu .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Gaye_NOUN akraba_NOUN imdada_NOUN koştu_VERB ._PUNCT
+
+C) tokens: Konu eşdost katkı sağladı .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Konu_NOUN eşdost_NOUN katkı_NOUN sağladı_VERB ._PUNCTD) tokens: Konu komşu yardıma geldi .
+tags: NOUN NOUN NOUN VERB PUNCT
+tagged_tokens: Konu_NOUN komşu_NOUN yardıma_NOUN geldi_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: minik cılız bir çocuk
+tags: ADJ ADJ DET NOUN
+tagged_tokens: minik_ADJ cılız_ADJ bir_DET çocuk_NOUN
+
+B) tokens: küçük zayıf bir çocuk
+tags: ADJ ADJ DET NOUN
+tagged_tokens: küçük_ADJ zayıf_ADJ bir_DET çocuk_NOUN
+
+C) tokens: ufacık narin bir çocuk
+tags: ADJ ADJ DET NOUN
+tagged_tokens: ufacık_ADJ narin_ADJ bir_DET çocuk_NOUND) tokens: ufak tefek bir çocuk
+tags: ADJ ADJ DET NOUN
+tagged_tokens: ufak_ADJ tefek_ADJ bir_DET çocuk_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Tıslar tıs girdiler .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Tıslar_ADV tıs_ADV girdiler_VERB ._PUNCT
+
+B) tokens: Tay tay kaçtılar .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Tay_ADV tay_ADV kaçtılar_VERB ._PUNCT
+
+C) tokens: Şip şak çıktılar .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Şip_ADV şak_ADV çıktılar_VERB ._PUNCTD) tokens: Paldır küldür gittiler .
+tags: ADV ADV VERB PUNCT
+tagged_tokens: Paldır_ADV küldür_ADV gittiler_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: erkek akraba
+tags: NOUN NOUN
+tagged_tokens: erkek_NOUN akraba_NOUN
+
+B) tokens: adam soydaş
+tags: NOUN NOUN
+tagged_tokens: adam_NOUN soydaş_NOUN
+
+C) tokens: bey karındaş
+tags: NOUN NOUN
+tagged_tokens: bey_NOUN karındaş_NOUND) tokens: erkek kardeş
+tags: NOUN NOUN
+tagged_tokens: erkek_NOUN kardeş_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: sevgili
+tags: NOUN
+tagged_tokens: sevgili_NOUN
+
+B) tokens: arkadaş
+tags: NOUN
+tagged_tokens: arkadaş_NOUN
+
+C) tokens: yaren
+tags: NOUN
+tagged_tokens: yaren_NOUND) tokens: kızarkadaş
+tags: NOUN
+tagged_tokens: kızarkadaş_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: hanım hekim
+tags: NOUN NOUN
+tagged_tokens: hanım_NOUN hekim_NOUN
+
+B) tokens: bayan doktor
+tags: NOUN NOUN
+tagged_tokens: bayan_NOUN doktor_NOUN
+
+C) tokens: kadın tabip
+tags: NOUN NOUN
+tagged_tokens: kadın_NOUN tabip_NOUND) tokens: kadın doktor
+tags: NOUN NOUN
+tagged_tokens: kadın_NOUN doktor_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: hukukçu kadın
+tags: NOUN NOUN
+tagged_tokens: hukukçu_NOUN kadın_NOUN
+
+B) tokens: vekil kadın
+tags: NOUN NOUN
+tagged_tokens: vekil_NOUN kadın_NOUN
+
+C) tokens: savunucu kadın
+tags: NOUN NOUN
+tagged_tokens: savunucu_NOUN kadın_NOUND) tokens: avukat kadın
+tags: NOUN NOUN
+tagged_tokens: avukat_NOUN kadın_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Alman mühendis
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN mühendis_NOUN
+
+B) tokens: Alman mimari
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN mimari_NOUN
+
+C) tokens: Alman inşaatçı
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN inşaatçı_NOUND) tokens: Alman mimar
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN mimar_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Türkiyeli evlatlar
+tags: ADJ NOUN
+tagged_tokens: Türkiyeli_ADJ evlatlar_NOUN
+
+B) tokens: Yurttaş yavrular
+tags: NOUN NOUN
+tagged_tokens: Yurttaş_NOUN yavrular_NOUN
+
+C) tokens: Anadolu çocukları
+tags: PROPN NOUN
+tagged_tokens: Anadolu_PROPN çocukları_NOUND) tokens: Türk çocuklar
+tags: PROPN NOUN
+tagged_tokens: Türk_PROPN çocuklar_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: demir kapı
+tags: NOUN NOUN
+tagged_tokens: demir_NOUN kapı_NOUN
+
+B) tokens: çelik giriş
+tags: NOUN NOUN
+tagged_tokens: çelik_NOUN giriş_NOUN
+
+C) tokens: demir giriş
+tags: NOUN NOUN
+tagged_tokens: demir_NOUN giriş_NOUND) tokens: çelik kapı
+tags: NOUN NOUN
+tagged_tokens: çelik_NOUN kapı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: kaya duvar
+tags: NOUN NOUN
+tagged_tokens: kaya_NOUN duvar_NOUN
+
+B) tokens: taş perde
+tags: NOUN NOUN
+tagged_tokens: taş_NOUN perde_NOUN
+
+C) tokens: kireç duvar
+tags: NOUN NOUN
+tagged_tokens: kireç_NOUN duvar_NOUND) tokens: taş duvar
+tags: NOUN NOUN
+tagged_tokens: taş_NOUN duvar_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: yapağı çorap
+tags: NOUN NOUN
+tagged_tokens: yapağı_NOUN çorap_NOUN
+
+B) tokens: koyun yünü çorap
+tags: NOUN NOUN NOUN
+tagged_tokens: koyun_NOUN yünü_NOUN çorap_NOUN
+
+C) tokens: tiftik çorap
+tags: NOUN NOUN
+tagged_tokens: tiftik_NOUN çorap_NOUND) tokens: yün çorap
+tags: NOUN NOUN
+tagged_tokens: yün_NOUN çorap_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: şiş kebap
+tags: NOUN NOUN
+tagged_tokens: şiş_NOUN kebap_NOUN
+
+B) tokens: et sote
+tags: NOUN NOUN
+tagged_tokens: et_NOUN sote_NOUN
+
+C) tokens: kuzu şiş
+tags: NOUN NOUN
+tagged_tokens: kuzu_NOUN şiş_NOUND) tokens: şiş kebap
+tags: NOUN NOUN
+tagged_tokens: şiş_NOUN kebap_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: kuzunun fırını
+tags: NOUN+GEN NOUN
+tagged_tokens: kuzunun_NOUN+GEN fırını_NOUN
+
+B) tokens: kuzucuğun tandırı
+tags: NOUN+DIM+GEN NOUN
+tagged_tokens: kuzucuğun_NOUN+DIM+GEN tandırı_NOUN
+
+C) tokens: kuzunun ocacığı
+tags: NOUN+GEN NOUN+DIM
+tagged_tokens: kuzunun_NOUN+GEN ocacığı_NOUN+DIMD) tokens: kuzu fırın
+tags: NOUN NOUN
+tagged_tokens: kuzu_NOUN fırın_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Akgül Caddesi
+tags: PROPN NOUN
+tagged_tokens: Akgül_PROPN Caddesi_NOUN
+
+B) tokens: Akgül Yolu
+tags: PROPN NOUN
+tagged_tokens: Akgül_PROPN Yolu_NOUN
+
+C) tokens: Akgül Bulvarı
+tags: PROPN NOUN
+tagged_tokens: Akgül_PROPN Bulvarı_NOUND) tokens: Akgül Sokak
+tags: PROPN NOUN
+tagged_tokens: Akgül_PROPN Sokak_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: biber
+tags: NOUN
+tagged_tokens: biber_NOUN
+
+B) tokens: karaisot
+tags: NOUN
+tagged_tokens: karaisot_NOUN
+
+C) tokens: kara baharat
+tags: NOUN
+tagged_tokens: kara baharat_NOUND) tokens: karabiber
+tags: NOUN
+tagged_tokens: karabiber_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: sarı sıcak
+tags: ADJ NOUN
+tagged_tokens: sarı_ADJ sıcak_NOUN
+
+B) tokens: güneş humması
+tags: NOUN NOUN
+tagged_tokens: güneş_NOUN humma_NOUN
+
+C) tokens: güneş sıcaklığı
+tags: NOUN NOUN
+tagged_tokens: güneş_NOUN sıcaklık_NOUND) tokens: sarı humma
+tags: ADJ NOUN
+tagged_tokens: sarı_ADJ humma_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: otobüs kağıdı
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN kağıdı_NOUN
+
+B) tokens: otobüs jetonu
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN jetonu_NOUN
+
+C) tokens: otobüs kartı
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN kartı_NOUND) tokens: otobüs bileti
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN bileti_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: avuç içi çantası
+tags: NOUN NOUN
+tagged_tokens: avuç_NOUN içi_NOUN çantası_NOUN
+
+B) tokens: ufak çanta
+tags: ADJ NOUN
+tagged_tokens: ufak_ADJ çanta_NOUN
+
+C) tokens: minik el torbası
+tags: ADJ NOUN NOUN
+tagged_tokens: minik_ADJ el_NOUN torbası_NOUND) tokens: el çantası
+tags: NOUN NOUN
+tagged_tokens: el_NOUN çantası_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: sofra bezi
+tags: NOUN NOUN
+tagged_tokens: sofra_NOUN bezi_NOUN
+
+B) tokens: yemek örtüsü
+tags: NOUN NOUN
+tagged_tokens: yemek_NOUN örtüsü_NOUN
+
+C) tokens: servis bezliği
+tags: NOUN NOUN
+tagged_tokens: servis_NOUN bezliği_NOUND) tokens: masa örtüsü
+tags: NOUN NOUN
+tagged_tokens: masa_NOUN örtüsü_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: çay kadehi
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN kadehi_NOUN
+
+B) tokens: çay fincanı
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN fincanı_NOUN
+
+C) tokens: çay tası
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN tası_NOUND) tokens: çay bardağı
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN bardağı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: yavru çitliği
+tags: NOUN NOUN
+tagged_tokens: yavru_NOUN çitliği_NOUN
+
+B) tokens: evlat bahçıvanlığı
+tags: NOUN NOUN
+tagged_tokens: evlat_NOUN bahçıvanlığı_NOUN
+
+C) tokens: çocuk alanı
+tags: NOUN NOUN
+tagged_tokens: çocuk_NOUN alanı_NOUND) tokens: çocuk bahçesi
+tags: NOUN NOUN
+tagged_tokens: çocuk_NOUN bahçesi_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: otobüs fışları
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN fışları_NOUN
+
+B) tokens: otobüs makbuzları
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN makbuzları_NOUN
+
+C) tokens: otobüs fişleri
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN fişleri_NOUND) tokens: otobüs biletleri
+tags: NOUN NOUN
+tagged_tokens: otobüs_NOUN biletleri_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: kültür çantaları
+tags: NOUN NOUN
+tagged_tokens: kültür_NOUN çantaları_NOUN
+
+B) tokens: kol çantaları
+tags: NOUN NOUN
+tagged_tokens: kol_NOUN çantaları_NOUN
+
+C) tokens: erkek çantaları
+tags: NOUN NOUN
+tagged_tokens: erkek_NOUN çantaları_NOUND) tokens: el çantaları
+tags: NOUN NOUN
+tagged_tokens: el_NOUN çantaları_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: çay fincanları
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN fincanları_NOUN
+
+B) tokens: çay kupaları
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN kupaları_NOUN
+
+C) tokens: çay takımları
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN takımları_NOUND) tokens: çay bardakları
+tags: NOUN NOUN
+tagged_tokens: çay_NOUN bardakları_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: soğutucular
+tags: NOUN
+tagged_tokens: soğutucular_NOUN
+
+B) tokens: buzkabınları
+tags: NOUN
+tagged_tokens: buzkabınları_NOUN
+
+C) tokens: frizler
+tags: NOUN
+tagged_tokens: frizler_NOUND) tokens: buzdolapları
+tags: NOUN
+tagged_tokens: buzdolapları_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: kitapçılar
+tags: NOUN
+tagged_tokens: kitapçılar_NOUN
+
+B) tokens: neşriyatlar
+tags: NOUN
+tagged_tokens: neşriyatlar_NOUN
+
+C) tokens: basınlar
+tags: NOUN
+tagged_tokens: basınlar_NOUND) tokens: yayınevleri
+tags: NOUN
+tagged_tokens: yayınevleri_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: pabuçlar
+tags: NOUN
+tagged_tokens: pabuçlar_NOUN
+
+B) tokens: çarıkler
+tags: NOUN
+tagged_tokens: çarıkler_NOUN
+
+C) tokens: kunduralar
+tags: NOUN
+tagged_tokens: kunduralar_NOUND) tokens: ayakkabılar
+tags: NOUN
+tagged_tokens: ayakkabılar_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Ararat Dağı
+tags: PROPN NOUN
+tagged_tokens: Ararat_PROPN Dağı_NOUN
+
+B) tokens: Ağrı Tepesi
+tags: PROPN NOUN
+tagged_tokens: Ağrı_PROPN Tepesi_NOUN
+
+C) tokens: Ararat Sıradağı
+tags: PROPN NOUN
+tagged_tokens: Ararat_PROPN Sıradağı_NOUND) tokens: Ağrı Dağı
+tags: PROPN NOUN
+tagged_tokens: Ağrı_PROPN Dağı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Van Gölü
+tags: PROPN NOUN
+tagged_tokens: Van_PROPN Gölü_NOUN
+
+B) tokens: Van Denizi
+tags: PROPN NOUN
+tagged_tokens: Van_PROPN Denizi_NOUN
+
+C) tokens: Van Havzası
+tags: PROPN NOUN
+tagged_tokens: Van_PROPN Havzası_NOUND) tokens: Van Gölü
+tags: PROPN NOUN
+tagged_tokens: Van_PROPN Gölü_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Efes Restoranı
+tags: PROPN NOUN
+tagged_tokens: Efes_PROPN Restoranı_NOUN
+
+B) tokens: Efes Yemeği
+tags: PROPN NOUN
+tagged_tokens: Efes_PROPN Yemeği_NOUN
+
+C) tokens: Efes Çalgısı
+tags: PROPN NOUN
+tagged_tokens: Efes_PROPN Çalgısı_NOUND) tokens: Efes Lokantası
+tags: PROPN NOUN
+tagged_tokens: Efes_PROPN Lokantası_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Anadolu Devleti
+tags: PROPN NOUN
+tagged_tokens: Anadolu_PROPN Devleti_NOUN
+
+B) tokens: Türk Milleti
+tags: PROPN NOUN
+tagged_tokens: Türk_PROPN Milleti_NOUN
+
+C) tokens: İstiklal Cumhuriyeti
+tags: NOUN NOUN
+tagged_tokens: İstiklal_NOUN Cumhuriyeti_NOUND) tokens: Türkiye Cumhuriyeti
+tags: PROPN NOUN
+tagged_tokens: Türkiye_PROPN Cumhuriyeti_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: 1912 senesi
+tags: NUM NOUN
+tagged_tokens: 1912_NUM senesi_NOUN
+
+B) tokens: 1912 dönemi
+tags: NUM NOUN
+tagged_tokens: 1912_NUM dönemi_NOUN
+
+C) tokens: 1912 vakiti
+tags: NUM NOUN
+tagged_tokens: 1912_NUM vakiti_NOUND) tokens: 1912 yılı
+tags: NUM NOUN
+tagged_tokens: 1912_NUM yılı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: yılın ilk ayı
+tags: NOUN ADJ NOUN
+tagged_tokens: yılın_NOUN ilk_ADJ ayı_NOUN
+
+B) tokens: ocak_NOUN aylık_NOUN
+tags: NOUN NOUN
+tagged_tokens: ocak_NOUN aylık_NOUN
+
+C) tokens: ilk_NOUN ay_NOUN
+tags: NOUN NOUN
+tagged_tokens: ilk_NOUN ay_NOUND) tokens: ocak ayı
+tags: NOUN NOUN
+tagged_tokens: ocak_NOUN ayı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Osmanlı kahvesi
+tags: PROPN NOUN
+tagged_tokens: Osmanlı_PROPN kahvesi_NOUN
+
+B) tokens: Anadolu kahvesi
+tags: PROPN NOUN
+tagged_tokens: Anadolu_PROPN kahvesi_NOUN
+
+C) tokens: Türkiye kahvesi
+tags: PROPN NOUN
+tagged_tokens: Türkiye_PROPN kahvesi_NOUND) tokens: Türk kahvesi
+tags: PROPN NOUN
+tagged_tokens: Türk_PROPN kahvesi_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Alman fırını
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN fırını_NOUN
+
+B) tokens: Alman somunu
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN somunu_NOUN
+
+C) tokens: Alman çöreği
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN çöreği_NOUND) tokens: Alman ekmeği
+tags: PROPN NOUN
+tagged_tokens: Alman_PROPN ekmeği_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Yeni Türk Lirası
+tags: ADJ PROPN NOUN
+tagged_tokens: Yeni_ADJ Türk_PROPN Lirası_NOUN
+
+B) tokens: TL
+tags: SYM
+tagged_tokens: TL_SYM
+
+C) tokens: Türkiye Lirası
+tags: PROPN NOUN
+tagged_tokens: Türkiye_PROPN Lirası_NOUND) tokens: Türk Lirası
+tags: PROPN NOUN
+tagged_tokens: Türk_PROPN Lirası_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Fransa yazını
+tags: PROPN NOUN
+tagged_tokens: Fransa_PROPN yazını_NOUN
+
+B) tokens: Fransız yazı sanatı
+tags: PROPN NOUN
+tagged_tokens: Fransız_PROPN yazı_NOUN sanatı_NOUN
+
+C) tokens: Fransa edebi eserleri
+tags: PROPN NOUN
+tagged_tokens: Fransa_PROPN edebi_NOUN eserleri_NOUND) tokens: Fransız edebiyatı
+tags: PROPN NOUN
+tagged_tokens: Fransız_PROPN edebiyatı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Turkish language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) tokens: Fransız yazını
+tags: PROPN NOUN
+tagged_tokens: Fransız_PROPN yazını_NOUN
+
+B) tokens: Fransız metinleri
+tags: PROPN NOUN
+tagged_tokens: Fransız_PROPN metinleri_NOUN
+
+C) tokens: Fransız eserleri
+tags: PROPN NOUN
+tagged_tokens: Fransız_PROPN eserleri_NOUND) tokens: Fransız edebiyatı
+tags: PROPN NOUN
+tagged_tokens: Fransız_PROPN edebiyatı_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
