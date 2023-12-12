@@ -1,0 +1,3851 @@
+answer,prompt
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பொருள் செல்லக்கூடிய வகையில் பொட்டலம் அமைக்கப்பட்டது
+choice1: அது எடுத்துச் செய்யக்கூடியதாக இருந்தது
+choice2: அது மெல்லியதாக இருந்தது
+label: choice1
+
+B) premise: அந்த பொருள் ஈரப்பதற்கான வகையில் பொட்டலம் வகைப்படுத்தப்பட்டது
+choice1: அது தொங்கக்கூடியதாக இருந்தது
+choice2: அது நீண்டதாக இருந்தது
+label: choice1
+
+C) premise: அந்த பொருள் குறைவான வகையில் பொட்டலம் ஒன்றுபடுத்தப்பட்டது
+choice1: அது குறைந்த விலையுடன் விற்கக்கூடியதாக இருந்தது
+choice2: அது அழகானதாக இருந்தது
+label: choice1D) 'premise': அந்த பொருள் பாதுகாப்பான வகையில் பொட்டலம் கட்டப்பட்டது
+'choice1': அது எளிதில் முறியக்கூடியதாக இருந்தது
+'choice2': அது சிறியதாக இருந்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் என் துணிக்கைப்பையை மலிந்து விட்டேன்
+choice1: நான் சிருப்பப்பட்ட சலுகையை எடுத்தேன்
+choice2: நான் வரைவுட்டுப்போன முட்டையை கண்டேன்
+label: choice1
+
+B) premise: நான் என் வேஸ்டிப் பையை சுத்தம் செய்தேன்
+choice1: நான் பயன்படாதது ஆன முதலையை பிடித்தேன்
+choice2: நான் ஒரு நூலைக் காத்தேன்
+label: choice2
+
+C) premise: நான் என் அணி செலையை பூர்த்தி செய்தேன்
+choice1: நான் நேரடியாக தெரிவிக்கப்பட்ட ஆயுவை அகற்றினேன்
+choice2: நான் ஒரு விருந்து உணவை சுவைத்தேன்
+label: choice1D) 'premise': நான் என் சட்டைப்பையைக் காலி செய்தேன்
+'choice1': நான் கிழிக்கப்பட்டப் பயணச்சீட்டை மீட்டெடுத்தேன்
+'choice2': நான் ஒரு ஆயுதத்தைக் கண்டேன்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: என் வீட்டின்மீது கள்ளர்கள் படையெடுத்தன
+choice1: கள்ளர்கள் வீட்டிலிருந்து பலவற்றை கொடுத்தன
+choice2: கள்ளர்கள் வீட்டிலிருந்த நிறைய கதறல்களை சாப்பிட்டன
+label: choice2
+
+B) premise: என் வீட்டின்மீது விவசாயிகள் தாக்கு செய்தன
+choice1: விவசாயிகள் வீட்டின் உயிர் உற்பத்திகளை எல்லாம் பட்சித்தன
+choice2: விவசாயிகள் வீட்டின் தேவையான பொருட்களை மட்டும் எடுத்தன
+label: choice1
+
+C) premise: என் வீட்டின்மீது கூட்டணிகள் பார்வை செலுத்தினன
+choice1: கூட்டணிகள் வீட்டை மாற்றியலைக்கு நம்பை கொண்டன
+choice2: கூட்டணிகள் வீட்டை அழித்துவிட வேண்டும் என்று முயற்சி செய்தன
+label: choice2D) 'premise': என் வீட்டின்மீது கரையான்கள் படையெடுத்தன
+'choice1': கரையான்கள் வீட்டிலிருந்து மறைந்தன
+'choice2': கரையான்கள் வீட்டிலிருந்த மர சாமான்கள் அனைத்தையும் தின்று தீர்த்தன
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: பயணிகள் எல்லையை அடைந்தனர்
+choice1: ரோந்து காவலாளி அவர்களது பயண அனுமதிகளைச் சரிப்பார்த்தார்
+choice2: ரோந்து காவலாளி அவர்கள் பயண ஆட்சியை மீறினதாகக் குற்றம் ஆரோபினார்
+label: choice1
+
+B) premise: பயணிகள் எல்லையை அடைந்தனர்
+choice1: ரோந்து காவலாளி அவர்களது பயண அட்டைகளைச் சரிபோன்றால்
+choice2: ரோந்து காவலாளி அவர்கள் பயண சட்டத்தை முறையீடு செய்தினதாகக் குற்றவாளி அறிவித்தார்
+label: choice1
+
+C) premise: பயணிகள் எல்லையை அடைந்தனர்
+choice1: ரோந்து காவலாளி அவர்களது பயண விசாக்களைச் சரிபார்க்கலாம்
+choice2: ரோந்து காவலாளி அவர்கள் பயண விதிகளை உலக்கினதாகக் குற்றம் சொல்லினார்
+label: choice1D) 'premise': பயணிகள் எல்லையை அடைந்தனர்
+'choice1': ரோந்து காவலாளி அவர்களது கடவுச்சீட்டுகளைச் சரி பார்த்தார்
+'choice2': ரோந்து காவலாளி அவர்கள் கடத்தல் செய்வதாகக் குற்றஞ்சாற்றினார்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த செயலகம் மூடப்பட்டிருந்தது
+choice1: ஆனால் திருட்டுக்குள்ளம்
+choice2: அவர்கள் எழுச்சி நீங்கள்
+label: choice1
+
+B) premise: அந்த குறைகளம் மூடப்பட்டிருந்தது
+choice1: அப்போது தொழில்நுட்ப பிரச்சினை
+choice2: அது விசேட நாள்
+label: choice2
+
+C) premise: அந்த பணியகம் மூடப்பட்டிருந்தது
+choice1: அதில் நேரிடத்தக்க பிரகாரம் இல்லை
+choice2: அது புத்தாண்டு தினம்
+label: choice2D) 'premise': அந்த அலுவலகம் மூடப்பட்டிருந்தது
+'choice1': அன்று விடுமுறை நாள்
+'choice2': அது கோடைக்காலம்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுமி சோர்வடைந்தாள்
+choice1: அவள் விரைவாக அலைந்தாள்
+choice2: அவள் அளவும் தூரப்பட்டாள்
+label: choice2
+
+B) premise: அந்த சிறுமி சோர்வடைந்தாள்
+choice1: அவள் மிக உணர்ந்தாள்
+choice2: அவள் ஆயங்கல் வாரினாள்
+label: choice1
+
+C) premise: அந்த சிறுமி சோர்வடைந்தாள்
+choice1: அவள் சூழல் தொகைக்கின்றதை கண்டாள்
+choice2: அவள் கூட்டணி தங்கினாள்
+label: choice1D) 'premise': அந்த சிறுமி சோர்வடைந்தாள்
+'choice1': அவள் பரமபதம் விளையாடினாள்
+'choice2': அவள் கயிறு தாண்டினாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பெண்மணி வரிசையில் அவளது இடம் இழந்தாள்
+choice1: பலர் கூட்டத்தில் பங்கு கொண்டனர்
+choice2: அவள் வரிசையை விட்டு பிரிந்தாள்
+label: choice2
+
+B) premise: அந்த பெண்மணி வரிசையில் அவளது சேர்வை இழந்தாள்
+choice1: அன்று ஒருவரும் வரிசையில் சேரவில்லை
+choice2: அவள் வரிசையை விட்டு வெளியேறினாள்
+label: choice2
+
+C) premise: அந்த பெண்மணி வரிசையில் அவளது பாதிரியை காணவில்லை
+choice1: வரிசையில் மனிதர்கள் மிகவும் நிரலியது
+choice2: அவள் வரிசையை விட்டு தள்ளிவிட்டாள்
+label: choice2D) 'premise': அந்த பெண்மணி வரிசையில் அவளது இடத்தை இழந்தாள்
+'choice1': மக்கள் பலர் வரிசையில் நுழைந்தனர்
+'choice2': அவள் வரிசையை விட்டு வெளியே சென்றாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: இசைக்குழுவினர் தங்களது பிரபலப் பாடல்  ஒன்றை வாசித்தனர்
+choice1: பார்வையாளர்கள் இசைக்கு இணங்க கை தட்டினர்
+choice2: பார்வையாளர்கள் இசையை மகிழ்ச்சியோடு கவனித்தனர்
+label: choice1
+
+B) premise: இசைக்குழுவினர் தங்களது பிரபலப் பாடல்  ஒன்றை வாசித்தனர்
+choice1: பார்வையாளர்கள் இசையிடும் குழுவை வெளிச்சமாக பாராட்டினர்
+choice2: பார்வையாளர்கள் இசையை அற்புதமாக சிந்தித்தனர்
+label: choice1
+
+C) premise: இசைக்குழுவினர் தங்களது பிரபலப் பாடல்  ஒன்றை வாசித்தனர்
+choice1: பார்வையாளர்கள் இசைக்கு நெருங்கி ஆப்பிளாவாக கதைக்கினர்
+choice2: பார்வையாளர்கள் இசையை இனிமையாக ரசித்தனர்
+label: choice1D) 'premise': இசைக்குழுவினர் தங்களது பிரபலப் பாடல்  ஒன்றை வாசித்தனர்
+'choice1': பார்வையாளர்கள் இசைக்கு இணங்க கை தட்டினர்
+'choice2': பார்வையாளர்கள் நாகரிகமாக அமைதி காத்து இசையைக் கேட்டனர்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுமி தன் கணித ஆசிரியர்க்கு நன்றி தெரிவிக்க விரும்பினாள்
+choice1: அந்த சிறுமி ஆசிரியருக்கு சான்றிதழ் கொடுத்தாள்
+choice2: அந்த சிறுமி தன் ஆசிரியருக்கு அருமையான சொல்லை சொன்னாள்
+label: choice2
+
+B) premise: அந்த சிறுமி தன் கணித ஆசிரியர்க்கு நன்றி தெரிவிக்க விரும்பினாள்
+choice1: அந்த சிறுமி தன் கணித ஆசிரியரிடம் பாடத்தை குறித்து கேள்விகள் கேட்டாள்
+choice2: அந்த சிறுமி ஆசிரியருக்கு பாடலொன்றை பாடிக் கொண்டாள்
+label: choice2
+
+C) premise: அந்த சிறுமி தன் கணித ஆசிரியர்க்கு நன்றி தெரிவிக்க விரும்பினாள்
+choice1: அந்த சிறுமி ஆசிரியருக்கு கவிதை ஒன்றை படித்தாள்
+choice2: அந்த சிறுமி தன் கணித ஆசிரியருக்கு மலர் மண்ணை வாங்கினாள்
+label: choice1D) 'premise': அந்த சிறுமி தன் கணித ஆசிரியர்க்கு நன்றி தெரிவிக்க விரும்பினாள்
+'choice1': அந்த சிறுமி பள்ளி நேரத்திற்கு பின்பு தண்டனையாற்ற பள்ளியில் தங்கினாள்
+'choice2': அந்த சிறுமி ஆசிரியர்க்கு ஆப்பிளைக் கொண்டு வந்தாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: இளம் சுற்றுலா பயணிகள் பயமுற்றனர்
+choice1: அவர்கள் சுற்றுலாவணி உதவியாளர் பிரம்மாண்ட கொடூரம் ஒன்றைக் கதைப்படுத்தினார்
+choice2: அவர்கள் கருப்பு சக்கரை செவ்வடியை உரியில் எரிந்தனர்
+label: choice1
+
+B) premise: இளம் சுற்றுலா பயணிகள் பயமுற்றனர்
+choice1: அவர்களது சுற்றுலாத் துணை சோக நிகழ்வு ஒன்றைக் கேள்விப்படுத்தினார்
+choice2: அவர்கள் கவலை சித்த வெள்ளை சக்கரை கொழும்பை ஊற்றில் போட்டனர்
+label: choice1
+
+C) premise: இளம் சுற்றுலா பயணிகள் பயமுற்றனர்
+choice1: அவர்களின் சுற்றுலாப் பாட்டலி நகள் திருப்பம் ஒன்றைக் கொண்டு வந்தார்
+choice2: அவர்கள் அம்லு மிட்டாயை சூத்தில் வெட்டனர்
+label: choice1D) 'premise': இளம் சுற்றுலா பயணிகள் பயமுற்றனர்
+'choice1': அவர்களது சுற்றுலாப் பயண ஆலோசகர் பேய்க்கதை ஒன்றைக் கூறினார்
+'choice2': அவர்கள் சர்க்கரை மிட்டாயை நெருப்பில் சுட்டனர்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அது மகன் தன் தலையைப் பிரித்தான்
+choice1: அவர் கடந்த நிலையில் தன்னை விட்டார்
+choice2: அவருக்கு மனசு மாறியது
+label: choice2
+
+B) premise: அன்று கணவன் தன் தலையை எறிந்தான்
+choice1: அவன் ஒரு மகிழ்ச்சியற்ற கண்ணீரை ஊற்றினான்
+choice2: அவனுக்கு உறுதியில்லாத சிரிப்பு வந்தது
+label: choice2
+
+C) premise: என் தங்கச்சீட்டு தன் தலையை மாற்றினாள்
+choice1: அவள் ஒரு மகத்தான நடையை மெல்ல வைத்தாள்
+choice2: அவளுக்கு அச்சமான குறுக்கு இருந்தது
+label: choice2D) 'premise': அந்த மனிதன் தன் தலையை எடுத்துக் கொண்டான்
+'choice1': அவன் சிந்தனையில் தன்னை இழந்தான்
+'choice2': அவனுக்கு மூளையதிர்ச்சி ஏற்பட்டது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் ஆக்கித் தருகின்ற காசோலை அங்கீகரிக்கப்படவில்லை
+choice1: எனது பண சேமிப்பு முடிந்து விட்டது
+choice2: நான் சம்பள அதிகரிப்பு பெறுகிறேன்
+label: choice1
+
+B) premise: என்னுடைய செய்ய தந்த காசோலை ஏற்றுக்கொள்ளப்படாது
+choice1: என்னோடு நிறுவன கணக்கு இல்லாமல் போய்விட்டது
+choice2: நான் உழைப்பு வெற்றி பெற்றேன்
+label: choice1
+
+C) premise: எனக்கு கொடுத்த காசோலை மறுப்பு அடைந்தது
+choice1: எனக்கு பேணிக்கை இல்லாமல் இருந்தது
+choice2: நான் வேலை குறித்தல் பெறுகின்றேன்
+label: choice1D) 'premise': நான் எழுதித் தந்த காசோலை நிராகரிக்கப்பட்டது
+'choice1': என் வங்கிக் கணக்கு காலியாக இருந்தது
+'choice2': நான் ஊதிய உயர்வு பெற்றேன்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவ்வனின் மின்னஞ்சல் பெட்டி வேண்டாமான மின்னஞ்சல்களால் நிறைந்திருந்தது
+choice1: அவன் வேண்டாமான மின்னஞ்சல்களை நீக்கினான்
+choice2: அவன் பலவித மின்னஞ்சல் ஒன்றை அனுப்பினான்
+label: choice1
+
+B) premise: அவருடைய மின்னஞ்சல் பெட்டகம் அவசியமில்லாத மின்னஞ்சல்களால் குழப்பப்பட்டிருந்தது
+choice1: அவர் அவசியமில்லாத மின்னஞ்சல்களை துரத்தினார்
+choice2: அவர் பிரிவான மின்னஞ்சல் ஒன்றை அனுப்பினார்
+label: choice1
+
+C) premise: அந்நான் மின்னஞ்சல் இடைவெளி பயனற்ற மின்னஞ்சல்களால் நிரப்பப்பட்டிருந்தது
+choice1: அவன் பயனற்ற மின்னஞ்சல்களை போக்கினான்
+choice2: அவன் வெவ்வேறு மின்னஞ்சல் ஒன்றை அனுப்பினான்
+label: choice1D) 'premise': அந்த மனிதனின் மின்னஞ்சல் உட்பெட்டி தேவைற்ற மின்னஞ்சல்களால் நிரம்பியிருந்தது
+'choice1': அவன் தேவையற்ற மின்னஞ்சல்களை அகற்றினான்
+'choice2': அவன் வெகுஜன மின்னஞ்சல் ஒன்றை அனுப்பினான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மாலுமி தனிமைப்படுத்தப்பட்டான்
+choice1: அவன் நோயினால் காயப்பட்டான்
+choice2: அவன் நோயிலிருந்து மீட்கப்பட்டான்
+label: choice1
+
+B) premise: அந்த மாலுமி தனிமைப்படுத்தப்பட்டான்
+choice1: அவன் நோயில் துக்கங்களால் தாக்கப்பட்டான்
+choice2: அவன் நோயில் ஒருங்கிணைந்து விசாரணையில் தேர்ச்சி பெற்றான்
+label: choice1
+
+C) premise: அந்த மாலுமி தனிமைப்படுத்தப்பட்டான்
+choice1: அவன் நோயினால் பிரசாவதப்பட்டான்
+choice2: அவன் நோயிலிருந்து சரி வந்தான்
+label: choice1D) 'premise': அந்த மாலுமி தனிமைப்படுத்தப்பட்டான்
+'choice1': அவன் நோயினால் பாதிக்கப்பட்டான்
+'choice2': அவன் நோயிலிருந்து குணமடைந்தான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுமி குறியீட்டை மனப்பாடம் செய்தாள்
+choice1: அவள் தன்னிலையைச் சமர்ப்பித்துக்கொள்ள முயற்சித்தாள்
+choice2: அவள் உண்மையை மறைக்க நினைத்தாள்
+label: choice1
+
+B) premise: அந்த சிறுமி குறியீட்டை மனப்பாடம் செய்தாள்
+choice1: அவள் இன்னொரு வழியை தேர்ந்தெடுத்தாள்
+choice2: அவள் தன்னையே மயக்குவதற்கு முடியாத திருட்டை செய்தாள்
+label: choice1
+
+C) premise: அந்த சிறுமி குறியீட்டை மனப்பாடம் செய்தாள்
+choice1: அவள் தன் முடிவை சீரமைத்துக் கொண்டாள்
+choice2: அவள் விளக்கத்தை மாற்றி வைத்தாள்
+label: choice1D) 'premise': அந்த சிறுமி குறியீட்டை மனப்பாடம் செய்தாள்
+'choice1': அவள் தனக்குத் தானே ஒப்பித்துக் கொண்டாள்
+'choice2': அவள் எழுதி வைத்துக்கொள்ள மறந்துவிட்டாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் கண்ணாடிக்குடம் எடுத்து தண்ணீர் கூறினேன்
+choice1: கண்ணாடிக்குடம் பூர்ணமாய் நிறைந்தது
+choice2: எனக்கு நீரால் விருந்து பட்டது
+label: choice1
+
+B) premise: நான் கண்ணாடித் தொட்டியில் நீர் ஊற்றினேன்
+choice1: எனக்கு தண்ணீர் விருந்து தந்தது
+choice2: கண்ணாடித் தொட்டி மிகுந்தது
+label: choice2
+
+C) premise: நான் கண்ணாடிக்குட் கொண்டு நீர் வழித்தேன்
+choice1: கண்ணாடிக்குட் முழுவதும் நீர் ஓட்டியது
+choice2: நீர் என் தீர்க்கம் அளித்தது
+label: choice1D) 'premise': நான் கண்ணாடிக்குடுவையில் தண்ணீர் ஊற்றினேன்
+'choice1': அந்த தண்ணீரால் என் தாகம் தணிந்தது
+'choice2': கண்ணாடிக்குடுவை நிரம்பியது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் தன் நண்பன் பேசி முடிக்கும் வரை மௌனமாகக் காத்திருந்தான்
+choice1: அவன் தன் நண்பனை விடாமல் கேட்க இச்சையாகினான்
+choice2: அவன் தன் நண்பனிடம் ஏதும் இடையூறு உண்டாக்காமல் இருப்பதாக முடிவு செய்தான்
+label: choice2
+
+B) premise: அந்த மனிதன் தன் நண்பன் பேசி முடிக்கும் வரை மௌனமாகக் காத்திருந்தான்
+choice1: அவன் தன் நண்பனுடன் சிறப்பாக ஒத்துசெய்வதை விரும்பினான்
+choice2: அவன் தன் நண்பனின் குறைகளை பாராட்டுவதில்லை என்பதை காட்டினான்
+label: choice2
+
+C) premise: அந்த மனிதன் தன் நண்பன் பேசி முடிக்கும் வரை மௌனமாகக் காத்திருந்தான்
+choice1: அவன் தன் நண்பனுடைய கருத்துக்களில் நம்பிக்கை கொண்டான்
+choice2: அவன் தன் நண்பனின் கருத்துகளை மாற்ற முயற்சிக்கவில்லை என்பதை தெரியப்படுத்தினான்
+label: choice2D) 'premise': அந்த மனிதன் தன் நண்பன் பேசி முடிக்கும் வரை மௌனமாகக் காத்திருந்தான்
+'choice1': அவன் தன் நண்பனுக்கு ஆதரவு தர விரும்பினான்
+'choice2': அவன் தன் நண்பனின் சொல்லைப் பற்றி சிந்தித்துக் கொண்டிருந்தான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த விபத்து என் தப்பால் ஏற்பட்டது
+choice1: நான் குற்றமறு சொல்லட்டும்
+choice2: நான் குற்றவினை அறிவிக்கட்டும்
+label: choice1
+
+B) premise: அந்த விபத்து என் குறையால் வந்தது
+choice1: நான் குற்றான போது உணர்கிறேன்
+choice2: நான் குற்றம் செய்ததை உரைக்கிறேன்
+label: choice1
+
+C) premise: அந்த விபத்து என் குன்றுவால் நிகழ்ந்தது
+choice1: நான் குற்றம் உணர்ந்து பேசுகிறேன்
+choice2: நான் குற்றம் செய்தவறு நிரூபிக்கிறேன்
+label: choice1D) 'premise': அந்த விபத்து என் தவறால் நேர்ந்தது
+'choice1': நான் குற்ற உணர்ச்சியடைந்தேன்
+'choice2': நான் குற்றச்சாட்டு பதிவு செய்தேன்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சங்கிலி விலகி வந்தது
+choice1: அந்த சங்கிலி கீழே விழுந்து உள்ளது
+choice2: அந்த சங்கிலியின் உள்ளே ஜம்பு ஒன்று இருந்தது
+label: choice1
+
+B) premise: அந்த சங்கிலி விலகி வந்தது
+choice1: அந்த சங்கிலி கொள்ளையில் சிக்கியிருந்தது
+choice2: அந்த சங்கிலியில் எரிந்த கீரை ஒன்று இருந்தது
+label: choice1
+
+C) premise: அந்த சங்கிலி விலகி வந்தது
+choice1: அந்த சங்கிலி மேறக்குறைந்திருந்தது
+choice2: அந்த சங்கிலியில் கெட்ட உளைப்பு ஒன்று இருந்தது
+label: choice2D) 'premise': அந்த சங்கிலி விலகி வந்தது
+'choice1': அந்த சங்கிலி சக்கரத்தைச் சுற்றிக் கட்டப்பட்டு இருந்தது
+'choice2': அந்த சங்கிலியில் உடைந்த இணைப்பு ஒன்று இருந்தது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த ஜோடி சமரசத்திற்கு வர முடிவு செய்தது
+choice1: அவர்கள் வழக்கூடியதாக கலங்கினர்
+choice2: அவர்கள் எதுவும் செய்யாமல் பிரிந்து செல்லப்பட்டனர்
+label: choice1
+
+B) premise: அந்த ஜோடி சமரசத்திற்கு வர முடிவு செய்தது
+choice1: அவர்கள் உறவு பேணியதை விட்டுக்கொடுத்தனர்
+choice2: அவர்கள் செய்த பிழைகளை வருத்த்துவிட்டனர்
+label: choice1
+
+C) premise: அந்த ஜோடி சமரசத்திற்கு வர முடிவு செய்தது
+choice1: அவர்கள் சண்டையிட்டு விடுவித்தனர்
+choice2: அவர்கள் அன்புடன் நடந்து கொண்டனர்
+label: choice1D) 'premise': அந்த ஜோடி சமரசத்திற்கு வர முடிவு செய்தது
+'choice1': அவர்கள் வாதிட்டுச் சோர்ந்துப் போயினர்
+'choice2': அவர்கள் பிரச்னையைப் பற்றி பேசுவதைத் தவிர்த்தனர்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவரும் குறிப்பிட்ட காலத்தில் வாக்குப்பதிவு செய்ய தீர்மானித்தார்
+choice1: அவரும் உள்ளாட்சி அதிகாரியை அணுகினார்
+choice2: அவரும் வழக்காளியை ஆளவிட்டார்
+label: choice1
+
+B) premise: அப்பக்க மணவி ஜனதா முறையில் நிறுவலாளி ஆக நியமிக்கப்பட்டாள்
+choice1: அப்பக்க மகள் ஜனாயக வி஧ானத்தில் தலைவர் ஆக வருவது உறுதி செய்யப்பட்டாள்
+choice2: அப்பக்க பெண் அரசியல் பண்புக்குறையில் முதல்வர் ஆக மேலேற்றும் செய்யப்பட்டாள்
+label: choice1
+
+C) premise: அவள் மக்கள் தீர்மானத்தில் போராட உண்மையான திறன் கொண்டவள்
+choice1: அவள் வாக்கள் சொல்லும் விளைவில் அணியாட உத்தம சூத்ரம் வைத்தவள்
+choice2: அவள் தொண்டு செய்யும் முடிவில் இயற்கையான விருப்பம் பெற்றவள்
+label: choice1D) 'premise': அந்த பெண்மணி பொது தேர்தலில் போட்டியிட முடிவெடுத்தாள்
+'choice1': அவள் பிரச்சார மேலாளரை பணியமர்த்தினாள்
+'choice2': அவள் நீதிமன்றத்தில் சாட்சி சொன்னாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் தன் பயணத்தில் குளிர்ந்த வானிலையை எதிர்பார்த்தான்
+choice1: அவன் குளிர்க்கு உரிய வஸ்திரங்களைத் தன் பையில் கொண்டு சென்றான்
+choice2: அவன் கெட்டமான மேல்முடியுடன் பயணம் செய்தான்
+label: choice1
+
+B) premise: அந்த மனிதன் தன் பயணத்தில் குளிர்ந்த வானிலையை எதிர்பார்த்தான்
+choice1: அவன் குளிருக்கு ஏற்ற பட்டைகளைத் தன் மடியில் பொட்டு போனான்
+choice2: அவன் வாதமீறி முதுகுப்பார்க்கலை மேலாக அணிந்தான்
+label: choice1
+
+C) premise: அந்த மனிதன் தன் பயணத்தில் குளிர்ந்த வானிலையை எதிர்பார்த்தான்
+choice1: அவன் குளிருக்கு நடுக்கத்தில் ஆணிகளைத் தன் நெய்யில் வைத்தான்
+choice2: அவன் ஏழையான துணி மட்டும் தான் அணிந்து விட்டான்
+label: choice1D) 'premise': அந்த மனிதன் தன் பயணத்தில் குளிர்ந்த வானிலையை எதிர்பார்த்தான்
+'choice1': அவன் குளிருக்கு உகந்த ஆடைகளைத் தன் கைப்பிடியில் எடுத்து வைத்தான்
+'choice2': அவன் பெரிய கைப்பெட்டியுடன் பயணித்தான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மாணவன் கேள்விக்கான பதிலை அறிவான்
+choice1: தன் கையை எழுத்தான்
+choice2: அவன் நேரம் கொளைத்தான்
+label: choice1
+
+B) premise: அந்த மாணவன் கேள்விக்கான விடையை அடைந்தான்
+choice1: தன் கையை சாய்த்தான்
+choice2: அவன் நேரத்தை அழித்தான்
+label: choice1
+
+C) premise: அந்த மாணவன் கேள்விக்கான உத்தரவை முடிந்தான்
+choice1: தன் கையை குணித்தான்
+choice2: அவன் நேரம் வண்ணத்தான்
+label: choice1D) 'premise': அந்த மாணவன் கேள்விக்கான பதிலை அறிந்தான்
+'choice1': தன் கையை உயர்த்தினான்
+'choice2': அவன் நேரத்தை வீணடித்தான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதனின் கண்கள் நீர் கசிந்தன.
+choice1: தூசி அவன் கண்களில் புகுந்தது
+choice2: அவன் களிம்புக் கண்ணாடி அணிந்து கொண்டான்
+label: choice1
+
+B) premise: அந்த மனிதனின் கண்கள் நீர் கசிந்தன.
+choice1: அவன் கண்களில் கொல்லித்திரம் வீழ்ந்தது
+choice2: அவன் வண்ணத் துணிகள் கட்டுண்டு அலைந்தான்
+label: choice1
+
+C) premise: அந்த மனிதனின் கண்கள் நீர் கசிந்தன.
+choice1: பொச்சி அவன் கண்களில் நிரம்பியது
+choice2: அவன் தேவைக்குநிலைக் கண்ணாடி மேல் போட்டான்
+label: choice1D) 'premise': அந்த மனிதனின் கண்கள் நீர் கசிந்தன.
+'choice1': தூசி அவன் கண்களில் புகுந்தது
+'choice2': அவன் காப்புக் கண்ணாடி அணிந்து கொண்டான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த நாடக வீராங்கனை  முடிவில் ஐந்து நாடகங்களில்  ஜெயக்கொடி பறந்தாள்
+choice1: அவளது எதிரணி வீராங்கனை அவள் வஞ்சநாடகம் நடத்தினாள் என்று குற்றித்தக்களால் பிரமிப்பார்
+choice2: அவளது எதிரணி வீராங்கனை அவளைக் கண்டல் விஷாதப்பட்டாள்
+label: choice1
+
+B) premise: அந்த போன்ற வித்ருவனமான  தொடர்ச்சியாக ஐந்து கதைகளில்  ஜெய பெற்றாள்
+choice1: அவளது எதிரணி வித்ருவனணி அவளை ஏமாற்றினாள் என்று குற்ற புரிப்பார்
+choice2: அவளது எதிரணி வித்ருவனணி அவளைப் பார்ந்து வருந்தினாள்
+label: choice1
+
+C) premise: அந்த மாயம் செய்கிற  சுற்றுச்சுற்றாக ஐந்து வினோதங்களில்  வெற்றியளித்தாள்
+choice1: அவளது எதிரணி மாயஞ்சி அவளை குற்றங்களால் சம்மதித்தாள் என்று குற்றுமலர்ந்தார்
+choice2: அவளது எதிரணி மாயஞ்சி அவளைப் பார்த்து பசித்தாள்
+label: choice1D) 'premise': அந்த ஆட்டக்காரி  தொடர்ந்து ஐந்து ஆட்டங்களில்  வெற்றி பெற்றாள்
+'choice1': அவளது எதிரணி வீராங்கனை அவள் மோசடி செய்ததாகக் குற்றஞ் சாட்டினார்
+'choice2': அவளது எதிரணி வீராங்கனை அவளைக் கண்டு பரிதாபப்பட்டாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த ஆட்டக்காரி  தொடர்ந்து ஐந்து ஆட்டங்களில்  வெற்றி பெற்றாள்
+choice1: அவளது எதிரணி வீராங்கனை அவள் குறள்வாதம் செய்ததாகக் குற்றப்படுத்தினார்
+choice2: அவளது எதிரணி வீராங்கனை அவளைக் காண்டு துக்கப்பட்டாள்
+label: choice1
+
+B) premise: அந்த ஆட்டக்காரி  தொடர்ந்து ஐந்து ஆட்டங்களில்  வெற்றி பெற்றாள்
+choice1: அவளது எதிரணி வீராங்கனை அவள் மோசம் செய்ததாகக் புறங்கவரியட்டினார்
+choice2: அவளது எதிரணி வீராங்கனை அவளைக் கண்டு வருத்தப்பட்டாள்
+label: choice1
+
+C) premise: அந்த ஆட்டக்காரி  தொடர்ந்து ஐந்து ஆட்டங்களில்  வெற்றி பெற்றாள்
+choice1: அவளது எதிரணி வீராங்கனை அவள் திருடடிப் பொறுப்பாகப் பதிலிட்டார்
+choice2: அவளது எதிரணி வீராங்கனை அவளைக் கண்டு குறுக்கப்பட்டாள்
+label: choice1D) 'premise': அந்த ஆட்டக்காரி  தொடர்ந்து ஐந்து ஆட்டங்களில்  வெற்றி பெற்றாள்
+'choice1': அவளது எதிரணி வீராங்கனை அவள் மோசடி செய்ததாகக் குற்றஞ் சாட்டினார்
+'choice2': அவளது எதிரணி வீராங்கனை அவளைக் கண்டு பரிதாபப்பட்டாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: ஆசிரியர் அந்த மாணவனின் வினாத்தாளைக் கிழித்தெறிந்தாள்
+choice1: அந்த மாணவன் குறுக்கு வெளியிட்டு விட்டார்
+choice2: அந்த மாணவனின் பலன்கள் பிழையாக உள்ளன
+label: choice1
+
+B) premise: ஆசிரியர் அந்த மாணவனின் வினாத்தாளைக் கிழித்தெறிந்தாள்
+choice1: அந்த மாணவன் வஞ்சகம் செய்து கொண்டார்
+choice2: அந்த மாணவனின் திருத்தங்கள் சரி இல்லை
+label: choice1
+
+C) premise: ஆசிரியர் அந்த மாணவனின் வினாத்தாளைக் கிழித்தெறிந்தாள்
+choice1: அந்த மாணவன் கடமை செய்யாத போது திரும்புணர்வு மாறார்
+choice2: அந்த மாணவனின் உத்தரங்கள் சிக்கலானவை
+label: choice1D) 'premise': ஆசிரியர் அந்த மாணவனின் வினாத்தாளைக் கிழித்தெறிந்தாள்
+'choice1': அந்த மாணவன் மோசடி செய்வதைக் கண்டு பிடித்தார்
+'choice2': அந்த மாணவனின் பதில்கள் தவறாக இருந்தன
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் பேசுவதை நிறுத்த ஒடுக்கினேன்
+choice1: நான் உச்சரிப்பை தள்ளிவிட்டேன்
+choice2: நான் வாயையறைக்கேன்
+label: choice2
+
+B) premise: நான் பேசுவதை முடித்து விட்டேன்
+choice1: நான் கதையை விரட்டிவிட்டேன்
+choice2: நான் விஷயத்தை நிறுவிவிட்டேன்
+label: choice1
+
+C) premise: நான் பேசுவதை இடைவிட்டேன்
+choice1: நான் வலியை தொடர்ந்தேன்
+choice2: நான் மறுச்சொல்ல அற்பம் கூர்ந்தேன்
+label: choice2D) 'premise': நான் பேசுவதை நிறுத்த இடைநிறுத்தினேன்
+'choice1': நான் என் குரலை இழந்தேன்
+'choice2': நான் மூச்சற்று போனேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: உறைந்த உணவு உருகியது
+choice1: நான் அதனை கொஞ்சலை சூட்டியில் வைத்தேன்
+choice2: நான் அதனை குறுகுகள் உடனே பஞ்சியில் சேர்த்தேன்
+label: choice1
+
+B) premise: உறைந்த உணவு உருகியது
+choice1: நான் அதனை உலர்ந்த கண்ணாடியில் வைத்தேன்
+choice2: நான் அதனை அரசுகள் நிறைந்த டப்பாவில் இட்டேன்
+label: choice1
+
+C) premise: உறைந்த உணவு உருகியது
+choice1: நான் அதனை முற்றி கேஸில் வைத்தேன்
+choice2: நான் அதனை ஒஏப்ட்பில் உள்ள ஜிப்லாக்கில் போட்டேன்
+label: choice1D) 'premise': உறைந்த உணவு உருகியது
+'choice1': நான் அதனை நுண்ணலை அடுப்பில் வைத்தேன்
+'choice2': நான் அதனை பிளாஸ்டிக் பொட்டலத்தில் மூடி வைத்தேன்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த ஊழியர் பேராப்பத்தில் இருந்ததாகப் பொய் சொன்னார்
+choice1: அவருக்கு மன உளவியல் பிரச்சினை உண்டு
+choice2: அவர் தினமும் செய்ய வேண்டிய வேலை விடும்பஞ் செய்தார்
+label: choice2
+
+B) premise: அந்த ஊழியர் நிரந்தர பாதிப்பு அடைந்ததாகப் பொய் சொன்னார்
+choice1: அவருக்கு விரைவில் மருத்துவ கவனம் தேவை
+choice2: அவர் முன்பட்டு வசதிகள் பெற திட்டமிட்டார்
+label: choice2
+
+C) premise: அந்த ஊழியர் உயிர் காப்பீடு இல்லாத சியானைடு உண்ணும்போது அடிக்கப்பட்டதாகப் பொய் சொன்னார்
+choice1: அவருக்கு சோடனை அல்லெல்லாம் பிடிக்காது
+choice2: அவர் அக்சிடன்ட் ல திருடப்பட்ட கார் எடுக்க உத்துகோள் கொண்டார்
+label: choice2D) 'premise': அந்த ஊழியர் நோய்வாய்ப்பட்டதாகப் பொய் சொன்னார்
+'choice1': அவருக்கு  வயிற்று வலி ஏற்பட்டது
+'choice2': அவர் ஒரு நாள் விடுப்பு பெற விரும்பினார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவள் நீச்சல்தளத்தின் மீது ஓடினாள்
+choice1: அந்த சிறுமி நீர்ப்பாற்றத்தில் கடந்தாள்
+choice2: அந்த சிறுமி இருதயக்குற்றுக்குள் நுழைந்தாள்
+label: choice2
+
+B) premise: அவள் குதி பலகையிலிருந்து குதித்தாள்
+choice1: அந்த சிறுமி குலாயக்குளத்தில் விழுந்தாள்
+choice2: அந்த சிறுமி நீச்சல்கூப்பில் தாழ்ந்தாள்
+label: choice2
+
+C) premise: அந்த சிறுமி இருதயக்குற்றுக்குள் நுழைந்தாள்
+choice1: அவள் நீர்ப்பாற்றத்தை தாண்டினாள்
+choice2: அவள் குலாயக்குளத்தை விலகினாள்
+label: choice2D) 'premise': அந்த சிறுமி நீச்சல்குளத்தில் இறங்கினாள்
+'choice1': அவள் நீச்சல்தளத்தின் மீது ஓடினாள்
+'choice2': அவள் குதி பலகையிலிருந்து குதித்தாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த திரைப்படத்துக்கு அஞ்சலி எடுத்த அடிப்படைகள் முழுவதுமே விற்கப்பட்டன
+choice1: அன்று அந்த திரைப்படத்தின் வெளியீட்டு நேரம்
+choice2: அந்த திரைப்படம் குறைந்த மதிப்பீடுகளையே பெற்றது
+label: choice1
+
+B) premise: அந்த திரைப்படத்திற்கு கொடுக்கப்பட்ட தொடக்க தகவல்கள் எல்லாம் விற்பனைக்கு நீட்டிக்கப்பட்டன
+choice1: அன்று அந்த திரைப்படத்தின் முதல் காட்சி
+choice2: அந்த திரைப்படம் கெட்ட சிறப்புரைகளையே சம்பாதித்தது
+label: choice1
+
+C) premise: அந்த திரைப்படத்தின் வெளியீட்டு சவால்கள் அனைத்தும் கவர ஆகியதற்கு காரணம்
+choice1: அன்று அந்த திரைப்படத்தின் ஆரம்ப தினம்
+choice2: அந்த திரைப்படம் மோசமான விமர்சனங்களைப் பெற்றது
+label: choice1D) 'premise': அந்த திரைப்படத்திற்கான நுழைவுச்சீட்டுகள் விற்றுத் தீர்ந்தன
+'choice1': அன்று அந்த திரைப்படத்தின் தொடக்க நாள்
+'choice2': அந்த திரைப்படம் மோசமான விமர்சனங்களைப் பெற்றது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் உயிரிழந்தான்
+choice1: மக்கள் அவனை வேறுபடுத்தினர்
+choice2: மக்கள் அவனைப் போற்றினர்
+label: choice2
+
+B) premise: அந்த மனிதன் காலமானான்
+choice1: மக்கள் அவனை பிரிந்துபோனர்
+choice2: மக்கள் அவனைச் சந்தோஷப் படுத்தினர்
+label: choice2
+
+C) premise: அந்த மனிதன் மரணமடைந்தான்
+choice1: மக்கள் அவனை தூற்றினர்
+choice2: மக்கள் அவனைக் கொண்டாடினர்
+label: choice2D) 'premise': அந்த மனிதன் உடலிடை இழந்தான்
+'choice1': மக்கள் அவனைத் தனிமைப் படுத்தினர்
+'choice2': மக்கள் அவனைப் பாராட்டினர்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுமியின் கைகளில் கொப்பளங்கள் வந்தன
+choice1: அவள் கவிதை ஒன்றைக் குறிக்கோள் செய்தாள்
+choice2: அவள் கயிறு ஏறினாள்
+label: choice2
+
+B) premise: அந்த சிறுமியின் கைகளில் கொப்பளங்கள் வந்தன
+choice1: அவள் கட்டுரை ஒன்றைச் சுமைப்பு செய்தாள்
+choice2: அவள் கையாளி அணிந்தாள்
+label: choice2
+
+C) premise: அந்த சிறுமியின் கைகளில் கொப்பளங்கள் வந்தன
+choice1: அவள் கதை ஒன்றைப் படித்தாள்
+choice2: அவள் உருவம் மாற்றினாள்
+label: choice2D) 'premise': அந்த சிறுமியின் கைகளில் கொப்பளங்கள் வந்தன
+'choice1': அவள் கடிதம் ஒன்றைத் தட்டச்சு செய்தாள்
+'choice2': அவள் கயிறு ஏறினாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: சர்க்கஸ் கலைஞர் ஒற்றைச் சக்கர மிதிவண்டியை ஒட்டியபடி செப்பேடு விதை செய்தார்
+choice1: உணர்ச்சியுடன் பார்க்கிறவர்கள் வியப்பு அடைந்தனர்
+choice2: உருப்படியாக தன் சுற்றுச்சக்கர கயிறிலே தொங்கினார்
+label: choice1
+
+B) premise: சர்க்கஸ் கலைஞர் ஒற்றைச் சக்கர மிதிவண்டியை ஒட்டியபடி செப்பேடு விதை செய்தார்
+choice1: பிரமிப்பாக காணும் பார்வையினர் வியந்தனர்
+choice2: குறையிலியாக தன் உரையாடு கயிற்றிலே ஐந்தினார்
+label: choice1
+
+C) premise: சர்க்கஸ் கலைஞர் ஒற்றைச் சக்கர மிதிவண்டியை ஒட்டியபடி செப்பேடு விதை செய்தார்
+choice1: அதிர்ச்சியில் முயற்சிப்பவர்கள் மகிழ்ந்தனர்
+choice2: நிலையற்றாக தன் சஞ்சர கயிற்றிலே அலைந்தினார்
+label: choice1D) 'premise': சர்க்கஸ் கலைஞர் ஒற்றைச் சக்கர மிதிவண்டியை ஒட்டியபடி செப்பேடு விதை செய்தார்
+'choice1': பார்வையாளர்கள் ஆச்சரியத்தில் ஆராவாரம் செய்தனர்
+'choice2': கழைக்கூத்தாடி தன் சாகச கயிற்றிலிருந்தபடி ஊஞ்சலாடினார்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பொறுமை இழந்தேன்
+choice1: என் சகாக்கள் என்னை கண்காணித்தார்
+choice2: என் சகாக்கள் வருகை தந்தார்
+label: choice1
+
+B) premise: அந்த பொறுமை இழந்தேன்
+choice1: என் நட்பர் என்னைத் தாங்கித்தவர்
+choice2: என் நட்பர் சமயம் போட்டவர்
+label: choice1
+
+C) premise: அந்த பொறுமை இழந்தேன்
+choice1: என் தோழர் என்னை காத்துக்கொண்டார்
+choice2: என் தோழர் சரியான வேளையில் வந்தார்
+label: choice1D) 'premise': அந்த பொறுமை இழந்தேன்
+'choice1': என் நண்பன் என்னைக் காக்க வைத்தான்
+'choice2': என் நண்பன் நேரத்தில் வந்தடைந்தான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: போரிடும் நாடுகள் அமைதியை தேடினர்
+choice1: அவர்கள் அபராத கருவிகளை உருவாக்கினர்
+choice2: அவர்கள் சந்திப்புக்கள் நடத்தி ஒரு ஏற்புடைப்பத்திற்கு வந்தனர்
+label: choice2
+
+B) premise: போரிடும் நாடுகள் அமைதியை விரும்பினர்
+choice1: அவர்கள் மேற்கொள்ளும் உலக சம்பந்தங்கள் மென்மையானவையாக இருந்தன
+choice2: அவர்கள் இரண்டு பக்கமும் கனிவளிக்கும் செய்திகளை அனுப்பி ஒரு சமரசம் ஏற்படுத்தினர்
+label: choice2
+
+C) premise: போரிடும் நாடுகள் அமைதியை நோக்கினர்
+choice1: அவர்கள் கொள்கை மாற்றங்களை மேற்கொண்டனர்
+choice2: அவர்கள் அலைபேசிகளை பயன்படுத்தி ஒரு சமர்ப்பணத்திற்கு சேர்ந்தனர்
+label: choice2D) 'premise': போரிடும் நாடுகள் அமைதியை விரும்பினர்
+'choice1': அவர்கள் அணு ஆயுதங்கள் உருவாக்கினர்
+'choice2': அவர்கள் பேச்சுவார்த்தை நடத்தி ஒரு ஒப்பந்தத்திற்கு வந்தனர்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் தூக்க மருந்து உட்கொண்டான்
+choice1: அவன் தூங்கிப் போய்விட்டான்
+choice2: அவனுக்கு மடவெளிச்சல் வந்தது
+label: choice1
+
+B) premise: அந்த மனிதன் தூக்க மருந்து உட்கொண்டான்
+choice1: அவன் சோம்பேறியான்
+choice2: அவனுக்குக் குளிர் காய்ச்சல் வந்துள்ளது
+label: choice1
+
+C) premise: அந்த மனிதன் தூக்க மருந்து உட்கொண்டான்
+choice1: அவன் மூச்சுத்திருக்கவில்லாமல் கெட்டுப்போய்விட்டான்
+choice2: அவனுக்குக் குளிரூட்டுப் பிரச்சனை ஏற்பட்டது
+label: choice1D) 'premise': அந்த மனிதன் தூக்க மருந்து உட்கொண்டான்
+'choice1': அவன் மயக்கமடைந்தான்
+'choice2': அவனுக்குக் காய்ச்சல் ஏற்பட்டது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பெண்மணி மஞ்சையின்மீது மோதிக் கொண்டாள்
+choice1: மஞ்சையின் தூள் பிடிக்குமானது
+choice2: அவள் தனது காலைப் பாரப்படுத்திக் கொண்டாள்
+label: choice2
+
+B) premise: அந்த பெண்மணி மஞ்சையின்மீது மோதிக் கொண்டாள்
+choice1: மஞ்சையின் கனிம பலி கொளுமானது
+choice2: அவள் தனது விவரமைப்பைக் கேட்டுப்போடுக்கொண்டாள்
+label: choice2
+
+C) premise: அந்த பெண்மணி மஞ்சையின்மீது மோதிக் கொண்டாள்
+choice1: மஞ்சையின் தேற்றம் அழிவானது
+choice2: அவள் தனது காளைக் குறைத்துப்போட்டுக்கொண்டாள்
+label: choice2D) 'premise': அந்த பெண்மணி மஞ்சையின்மீது மோதிக் கொண்டாள்
+'choice1': மஞ்சையின் கால் தளர்வானது
+'choice2': அவள் தனது முட்டிக்காலைக் காயம்படுத்திக் கொண்டாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுவன் ஊதற்பையை அமுக்கினான்
+choice1: ஊதற்பை நொறுக்கினது
+choice2: ஊதற்பை ஒடித்தது
+label: choice1
+
+B) premise: அந்த சிறுவன் ஊதற்பையை மூடினான்
+choice1: ஊதற்பை சுருட்டினது
+choice2: ஊதற்பை உருட்டினது
+label: choice1
+
+C) premise: அந்த சிறுவன் ஊதற்பையை உடைத்தான்
+choice1: ஊதற்பை முறிந்தது
+choice2: ஊதற்பை துருக்கினது
+label: choice1D) 'premise': அந்த சிறுவன் ஊதற்பையை அமுக்கினான்
+'choice1': ஊதற்பை வெடித்தது
+'choice2': ஊதற்பை பறந்து போனது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பயணிகள் தங்களது தங்கும் இடத்துக்கு வந்து சேர்ந்தனர்
+choice1: அவர்கள் தங்களது சம்பளத்தை நிலைப்படுத்தினர்
+choice2: அவர்கள் காலனுடன் பகிர்ந்திருந்த விஷயங்களை வெளிப்படுத்தினர்
+label: choice1
+
+B) premise: அந்த பயணிகள் தங்களது விருந்தினர் அறைக்கு வந்து சேர்ந்தனர்
+choice1: அவர்கள் தங்களது பாதுகாப்பு கையொப்பத்தை ஒப்படைத்தினர்
+choice2: அவர்கள் உணவு உண்டு ஆரோக்கியமாக இருப்பதற்கான பரிரக்கத்தைப் பெற்றினர்
+label: choice1
+
+C) premise: அந்த பயணிகள் தங்களது வாசல் கொண்டு வரப்பட்டனர்
+choice1: அவர்கள் தங்களது தாக்கலைச் செய்திருந்த பொருட்களை விட்டுவிட்டினர்
+choice2: அவர்கள் பயண அனுபவங்களை உரை படுத்திருந்த நூல்களை எடுத்தினர்
+label: choice1D) 'premise': அந்த பயணிகள் தங்களது  விடுதி அறைக்கு வந்து சேர்ந்தனர்
+'choice1': அவர்கள் தங்களது கைப்பெட்டிகளைக் கட்டவிழ்த்தனர்
+'choice2': அவர்கள் விமான நிலையத்துக்குச் சென்றனர்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் ஆப்பிளைக் கடித்தேன்
+choice1: ஆப்பிள் தின்றுவிட்டது
+choice2: பழம் பொலிவடைந்தது
+label: choice2
+
+B) premise: நான் ஆப்பிளைக் கடித்தேன்
+choice1: ஆப்பிள் போஜிக்கப்பட்டது
+choice2: பழம் வெள்ளையாக வந்தது
+label: choice2
+
+C) premise: நான் ஆப்பிளைக் கடித்தேன்
+choice1: ஆப்பிள் தின்விக்கப்பட்டது
+choice2: பழம் கற்றலாக மாறியது
+label: choice2D) 'premise': நான் ஆப்பிளைக் கடித்தேன்
+'choice1': ஆப்பிள் கன்றிப்போனது
+'choice2': பழரசம் வெளியே சிந்தியது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: என் கைகள் பிசுபிசுப்படைந்தன
+choice1: நான் திகிலை உண்டேன்
+choice2: எனக்கு ஜலேபி பண்டங்களின் மேல் அதிக மகிழ்ச்சி
+label: choice1
+
+B) premise: என் கைகள் சில்லிசில்லிப்படைந்தன
+choice1: நான் பெருமையை உண்டேன்
+choice2: எனக்கு கலகண்ட பண்டங்களின் மேல் அதிக விழிப்பு
+label: choice2
+
+C) premise: என் கைகள் குறுகுகுறுப்படைந்தன
+choice1: நான் குறுக்கமை உண்டேன்
+choice2: எனக்கு மிட்டாய் பண்டங்களின் மேல் அதிக ஈர்ப்பு
+label: choice2D) 'premise': என் கைகள் பிசுபிசுப்படைந்தன
+'choice1': நான் அதிரசத்தை உண்டேன்
+'choice2': எனக்கு இனிப்பு பண்டங்களின் மேல் அதிக நாட்டம்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் கதவைத் தள்ளினேன்
+choice1: கதவு திறந்தது
+choice2: கதவு பூட்டிக்கொண்டது
+label: choice1
+
+B) premise: நான் கதவைத் உடைத்தேன்
+choice1: கதவு திறக்கப்பட்டது
+choice2: கதவு மூடப்பட்டது
+label: choice1
+
+C) premise: நான் கதவைத் சீற்றினேன்
+choice1: கதவு விமுகமாக்கப்பட்டது
+choice2: கதவு மறைக்கப்பட்டது
+label: choice1D) 'premise': நான் கதவைத் தள்ளினேன்
+'choice1': கதவு திறந்தது
+'choice2': கதவு பூட்டிக்கொண்டது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: சமூக ஆர்வலர்கள் அந்த பொருட்களைப் புறக்கணித்தனர்
+choice1: அந்த பொருட்கள் மாணவர் திறன் மீளர்களின் வேலையாக இருந்தன
+choice2: அந்த பொருட்கள் குழந்தைத் தொழிலாளர்களால் தயாரிக்கப்பட்டவை
+label: choice2
+
+B) premise: சமூக ஆர்வலர்கள் அந்த பொருட்களைப் புறக்கணித்தனர்
+choice1: அந்த பொருட்கள் சுமார் எடுத்துவிட்டு விற்றன
+choice2: அந்த பொருட்கள் குறுக்கு வாழ்க்கை நடத்தும் மக்களால் செய்யப்பட்டன
+label: choice2
+
+C) premise: சமூக ஆர்வலர்கள் அந்த பொருட்களைப் புறக்கணித்தனர்
+choice1: அந்த பொருட்கள் பிற நாட்டு கட்டுரைகளில் வரப்பட்டன
+choice2: அந்த பொருட்கள் தனியார் நிறுவனங்களின் அற்புதமான தொழில்நுட்பங்களால் உருவாக்கப்பட்டன
+label: choice2D) 'premise': சமூக ஆர்வலர்கள் அந்த பொருட்களைப் புறக்கணித்தனர்
+'choice1': அந்த பொருட்கள் தர உத்தரவாதத்திற்குச் சோதனை செய்யப்பட்டன
+'choice2': அந்த பொருட்கள் குழந்தைத் தொழிலாளர்களால் தயாரிக்கப்பட்டவை
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் சுவரில் துளையிட்டேன்
+choice1: துளையிலிருக்கும் தூளரிசி ஒருவன் தழுவிய வில் விரி
+choice2: துளையிலிருந்து மணல் வீசியது
+label: choice2
+
+B) premise: நான் சுவரில் துளையிட்டேன்
+choice1: துளையில் இருந்த மோழி எங்கிருந்து வந்தது என்பது அறிந்தேன்
+choice2: துளையில் இருந்த பயலு தொடர்பையிட்டது
+label: choice2
+
+C) premise: நான் சுவரில் துளையிட்டேன்
+choice1: துளையில் படும் மின்னல் சுடுகின்றதைக் கண்டேன்
+choice2: துளையில் உள்ள சோலை சார்ந்தது
+label: choice2D) 'premise': நான் சுவரில் துளையிட்டேன்
+'choice1': துளையிலிருந்துச் சுண்டெலி ஒன்று ஊர்ந்து வெளியே வந்தது
+'choice2': துளையிலிருந்து தூசி பறந்தது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பெண் தன் சகோதரியைக் கண்டு பொறாமை பட்டாள்
+choice1: அவள் சகோதரி ஜல்லிக்கும் நிலையில் இருந்தாள்
+choice2: அவள் சகோதரி சிரிப்புக்குறையில் இருந்தாள்
+label: choice1
+
+B) premise: அந்த பெண் தன் சகோதரியைக் கண்டு பொறாமை பட்டாள்
+choice1: அவள் சகோதரி உள்ளம் இளையலில் இருந்தாள்
+choice2: அவள் சகோதரி மகிழ்ச்சியில் உழைந்தாள்
+label: choice1
+
+C) premise: அந்த பெண் தன் சகோதரியைக் கண்டு பொறாமை பட்டாள்
+choice1: அவள் சகோதரி உள்ளத்தை இருட்டலில் வைத்தாள்
+choice2: அவள் சகோதரி அடியில் அழிப்பறிவில் இருந்தாள்
+label: choice1D) 'premise': அந்த பெண் தன் சகோதரியைக் கண்டு பொறாமை பட்டாள்
+'choice1': அவள் சகோதரி சந்தோசமாக இருந்தாள்
+'choice2': அவள் சகோதரி விவாகரத்து பெற்றாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் என் சட்டையில் மது சிந்தினேன்
+choice1: நான் மேல் பொருளை அணிந்துக் கொண்டேன்
+choice2: நான் என் சட்டையை மாற்றினேன்
+label: choice2
+
+B) premise: நான் என் சட்டையில் மது சிந்தினேன்
+choice1: நான் முகவரியில் சட்டை மாற்றினேன்
+choice2: நான் என் வஸ்திரத்தை பிரிந்துக் கொண்டேன்
+label: choice1
+
+C) premise: நான் என் சட்டையில் மது சிந்தினேன்
+choice1: நான் தொடையில் சல்வம் கொண்டுக் கொண்டேன்
+choice2: நான் என் உடையை மாற்றினேன்
+label: choice2D) 'premise': நான் என் சட்டையில் மது சிந்தினேன்
+'choice1': நான் மேல் அங்கியை அணிந்துக் கொண்டேன்
+'choice2': நான் என் சட்டையை மாற்றினேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: காசாளர் பணப்பதிவேட்டைத் திறந்தார்
+choice1: அந்த வாடிக்கையாளர் தன் பணப்பையைத் தேடினார்
+choice2: அந்த வாடிக்கையாளர் தன் பணத்தை ஒப்படைத்தாள்
+label: choice2
+
+B) premise: காசாளர் பணப்பதிவேட்டைத் திறந்தார்
+choice1: அந்த போக்குவரத்து தன் பணரெசேட்டை எடுத்தாள்
+choice2: அந்த போக்குவரத்து தன் பணமை பெற்றாள்
+label: choice2
+
+C) premise: காசாளர் பணப்பதிவேட்டைத் திறந்தார்
+choice1: அந்த அடர்வாடிக்கையாளர் தன் பணசம்பந்தங்களைக் கண்டார்
+choice2: அந்த அடர்வாடிக்கையாளர் தன் பணப்பெறும் வசதியை அறிந்தார்
+label: choice2D) 'premise': காசாளர் பணப்பதிவேட்டைத் திறந்தார்
+'choice1': அந்த வாடிக்கையாளர் தன் பணப்பையைத் தேடினார்
+'choice2': அந்த வாடிக்கையாளர் தன் பணத்தை ஒப்படைத்தாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: தெருவோர இசைக்கலைஞர் மக்கள் கூட்டத்தை கவர்ந்திழுத்தார்
+choice1: மக்கள் அவரிடம் சில்லறைகளை அளித்தனர்
+choice2: அவர் கூட்டத்தை விரட்டியடித்தார்
+label: choice1
+
+B) premise: தெருவோர இசைக்கலைஞர் மக்கள் கூட்டத்தை கவர்ந்திழுத்தார்
+choice1: மக்கள் அவரிடம் அச்சுறுத்துகளை நீட்டனர்
+choice2: அவர் கூட்டத்தை மூடியடிக்கனர்
+label: choice1
+
+C) premise: தெருவோர இசைக்கலைஞர் மக்கள் கூட்டத்தை கவர்ந்திழுத்தார்
+choice1: மக்கள் அவரிடம் பாராட்டுகளை ஊட்டனர்
+choice2: அவர் கூட்டத்தை தளர்விழுத்தார்
+label: choice1D) 'premise': தெருவோர இசைக்கலைஞர் மக்கள் கூட்டத்தை கவர்ந்திழுத்தார்
+'choice1': மக்கள் அவரிடம் சில்லறைகளை அளித்தனர்
+'choice2': அவர் கூட்டத்தை விரட்டியடித்தார்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுவன் தன் பலான்காலிடம் அழைத்தான்
+choice1: அவன் தன் அளவாளிகளில்லாத அண்ணன் அண்ணியை நினைத்தான்
+choice2: அது சுற்றிச்சூழல் மாற்றம் சார்ந்த நாள்
+label: choice1
+
+B) premise: அந்த சிறுவன் தன் பாதுகாவலரிடம் அதிர்ச்சியடைந்தான்
+choice1: அவன் தன் தாய் அப்பாவின்றி கூட்டிட்டான்
+choice2: அது சத்தமான கிளையில் குடிக்கும் போது
+label: choice1
+
+C) premise: அந்த சிறுவன் தன் புறவையிடம் கலங்கலான்
+choice1: அவன் தன் குடும்பத்தின்றி அளாவான்
+choice2: அது வேலியில் விளையாடும் நேரம்
+label: choice1D) 'premise': அந்த சிறுவன் தன் பராமரிப்பாளரிடம் அழுதான்
+'choice1': அவன் தன் பெற்றோர்களின்றி தவித்தான்
+'choice2': அது சிற்றுண்டி உண்ணும் நேரம்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: விமான நிலையில் விமானங்கள் அமர்ந்திருந்தன
+choice1: விமான நிலைய காவலர்கள் தீவிரமாக வேலை செய்தனர்
+choice2: விமான நிலைய விளையாடக்கூடம் திறந்தது
+label: choice1
+
+B) premise: இடியால் கார்த்தேகே வீட்டில் தண்ணீர் பாய்ந்து விட்டது
+choice1: கார்த்தேகே கவனமாக தண்ணீரைத் துப்பித் திருப்பினார்
+choice2: கார்த்தேகே தண்ணீர் வண்டிக்குள் ஒட்டினார்
+label: choice1
+
+C) premise: கிருஷ்ணா ஆசிரியரின் கருத்தை மதிக்காமல் பேசிவிட்டாள்
+choice1: ஆசிரியர் கிருஷ்ணாவை அழைத்து கண்ணீரில் குளிர்ச்சி பெறச் சொன்னார்
+choice2: ஆசிரியர் கிருஷ்ணாவை அழைத்து திட்டமிட்டு முயற்சி செய்ய போராட சொல்லினார்
+label: choice2D) 'premise': விமானியின் ரேடார் புயல் வருவதைக் கண்டறிந்தது
+'choice1': விமானி புயலைத் தவிர்க்கும் வகையில் விமானத்தை வழிசெலுத்தினார்
+'choice2': விமானி புயலின் உள்ளே விமானத்தைப் பறந்தார்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: மரம் அதன் இலைகளை கொண்டுபோனது
+choice1: இலைகள் தரையில் விழுந்தன
+choice2: இலைகள் வண்ணம் மாறின
+label: choice1
+
+B) premise: மரம் அதன் இலைகளை விட்டது
+choice1: இலைகள் அழகு மாறின
+choice2: இலைகள் மெல்ல மேலிருந்தன
+label: choice2
+
+C) premise: மரம் அதன் இலைகளை அற்றவைத்தது
+choice1: இலைகள் பூமியில் போக்கின
+choice2: இலைகள் பசுமை தோல்வியுற்றன
+label: choice1D) 'premise': மரம் அதன் இலைகளை உதிர்த்தது
+'choice1': இலைகள் நிறம் மாறின
+'choice2': இலைகள் தரையில் குவிந்தன
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுவன் குறும்பான மனோவிதி கொண்டான்
+choice1: அவன் தன் சகோதரியுடன் வளையாட்டம் விளையாட தீர்மானித்தான்
+choice2: அவன் தனது சகோதரிக்கு குறும்பு பண்ண மனது செய்தான்
+label: choice2
+
+B) premise: அந்த சிறுவன் சிக்கலான மன இருப்பு வைத்தான்
+choice1: அவன் தன் சகோதரியுடன் வினோதத்தோடு நடந்தான்
+choice2: அவன் தனது சகோதரியை சிக்கல் போட்டு ஏற்படுத்த முடியும் என எண்ணினான்
+label: choice2
+
+C) premise: அந்த சிறுவன் முன்னோடிக்குறிய மனப்பாதையை எடுத்தான்
+choice1: அவன் தன் சகோதரியுடன் இணைந்து கேளிக்கை செய்வதற்கு ஆர்வம் காட்டினான்
+choice2: அவன் தனது சகோதரியை இகழ நினைத்து செயல்பட்டான்
+label: choice2D) 'premise': அந்த சிறுவன் குறும்பான மனநிலையில் இருந்தான்
+'choice1': அவன் தன் சகோதரியுடன் சீட்டாட்டம் ஆட முடிவு செய்தான்
+'choice2': அவன் தனது சகோதரியின் மீது குறும்பு செய்ய முடிவெடுத்தான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த குழந்தை தான் கழிவறைக்குச் செல்ல வேண்டும் என்று வழிநம்பினார்
+choice1: அவருடைய தந்தையார் அவருக்குக் குளிக்க பவுன்ட் கொடுத்தார்
+choice2: அவரது தந்தையார் சூடான காலத்தில் ஜில்லிணி வைத்தார்
+label: choice2
+
+B) premise: அந்த குழந்தை தான் கழிவறைக்குச் செல்ல வேண்டும் என்று நியமித்தார்
+choice1: அவனுடைய தந்தையார் அவனுக்குக் தேங்காயின் கருத்தை கொடுத்தார்
+choice2: அவனது தந்தையார் தீயாவஸ்தையில் கூல் போட்டார்
+label: choice2
+
+C) premise: அந்த குழந்தை தான் கழிவறைக்குச் செல்ல வேண்டும் என்று நிரூபித்தார்
+choice1: அவருடைய தந்தையார் அவருக்குக் மின்சாரம் உள்ள குச்சி கொடுத்தார்
+choice2: அவரது தந்தையார் சுவாசம் குனிய வைசே முறைப்படுத்தினார்
+label: choice2D) 'premise': அந்த குழந்தை தான் கழிவறைக்குச் செல்ல வேண்டும் என்று முறையிட்டது
+'choice1': அவனது தந்தையார் அவனுக்குக் குடிக்க சோடா கொடுத்தார்
+'choice2': அதன் தந்தையார் எரிவாயு நிலையத்தில் சீருந்தை நிறுத்தினார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த குழந்தை மீன் உணவைத் தொட்டியினுள் தூவியது
+choice1: மீன் பச்சிலை விட்டு வெளியே ஓடியது
+choice2: மீன் உணவை பார்த்து குளிச்சது
+label: choice2
+
+B) premise: அந்த குழந்தை மீன் உணவைத் தொட்டியினுள் தூவியது
+choice1: மீன் உணவை விடாமல் பிடித்தது
+choice2: மீன் உணவை எடுத்து போனது
+label: choice1
+
+C) premise: அந்த குழந்தை மீன் உணவைத் தொட்டியினுள் தூவியது
+choice1: மீன் பிரியணியை விட்டு வெளியே நடந்தது
+choice2: மீன் உணவை சுவைத்து ஆவியது
+label: choice2D) 'premise': அந்த குழந்தை மீன் உணவைத் தொட்டியினுள் தூவியது
+'choice1': மீன் தொட்டியை விட்டு வெளியே குதித்தது
+'choice2': மீன் உணவை நோக்கி நீந்தியது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவ்வளவு தலைமுறை சவால்களை எதிர்கொண்ட பெண்மணி அரசியல் நோக்கத்தை மாற்றினாள்
+choice1: அவள் கட்சிக்காக தன் அறிவுரைகளை மாறியாள்
+choice2: அவள் சமூக நல பெருமிதத்தையே குறிப்பிட்டாள்
+label: choice1
+
+B) premise: பகுத்தறிவுசிற்றுக்களில் துரோகம் உண்டாக்கின பெண்மணியின் அரசியல் தகுதியில் மாற்றம் ஏற்பட்டது
+choice1: அவள் ஒரு வேறு தொகுதி நிர்வாகியாக மேற்கொண்டாள்
+choice2: அவள் ஒரு வேறு மையம் உருவாக்கி அதில் பங்கு கொண்டாள்
+label: choice2
+
+C) premise: பகுப்புவேற்றுதல் மற்றும் கதி கேட்பதில் குற்றம் காட்டப்பட்ட பெண்மணி அரசியல் விகிதங்களை திரும்பவைத்தாள்
+choice1: அவள் தனது கட்சியின் பண்பாட்டை மேம்படுத்தினாள்
+choice2: அவள் தனது அரசியல் நடைமுறைகளை சீர்கொண்டாள்
+label: choice2D) 'premise': அந்த பெண்மணியின் அரசியல் பார்வை மாறியது
+'choice1': அவள் தன் கட்சி நிலைப்பாட்டை மாற்றினாள்
+'choice2': அவள் கண்டனப் போராட்டத்தில் ஈடுபட்டாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: குளியலறையிலிருந்த நீர்ப்பையில் அணைவு ஏற்பட்டது
+choice1: நான் படுக்கரையை திறக்க வேண்டும்
+choice2: நான் குளத்திட்ட கழுவானை அதில் ஓட்டினேன்
+label: Choice2
+
+B) premise: குளியலறையிலிருந்த நீர்காரியில் கண்ணெடுப்பு நடந்தது
+choice1: நான் பகுதியை மாற்றினேன்
+choice2: நான் கலடையை சுத்தம் செய்யும் காரியத்தை அதில் வந்தினேன்
+label: Choice2
+
+C) premise: குளியலறையிலிருந்த நீர்சாதனத்தில் கிளப்பு உண்டாயிருந்தது
+choice1: நான் உறையை வைத்தேன்
+choice2: நான் தூள் சாய்ந்த சுட்டி ஆளையை அதில் வீசினேன்
+label: Choice2D) 'premise': குளியலறையிலிருந்த நீர்த்தொட்டியில் அடைப்பு ஏற்பட்டது
+'choice1': நான் குழாயைத் திறந்தேன்
+'choice2': நான் வடிகால் சுத்தம் செய்யும் திரவியத்தை அதனுள் ஊற்றினேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: பயணிகள் வண்டியை விட்டு புறப்பட்டனர்
+choice1: வண்டி நிலையத்தை சேர்ந்தது
+choice2: வண்டி உருளாடியது
+label: choice1
+
+B) premise: பயணிகள் சாரத்தில் இருந்து கீழே தள்ளப்பட்டனர்
+choice1: சாரம் ரயில் நிலையத்தை எடுத்தது
+choice2: சாரம் இருக்கும் இடத்தை விட்டது
+label: choice1
+
+C) premise: பயணிகள் படகில் இருந்து மேலே ஏறினர்
+choice1: படகு துறைமுகத்தை அடைந்தது
+choice2: படகு நீரில் முழுகியது
+label: choice1D) 'premise': பயணிகள் தொடர்வண்டியில் இருந்து வெளியேறினர்
+'choice1': தொடர்வண்டி ரயில் நிலையத்தை வந்தடைந்தது
+'choice2': தொடர்வண்டி தன் சங்கை முழங்கியது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவன் கடித உறையின் புறத்தில் அங்கீகாரம் எழுதினான்
+choice1: அவன் கடித உறையை பொருளடக்க பொத்தானால் இடம்பெற்று வைத்தான்
+choice2: அவன் கடித உறையை மீது லினிய வரைத்து மடிக்கல்லோடு உடைத்தான்
+label: choice2
+
+B) premise: அந்த மனிதன் கடித உறையின் ஒலிப்பு விழிப்புணர்வுடன் ஒட்டினான்
+choice1: அவன் கடித உறையில் அட்டைக்கூடுதல் ரீதியில் சமர்ப்பித்தான்
+choice2: அவன் கடித உறையை மொழிபெயர்ப்பு உபகரணத்தில் வைத்தான்
+label: choice1
+
+C) premise: அந்த மனிதன் கடித உறையின் வகைப்பாடு செய்தான்
+choice1: அவன் கடித உறையை சுருக்கமாக இருப்பு வடிவில் செய்தான்
+choice2: அவன் கடித உறையை தலைப்பும் உள்ளடக்கமும் பிரிந்து சொல்ல விட்டான்
+label: choice2D) 'premise': அந்த மனிதன் கடித உறையின் ஈர மடலை அழுத்தினான்
+'choice1': அவன் கடித உறையில் அஞ்சல்தலையை ஓட்டினான்
+'choice2': அவன் கடித உறையை முத்திரையிட்டு மூடினான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த நண்பர்கள் தொடர்பு இழந்தனர்
+choice1: அவர்கள் ஒருவரை அற்றதம்கள் காட்டி மகிழ்ந்தனர்
+choice2: அவர்கள் வேறு ஊருக்குள் வாழ்வு அமைத்தனர்
+label: choice2
+
+B) premise: அந்த நண்பர்கள் தொடர்பு இழந்தனர்
+choice1: அவர்கள் ஒருவருக்கும் ஒருவரும் கோபம் கொண்டனர்
+choice2: அவர்கள் பல மண்டலங்களுக்கு தங்குமிடம் கண்டனர்
+label: choice2
+
+C) premise: அந்த நண்பர்கள் தொடர்பு இழந்தனர்
+choice1: அவர்கள் ஒருவருடன் ஒருவரும் பிரச்சனை கிளம்பினர்
+choice2: அவர்கள் பிரிந்து நாடுகளுக்கு சென்றனர்
+label: choice2D) 'premise': அந்த நண்பர்கள் தொடர்பு இழந்தனர்
+'choice1': அவர்கள் ஒருவருக்கொருவரின் தோசாமையில் இன்பம் கண்டனர்
+'choice2': அவர்கள் வெவ்வேறு நகரங்களுக்குக் குடி பெயர்ந்தனர்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: கணக்காளர் நிறுவனத்தின் நிதியைத் தவறாகக் கையாண்டார்
+choice1: அவள் அவளது கட்டளையிலிருந்து நீக்கப்பட்டார்
+choice2: அவள் சிறுமை ஆட்சியில் போய்விட்டாள்
+label: choice1
+
+B) premise: கணக்காளர் நிறுவனத்தின் நிதியைத் தவறாகக் கையாண்டார்
+choice1: அவள் அவளது பதவியை இழந்தார்
+choice2: அவள் விருப்பமற்ற வேலையில் சேர்ந்தாள்
+label: choice1
+
+C) premise: கணக்காளர் நிறுவனத்தின் நிதியைத் தவறாகக் கையாண்டார்
+choice1: அவள் அவளது முகாமைத்துவத்தை கலக்கியார்
+choice2: அவள் முதலியருடன் வாய்ப்புக்காக இணைந்தாள்
+label: choice1D) 'premise': கணக்காளர் நிறுவனத்தின் நிதியைத் தவறாகக் கையாண்டார்
+'choice1': அவள் அவளது பதவியிலிருந்து நீக்கப்பட்டார்
+'choice2': அவள் மகப்பேறு விடுப்பில் சென்றாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் கடிகாரத்தைப் பார்த்தேன்
+choice1: நான் ஓரோலியைக் கண்டேன்
+choice2: நான் கலகம் விளையாடுவதைக் காண்டேன்
+label: choice1
+
+B) premise: நான் கடிகாரத்தைப் பார்த்தேன்
+choice1: நான் கரொளியைப் பார்க்க நினைத்தேன்
+choice2: நான் இரையைப் பிடிக்க முனைந்தேன்
+label: choice1
+
+C) premise: நான் கடிகாரத்தைப் பார்த்தேன்
+choice1: நான் வெல்லியைப் பார்த்து அதிர்ந்தேன்
+choice2: நான் விளங்கினைப் பார்க்க ஆசைப்பட்டேன்
+label: choice2D) 'premise': நான் கடிகாரத்தைப் பார்த்தேன்
+'choice1': நான் கடிகாரம் துடிப்பதைக் கேட்டேன்
+'choice2': நான் மணியைப் பார்க்க விரும்பினேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: என் கைகளில் உறுதி உண்டாயிருந்தது
+choice1: நான் தொலைந்து விட்டேன்
+choice2: நான் முறையாக விலைப்பீடு செய்தேன்
+label: choice1
+
+B) premise: என் கைகளில் அறிவு வளர்ந்தது
+choice1: நான் தீர்ச்சியாக கூறினேன்
+choice2: என் தந்தையும் என்னையும் கை பிடித்தோம்
+label: choice1
+
+C) premise: என் கைகளில் ஆற்றல் திரிந்தது
+choice1: நான் ஒரு பெரிய திட்டத்தை முடித்தேன்
+choice2: என் சிறுமியும் எனக்கும் கை பிடித்து சென்றோம்
+label: choice1D) 'premise': என் கைகளில் பிடிப்பு ஏற்பட்டது
+'choice1': நான் கட்டுரையை கையால் எழுதினேன்
+'choice2': என் மனைவியும் நானும் கை பிடித்தோம்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த ஆணி இறுக்கமாக திசையைப் பெற்றது
+choice1: நான் ஆணியை வாரம்படுத்தினேன்
+choice2: நான் மின்னலைத் தெரித்தினேன்
+label: choice1
+
+B) premise: அந்த ஆணி வேகமாக சிந்தித்தது
+choice1: நான் ஆணியை மாற்றினேன்
+choice2: நான் விரைவுகொடுத்தினேன்
+label: choice2
+
+C) premise: அந்த ஆணி திறமாக விருப்பம்பெற்றது
+choice1: நான் ஆணியை புறந்தள்ளினேன்
+choice2: நான் உதிர்வினைச் செய்தினேன்
+label: choice2D) 'premise': அந்த ஆணி இறுக்கமாக பிடித்துக் கொண்டது
+'choice1': நான் ஆணியை மாற்றினேன்
+'choice2': நான் குறடைத் திருகினேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த ஜோடி அடுக்குமாடி குடியிருப்பு ஒன்றைக் குத்தகைக்கு அடுத்தது
+choice1: அந்த இணையம் அந்த குடியிருப்பு வஸதியற்றதாக விளக்கினது
+choice2: அந்த ஜோடி அந்த குடியிருப்பில் குடி புகுந்தது
+label: choice2
+
+B) premise: அந்த ஜோடி அடுக்குமாடி குடியிருப்பு ஒன்றைக் குத்தகைக்கு அடுத்தது
+choice1: அந்த ஜோடி அந்த குடியிருப்பை இடையே கொண்டது
+choice2: அந்த குண்டு அந்த குடியிருப்பு சுற்றி சுற்றினது
+label: choice1
+
+C) premise: அந்த ஜோடி அடுக்குமாடி குடியிருப்பு ஒன்றைக் குத்தகைக்கு அடுத்தது
+choice1: அந்த ஜோடி அந்த குடியிருப்பை சேர்ந்தது
+choice2: அந்த நிலையம் அந்த குடியிருப்பை பொறுத்தது
+label: choice1D) 'premise': அந்த ஜோடி அடுக்குமாடி குடியிருப்பு ஒன்றைக் குத்தகைக்கு அடுத்தது
+'choice1': அந்த ஜோடி அந்த அடுக்குமாடி குடியிருப்பில் குடி புகுந்தது
+'choice2': அந்த நகரம் அந்த குடியிருப்பை வாழத் தகுதியற்றதாக அறிவித்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பெண்மணி வெளியே நீண்டநேர மெல்ல நடந்தாள்
+choice1: அவள் அடங்கும் நட்சத்திரங்களையும் காணத் தவிர்ந்தாள்
+choice2: அவள் ஓவியம் சித்திரிக்கவும் வெளியாக யோசித்தாள்
+label: choice1
+
+B) premise: அந்த பெண்மணி வெளியே இரவேளிக்கு குறைந்து வந்தாள்
+choice1: அவள் வண்ணமலர்களைக் கள்ளிக்கட்டி துரத்தினாள்
+choice2: அவள் வெண்மையான பாதையைப் பின்தொடர்ந்தாள்
+label: choice2
+
+C) premise: அந்த பெண்மணி வெளியே ஆரவாரம் அமைந்தாள்
+choice1: அவள் கருணை கொண்ட காலறையில் தூங்கினாள்
+choice2: அவள் வண்ண கூடறியில் பேசினாள்
+label: choice1D) 'premise': அந்த பெண்மணி வெளியே தாழ்வாரத்தில் அமர்ந்தாள்
+'choice1': அவள் சூரிய அஸ்தமனத்தைப் பார்க்க விரும்பினாள்
+'choice2': அவள் மின்னலைக் கண்டதாக நினைத்தாள்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் தண்ணீரில் உயிர்காப்புச் சட்டையை அணிந்தான்
+choice1: அவன் நீரில் தேதி ஒழுக முடியாது
+choice2: அந்த தண்ணீர் ஆழவுடையது
+label: choice1
+
+B) premise: அந்த மனிதன் தண்ணீரில் உயிர்காப்புச் சட்டையை அணிந்தான்
+choice1: அவனுக்கு சாதுக்கும் வசதி கிடையாது
+choice2: அந்த தண்ணீர் குறைவாக உள்ளது
+label: choice1
+
+C) premise: அந்த மனிதன் தண்ணீரில் உயிர்காப்புச் சட்டையை அணிந்தான்
+choice1: அவன் நீராகம் செல்ல இயலாமை
+choice2: அந்த தண்ணீர் அளவுக்குறையது
+label: choice1D) 'premise': அந்த மனிதன் தண்ணீரில் உயிர்காப்புச் சட்டையை அணிந்தான்
+'choice1': அவனால் நீந்த இயலாது
+'choice2': அந்த தண்ணீர் ஆழமற்றது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பெண் சப்தங்களை எழுதி முடித்தாள்
+choice1: அவள் அதனையும் அகற்றினாள்
+choice2: அவள் அதற்கான நீக்குவிசையை இழுத்தாள்
+label: choice2
+
+B) premise: அந்த பெண் வாக்கியங்களை தொகுத்தாள்
+choice1: அவள் அவைகளை ஒன்றும் நீக்கவில்லை
+choice2: அவள் அவைகளை முற்றிலும் அழித்தாள்
+label: choice2
+
+C) premise: அந்த பெண் உரையை வரைந்தாள்
+choice1: அவள் அதை மாற்றம் செய்யாமல் விட்டாள்
+choice2: அவள் குறுக்கி விசையைப் பயன்படுத்தினாள்
+label: choice2D) 'premise': அந்த பெண் சொற் பதனாக்கியில் பிழை ஒன்றைச் செய்தாள்
+'choice1': அவள் அந்த கோப்பை அகற்றினாள்
+'choice2': அவள் அழிக்கும் விசையைத் தட்டினாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுமி தனது நண்பர்களிடம் தற்பெருமை பேசினாள்
+choice1: அவள் செல்வியான பெண்கள் ஆளானாள்
+choice2: அவள் நிகழ்வில் சிறப்பு பெற்றாள்
+label: choice2
+
+B) premise: அந்த சிறுமி தனது கூட்டாளிகளிடம் நிலைமை சொல்லினாள்
+choice1: அவள் மகிழ்ச்சியான பெண்கள் வருவாயினாள்
+choice2: அவள் ஆட்சி எடுத்தாள்
+label: choice2
+
+C) premise: அந்த சிறுமி தனது சகோதரிகளிடம் இன்னும் பேசினாள்
+choice1: அவள் பரிசு கிடைத்தாள்
+choice2: அவள் தகுதி பாராட்டுப்பட்டாள்
+label: choice2D) 'premise': அந்த சிறுமி தனது தோழிகளிடம் தற்பெருமை பேசினாள்
+'choice1': அவள் குறைந்த மதிப்பெண்கள் பெற்றாள்
+'choice2': அவள் போட்டி ஒன்றில் வெற்றி பெற்றாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: புல்வெளி சேறும் நிகழ்வுமாக இருந்தது
+choice1: இரவு முழுவதும் தேனி கூடித் தொட்டது
+choice2: அது தோட்டங்களால் அளவளியிருந்தது
+label: choice1
+
+B) premise: புல்வெளி கூட்டும் உலகமாக இருந்தது
+choice1: இரவு முழுவதும் மேகம் வர்ச்சில் நிறைந்தது
+choice2: அது தென்மைகளால் பரிபூர்ணமாகியிருந்தது
+label: choice1
+
+C) premise: புல்வெளி சுண்டும் நாடகமாக இருந்தது
+choice1: இரவு முழுவதும் நெருப்பு பிச்சில் ஒழிந்தது
+choice2: அது பல்வேறு நிறங்களால் நோக்கித் தள்ளமுடிந்தது
+label: choice1D) 'premise': புல்வெளி சேறும் சகதியுமாக இருந்தது
+'choice1': இரவு முழுவதும் மழை கொட்டித் தீர்த்தது
+'choice2': அது களைகளால் நிரம்பியிருந்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவள் கட்டியால் பனியில் கூட்டுகிறாள்
+choice1: அவள் நூற்மணி கழிவில் ஓய்வு எடுக்கிறாள்
+choice2: அவள் முற்றினால் மழையில் சூழ்கிறாள்
+label: choice2
+
+B) premise: அவள் காலை ஒரு மணி நேரம் பார்த்தாள்
+choice1: அவள் வைகறை ஒரு சமயம் கவனித்தாள்
+choice2: அவள் பொழுது ஒரு ஘டிகாரம் நோக்கினாள்
+label: choice1
+
+C) premise: அவள் ஊடகம் விட்டு வீட்டிற்கு ஓடினாள்
+choice1: அவள் மையம் தள்ளி இல்லத்துக்கு துரத்தினாள்
+choice2: அவள் நிலையம் விடுவி பூமிக்கு மீட்டினாள்
+label: choice1D) 'premise': அந்த பெண்மணி அளவுக்கு மீறி தூங்கினாள்
+'choice1': அவள் அன்றிரவு விடுதியில் தங்கினாள்
+'choice2': அவள் விழிப்புக் கடிகையில் நேரம் குறிக்க மறந்தாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் வெயில் பாதுகாப்பு நிதியை அமர்த்திக் கொண்டான்
+choice1: அவன் புன்னகை முகத்தில் வைத்தான்
+choice2: அவன் மயிலறைக்குச் செல்ல முனைந்தான்
+label: choice2
+
+B) premise: அந்த மனிதன் வெயில் பாதுகாப்பு பொருளை வெளியேற்றிக் கொண்டான்
+choice1: அவன் சூரியப்பிரகாசத்தை நோக்கினான்
+choice2: அவன் குளத்துக்குப் போனான்
+label: choice2
+
+C) premise: அந்த மனிதன் வெயில் பாதுகாப்பு உபாயத்தை பிடித்துக் கொண்டான்
+choice1: அவன் மரத்தின் கீழே வந்தான்
+choice2: அவன் தம்பிக்கு வணங்கினான்
+label: choice1D) 'premise': அந்த மனிதன் வெயில் பாதுகாப்பு திரவதைத் தடவிக் கொண்டான்
+'choice1': அவன் நிழலில் உட்கார்ந்தான்
+'choice2': அவன் கடற்கரைக்குச் சென்றான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை நிரூபித்தனர்
+choice1: ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை திரும்பப் பெற்றுக்கொண்டனர்
+choice2: தனிநபர்கள் அந்த தத்துவத்தை ஏற்றுக்கொண்டனர்
+label: choice2
+
+B) premise: ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை நிரூபித்தனர்
+choice1: ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை உறுதிப்படுத்தினர்
+choice2: மக்கள் அந்த தத்துவத்தை நம்பினர்
+label: choice1
+
+C) premise: ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை நிரூபித்தனர்
+choice1: குறிப்பாளர்கள் அந்த தத்துவத்தை வெளிப்படுத்தினர்
+choice2: நிறுவனர்கள் அந்த தத்துவத்தை ஆதரினர்
+label: choice2D) 'premise': ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை நிரூபித்தனர்
+'choice1': ஆராய்ச்சியாளர்கள் அந்த தத்துவத்தை திரும்பப் பெற்றுக்கொண்டனர்
+'choice2': தனிநபர்கள் அந்த தத்துவத்தை ஏற்றுக்கொண்டனர்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: ஆட்டத்தைக்  காண வந்த இரசிகர்கள் கலாட்டா செய்தனர்
+choice1: ஆட்டம் பற்றி உள்ள நிலையைக் காட்டியது
+choice2: நட்சத்திரம் தீர்க்க விருதுகளையும் வழங்கினார்
+label: choice2
+
+B) premise: ஆட்டத்தைக்  காண வந்த இரசிகர்கள் கலாட்டா செய்தனர்
+choice1: ஆட்டம் தொடர்ந்த ஆண்டுக்கும் வேண்டும் என்று கேட்டர்
+choice2: நாயகர் துரோகம் செய்த தாக்கலைக் கம்பி விவந்தது
+label: choice2
+
+C) premise: ஆட்டத்தைக்  காண வந்த இரசிகர்கள் கலாட்டா செய்தனர்
+choice1: ஆட்டம் வெறும் மகிழ்ச்சி அளித்தது
+choice2: நடிகை தர்மம் கண்ட கருத்தைக் கூறினார்
+label: choice2D) 'premise': ஆட்டத்தைக்  காண வந்த இரசிகர்கள் கலாட்டா செய்தனர்
+'choice1': ஆட்டம் குறித்த நேரத்தைக் கடந்து சென்றது
+'choice2': நடுவர் தவரான தீர்பைக் கொடுத்தார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் எனக்குரிய சரியான எண் சேர்க்கையைப் பூட்டில் இட்டேன்
+choice1: நான் பூட்டைச் சூட்டினேன்
+choice2: பூட்டு விடியம் பட்டது
+label: choice2
+
+B) premise: நான் எனக்குரிய சரியான எண் சேர்க்கையைப் பூட்டில் சேர்த்தேன்
+choice1: நான் பூட்டைமூட்டினேன்
+choice2: பூட்டு திறக்கப்பட்டது
+label: choice2
+
+C) premise: நான் எனக்குரிய சரியான எண் சேர்க்கையைப் பூட்டில் உள்ளே வைத்தேன்
+choice1: நான் பூட்டைமேல் மூடினேன்
+choice2: பூட்டு உடைந்தது
+label: choice2D) 'premise': நான் எனக்குரிய சரியான எண் சேர்க்கையைப் பூட்டில் உள்ளிட்டேன்
+'choice1': நான் பூட்டைப் பூட்டினேன்
+'choice2': பூட்டு திறந்தது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: மக்கட்கூட்டத்தில் தாக்கு நடந்தது
+choice1: தந்தையார் தனது மகனுக்கு சில நாணயங்களை வழங்கினார்
+choice2: தந்தையார் தனது மகனுடன் ஒன்றாக இருந்தார்
+label: choice2
+
+B) premise: மக்கட்கூட்டத்தில் சிக்கல் ஏற்பட்டது
+choice1: தந்தையார் தனது மகனை பணத்தால் ஆக்கியதாக கருதினார்
+choice2: தந்தையார் தனது மகனுடைய கையை சொந்தமாக எடுத்தார்
+label: choice2
+
+C) premise: மக்கட்கூட்டத்தில் விபத்து நிகழ்ந்தது
+choice1: தந்தையார் தனது மகனோடு சுமாரான பணம் அதிகாரித்தார்
+choice2: தந்தையார் தனது மகனை என்பதை உறுதிப்படுத்தினார்
+label: choice2D) 'premise': மக்கட்கூட்டத்தில் பதற்றம் வலுவடைந்தது
+'choice1': தந்தையார் தனது மகனிடம் சிறிது பணத்தை ஒப்படைத்தார்
+'choice2': தந்தையார் தனது மகனின் கையைப் பிடித்தார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நுழைவாயிலை பனி அடைப்பிலேயே சுருட்டியது
+choice1: நான் படுங்கற்றியாக் கொண்டு பனியை ஆரையிலிருந்து நீக்கினேன்
+choice2: நான் வடிகுற்றியாக்கி திரள்ளிப் பனியைத் தெளியினேன்
+label: choice2
+
+B) premise: நுழைவாயிலை பனி முடியிட்டுப் போயிருந்தது
+choice1: நான் தேய்ப்பணியைச் செய்துப் பனிக்கு வெளிப்பாடு செய்தேன்
+choice2: நான் குளிர்கோரமாக்கி சுமண்டுப் பனியை யாதும் மாற்றாமல் விட்டேன்
+label: choice1
+
+C) premise: நுழைவாயிலை பனி மீளாக்கமானது
+choice1: நான் இனிய ஆப்புப் பூச்சியைத் தேடியிப் பனியின் மேலே வீசினேன்
+choice2: நான் தூளாகின்ற மணலைக் கொண்டுப் பனியை அழுத்தினேன்
+label: choice2D) 'premise': நுழைவாயிலை பனி வழிமறித்தது
+'choice1': நான் பனியைத் திரட்டிப் பனிப்பந்தாக்கினேன்
+'choice2': நான் மண்வாரியாக் கொண்டு பனியை வழியிலிருந்து அகற்றினேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நாவிகர்கள் தங்கள் மூஞ்சுகளைக் கொண்டு படகை ஓட்டினர்
+choice1: படகு கடற்கரையை அடைந்தது
+choice2: படகு உமிழ்நீர் ஒன்றின் மேல் தடையாகி இருந்தது
+label: choice1
+
+B) premise: கப்பலினர் தங்கள் இருதயங்களைக் கொண்டு படகை ஓட்டினர்
+choice1: படகு துப்பாக்கூறில் வரைந்தது
+choice2: படகு அலைவரியில் முற்றியது
+label: choice1
+
+C) premise: கடல்பயணிகள் தங்கள் தலைகளைக் கொண்டு படகை ஓட்டினர்
+choice1: படகு நீர்ப்பாறை எட்டியது
+choice2: படகு அலைகளின் மண்டலத்தில் அசைந்தது
+label: choice1D) 'premise': படகோட்டிகள் தங்கள் துடுப்புகளைக் கொண்டு படகை ஓட்டினர்
+'choice1': படகு கரையை வந்தடைந்தது
+'choice2': படகு அலை ஒன்றின் மீது மோதியது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவள் மிதிவண்டியில் கட்டுப்பாட்டை இழந்தாள்
+choice1: அவள் மிதிவண்டியின் கைப் பிடியைத் தவறவிட்டாள்
+choice2: அவள் வேலிக்குள்  மோதினாள்
+label: choice2
+
+B) premise: அவள் மிதிவண்டியில் கட்டுப்பாட்டை இழந்தாள்
+choice1: அவள் மிதிவண்டியை பிழைத்துவிட்டாள்
+choice2: அவள் சூதுவண்டிக்கு அடிக்கப்பட்டாள்
+label: choice1
+
+C) premise: அவள் மிதிவண்டியில் கட்டுப்பாட்டை இழந்தாள்
+choice1: அவள் மிதிவண்டியை விட்டு விலகினாள்
+choice2: அவள் கோவிலுக்குள் பிரவேசித்தாள்
+label: choice2D) 'premise': அவள் மிதிவண்டியில் கட்டுப்பாட்டை இழந்தாள்
+'choice1': அவள் மிதிவண்டியின் கைப் பிடியைத் தவறவிட்டாள்
+'choice2': அவள் வேலிக்குள்  மோதினாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் மின்விசிறியை செயல்படுத்தினேன்
+choice1: தமிழ் என் கைகளின் மேல் ஊற்றினது
+choice2: வெறுமை காற்று என் முகத்தின் மேல் ஓடிச் சென்றதை அறிந்தேன்
+label: choice2
+
+B) premise: நான் மின்நிலையை வெளியிட்டேன்
+choice1: நீர் என் சருக்கிளின் மீது ஊறிவந்தது
+choice2: இரும்பை கார்மெகால் என் மீது வசீவிச்சதை கண்டேன்
+label: choice1
+
+C) premise: நான் மின்சாரத்தை நேரிட்டேன்
+choice1: நீரின் துளிகள் என் மூடிகளின் மீது சிறிதும் தொடர்ந்தவை
+choice2: வெயிலின் கதிர்கள் என் மூக்கின் மேல் எரித்தவை
+label: choice1D) 'premise': நான் மின்விசிறியை இயங்கச் செய்தேன்
+'choice1': தண்ணீர் என் தோலின் மீது தெளித்தது
+'choice2': குளிர் காற்று என் மீது பட்டுச் செல்வதை உணர்ந்தேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: கடல் வித்தை வீரர்கள் கடற்கரைக்கு மீண்டு வந்தனர்
+choice1: அவர்கள் குளிந்திருந்தனர்
+choice2: அவர்கள் ஒரு மீனைக் காண்டனர்
+label: choice2
+
+B) premise: கடல் வித்தை வீரர்கள் கடற்கரைக்கு மறுவரும் போனார்கள்
+choice1: அவர்கள் வெற்றியடைந்திருந்தனர்
+choice2: அவர்கள் ஒரு சுற்றைக் பார்த்தனர்
+label: choice2
+
+C) premise: கடல் வித்தை வீரர்கள் கடற்கரைக்கு திரும்பியது என்பது உண்மை
+choice1: அவர்கள் மிதந்திருந்தனர்
+choice2: அவர்கள் ஒரு பகைவரைக் கட்டனர்
+label: choice2D) 'premise': கடல் வித்தை வீரர்கள் கடற்கரைக்கு திரும்பி வந்தனர்
+'choice1': அவர்கள் நனைந்திருந்தனர்
+'choice2': அவர்கள் ஒரு சுறாவைக் கண்டனர்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் தண்ணீர்ப்பாய்யிலிருந்த மஞ்சள்செருகியை அடித்தேன்
+choice1: தண்ணீர் குளத்திலிருந்து புளிஞ்சினது
+choice2: தண்ணீர் கிரையில்லிருந்து விரிந்தது
+label: choice1
+
+B) premise: நான் குளிர்நீர் சிற்றிலிருந்த மஞ்சள் சுட்டருந்து எறித்தேன்
+choice1: குளிர்நீர் கிணற்றிலிருந்து பாறாந்தது
+choice2: குளிர்நீர் மண்ணிலிருந்து விடுந்தது
+label: choice1
+
+C) premise: நான் நீர்வளையிலிருந்த பச்சைச் சிறுகிளியை தசைத்தேன்
+choice1: நீர் பையிலிருந்து நெடுந்தது
+choice2: நீர் பள்ளத்திலிருந்து மூடினது
+label: choice1D) 'premise': நான் குளியல் தொட்டியிலிருந்த வடிகாற்செருகியை இழுத்தேன்
+'choice1': தண்ணீர் தொட்டியிலிருந்து வடிந்தது
+'choice2': தண்ணீர் தரையில் தெளித்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: கணவன் தன் மனைவிக்கு துரோகம் செய்ததைக் கண்டு குற்ற உணர்ச்சி அடைந்தான்
+choice1: அவன் அவளுக்கு துரோகம் செய்ததை தெரிந்து வரும்போது குற்ற உணர்வு கொண்டான்
+choice2: தனது மனைவிக்கு துரோகம் செய்த செயலை அவளுக்கு அறிவித்து குற்றம் ஏற்றுக் கொள்ள நினைத்தான்
+label: choice2
+
+B) premise: கணவன் தன் மனைவிக்கு துரோகம் செய்ததைக் கண்டு குற்ற உணர்ச்சி அடைந்தான்
+choice1: அவளது கணவருக்கு துரோகம் செய்ததை தெளிவாக்கினான்
+choice2: தான் அவளுடன் துரோகம் செய்ததை நாணும உணர்ந்து மன்னிக்க வேண்டும் என்று கேட்டான்
+label: choice2
+
+C) premise: கணவன் தன் மனைவிக்கு துரோகம் செய்ததைக் கண்டு குற்ற உணர்ச்சி அடைந்தான்
+choice1: அவளுக்கு துரோகம் செய்ததை அந்நியருடன் பலருக்கும் தெரியும் படியைக் கூறினான்
+choice2: அவளை குற்றவாளியாக நினைக்க மாட்டேன் என்று அவளிடம் உண்மையை ஏற்படுத்தினான்
+label: choice2D) 'premise': கணவன் தன் மனைவிக்கு துரோகம் செய்ததைக் கண்டு குற்ற உணர்ச்சி அடைந்தான்
+'choice1': அவள் அவனுக்கு துரோகம் செய்ததாகக் குற்றஞ் சாட்டினான்
+'choice2': தான் அவளுக்கு துரோகம் செய்ததை அவளிடம் ஒப்புக் கொண்டான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: சுவரொட்டியிலிருந்த மை பரவியது
+choice1: எனது மை அசைப்பேன்
+choice2: எனது சுவரொட்டியில் துளி அசைக்கிறேன்
+label: choice2
+
+B) premise: சுவரொட்டியிலிருந்த மை பரவியது
+choice1: இருவரும் மை எடுத்துக் கொள்வோம்
+choice2: இருவரும் சுவரொட்டியில் பேனா இருக்கும்
+label: choice1
+
+C) premise: சுவரொட்டியிலிருந்த மை பரவியது
+choice1: என்னை மை முகப்படையாக்கிறது
+choice2: என்னை சுவரொட்டியில் உணர்வு பொருந்தும்
+label: choice2D) 'premise': சுவரொட்டியிலிருந்த மை பரவியது
+'choice1': நான் மை உலரக் காத்திருந்தேன்
+'choice2': நான் சுவரொட்டியில் தண்ணீர் சிந்தினேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த குழந்தை கத்திக்கொண்டு விழித்தது
+choice1: அது ஒரு கொடுங்கனவு கண்டது
+choice2: அது ஒரு பயங்கரவு அடைந்தது
+label: choice1
+
+B) premise: அந்த குழந்தை கத்திக்கொண்டு விழித்தது
+choice1: அது ஒரு மயிர்க்காட்சி பார்த்தது
+choice2: அது ஒரு அற்புதம் காண்பித்தது
+label: choice1
+
+C) premise: அந்த குழந்தை கத்திக்கொண்டு விழித்தது
+choice1: அது ஒரு பயமூட்டும் காட்சி இறைஞ்சிது
+choice2: அது ஒரு ஆச்சரியமுண்டாக்கும் காட்சி மகிழ்வித்தது
+label: choice1D) 'premise': அந்த குழந்தை கத்திக்கொண்டு விழித்தது
+'choice1': அது ஒரு கொடுங்கனவு கண்டது
+'choice2': அந்த குழந்தை படுக்கையை ஈரம் செய்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பையன் தன் கால்களை மேசையின் மேலே வைத்தான்
+choice1: அதனால் அவர் மேசையின் கீழே இருந்தார்
+choice2: அதனால் அவர் மேசையில் அவனைத்தாக்கி நிற்கவிட்டார்
+label: choice2
+
+B) premise: அந்த பையன் தன் கால்களை மேசையின் மேலே வைத்தான்
+choice1: அவனின் அப்பா மேசையில் நதிக்குமாறு மிதித்தார்
+choice2: அவனின் அப்பா அவனை மர்மத்தில் அடித்தார்
+label: choice2
+
+C) premise: அந்த பையன் தன் கால்களை மேசையின் மேலே வைத்தான்
+choice1: அவனுக்கு அவன் பெற்றோர் மேசையில் வந்து உக்கார சொல்லினார்
+choice2: அவனுக்கு அவன் பெற்றோர் மேசையில் வந்து சொல்லினார்
+label: choice1D) 'premise': அந்த பையன் தன் கால்களை மேசையின் மேலே வைத்தான்
+'choice1': அவனது தந்தையார் மேசையில் அமர்ந்தார்
+'choice2': அவனது தந்தையார் அவனைக் கடிந்து கொண்டார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: என் நண்பன் தன் தலையை என் திசையில் வளைந்தன
+choice1: நான் அவன் பெயரை அழைத்தேன்
+choice2: நான் என் கைகளை வீசினேன்
+label: choice1
+
+B) premise: என் நண்பன் தன் தலையை என் திசையில் மாற்றினான்
+choice1: நான் அவன் பெயரை மொழித்தேன்
+choice2: நான் என் கைகளை அடித்தேன்
+label: choice1
+
+C) premise: என் நண்பன் தன் தலையை என் திசையில் தூர்த்தன்
+choice1: நான் அவன் பெயரை சொல்லினேன்
+choice2: நான் என் கைகளை நீட்டினேன்
+label: choice1D) 'premise': என் நண்பன் தன் தலையை என் திசையில் திருப்பினேன்
+'choice1': நான் அவன் பெயரைக் கத்தினேன்
+'choice2': நான் என் கைகளை அசைத்தேன்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அரசாங்கம் தன் குடிமக்களை முனைத்தது
+choice1: குடிமக்கள் அதிர்ச்சியை உண்டாக்கினர்
+choice2: குடிமக்கள் தொகுக்கப்பட்ட விபரங்களை சமர்ப்பித்தனர்
+label: choice1
+
+B) premise: அரசாங்கம் தன் குடிமக்களை நிருபித்தது
+choice1: குடிமக்கள் மதிப்புரைகளை செய்தனர்
+choice2: குடிமக்கள் வெளியிட வேண்டிய தகவல்களை வெளியிட்டனர்
+label: choice1
+
+C) premise: அரசாங்கம் தன் குடிமக்களை சொந்தப்படுத்தியது
+choice1: குடிமக்கள் குற்றவாளிகளை கண்டுபிடித்தனர்
+choice2: குடிமக்கள் பங்களிக்க வேண்டிய சுவாரஸ்யங்களை பங்களித்தனர்
+label: choice1D) 'premise': அரசாங்கம் தன் குடிமக்களை ஒடுக்கியது
+'choice1': குடிமக்கள் கிளர்ச்சியை நடத்தினர்
+'choice2': குடிமக்கள் வாக்களிக்க விவரம் பதிவு செய்தனர்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த சிறுவன் காட்டில் விழுந்து போனான்
+choice1: அவன் காக்கைகளை சமைத்தினான்
+choice2: அவன் உறுதியாக முயலுக்கு ஆகாதினான்
+label: choice1
+
+B) premise: அந்த சிறுவன் காட்டுக்குள் அழிந்து போனான்
+choice1: அவன் ஒரு மரம் மேலே ஏறினான்
+choice2: அவன் தானாய் திரிந்து நடந்தினான்
+label: choice2
+
+C) premise: அந்த சிறுவன் காட்டை விட்டு போனான்
+choice1: அவன் ஒரு ஒட்டகத்தை அழைத்தினான்
+choice2: அவன் தன்னைத் தேடும் செயலாளர்களின் கைகுள் விழுந்தினான்
+label: choice1D) 'premise': அந்த சிறுவன் காட்டிற்குள் தொலைந்து போனான்
+'choice1': அவன் கூடாரத்தை நிறுவினான்
+'choice2': அவன் உதவி கோரி கத்தினான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த பெண்மணி வெளிநாடு பயணம் சென்றாள்
+choice1: அந்த பெண்மணி வெளிநாடு ருசிகளைப் பற்றி அறிந்து கொள்ள விரும்பினாள்
+choice2: அந்த பெண்மணி வெளிநாடு மக்களைப் பற்றி அறிந்து கொள்ள விரும்பினாள்
+label: choice2
+
+B) premise: அந்த பெண்மணி வெளிநாடு பயணம் சென்றாள்
+choice1: அந்த பெண்மணி வெளிநாடு வாழ்வாதாரத்தைப் பற்றி கற்றுக் கொள்ள விரும்பினாள்
+choice2: அந்த பெண்மணி வெளிநாடு சிறப்புரிமைகளைப் பற்றி கற்றுக் கொள்ள விரும்பினாள்
+label: choice1
+
+C) premise: அந்த பெண்மணி வெளிநாடு பயணம் சென்றாள்
+choice1: அந்த பெண்மணி வெளிநாடு மொழிகளைப் பற்றி தெரிந்து கொள்ள விரும்பினாள்
+choice2: அந்த பெண்மணி வெளிநாடு சமூகங்களைப் பற்றி தெரிந்து கொள்ள விரும்பினாள்
+label: choice2D) 'premise': அந்த பெண்மணி வெளிநாடு பயணம் சென்றாள்
+'choice1': அந்த பெண்மணி எப்படி வரைவது என்பதைக் கற்க விரும்பினாள்
+'choice2': அந்த பெண்மணி மற்ற கலாச்சாரங்களைப் பற்றி அறிய விரும்பினாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் தன் சக பணியாளரைக் கண்டு பொறாமைப்பட்டான்
+choice1: அவனுடைய சக பணியாளர் பணியில் முன்னேற்றம் அடைந்தார்
+choice2: அவனுடைய சக பணியாளர் மதிப்புக் கூட்டம் பெற்றார்
+label: choice1
+
+B) premise: அந்த மனிதன் தன் சக பணியாளரைக் கண்டு பொறாமைப்பட்டான்
+choice1: அவனுடைய சக பணியாளர் தலைமை நிலையில் வருவாய்க் குறித்தார்
+choice2: அவனுடைய சக பணியாளர் பிரசங்கங்களில் நிற்கலம் பெற்றார்
+label: choice1
+
+C) premise: அந்த மனிதன் தன் சக பணியாளரைக் கண்டு பொறாமைப்பட்டான்
+choice1: அவனுடைய சக பணியாளர் தனது வேலையில் எல்லோருக்கும் உயர்ந்தவராக அமைந்தார்
+choice2: அவனுடைய சக பணியாளர் ஆரோக்கியம் சிறப்பாக இருக்கிறார்
+label: choice1D) 'premise': அந்த மனிதன் தன் சக பணியாளரைக் கண்டு பொறாமைப்பட்டான்
+'choice1': அவனுடைய சக பணியாளர் பதவி உயர்வு பெற்றார்
+'choice2': அவனுடைய சக பணியாளர் நெடுநேரம் வேலை செய்தார்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் வேற்றுகிரக வாசிகளைக் காண்டான்
+choice1: அவனுக்கு ஆச்சரியம் உண்டாயிருந்தது
+choice2: அவன் குறிப்பிடல் செய்து இருந்தான்
+label: choice1
+
+B) premise: அந்த மனிதன் ஏற்றுக்குளவான் உலக வாசிகளைப் பார்த்தான்
+choice1: அவன் மகிழ்ச்சி அடைந்தான்
+choice2: அவன் மௌனம் பாராட்டு இருந்தான்
+label: choice1
+
+C) premise: அந்த மனிதன் வேரொரு கிரகம் வாசிகளையே நோக்கினான்
+choice1: அவனுக்கு அறிவுரை வந்தது
+choice2: அவன் சுமார் இருக்க முயற்சி செய்தான்
+label: choice1D) 'premise': அந்த மனிதன் வேற்றுகிரக வாசிகளைக் கண்டான்
+'choice1': அவனுக்கு மருட்சி ஏற்பட்டது
+'choice2': அவன் தியானம் செய்து கொண்டிருந்தான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதனின் முடி பொன்னிறமாக மாறியது
+choice1: அவன் அதனால் எரிச்சலைத் தடவினான்
+choice2: அவன் அதற்கு வேண்ணையைத் தடவினான்
+label: choice1
+
+B) premise: அந்த மனிதனின் முடி பொன்னிறமாக மாறியது
+choice1: அவன் அதை விழுந்தது என்று நினைத்தான்
+choice2: அவன் அதை அறிவியற்ற செயலாக நினைத்தான்
+label: choice2
+
+C) premise: அந்த மனிதனின் முடி பொன்னிறமாக மாறியது
+choice1: அவன் அதைத் திருட்டிட்டான் என்று ஆரோசித்தான்
+choice2: அவன் அதைத் தகவலிட்டான் என்று புகழ்ந்தான்
+label: choice1D) 'premise': அந்த மனிதனின் முடி பொன்னிறமாக மாறியது
+'choice1': அவன் அதன்மீது ப்ளீச்சைத் தடவினான்
+'choice2': அவன் அதன்மீது சிகைக்காயைத் தடவினான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த கலைஞர் புதிய படைப்பை உருவாக்கினார்
+choice1: அந்த கலைஞர் சர்ப்பரி படைப்பை வெளியிட்டார்
+choice2: அவன் புதுமையான படைப்பை உருவாக்கியான்
+label: choice2
+
+B) premise: அந்த கலைஞர் புதிய படைப்பை உருவாக்கினார்
+choice1: அந்த கலைஞர் இலக்கிய படைப்பை அறிமுகப்படுத்தினார்
+choice2: அவர் புதிய உள்ளாட்சியை கண்டார்
+label: choice2
+
+C) premise: அந்த கலைஞர் புதிய படைப்பை உருவாக்கினார்
+choice1: அந்த கலைஞர் அதிநவீன படைப்பை உருவாக்கத்தில் ஈடுபட்டார்
+choice2: அவர்கள் புதிய ஆர்வமை அனுபவித்தார்கள்
+label: choice2D) 'premise': அந்த கலைஞர் புதிய படைப்பை உருவாக்கினார்
+'choice1': அந்த கலைஞர் தனது முந்தைய படைப்பை விமர்சனம் செய்தார்
+'choice2': அவள் புது உத்வேகத்தை உணர்ந்தாள்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவரது மகன் வீட்டை விட்டு தொலைவில் போனான்
+choice1: அவன் நாட்டு உதவிக்குழுவில் உறுதியளித்தான்
+choice2: அவன் பல்கலைக்கழகத்தில் உள்நுழைந்தான்
+label: choice2
+
+B) premise: அவரது மகன் வீட்டை விட்டு பயணம் செய்தான்
+choice1: அவன் வியாபாரத்தில் இருப்பவனாக ஆகிறான்
+choice2: அவன் விஞ்ஞானம் படித்து முடித்தவனாக ஆகிறான்
+label: choice2
+
+C) premise: அவரது மகன் வீட்டை விட்டு வேறுப்பதிவில் இருக்கிறான்
+choice1: அவன் கிளைஞ்சில்லைப்பு நோயால் பாதிக்கப்பட்டான்
+choice2: அவன் ஐ.டி. நிறுவனத்தில் பணியாற்றுகிறான்
+label: choice2D) 'premise': அவரது மகன் வீட்டை விட்டு தூரம் சென்றான்
+'choice1': அவன் இராணுவத்திலிருந்து வெளியேற்றப் பட்டான்
+'choice2': அவன் கல்லூரியில் சேரவிருந்தான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: புத்தகத்திருக்கும் சாப்பிடலில் புத்தகங்கள் உதிர்ந்தன
+choice1: சாப்பிடல் காய்ந்து உள்ளதால் அவை விழுந்தன
+choice2: ஒரு வெள்ளாலை புத்தகத்திருக்கும் இடத்தை நொறுக்கியது
+label: choice2
+
+B) premise: புத்தகக் கட்டிலில் இருந்து புத்தகங்கள் பதிந்தன
+choice1: கட்டில் தூரத்தில் நிகராத சக்தியுடன் அடிக்கப்பட்டது
+choice2: ஒரு கடலாலை புத்தகக் கட்டிலையே முழுக்க முழுக்க ஆட்டியது
+label: choice2
+
+C) premise: புத்தக பேராசையில் இருந்து புத்தகங்கள் கீழிருந்தன
+choice1: பேராசை அணைந்து நீரிடமடைந்ததால் அவை உருண்டன
+choice2: ஒரு தூம்பிக்குழி புத்தக பேராசையை கொண்டுபோய்ச் செய்தது
+label: choice2D) 'premise': புத்தக அலமாரியிலிருந்து புத்தகங்கள் விழுந்தன
+'choice1': அலமாரிகள் தூசியால் மூடப்பட்டிருந்தன
+'choice2': ஒரு பூகம்பம் புத்தக அலமாரியை உலுக்கியது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: என் வீட்டில் மின்சாரம் நின்று போனது
+choice1: நான் மின்புலம் பயன்படுத்தினேன்
+choice2: நான் மின்ஆளவியல் சாதனத்தை சரிசெய்தேன்
+label: choice1
+
+B) premise: என் வீட்டில் மின்சாரம் நின்று போனது
+choice1: நான் மினைக்குமாறான் வேலை செய்தேன்
+choice2: நான் மின்முறையை மதிப்பாய்வு செய்தேன்
+label: choice2
+
+C) premise: என் வீட்டில் மின்சாரம் நின்று போனது
+choice1: நான் மின்கம்பி சூட்டினேன்
+choice2: நான் மின்பாதுகாப்பு வடிவமைத்தேன்
+label: choice2D) 'premise': என் வீட்டில் மின்சாரம் நின்று போனது
+'choice1': நான் மின்விளக்கை இயங்கச் செய்தேன்
+'choice2': நான் மின்சுற்று உடைப்பானை மீட்டமைத்தேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நாங்கள் ரோலர் கோஸ்டரில் பயணம் செய்தோம்
+choice1: அது பார்த்தால் அச்சமாக இருந்தது
+choice2: அது பார்த்தால் மகிழ்ச்சியாக இருந்தது
+label: choice2
+
+B) premise: நாங்கள் ரோலர் கோஸ்டரில் ஓட்ட செய்தோம்
+choice1: அது காணும்போது பயங்கரமாக இருந்தது
+choice2: அது காணும்போது உற்சாகமாக இருந்தது
+label: choice2
+
+C) premise: நாங்கள் ரோலர் கோஸ்டரில் கட்ட செய்தோம்
+choice1: அது எடுத்துப் பார்க்க கலக்கலமாக இருந்தது
+choice2: அது எடுத்துப் பார்க்க கபடமாக இருந்தது
+label: choice1D) 'premise': நாங்கள் ரோலர் கோஸ்டரில் சவாரி செய்தோம்
+'choice1': அது பார்க்க பயமாக இருந்தது
+'choice2': அது பார்க்க வேடிக்கையாக இருந்தது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: பாப்கார்ன் பை வெடிக்க ஆரம்பித்தது
+choice1: நான் அதில் வெண்ணெயை ஊற்றினேன்
+choice2: நான் அதை பொள்ளலை அடுப்பில் போட்டு கொதந்தேன்
+label: choice2
+
+B) premise: பாப்கார்ன் பை வெடிக்க ஆரம்பித்தது
+choice1: நான் அந்த பையில் பச்சைப்பட்டை வீசினேன்
+choice2: நான் அதை ஊற்றலை அடுப்பில் இட்டு உருக்கினேன்
+label: choice2
+
+C) premise: பாப்கார்ன் பை வெடிக்க ஆரம்பித்தது
+choice1: நான் அதில் துப்பாக்கிச்சானை சிரித்தேன்
+choice2: நான் அதை வேரலை அடுப்பில் செலவு செய்தேன்
+label: choice2D) 'premise': பாப்கார்ன் பை வெடிக்க ஆரம்பித்தது
+'choice1': நான் அந்த பையில் வெண்ணையை ஊற்றினேன்
+'choice2': நான் அதனை நுண்ணலை அடுப்பில் வைத்து சூடு செய்தேன்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: மின்கம்பியில் மரம் ஒன்று விழுந்தது
+choice1: எவிட்டில் மரங்கள் ஒன்று தனியாக இருந்தது
+choice2: பக்க வீதியில் மரங்கள் ஒன்று சிறியது இருந்தது
+label: choice1
+
+B) premise: மின்கம்பியில் மரம் ஒன்று விழுந்தது
+choice1: தீப்பற்றிய மரம் ஒன்று தூக்கப்பட்டது
+choice2: தெருக்குள் மரம் ஒன்று அறுவடையாக இருந்தது
+label: choice1
+
+C) premise: மின்கம்பியில் மரம் ஒன்று விழுந்தது
+choice1: மின்மாலையில் மரம் ஒன்று வாட்டப்பட்டது
+choice2: கொளவாயில் மரம் ஒன்று மணலில் இருந்தது
+label: choice1D) 'premise': மின்கம்பியில் மரம் ஒன்று விழுந்தது
+'choice1': அக்கம்பக்கத்தில் மின்சாரம் நின்று போனது
+'choice2': வானிலை முன்னறிக்கை பலத்த காற்று வீசுமென கணித்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: பேச்சாளர் அரசியல் விதியாகத் தவறான அபிப்பிராயங்களைத் தெரிவித்தார்
+choice1: அவர் பார்வையாளர்களைக் கோபப்படுத்தினார்
+choice2: அவர் பார்வையாளர்களை மதிக்காமலிட்டார்
+label: choice2
+
+B) premise: பேச்சாளர் அரசியல் விதத்தின்படி தவறான நிலைத்திருத்தங்களைத் தெரிவித்தார்
+choice1: அவர் பார்வையாளர்களைக் கலங்க வைத்தார்
+choice2: அவர் பார்வையாளர்களை அஞ்சப்படுத்தினார்
+label: choice1
+
+C) premise: பேச்சாளர் அரசியல் குறியீடாகத் தவறான முன்னெடுப்புகளைத் தெரிவித்தார்
+choice1: அவர் பார்வையாளர்களை அதிர்ச்சி விளைவிக்க வைத்தார்
+choice2: அவர் பார்வையாளர்களை இகழ்ந்தார்
+label: choice2D) 'premise': பேச்சாளர் அரசியல் ரீதியாகத் தவறான கருத்துகளைத் தெரிவித்தார்
+'choice1': அவர் பார்வையாளர்களைச் சலிப்படைய வைத்தார்
+'choice2': அவர் பார்வையாளர்களை அவமதித்தார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நான் என்னை ஊசியால் குத்திக் கொண்டேன்
+choice1: ஒரு துளி வலி என் உள்ளத்திலிருந்து உறைந்தது
+choice2: ஒரு துளி இரத்தம் என் அங்கலின் மீது ஆவியானது
+label: choice2
+
+B) premise: நான் என்னை ஊசியால் குத்திக் கொண்டேன்
+choice1: ஒரு துப்பல் உளவு என் கண்ணிலிருந்து சுரண்டது
+choice2: ஒரு துப்பல் இரத்தம் என் கையின் மேல் படர்ந்தது
+label: choice2
+
+C) premise: நான் என்னை ஊசியால் குத்திக் கொண்டேன்
+choice1: ஒரு உண்டு நோய் என் மூக்கிலிருந்து விடுந்தது
+choice2: ஒரு உண்டு இரத்தம் என் கைவிரலின் மேல் வரவேற்றினது
+label: choice2D) 'premise': நான் என்னை ஊசியால் குத்திக் கொண்டேன்
+'choice1': ஒரு சொட்டு வியர்வை என் முகத்திலிருந்து வழிந்தது
+'choice2': ஒரு சொட்டு இரத்தம் என் விரலின் மீது உருவானது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மீன் தட்டியின் மேலுமேலும் கூடியது
+choice1: அந்த மீன் இருப்பில் உள்ளது
+choice2: அந்த மீன் உயிர் இழந்தது
+label: choice2
+
+B) premise: அந்த மீன் தாற்றின் மேலிருந்தது
+choice1: அந்த மீன் உணவில் உள்ளது
+choice2: அந்த மீன் முறியடைந்தது
+label: choice2
+
+C) premise: அந்த மீன் கொரியின் மீது விழுந்தது
+choice1: அந்த மீன் அடிக்கப்பட்டது
+choice2: அந்த மீன் சாகியது
+label: choice2D) 'premise': அந்த மீன் தொட்டியின் மேற்பரப்பில் மிதக்கியது
+'choice1': அந்த மீன் பசியில் இருந்தது
+'choice2': அந்த மீன் மரணம் அடைந்தது
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதனின் குரல் கனமாக வீச்சது
+choice1: அவனுக்குத் தொண்டை கனவிரல் உண்டு
+choice2: அவன் மூக்குறுதி அவதானப்பட்டான்
+label: choice1
+
+B) premise: அந்த மனிதனின் குரல் ஒன்றுகிறத்தமாக இசைந்தது
+choice1: அவனுக்கு காது தணவலும் வியக்கமும் உண்டு
+choice2: அவன் கண்ணீரெழுத்துரையை வலியுறுத்தான்
+label: choice1
+
+C) premise: அந்த மனிதனின் குரல் சுரமாக வெளிப்பட்டது
+choice1: அவனுக்கு இருமல் சுட்டியால்
+choice2: அவன் தூக்கம்போது வாயில் ஒலி விட்டான்
+label: choice1D) 'premise': அந்த மனிதனின் குரல் கரகரப்பாக ஒலித்தது
+'choice1': அவனுக்குச் சளி பிடித்தது
+'choice2': அவன் புகைப்பழக்கத்தை விட்டொழித்தான்
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: மின் தூக்கியின் சிறப்புகள் திறந்தன
+choice1: மின்தூக்கி அடிப்படை தள இயக்கப்பட்டது
+choice2: மின்தூக்கி எதிர்வரும் தளத்துக்கு உட்பட்டது
+label: choice1
+
+B) premise: மின் தூக்கியின் திட்டுகள் திறந்தன
+choice1: மின்தூக்கி கீழ் தளம் செயல்படுத்தப்பட்டது
+choice2: மின்தூக்கி இறுதி தளத்திற்கு இணைக்கப்பட்டது
+label: choice1
+
+C) premise: மின் தூக்கியின் வாய்கள் திறந்தன
+choice1: மின்தூக்கி மூல தளம் ஆரம்பிக்கப்பட்டது
+choice2: மின்தூக்கி நுகர் தளத்திற்கு பணியாற்றப்பட்டது
+label: choice1D) 'premise': மின் தூக்கியின் கதவுகள் திறந்தன
+'choice1': மின்தூக்கி நியமிக்கப்பட்ட தளத்தை வந்தடைந்தது
+'choice2': மின்தூக்கி இரு தளத்திற்கு நடுவில் சிக்கிக் கொண்டது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அவன் ஐயச்சி கூடாத நேரத்தில் வீட்டை விட்டு ஓடினான்
+choice1: அவன் அப்பா மாட்டிருக்க சொல்லிவிட்டான்
+choice2: அவனுடைய அப்பா அவன் தன் கொண்டிருக்க வேண்டிய தன்மையை காட்டுமாறு கடுமை பேசிணனர்
+label: choice2
+
+B) premise: அவன் செய்யக்கூடாத பொருளை வீட்டில் வெளியெடுத்தபின் வீட்டிலிருந்து வெளியே செல்லப்பட்டான்
+choice1: அவன் தன் பெற்றோருக்கு புரியாமல் பேசினான்
+choice2: அவனுடைய பெற்றோர் அவன் பணம் சேமிக்க வேண்டும் என்று கூறுவதை கேட்டு கோபம் வந்தனர்
+label: choice2
+
+C) premise: அவன் முறையான காரணமில்லாமல் வீட்டிலிருந்து தப்பினான்
+choice1: அவன் தன் தாய் பெரியவரை கேட்காததற்காக பொய் எழுதிக்கொடுத்தான்
+choice2: அவனுடைய தாய் அவன் இல்லாமல் விழும்பது எப்படி என்று வசதி விட்டாள்
+label: choice2D) 'premise': அந்த வாலிபன் பதுங்கியபடி வீட்டை விட்டு வெளியேறினான்
+'choice1': அவன் தன்  பெற்றோரிடம் பொய் சொன்னான்
+'choice2': அவனது பெற்றோர் தன் அறைக்குச் செல்லுமாறு தண்டனை கொடுத்தனர்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""A""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: குளியலறையில் தண்ணீர் வெள்ளமாக பெருக்கெடுத்து ஓடியது
+choice1: கழிப்பறை நிரம்பி வழிந்தது
+choice2: நீர் கொதிகலன் உடைந்தது
+label: choice1
+
+B) premise: குளியலறையில் தண்ணீர் வெள்ளமாக பெருக்கெடுத்து ஓடியது
+choice1: குளையில் நீர் திரீகரித்து போய்விட்டது
+choice2: நீராவலன் கீத்து விட்டது
+label: choice1
+
+C) premise: குளியலறையில் தண்ணீர் வெள்ளமாக பெருக்கெடுத்து ஓடியது
+choice1: சிறுநீரகமான தூரம் கட்டியுள்ள குளியலறை நிரப்பப்பட்டது
+choice2: வெள்ளாக்கி பிரித்தது
+label: choice1D) 'premise': குளியலறையில் தண்ணீர் வெள்ளமாக பெருக்கெடுத்து ஓடியது
+'choice1': கழிப்பறை நிரம்பி வழிந்தது
+'choice2': நீர் கொதிகலன் உடைந்தது
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: நாய்க்குட்டி அதன் உரிமையாளர் அருகிலேயே இருந்தது
+choice1: அதன் உரிமையாளர் சுருள் ஒன்றையும் நாய்குட்டிக்கு எங்கும் வைக்கவில்லை
+choice2: அதன் உரிமையாளர் நாய்குட்டிக்கு வாயாள் ஒன்றை அணியவிட்டார்
+label: choice2
+
+B) premise: நாய்க்குட்டி அதன் உரிமையாளர் அருகிலேயே இருந்தது
+choice1: அதன் உரிமையாளர் நாய்க்குட்டியைப் பிரிவிட்டுக் கட்டறைக்குள் செல்ல அனுமதி கொடுக்கவில்லை
+choice2: அதன் உரிமையாளர் நாய்க்குட்டிக்கு அதிர்க்கலி ஒன்றை தரவிட்டார்
+label: choice2
+
+C) premise: நாய்க்குட்டி அதன் உரிமையாளர் அருகிலேயே இருந்தது
+choice1: அதன் உரிமையாளர் சுவையான உணவை நாய்க்குட்டிக்கு சமைப்பீர்கள்
+choice2: அதன் உரிமையாளர் மலர் ஒன்றை நாய்க்குட்டியின் காத்தில் வைத்தார்
+label: choice2D) 'premise': நாய்க்குட்டி அதன் உரிமையாளர் அருகிலேயே இருந்தது
+'choice1': அதன் உரிமையாளர் கழுத்துப்பட்டை ஒன்றை நாய்குட்டிக்குப் போட்டார்
+'choice2': அதன் உரிமையாளர் தோல்வார் ஒன்றைக் கொண்டு நாய்க்குட்டியை கட்டுப்பாட்டில் வைத்தார்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Tamil language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: அந்த மனிதன் தன் பிரதிபலிப்பைக் கண்டான்
+choice1: அவன் வெள்ளிக்கோணத்தின் மூளை போல வீசும் பூக்களின் அடியில் நின்றான்
+choice2: அவன் பசுமையான காட்டிற்கு அருகே நின்றான்
+label: choice2
+
+B) premise: அந்த மனிதன் தன் பிரதிபலிப்பைக் கண்டான்
+choice1: அவன் மெல்லிய வெள்ளத்திலும் தலைமுடிகளை நனைத்துக்கொண்ட குழிகளின் முகத்தில் நின்றான்
+choice2: அவன் நெருங்கிய பறவைக்கு அருகே நின்றான்
+label: choice2
+
+C) premise: அந்த மனிதன் தன் பிரதிபலிப்பைக் கண்டான்
+choice1: அவன் நமது நிலைக்கு ஏற்பட்ட துணிகளும் தண்ணீரும் கொண்டு கட்டிய பிள்ளையார் கோயிலுக்கு போய் நின்றான்
+choice2: அவன் இனித்துளிக்கும் இளஞ்சொற்களுக்கு கேட்கும் செல்வனுக்கு அருகே நின்றான்
+label: choice2D) 'premise': அந்த மனிதன் தன் பிரதிபலிப்பைக் கண்டான்
+'choice1': அவன் பரந்து விரிந்த மரத்தின் கீழே நின்றான்
+'choice2': அவன் அமைதியான ஏரிக்கு அருகே நின்றான்
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
