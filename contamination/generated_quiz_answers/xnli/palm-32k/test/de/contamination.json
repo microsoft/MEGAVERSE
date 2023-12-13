@@ -1,0 +1,1 @@
+{"dataset_name": "xnli", "dataset_split": "test", "model_name": "palm-32k", "lang": "de", "out_dir": "contamination/generated_quiz_answers/xnli/palm-32k/test/de", "chat_prompt": false, "substrate_prompt": false, "max_tokens": 10, "temperature": 0.0, "score": 0.23, "contamination": -0.026666666666666655}

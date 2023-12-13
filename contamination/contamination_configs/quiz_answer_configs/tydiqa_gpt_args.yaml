@@ -2,11 +2,11 @@ save_dir: 'contamination/generated_quiz_answers'
 # quiz_dir: 'contamination/generated_quizzes/xnli/dev-moonshot_rerun/test'
 quiz_dir: 'contamination/generated_quizzes/tydiqa/dev-moonshot/validation'
 dataset_name: tydiqa
-model_name: dev-moonshot
+model_name: gpt-4
 max_tokens: 10
 temperature: 0.0
 template_name: tydiqa
 dataset_split: validation # default is test, if test is not available use validation else use train
 chat_prompt: True
-substrate_prompt: True
+substrate_prompt: False
 langs: ['ar', 'bn', 'en', 'fi', 'id', 'ja', 'ko', 'ru', 'sw', 'te', 'th']

@@ -109,7 +109,10 @@ def calculate_contamination(results_df: pd.DataFrame, **kwargs):
     select_samples = min(100, total)
 
     for idx, row in results_df.sample(select_samples).iterrows():
-        answer = json.loads(row["answer"])["answer"].strip()
+        try:
+            answer = json.loads(row["answer"])["answer"].strip()
+        except:
+            continue
         if answer.upper() == "D":
             total_correct += 1
 
@@ -164,7 +167,7 @@ def get_quiz_answers(
             chat_prompt,
             substrate_prompt,
             pydantic_parser,
-        ).strip()
+        )
         answer = model_completion(
             prompt,
             model_name,
@@ -175,11 +178,14 @@ def get_quiz_answers(
             llm_client=llm_client,
         )
         try:
-            parsed_response = pydantic_parser.parse(answer)
+            # parsed_response = pydantic_parser.parse(answer)
+            # parsed_response = {}
+            parsed_response = '{"answer": ' + '"' + answer + '"' + "}"
             
             results.append(
                 {
-                    "answer": parsed_response.json(),
+                    # "answer": parsed_response.json(),
+                    "answer": parsed_response,
                     "prompt": prompt,
                 }
             )

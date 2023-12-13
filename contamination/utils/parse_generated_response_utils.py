@@ -88,10 +88,11 @@ def generate_tydiqa_str_from_generated_response(
         generated_str += "context: " + option["context"].strip() + "\n"
         generated_str += "question: " + option["question"].strip() + "\n"
         try:
-            answer = option["answer"].strip() if "answer" in option else option["label"].strip()
+            answer = option["answer"] if "answer" in option else option["label"]
         except:
+            # print("am i here?")
             continue
-        generated_str += "answer: " + answer + "\n"
+        generated_str += "answer: " + str(answer) + "\n"
         # generated_str += "Label: " + option["Label"].strip() + "\n"
         generated_str += "\n"
     return generated_str

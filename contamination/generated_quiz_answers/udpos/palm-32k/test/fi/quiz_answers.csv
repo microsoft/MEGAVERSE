@@ -1,0 +1,2971 @@
+answer,prompt
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: jos saisin tämän hürjää
+tags: SCONJ VERB DET NOUN ADV
+tagged_tokens: jos_SCONJ saisin_VERB tämän_DET hürjää_NOUN ADV
+
+B) tokens: koska saisimme tämän kelvolliseksi
+tags: SCONJ VERB DET ADJ
+tagged_tokens: koska_SCONJ saisimme_VERB tämän_DET kelvolliseksi_ADJ
+
+C) tokens: kun laittaisimme tämän kuntoon
+tags: SCONJ VERB DET NOUN ADV
+tagged_tokens: kun_SCONJ laittaisimme_VERB tämän_DET kuntoon_ADVD) tokens: kun sais tän groban kuntoon
+tags: SCONJ VERB DET NOUN ADV
+tagged_tokens: kun_SCONJ sais_VERB tän_DET groban_NOUN kuntoon_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Olette kotimaamme armollisin Suomi
+tags: AUX NOUN ADJ PROPN
+tagged_tokens: Olette_AUX kotimaamme_NOUN armollisin_ADJ Suomi_PROPN
+
+B) tokens: Olette isänmaamme kallein Suomi
+tags: AUX NOUN ADJ PROPN
+tagged_tokens: Olette_AUX isänmaamme_NOUN kallein_ADJ Suomi_PROPN
+
+C) tokens: Te olette maamme armeliain Suomi
+tags: PRON AUX NOUN ADJ PROPN
+tagged_tokens: Te_PRON olette_AUX maamme_NOUN armeliain_ADJ Suomi_PROPND) tokens: Olet maamme armahin Suomenmaa
+tags: AUX NOUN ADJ PROPN
+tagged_tokens: Olet_AUX maamme_NOUN armahin_ADJ Suomenmaa_PROPN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: ei minulle mitkään vaivoja ole , jos joku minua ihailee .
+tags: AUX PRON DET NOUN VERB PUNCT SCONJ PRON PRON VERB PUNCT
+tagged_tokens: ei_AUX minulle_PRON mitkään_DET vaivoja_NOUN ole_VERB ,_PUNCT jos_SCONJ joku_PRON minua_PRON ihailee_VERB .
+
+B) tokens: ei mikään päänsärkyjä ole minulle , jos joku minua palvoo .
+tags: AUX DET NOUN VERB PRON PUNCT SCONJ PRON PRON VERB PUNCT
+tagged_tokens: ei_AUX mikään_DET päänsärkyjä_NOUN ole_VERB minulle_PRON ,_PUNCT jos_SCONJ joku_PRON minua_PRON palvoo_VERB .
+
+C) tokens: ei yhän minkään päänsärkyjä ole minulle , jos joku minusta tykkää .
+tags: AUX NUM DET NOUN VERB PRON PUNCT SCONJ PRON PRON VERB PUNCT
+tagged_tokens: ei_AUX yhän_NUM minkään_DET päänsärkyjä_NOUN ole_VERB minulle_PRON ,_PUNCT jos_SCONJ joku_PRON minusta_PRON tykkää_VERB .D) tokens: ei mulle mikkään päänsärky ole , jos joku mua ihhailee .
+tags: AUX PRON DET NOUN VERB PUNCT SCONJ PRON PRON VERB PUNCT
+tagged_tokens: ei_AUX mulle_PRON mikkään_DET päänsärky_NOUN ole_VERB ,_PUNCT jos_SCONJ joku_PRON mua_PRON ihhailee_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: eikä se ole , täten tavalla , ollut pitkää aikaa varmasti moniin kuukausiin .
+tags: AUX PRON AUX PUNCT ADV NOUN PUNCT VERB ADJ NOUN PART DET NOUN PUNCT
+tagged_tokens: eikä_AUX se_PRON ole_AUX ,_PUNCT täten_ADV tavalla_NOUN ,_PUNCT ollut_VERB pitkää_ADJ aikaa_NOUN varmasti_PART moniin_DET kuukausiin_NOUN ._PUNCT
+
+B) tokens: hän ei ollut , sillä tavalla , ollut pitkää aikaa toden totta moneen kuukauteenkaan .
+tags: PRON NEG AUX , PUNCT ADV NOUN PUNCT VERB ADJ NOUN PART ADJ NOUN PUNCT
+tagged_tokens: hän_PRON ei_AUX ollut_AUX ,_PUNCT sillä_ADV tavalla_NOUN ,_PUNCT ollut_VERB pitkää_ADJ aikaa_NOUN toden_ADJ totta_NOUN moneen_DET kuukauteenkaan_NOUN ._PUNCT
+
+C) tokens: ei hän ole , sitä myöten , ollut pitkää aikaa minkään varmasti edes kuukauteenkaan .
+tags: AUX PRON AUX , PUNCT ADV NOUN PUNCT VERB ADJ NOUN PART ADJ PUNCT ADV NOUN PUNCT
+tagged_tokens: ei_AUX hän_PRON ole_AUX ,_PUNCT sitä_ADV myöten_NOUN ,_PUNCT ollut_VERB pitkää_ADJ aikaa_NOUN minkään_PART varmasti_ADJ edes_ADV kuukauteenkaan_NOUN ._PUNCTD) tokens: ei se oo , sillä tavala , käynyp pitkkää aikkaav varmmaam monneen kuukkautteenkaa .
+tags: AUX PRON AUX PUNCT DET NOUN PUNCT VERB ADJ NOUN PART DET NOUN PUNCT
+tagged_tokens: ei_AUX se_PRON oo_AUX ,_PUNCT sillä_DET tavala_NOUN ,_PUNCT käynyp_VERB pitkkää_ADJ aikkaav_NOUN varmmaam_PART monneen_DET kuukkautteenkaa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Ole viimeisimpien joukossa ensimmäinen .
+tags: AUX ADJ NOUN ADJ PUNCT
+tagged_tokens: Ole_AUX viimeisimpien_ADJ joukossa_NOUN ensimmäinen_ADJ ._PUNCT
+
+B) tokens: Ole viimeisten joukossa etummainen .
+tags: AUX ADJ NOUN ADJ PUNCT
+tagged_tokens: Ole_AUX viimeisten_ADJ joukossa_NOUN etummainen_ADJ ._PUNCT
+
+C) tokens: Ole takapään porukassa kärjessä .
+tags: AUX NOUN NOUN NOUN PUNCT
+tagged_tokens: Ole_AUX takapään_NOUN porukassa_NOUN kärjessä_NOUN ._PUNCTD) tokens: Ole viimäses pääs ensmäine .
+tags: AUX ADJ NOUN ADJ PUNCT
+tagged_tokens: Ole_AUX viimäses_ADJ pääs_NOUN ensmäine_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: tässä talossa
+tags: DET NOUN
+tagged_tokens: tässä_DET talossa_NOUN
+
+B) tokens: näillä tiloissa
+tags: DET NOUN
+tagged_tokens: näissä_DET tiloissa_NOUN
+
+C) tokens: näissä mökissä
+tags: DET NOUN
+tagged_tokens: näissä_DET mökissä_NOUND) tokens: näessä taloloessa
+tags: DET NOUN
+tagged_tokens: näessä_DET taloloessa_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Pane se siihen
+tags: VERB PRON ADV
+tagged_tokens: Pane_VERB se_PRON siihen_ADV
+
+B) tokens: Laita se tuohon
+tags: VERB PRON ADV
+tagged_tokens: Laita_VERB se_PRON tuohon_ADV
+
+C) tokens: Aseta se siihen
+tags: VERB PRON ADV
+tagged_tokens: Aseta_VERB se_PRON siihen_ADVD) tokens: Paa se siihe
+tags: VERB PRON ADV
+tagged_tokens: Paa_VERB se_PRON siihe_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kaikille kansalaisille on oleellista , että kuluja karsitaan .
+tags: ADJ NOUN AUX ADJ PUNCT SCONJ NOUN VERB PUNCT
+tagged_tokens: Kaikille_ADJ kansalaisille_NOUN on_AUX oleellista_ADJ ,_PUNCT että_SCONJ kuluja_NOUN karsitaan_VERB ._PUNCT
+
+B) tokens: Kaikelle kansalle on olennaista , että kulut typistetään .
+tags: NOUN AUX ADJ PUNCT SCONJ NOUN VERB PUNCT
+tagged_tokens: Kaikelle_NOUN kansalle_AUX on_AUX olennaista_ADJ ,_PUNCT että_SCONJ kulut_NOUN typistetään_VERB ._PUNCT
+
+C) tokens: Kaikille ihmisille on tärkeää , että rahavaroja vähennetään .
+tags: NOUN AUX ADJ PUNCT SCONJ NOUN VERB PUNCT
+tagged_tokens: Kaikille_NOUN ihmisille_NOUN on_AUX tärkeää_ADJ ,_PUNCT että_SCONJ rahavaroja_NOUN vähennetään_VERB ._PUNCTD) tokens: Koko kansakunnalle on tärkeätä , että menoja leikataan .
+tags: ADJ NOUN AUX ADJ PUNCT SCONJ NOUN VERB PUNCT
+tagged_tokens: Koko_ADJ kansakunnalle_NOUN on_AUX tärkeätä_ADJ ,_PUNCT että_SCONJ menoja_NOUN leikataan_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Lapseni ovat jo koulutuksessa .
+tags: NOUN VERB PART NOUN PUNCT
+tagged_tokens: Lapseni_NOUN ovat_VERB jo_PART koulutuksessa_NOUN .
+
+B) tokens: Vauvani ovat jo kouluaikana .
+tags: NOUN VERB PART NOUN PUNCT
+tagged_tokens: Vauvani_NOUN ovat_VERB jo_PART kouluaikana_NOUN .
+
+C) tokens: Pikkuni ovat jo oppilaitoksessa .
+tags: NOUN VERB PART NOUN PUNCT
+tagged_tokens: Pikkuni_NOUN ovat_VERB jo_PART oppilaitoksessa_NOUN .D) tokens: Lapseni ovat jo koulussa .
+tags: NOUN VERB PART NOUN PUNCT
+tagged_tokens: Lapseni_NOUN ovat_VERB jo_PART koulussa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Minun täytyy vähentää suklaan syömistäni .
+tags: PRON AUX VERB NOUN NOUN PUNCT
+tagged_tokens: Minun_PRON täytyy_AUX vähentää_VERB suklaan_NOUN syömistäni_NOUN ._PUNCT
+
+B) tokens: Minun tulee supistaa suklaan syömistäni .
+tags: PRON AUX VERB NOUN NOUN PUNCT
+tagged_tokens: Minun_PRON tulee_AUX supistaa_VERB suklaan_NOUN syömistäni_NOUN ._PUNCT
+
+C) tokens: Minun on pienennettävä suklaan syömistäni .
+tags: PRON AUX VERB NOUN NOUN PUNCT
+tagged_tokens: Minun_PRON on_AUX pienennettävä_VERB suklaan_NOUN syömistäni_NOUN ._PUNCTD) tokens: Minun pitää vähentää suklaan syöntiäni .
+tags: PRON AUX VERB NOUN NOUN PUNCT
+tagged_tokens: Minun_PRON pitää_AUX vähentää_VERB suklaan_NOUN syöntiäni_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän on ilahtunut itseensä.
+tags: PRON AUX ADJ PRON PUNCT
+tagged_tokens: Hän_PRON on_AUX ilahtunut_ADJ itseensä_PRON ._PUNCT
+
+B) tokens: Hän on onnellinen itseensä.
+tags: PRON AUX ADJ PRON PUNCT
+tagged_tokens: Hän_PRON on_AUX onnellinen_ADJ itseensä_PRON ._PUNCT
+
+C) tokens: Hän on tyytyväinen itseensä.
+tags: PRON AUX ADJ PRON PUNCT
+tagged_tokens: Hän_PRON on_AUX tyytyväinen_ADJ itseensä_PRON ._PUNCTD) tokens: Hän on tyytyväinen itseensä .
+tags: PRON AUX ADJ PRON PUNCT
+tagged_tokens: Hän_PRON on_AUX tyytyväinen_ADJ itseensä_PRON ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Palvokaa toinen toistanne .
+tags: VERB PRON PUNCT
+tagged_tokens: Palvokaa_VERB toinen_PRON toistanne_PRON ._PUNCT
+
+B) tokens: Arvostatkaa toisianne .
+tags: VERB PRON PUNCT
+tagged_tokens: Arvostatkaa_VERB toisianne_PRON ._PUNCT
+
+C) tokens: Ihailkaa toinen toistanne .
+tags: VERB PRON PUNCT
+tagged_tokens: Ihailkaa_VERB toinen_PRON toistanne_PRON ._PUNCTD) tokens: Rakastakaa toisianne .
+tags: VERB PRON PUNCT
+tagged_tokens: Rakastakaa_VERB toisianne_PRON ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kone lensi ylämme.
+tags: NOUN VERB ADV PUNCT
+tagged_tokens: Kone_NOUN lensi_VERB ylämme_ADV ._PUNCT
+
+B) tokens: Lentokone lensi yläpuolellamme.
+tags: NOUN VERB ADV PUNCT
+tagged_tokens: Lentokone_NOUN lensi_VERB yläpuolellamme_ADV ._PUNCT
+
+C) tokens: Alus lensi meidän yli.
+tags: NOUN VERB ADV PUNCT
+tagged_tokens: Alus_NOUN lensi_VERB meidän_ADV yli_PUNCTD) tokens: Kone lensi ylitsemme .
+tags: NOUN VERB ADV PUNCT
+tagged_tokens: Kone_NOUN lensi_VERB ylitsemme_ADV ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Lentokone lensi meidän yli.
+tags: NOUN VERB PRON ADP PUNCT
+tagged_tokens: Lentokone_NOUN lensi_VERB meidän_PRON yli_ADP.
+
+B) tokens: Kone vähäytti meidän ohitsemme.
+tags: NOUN VERB PRON ADP PUNCT
+tagged_tokens: Kone_NOUN vähäytti_VERB meidän_PRON ohitsemme_ADP.
+
+C) tokens: Ilma-alus nousi meidän yllä.
+tags: NOUN VERB PRON ADP PUNCT
+tagged_tokens: Ilma-alus_NOUN nousi_VERB meidän_PRON yllä_ADP.D) tokens: Kone lensi meidän ylitsemme .
+tags: NOUN VERB PRON ADP PUNCT
+tagged_tokens: Kone_NOUN lensi_VERB meidän_PRON ylitsemme_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän istui viereeni.
+tags: PRON VERB ADP PUNCT
+tagged_tokens: Hän_PRON istui_VERB viereeni_ADP ._PUNCT
+
+B) tokens: Hän asettui istumaan viereeni.
+tags: PRON VERB ADP PUNCT
+tagged_tokens: Hän_PRON asettui_VERB istumaan_ADP viereeni_ADP ._PUNCT
+
+C) tokens: Hän liittyi minuun istumaan.
+tags: PRON VERB ADP PUNCT
+tagged_tokens: Hän_PRON liittyi_VERB minuun_ADP istumaan_ADP ._PUNCTD) tokens: Hän istuutui minun viereeni .
+tags: PRON VERB PRON ADP PUNCT
+tagged_tokens: Hän_PRON istuutui_VERB minun_PRON viereeni_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Saavuin teitä katsomaan
+tags: VERB PRON VERB
+tagged_tokens: Saavuin_VERB teitä_PRON katsomaan_VERB
+
+B) tokens: Tulin tapaamaan teitä
+tags: VERB PRON VERB
+tagged_tokens: Tulin_VERB teitä_PRON tapaamaan_VERB
+
+C) tokens: Saavuin katsomaan teitä
+tags: VERB VERB PRON
+tagged_tokens: Saavuin_VERB katsomaan_VERB teitä_PROND) tokens: Tulin teittii kattomaan
+tags: VERB PRON VERB
+tagged_tokens: Tulin_VERB teittii_PRON kattomaan_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Minä_PRON jo_PART tälle_DET meitin_DET Aksulle_PROPN sanoin_VERB että_SCONJ laittaisi_VERB tohon_ADV pihaan_NOUN mainoksen_NOUN
+tags: PRON PART DET DET PROPN VERB SCONJ VERB ADV NOUN NOUN
+tagged_tokens: Minä_PRON jo_PART tälle_DET meitin_DET Aksulle_PROPN sanoin_VERB että_SCONJ laittaisi_VERB tohon_ADV pihaan_NOUN mainoksen_NOUN
+
+B) tokens: Minä_PRON olen_VERB tälle_DET meitin_DET Aksulle_PROPN maininnut_VERB että_SCONJ antaisi_VERB tohon_ADV pihaan_NOUN mainoksen_NOUN
+tags: PRON VERB DET DET PROPN VERB SCONJ VERB ADV NOUN NOUN
+tagged_tokens: Minä_PRON olen_VERB tälle_DET meitin_DET Aksulle_PROPN maininnut_VERB että_SCONJ antaisi_VERB tohon_ADV pihaan_NOUN mainoksen_NOUN
+
+C) tokens: Minä_PRON olen_VERB sanonut_VERB tälle_DET meitin_DET Aksulle_PROPN että_SCONJ pistäisi_VERB tohon_ADV pihaan_NOUN mainoksen_NOUN
+tags: PRON VERB VERB DET DET PROPN SCONJ VERB ADV NOUN NOUN
+tagged_tokens: Minä_PRON olen_VERB sanonut_VERB tälle_DET meitin_DET Aksulle_PROPN että_SCONJ pistäisi_VERB tohon_ADV pihaan_NOUN mainoksen_NOUND) tokens: Mää jo tälle meitin Aksulle sanoin että pistäs tohon pihaan mainoksen
+tags: PRON PART DET DET PROPN VERB SCONJ VERB ADV NOUN NOUN
+tagged_tokens: Mää_PRON jo_PART tälle_DET meitin_DET Aksulle_PROPN sanoin_VERB että_SCONJ pistäs_VERB tohon_ADV pihaan_NOUN mainoksen_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: eteemme tuodaan toinen toistaan oudoimpia olentoja ja juttuja .
+tags: ADV VERB PRON PRON ADJ NOUN CCONJ NOUN PUNCT
+tagged_tokens: eteemme_ADV tuodaan_VERB toinen_PRON toistaan_PRON oudoimpia_ADJ olentoja_NOUN ja_CCONJ juttuja_NOUN ._PUNCT
+
+B) tokens: toivotamme tervetulleiksi yhä oudompia olentoja ja asioita .
+tags: VERB PRON ADJ NOUN CCONJ NOUN PUNCT
+tagged_tokens: toivotamme_VERB tervetulleiksi_PRON yhä_ADJ oudompia_NOUN ja_CCONJ asioita_NOUN ._PUNCT
+
+C) tokens: meille tuodaan yhä kummallisempia otuksia ja tavaroita .
+tags: PRON VERB ADJ NOUN CCONJ NOUN PUNCT
+tagged_tokens: meille_PRON tuodaan_VERB yhä_ADJ kummallisempia_NOUN ja_CCONJ tavaroita_NOUN ._PUNCTD) tokens: eteemme marssitetaan toinen toistaan kummallisempia olentoja ja asioita .
+tags: ADV VERB PRON PRON ADJ NOUN CCONJ NOUN PUNCT
+tagged_tokens: eteemme_ADV marssitetaan_VERB toinen_PRON toistaan_PRON kummallisempia_ADJ olentoja_NOUN ja_CCONJ asioita_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: en ollut kertonut
+tags: AUX VERB
+tagged_tokens: en_AUX ollut_AUX kertonut_VERB
+
+B) tokens: en sanonut
+tags: VERB
+tagged_tokens: en_VERB sanonut_VERB
+
+C) tokens: en paljastanut
+tags: VERB
+tagged_tokens: en_VERB paljastanut_VERBD) tokens: en kertonut
+tags: AUX VERB
+tagged_tokens: en_AUX kertonut_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: olin kertonut
+tags: AUX VERB
+tagged_tokens: olin_AUX kertonut_VERB
+
+B) tokens: sanoin kertovani
+tags: VERB VERB
+tagged_tokens: sanoin_VERB kertovani_VERB
+
+C) tokens: kerroin sanoneeni
+tags: VERB VERB
+tagged_tokens: kerroin_VERB sanoneeni_VERBD) tokens: olin kertonut
+tags: AUX VERB
+tagged_tokens: olin_AUX kertonut_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: ei kerrota olevan
+tags: AUX VERB AUX
+tagged_tokens: ei_AUX kerrota_VERB olevan_AUX
+
+B) tokens: ei liene kerrottu
+tags: AUX AUX VERB
+tagged_tokens: ei_AUX liene_AUX kerrottu_VERB
+
+C) tokens: ei ole kerrottu
+tags: AUX AUX VERB
+tagged_tokens: ei_AUX ole_AUX kerrottu_VERBD) tokens: ei liene kerrottu
+tags: AUX AUX VERB
+tagged_tokens: ei_AUX liene_AUX kerrottu_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: älä sano
+tags: AUX VERB
+tagged_tokens: älä_AUX sano_VERB
+
+B) tokens: älä ilmaise
+tags: AUX VERB
+tagged_tokens: älä_AUX ilmaise_VERB
+
+C) tokens: älä paljasta
+tags: AUX VERB
+tagged_tokens: älä_AUX paljasta_VERBD) tokens: älä kerro
+tags: AUX VERB
+tagged_tokens: älä_AUX kerro_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: ette paljasta
+tags: AUX VERB
+tagged_tokens: ette_AUX paljasta_VERB
+
+B) tokens: ette ilmaise
+tags: AUX VERB
+tagged_tokens: ette_AUX ilmaise_VERB
+
+C) tokens: ette paljastane
+tags: AUX VERB
+tagged_tokens: ette_AUX paljastane_VERBD) tokens: ette kerro
+tags: AUX VERB
+tagged_tokens: ette_AUX kerro_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: emme syöksy
+tags: AUX VERB
+tagged_tokens: emme_AUX syöksy_VERB
+
+B) tokens: emme sukella
+tags: AUX VERB
+tagged_tokens: emme_AUX sukella_VERB
+
+C) tokens: emme hyppää
+tags: AUX VERB
+tagged_tokens: emme_AUX hyppää_VERBD) tokens: emme hyppää
+tags: AUX VERB
+tagged_tokens: emme_AUX hyppää_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: ei salli
+tags: AUX VERB
+tagged_tokens: ei_AUX salli_VERB
+
+B) tokens: ei suostu
+tags: AUX VERB
+tagged_tokens: ei_AUX suostu_VERB
+
+C) tokens: ei salli
+tags: AUX VERB
+tagged_tokens: ei_AUX salli_VERBD) tokens: ei luvanne
+tags: AUX VERB
+tagged_tokens: ei_AUX luvanne_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: älä hyppää
+tags: AUX VERB
+tagged_tokens: älä_AUX hyppää_VERB
+
+B) tokens: älä pomppaa
+tags: AUX VERB
+tagged_tokens: älä_AUX pomppaa_VERB
+
+C) tokens: älä loikkaa
+tags: AUX VERB
+tagged_tokens: älä_AUX loikkaa_VERBD) tokens: älä hyppää
+tags: AUX VERB
+tagged_tokens: älä_AUX hyppää_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: älkää kertokoot
+tags: AUX VERB
+tagged_tokens: älkää_AUX kertokoot_VERB
+
+B) tokens: älkää kertoko olkoot
+tags: AUX VERB
+tagged_tokens: älkää_AUX kertoko_VERB olkoot_VERB
+
+C) tokens: älkää saakoot kertoa
+tags: AUX VERB
+tagged_tokens: älkää_AUX saakoot_VERB kertoa_VERBD) tokens: älköön kertoko
+tags: AUX VERB
+tagged_tokens: älköön_AUX kertoko_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: älkää hypätkö
+tags: AUX VERB
+tagged_tokens: älkää_AUX hypätkö_VERB
+
+B) tokens: ei hyppäytelköön
+tags: VERB
+tagged_tokens: ei_VERB hyppäytelköön_VERB
+
+C) tokens: ei hypitää
+tags: VERB
+tagged_tokens: ei_VERB hypitää_VERBD) tokens: älköön hypättäkö
+tags: AUX VERB
+tagged_tokens: älköön_AUX hypättäkö_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: kulkisiko_VERB se_PRON sinne_ADV
+tags: VERB PRON ADV
+tagged_tokens: kulkisiko_VERB se_PRON sinne_ADV
+
+B) tokens: menisikö_VERB se_PRON tuonne_ADV
+tags: VERB PRON ADV
+tagged_tokens: menisikö_VERB se_PRON tuonne_ADV
+
+C) tokens: lähtisikö_VERB se_PRON sinnepäin_ADV
+tags: VERB PRON ADV
+tagged_tokens: lähtisikö_VERB se_PRON sinnepäin_ADVD) tokens: meniskö se sinne
+tags: VERB PRON ADV
+tagged_tokens: meniskö_VERB se_PRON sinne_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: jos se nyt osuu soittelemaan
+tags: SCONJ PRON ADV AUX VERB
+tagged_tokens: jos_SCONJ se_PRON nyt_ADV osuu_AUX soittelemaan_VERB
+
+B) tokens: ellei se satu soittelemaan
+tags: SCONJ PRON ADV AUX VERB
+tagged_tokens: ellei_SCONJ se_PRON satu_ADV soittelemaan_VERB
+
+C) tokens: jospa se sattuisi soittelemaan
+tags: SCONJ PRON ADV AUX VERB
+tagged_tokens: jospa_SCONJ se_PRON sattuisi_ADV soittelemaan_VERBD) tokens: jos se ny sattus soittaa
+tags: SCONJ PRON ADV AUX VERB
+tagged_tokens: jos_SCONJ se_PRON ny_ADV sattus_AUX soittaa_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: älkää syökää
+tags: AUX VERB
+tagged_tokens: alkaa_AUX syökää_VERB
+
+B) tokens: älkää syökäätä
+tags: AUX VERB
+tagged_tokens: älkää_AUX syökäätä_VERB
+
+C) tokens: älkäää syökö
+tags: AUX VERB
+tagged_tokens: älkäää_AUX syökö_VERBD) tokens: älkää syökö
+tags: AUX VERB
+tagged_tokens: älkää_AUX syökö_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: kertaakaan_PART saa_AUX valvoa_VERB niin_PART myöhään_ADV !_PUNCT
+tags: PART AUX VERB PART ADV PUNCT
+tagged_tokens: kertaakaan_PART saa_AUX valvoa_VERB niin_PART myöhään_ADV !_PUNCT
+
+B) tokens: kerranki_PART kykenisi_AUX valvoa_VERB niin_PART myöhään_ADV !_PUNCT
+tags: PART AUX VERB PART ADV PUNCT
+tagged_tokens: kerranki_PART kykenisi_AUX valvoa_VERB niin_PART myöhään_ADV !_PUNCT
+
+C) tokens: kerranki_PART saisi_AUX valvoa_VERB kunnolla_ADV !_PUNCT
+tags: PART AUX VERB ADV PUNCT
+tagged_tokens: kerranki_PART saisi_AUX valvoa_VERB kunnolla_ADV !_PUNCTD) tokens: kerranki sais valvoo niin myöhään !
+tags: PART AUX VERB PART ADV PUNCT
+tagged_tokens: kerranki_PART sais_AUX valvoo_VERB niin_PART myöhään_ADV !_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: kylhä se on kivaa et saa tehrä kaikkea
+tags: PART PRON AUX ADJ COMP AUX VERB PRON
+tagged_tokens: kylhä_PART se_PRON on_AUX kivaa_ADJ et_COMP saa_AUX tehrä_VERB kaikkea_PRON
+
+B) tokens: totta kai se on mukavaa että pääsee kaikkea
+tags: PART AUX ADJ COMP AUX VERB PRON
+tagged_tokens: totta_PART kai_AUX se_PRON on_AUX mukavaa_ADJ että_COMP pääsee_VERB kaikkea_PRON
+
+C) tokens: kyllä se on siistiä et saa tehrä kaikenlaista
+tags: PART PRON AUX ADJ COMP AUX VERB PRON
+tagged_tokens: kyllä_PART se_PRON on_AUX siistiä_ADJ et_COMP saa_AUX tehrä_VERB kaikenlaista_PROND) tokens: kyl seki kivaa o ku saa duunaak kaikkia
+tags: PART PRON ADJ AUX SCONJ AUX VERB PRON
+tagged_tokens: kyl_PART seki_PRON kivaa_ADJ o_AUX ku_SCONJ saa_AUX duunaak_VERB kaikkia_PRON
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: se oli kimpale semmoisia ehtoja ettei semmoisiin ehtoihin kukaan me
+tags: PRON AUX NOUN DET NOUN AUX DET NOUN PRON VERB
+tagged_tokens: se_PRON oli_AUX kimpale_NOUN semmoisia_DET ehtoja_NOUN ettei_AUX semmoisiin_DET ehtoihin_NOUN kukaan_PRON me_VERB
+
+B) tokens: se oli kasa sellaisia ehtoja ettei sellaisiin ehtoihin kukaan me
+tags: PRON AUX NOUN DET NOUN AUX DET NOUN PRON VERB
+tagged_tokens: se_PRON oli_AUX kasa_NOUN sellaisia_DET ehtoja_NOUN ettei_AUX sellaisiin_DET ehtoihin_NOUN kukaan_PRON me_VERB
+
+C) tokens: se oli joukko sellaisia ehtoja ettei sellaisiin ehtoihin kukaan me
+tags: PRON AUX NOUN DET NOUN AUX DET NOUN PRON VERB
+tagged_tokens: se_PRON oli_AUX joukko_NOUN sellaisia_DET ehtoja_NOUN ettei_AUX sellaisiin_DET ehtoihin_NOUN kukaan_PRON me_VERBD) tokens: se oli pannus semmosia ehtoja ettei semmosiin ehtoin kukaam me
+tags: PRON AUX VERB DET NOUN AUX DET NOUN PRON VERB
+tagged_tokens: se_PRON oli_AUX pannus_VERB semmosia_DET ehtoja_NOUN ettei_AUX semmosiin_DET ehtoin_NOUN kukaam_PRON me_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Melonta-aisa näyttää katkeavan
+tags: NOUN AUX PART VERB
+tagged_tokens: Melonta-aisa_NOUN näyttää_AUX katkeavan_PART VERB
+
+B) tokens: Airo näyttää katkeamiselta
+tags: NOUN AUX PART VERB
+tagged_tokens: Airo_NOUN näyttää_AUX katkeamiselta_PART VERB
+
+C) tokens: Soutamiskeppi on hajoamassa
+tags: NOUN AUX VERB
+tagged_tokens: Soutamiskeppi_NOUN on_AUX hajoamassa_VERBD) tokens: Aisaremmi on näköjeä katkent
+tags: NOUN AUX PART VERB
+tagged_tokens: Aisaremmi_NOUN on_AUX näköjeä_PART katkent_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: saada sanoa
+tags: VERB VERB
+tagged_tokens: saada_VERB sanoa_VERB
+
+B) tokens: saada lausua
+tags: VERB VERB
+tagged_tokens: saada_VERB lausua_VERB
+
+C) tokens: saada esittää
+tags: VERB VERB
+tagged_tokens: saada_VERB esittää_VERBD) tokens: saammä sanoo
+tags: VERB VERB
+tagged_tokens: saammä_VERB sanoo_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Jokin saksalais-suomalais-venäläinen yhteisponnistus , varatkin tulivat Saksasta .
+tags: PRON ADJ NOUN PUNCT NOUN VERB PROPN PUNCT
+tagged_tokens: Jokin_PRON saksalais-suomalais-venäläinen_ADJ yhteisponnistus_NOUN ,_PUNCT varatkin_NOUN tulivat_VERB Saksasta_PROPN ._PUNCT
+
+B) tokens: Eräs saksalainen-suomalainen-venäläinen yhteenliittymä , rahat tulivat Saksasta .
+tags: NUM ADJ NOUN PUNCT NOUN VERB PROPN PUNCT
+tagged_tokens: Eräs_NUM saksalainen-suomalainen-venäläinen_ADJ yhteenliittymä_NOUN ,_PUNCT rahat_NOUN tulivat_VERB Saksasta_PROPN ._PUNCT
+
+C) tokens: Tietenkin saksalais-suomalainen-venäläinen kumppanuus , rahat tulivat Saksan valtiolta .
+tags: ADV ADJ NOUN PUNCT NOUN VERB NOUN PUNCT
+tagged_tokens: Tietenkin_ADV saksalais-suomalainen-venäläinen_ADJ kumppanuus_NOUN ,_PUNCT rahat_NOUN tulivat_VERB Saksan_NOUN valtiolta_NOUN ._PUNCTD) tokens: Joku saksalais-suomalais-venäläinen yhteisyritys , rahatkinhan tulivat Saksasta .
+tags: DET ADJ NOUN PUNCT NOUN VERB PROPN PUNCT
+tagged_tokens: Joku_DET saksalais-suomalais-venäläinen_ADJ yhteisyritys_NOUN ,_PUNCT rahatkinhan_NOUN tulivat_VERB Saksasta_PROPN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: nekinhän on ratkaistavissa .
+tags: PRON VERB VERB PUNCT
+tagged_tokens: nekinhän_PRON on_VERB ratkaistavissa_VERB ._PUNCT
+
+B) tokens: nekinhän voi selvittää .
+tags: PRON VERB VERB PUNCT
+tagged_tokens: nekinhän_PRON voi_VERB selvittää_VERB ._PUNCT
+
+C) tokens: nekinhän voi ratkoa .
+tags: PRON VERB VERB PUNCT
+tagged_tokens: nekinhän_PRON voi_VERB ratkoa_VERB ._PUNCTD) tokens: nekinhän on ratkottavissa .
+tags: PRON VERB VERB PUNCT
+tagged_tokens: nekinhän_PRON on_VERB ratkottavissa_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Surkealta ei vaikuta tämä päiväkään .
+tags: ADJ AUX VERB DET NOUN PUNCT
+tagged_tokens: Surkealta_ADJ ei_AUX vaikuta_VERB tämä_DET päiväkään_NOUN ._PUNCT
+
+B) tokens: Huonolta ei näytä tämä päiväkään .
+tags: ADJ AUX VERB DET NOUN PUNCT
+tagged_tokens: Huonolta_ADJ ei_AUX näytä_VERB tämä_DET päiväkään_NOUN ._PUNCT
+
+C) tokens: Heikolta ei vaiku vaikuta tämänäkään päivänä .
+tags: ADJ AUX VERB DET NOUN PUNCT
+tagged_tokens: Heikolta_ADJ ei_AUX vaikuta_VERB tämänäkään_DET päivänä_NOUN ._PUNCTD) tokens: Kehnolta ei näytä tämä päiväkään .
+tags: ADJ AUX VERB DET NOUN PUNCT
+tagged_tokens: Kehnolta_ADJ ei_AUX näytä_VERB tämä_DET päiväkään_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Etsiökö _VERB_ uutta_ADJ onnea_NOUN vai_CCONJ tyytymääkö_VERB vanhaan_ADJ ?_PUNCT
+tags: VERB ADJ NOUN CCONJ VERB ADJ PUNCT
+tagged_tokens: Etsiökö_VERB uutta_ADJ onnea_NOUN vai_CCONJ tyytymääkö_VERB vanhaan_ADJ ?_PUNCT
+
+B) tokens: Hakeako _VERB_ uutta_ADJ onnea_NOUN vai_CCONJ alistua_VERB vanhaan_ADJ ?_PUNCT
+tags: VERB ADJ NOUN CCONJ VERB ADJ PUNCT
+tagged_tokens: Hakeako _VERB_ uutta_ADJ onnea_NOUN vai_CCONJ alistua_VERB vanhaan_ADJ ?_PUNCT
+
+C) tokens: Etsiökökö _VERB_ uutta_ADJ onnea_NOUN vai_CCONJ tyytyäminen_NOUN vanhaan_ADJ ?_PUNCT
+tags: VERB ADJ NOUN CCONJ NOUN ADJ PUNCT
+tagged_tokens: Etsiökökö_VERB uutta_ADJ onnea_NOUN vai_CCONJ tyytyminen_NOUN vanhaan_ADJ ?_PUNCTD) tokens: Etsiäkö uutta onnea vai tyytyäkö vanhaan ?
+tags: VERB ADJ NOUN CCONJ VERB ADJ PUNCT
+tagged_tokens: Etsiäkö_VERB uutta_ADJ onnea_NOUN vai_CCONJ tyytyäkö_VERB vanhaan_ADJ ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: niit on paljo talossa
+tags: PRON VERB PART ADJ NOUN
+tagged_tokens: niit_PRON on_VERB paljo_PART talossa_NOUN
+
+B) tokens: niit on lukuisasti talossa
+tags: PRON VERB PART ADJ NOUN
+tagged_tokens: niit_PRON on_VERB lukuisasti_PART talossa_NOUN
+
+C) tokens: niit on runsaasti talossa
+tags: PRON VERB PART ADJ NOUN
+tagged_tokens: niit_PRON on_VERB runsaasti_PART talossa_NOUND) tokens: niit ol´ ni hirveästit talossa
+tags: PRON VERB PART ADV NOUN
+tagged_tokens: niit_PRON ol´_VERB ni_PART hirveästit_ADV talossa_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Vitsit totisesti pitävät hyvällä tuulella , vaikkakaan ei naureskele liikaa .
+tags: NOUN PART VERB ADJ NOUN PUNCT ADV VERB PUNCT
+tagged_tokens: Vitsit_NOUN totisesti_PART pitävät_VERB hyvällä_ADJ tuulella_NOUN ,_PUNCT vaikkakaan_ADV ei_AUX naureskele_VERB liikaa_ADV ._PUNCT
+
+B) tokens: Vitsit töttö pitävät mielialan korkealla , joskaan ne eivät ole liian hupisevia .
+tags: NOUN PART VERB ADJ NOUN PUNCT CCONJ VERB ADV ADJ PUNCT
+tagged_tokens: Vitsit_NOUN töttö_PART pitävät_VERB mielialan_NOUN korkealla_ADJ ,_PUNCT joskaan_CCONJ ne_PRON eivät_AUX ole_VERB liian_ADV hupisevia_ADJ ._PUNCT
+
+C) tokens: Vitsit todella pitävät mielen virkeänä , vaikkei niissä olekaan paljon nauruja .
+tags: NOUN PART VERB ADJ NOUN PUNCT ADV VERB PUNCT
+tagged_tokens: Vitsit_NOUN todella_PART pitävät_VERB mielen_NOUN virkeänä_ADJ ,_PUNCT vaikkei_ADV niissä_PRON olekaan_VERB paljon_ADV nauruja_NOUN ._PUNCTD) tokens: Vitsit sentään pitävät hyvällä tuulella , vaikkeivat liiemmin nauratakaan .
+tags: NOUN PART VERB ADJ NOUN PUNCT AUX ADV VERB PUNCT
+tagged_tokens: Vitsit_NOUN sentään_PART pitävät_VERB hyvällä_ADJ tuulella_NOUN ,_PUNCT vaikkeivat_AUX liiemmin_ADV nauratakaan_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Meidä kysyttiin , että ei ole riski , että alaikäiset ostavat automaateista kaljaa .
+tags: PRON VERB PUNCT AUX VERB NOUN PUNCT SCONJ ADJ VERB NOUN NOUN PUNCT
+tagged_tokens: Meidä_PRON kysyttiin_VERB ,_PUNCT että_AUX ei_VERB riski_NOUN ,_PUNCT että_SCONJ alaikäiset_ADJ ostavat_VERB automaateista_NOUN kaljaa_NOUN ._PUNCT
+
+B) tokens: Meidä tiedusteltiin , eikö ole pelkoa , että alaikäiset hankkivat koneista kaljaa .
+tags: PRON VERB PUNCT AUX VERB NOUN PUNCT SCONJ ADJ VERB NOUN NOUN PUNCT
+tagged_tokens: Meidä_PRON tiedusteltiin_VERB ,_PUNCT eikö_AUX ole_VERB pelkoa_NOUN ,_PUNCT että_SCONJ alaikäiset_ADJ hankkivat_VERB koneista_NOUN kaljaa_NOUN ._PUNCT
+
+C) tokens: Meiltä kysyttiin , että onko vaaraa , että alle 18-vuotiaat saavat myyntiautomaateista olutta .
+tags: PRON VERB PUNCT AUX VERB NOUN PUNCT SCONJ ADJ NOUN VERB NOUN NOUN PUNCT
+tagged_tokens: Meiltä_PRON kysyttiin_VERB ,_PUNCT että_AUX onko_VERB vaaraa_NOUN ,_PUNCT että_SCONJ alle_ADJ 18-vuotiaat_NOUN saavat_VERB myyntiautomaateista_NOUN olutta_NOUN ._PUNCTD) tokens: Me kysyttiin , etteikö ole vaarana , että alaikäiset ostavat automaateista kaljaa .
+tags: PRON VERB PUNCT AUX VERB NOUN PUNCT SCONJ ADJ VERB NOUN NOUN PUNCT
+tagged_tokens: Me_PRON kysyttiin_VERB ,_PUNCT etteikö_AUX ole_VERB vaarana_NOUN ,_PUNCT että_SCONJ alaikäiset_ADJ ostavat_VERB automaateista_NOUN kaljaa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Mutta ei kai toisen valtion monarkki voi mennä naimisiin toisen maan - vai voiko ?
+tags: AUX DET NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Mutta_AUX ei_DET kai_NOUN toisen_NOUN valtion_NOUN monarkki_NOUN voi_AUX mennä_VERB naimisiin_VERB toisen_DET maan_NOUN -_PUNCT vai_VERB voiko_PUNCT ?
+
+B) tokens: Eihän nyt toisen maan monarkki voi avioitua toisen maan kanssa - vai voiko ?
+tags: AUX NOUN NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Eihän_AUX nyt_NOUN toisen_NOUN maan_NOUN monarkki_NOUN voi_AUX avioitua_VERB toisen_DET maan_NOUN kanssa_NOUN -_PUNCT vai_VERB voiko_PUNCT ?
+
+C) tokens: Eikös toisen maan hallitsija voi menna naimisiin toiseen maahan - vai voiko ?
+tags: AUX DET NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Eikös_AUX toisen_DET maan_NOUN hallitsija_NOUN voi_AUX menna_VERB naimisiin_VERB toiseen_DET maahan_NOUN -_PUNCT vai_VERB voiko_PUNCT ?D) tokens: Mutteihän toisen maan monarkki voi avioitua toiseen maahan - eihän ?
+tags: AUX DET NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Mutteihän_AUX toisen_DET maan_NOUN monarkki_NOUN voi_AUX avioitua_VERB toiseen_DET maahan_NOUN -_PUNCT eihän_VERB ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Mutta eihänhän toisen valtion monarkki voi menä toiseen valtioon - eihänhän ?
+tags: CCONJ AUX DET NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Mutta_CCONJ eihänhän_AUX toisen_DET valtion_NOUN monarkki_NOUN voi_AUX menä_VERB toiseen_DET valtioon_NOUN -_PUNCT eihänhän_VERB ?_PUNCT
+
+B) tokens: Mutta ei jonkun toisen maan hallitsija voi menä jonkun toisen maan - eikö?
+tags: CCONJ DET DET NOUN NOUN AUX VERB DET DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Mutta_CCONJ ei_DET jonkun_DET toisen_NOUN maan_NOUN hallitsija_NOUN voi_AUX menä_VERB jonkun_DET toisen_NOUN maan_NOUN -_PUNCT eikö?_VERB PUNCT
+
+C) tokens: Kuitenkin toisen maan kuninkaallinen ei voi menä toiseen maahan - vai voiko ?
+tags: CONJ DET NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Kuitenkin_CONJ toisen_DET maan_NOUN kuninkaallinen_NOUN ei_AUX voi_AUX menä_VERB toiseen_DET maahan_NOUN -_PUNCT vai_VERB voiko_PUNCT ?D) tokens: Mutta eihän toisen maan monarkki voi avioitua toiseen maahan - eihän ?
+tags: CCONJ AUX DET NOUN NOUN AUX VERB DET NOUN PUNCT VERB PUNCT
+tagged_tokens: Mutta_CCONJ eihän_AUX toisen_DET maan_NOUN monarkki_NOUN voi_AUX avioitua_VERB toiseen_DET maahan_NOUN -_PUNCT eihän_VERB ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Ootko_AUX kuullu_VERB ?_PUNCT
+tags: AUX VERB PUNCT
+tagged_tokens: Ootko_AUX kuullu_VERB ?_PUNCT
+
+B) tokens: Ootko_AUX kuulevinasi_VERB ?_PUNCT
+tags: AUX VERB PUNCT
+tagged_tokens: Ootko_AUX kuulevinasi_VERB ?_PUNCT
+
+C) tokens: Oletko_AUX koskaan_ADV kuullut_VERB tästä_PRON ?_PUNCT
+tags: AUX ADV VERB PRON PUNCT
+tagged_tokens: Oletko_AUX koskaan_ADV kuullut_VERB tästä_PRON ?_PUNCTD) tokens: Eksää kuullu ?
+tags: AUX VERB PUNCT
+tagged_tokens: Eksää_AUX kuullu_VERB ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän on uinut selkää, vapaata, rintaa ja perhostä.
+tags: PRON AUX VERB NOUN PUNCT ADJ PUNCT NOUN CCONJ NOUN PUNCT
+tagged_tokens: Hän_PRON on_AUX uinut_VERB selkää_NOUN ,_PUNCT vapaata_ADJ ,_PUNCT rintaa_NOUN ja_CCONJ perhostä_NOUN ._PUNCT
+
+B) tokens: Hän on uinut selkää, vapaauintia, rintaa ja perhosuinti.
+tags: PRON AUX VERB NOUN PUNCT ADJ PUNCT NOUN CCONJ NOUN PUNCT
+tagged_tokens: Hän_PRON on_AUX uinut_VERB selkää_NOUN ,_PUNCT vapaauintia_ADJ ,_PUNCT rintaa_NOUN ja_CCONJ perhosuinti_NOUN ._PUNCT
+
+C) tokens: Hän on uinut selkää, rintaa, vapaauintia ja perhosuinti.
+tags: PRON AUX VERB NOUN PUNCT NOUN CCONJ NOUN PUNCT NOUN PUNCT
+tagged_tokens: Hän_PRON on_AUX uinut_VERB selkää_NOUN ,_PUNCT rintaa_NOUN ,_PUNCT vapaauintia_NOUN ja_CCONJ perhosuinti_NOUN ._PUNCTD) tokens: Hän on uinut selkää , vapaata , rintaa ja perhosta .
+tags: PRON AUX VERB NOUN PUNCT ADJ PUNCT NOUN CCONJ NOUN PUNCT
+tagged_tokens: Hän_PRON on_AUX uinut_VERB selkää_NOUN ,_PUNCT vapaata_ADJ ,_PUNCT rintaa_NOUN ja_CCONJ perhosta_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Genevestä lähti illalla yksityissuihkukone Salzburgiin .
+tags: PROPN VERB NOUN NOUN PROPN PUNCT
+tagged_tokens: Genevestä_PROPN lähti_VERB illalla_NOUN yksityissuihkukone_NOUN Salzburgiin_PROPN ._PUNCT
+
+B) tokens: Genevestä lähti myöhäisellä lentokoneella Salzburgiin .
+tags: PROPN VERB ADJ NOUN PROPN PUNCT
+tagged_tokens: Genevestä_PROPN lähti_VERB myöhäisellä_ADJ lentokoneella_NOUN Salzburgiin_PROPN ._PUNCT
+
+C) tokens: Genevestä poistui yöllä yksityissuihkukone Salzburgiin .
+tags: PROPN VERB NOUN NOUN PROPN PUNCT
+tagged_tokens: Genevestä_PROPN poistui_VERB yöllä_NOUN yksityissuihkukone_NOUN Salzburgiin_PROPN ._PUNCTD) tokens: Genevestä lähti yöllä liikesuihku Salzburgiin .
+tags: PROPN VERB NOUN NOUN PROPN PUNCT
+tagged_tokens: Genevestä_PROPN lähti_VERB yöllä_NOUN liikesuihku_NOUN Salzburgiin_PROPN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kesä meni vallattomasti villisti villisti .
+tags: NOUN ADJ ADJ ADJ PUNCT
+tagged_tokens: Kesä_NOUN meni_VERB vallattomasti_ADJ villisti_ADJ villisti_ADJ ._PUNCT
+
+B) tokens: Kesä vieri hillittömästi rajulla rajulla .
+tags: NOUN ADJ ADJ ADJ PUNCT
+tagged_tokens: Kesä_NOUN vieri_VERB hillittömästi_ADJ rajulla_ADJ rajulla_ADJ ._PUNCT
+
+C) tokens: Kesä eteni riehakkaasti villiin villiin .
+tags: NOUN ADJ ADJ ADJ PUNCT
+tagged_tokens: Kesä_NOUN eteni_VERB riehakkaasti_ADJ villiin_ADJ villiin_ADJ ._PUNCTD) tokens: Kesä menikin ihan villilän meiningissä .
+tags: NOUN VERB PART NOUN NOUN PUNCT
+tagged_tokens: Kesä_NOUN menikin_VERB ihan_PART villilän_NOUN meiningissä_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Vakavan valmentajan vakava urheilija valittaa usein harjoittelunsa raskautta
+tags: ADJ NOUN ADJ NOUN VERB ADV NOUN NOUN
+tagged_tokens: Vakavan_ADJ valmentajan_NOUN vakava_ADJ urheilija_NOUN valittaa_VERB usein_ADV harjoittelunsa_NOUN raskautta_NOUN
+
+B) tokens: Vakavan valmentajan vakava urheilija moittii usein harjoittelunsa kovuutta
+tags: ADJ NOUN ADJ NOUN VERB ADV NOUN NOUN
+tagged_tokens: Vakavan_ADJ valmentajan_NOUN vakava_ADJ urheilija_NOUN moittii_VERB usein_ADV harjoittelunsa_NOUN kovuutta_NOUN
+
+C) tokens: Vakavan opettajan vakava oppilas valittaa usein opiskelunsa vaikeutta
+tags: ADJ NOUN ADJ NOUN VERB ADV NOUN NOUN
+tagged_tokens: Vakavan_ADJ opettajan_NOUN vakava_ADJ oppilas_NOUN valittaa_VERB usein_ADV opiskelunsa_NOUN vaikeutta_NOUND) tokens: Tosikon valmentajan tosikko urheilija valittaa usein harjoittelunsa raskautta
+tags: ADJ NOUN ADJ NOUN VERB ADV NOUN NOUN
+tagged_tokens: Tosikon_ADJ valmentajan_NOUN tosikko_ADJ urheilija_NOUN valittaa_VERB usein_ADV harjoittelunsa_NOUN raskautta_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: päivien horros ja syksyn sumu
+tags: NOUN NOUN CCONJ NOUN NOUN
+tagged_tokens: päivien_NOUN horros_NOUN ja_CCONJ syksyn_NOUN sumu_NOUN
+
+B) tokens: päivän nousu ja aamun usva
+tags: NOUN NOUN CCONJ NOUN NOUN
+tagged_tokens: päivän_NOUN nousu_NOUN ja_CCONJ aamun_NOUN usva_NOUN
+
+C) tokens: auringonnousun hehku ja keiton tuoksu
+tags: NOUN NOUN CCONJ NOUN NOUN
+tagged_tokens: auringonnousun_NOUN hehku_NOUN ja_CCONJ keiton_NOUN tuoksu_NOUND) tokens: päivyen auer ja yöhyen usma
+tags: NOUN NOUN CCONJ NOUN NOUN
+tagged_tokens: päivyen_NOUN auer_NOUN ja_CCONJ yöhyen_NOUN usma_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Nyt tuo kelmi yrittää rahastaa filminpätkällä .
+tags: ADV DET NOUN VERB VERB NOUN PUNCT
+tagged_tokens: Nyt_ADV tuo_DET kelmi_NOUN yrittää_VERB rahastaa_VERB filminpätkällä_NOUN ._PUNCT
+
+B) tokens: Nyt kyseessä oleva lurjus yrittää rahankerää filminpätkällä .
+tags: ADV PRON ADJ NOUN VERB VERB NOUN PUNCT
+tagged_tokens: Nyt_ADV kyseessä_PRON oleva_ADJ lurjus_NOUN yrittää_VERB rahankerää_VERB filminpätkällä_NOUN ._PUNCT
+
+C) tokens: Nyt tuo kelmi pyrkii rahoittamaan elämänsä filminpätkällä .
+tags: ADV DET NOUN VERB NOUN VERB NOUN PUNCT
+tagged_tokens: Nyt_ADV tuo_DET kelmi_NOUN pyrkii_VERB rahoittamaan_VERB elämänsä_NOUN filminpätkällä_NOUN ._PUNCTD) tokens: Nyt kyseinen nuljake yrittää rahastaa filminpätkällä .
+tags: ADV ADJ NOUN VERB VERB NOUN PUNCT
+tagged_tokens: Nyt_ADV kyseinen_ADJ nuljake_NOUN yrittää_VERB rahastaa_VERB filminpätkällä_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: sodan uhka
+tags: NOUN NOUN
+tagged_tokens: sodan_NOUN uhka_NOUN
+
+B) tokens: taistelun uhka
+tags: NOUN NOUN
+tagged_tokens: taistelun_NOUN uhka_NOUN
+
+C) tokens: sodan vaara
+tags: NOUN NOUN
+tagged_tokens: sodan_NOUN vaara_NOUND) tokens: sodan uhka
+tags: NOUN NOUN
+tagged_tokens: sodan_NOUN uhka_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: rikesakon asettaminen on vaivattomampaa kuin päiväsakon kirjoitus .
+tags: NOUN NOUN AUX ADJ SCONJ NOUN NOUN PUNCT
+tagged_tokens: rikesakon_NOUN asettaminen_NOUN on_AUX vaivattomampaa_ADJ kuin_SCONJ päiväsakon_NOUN kirjoitus_NOUN . PUNCT
+
+B) tokens: rikesakon tuomitseminen on vaivattomampaa kuin päiväsakon kirjoitus .
+tags: NOUN NOUN AUX ADJ SCONJ NOUN NOUN PUNCT
+tagged_tokens: rikesakon_NOUN tuomitseminen_NOUN on_AUX vaivattomampaa_ADJ kuin_SCONJ päiväsakon_NOUN kirjoitus_NOUN . PUNCT
+
+C) tokens: rikesakon langettaminen on vaivattomampaa kuin päiväsakon määrääminen .
+tags: NOUN NOUN AUX ADJ SCONJ NOUN NOUN PUNCT
+tagged_tokens: rikesakon_NOUN langettaminen_NOUN on_AUX vaivattomampaa_ADJ kuin_SCONJ päiväsakon_NOUN määrääminen_NOUN . PUNCTD) tokens: rikesakon kirjoittaminen on vaivattomampaa kuin päiväsakon kirjoitus .
+tags: NOUN NOUN AUX ADJ SCONJ NOUN NOUN PUNCT
+tagged_tokens: rikesakon_NOUN kirjoittaminen_NOUN on_AUX vaivattomampaa_ADJ kuin_SCONJ päiväsakon_NOUN kirjoitus_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Asuntojen pystytys työllistäisi paljon
+tags: NOUN NOUN VERB ADV
+tagged_tokens: Asuntojen_NOUN pystytys_NOUN työllistäisi_VERB paljon_ADV
+
+B) tokens: Asuntojen rakentaminen työllistäisi paljon
+tags: NOUN NOUN VERB ADV
+tagged_tokens: Asuntojen_NOUN rakentaminen_NOUN työllistäisi_VERB paljon_ADV
+
+C) tokens: Asuntojen pystytys antaisi paljon työpaikkoja
+tags: NOUN NOUN VERB ADV
+tagged_tokens: Asuntojen_NOUN pystytys_NOUN antaisi_VERB paljon_ADV työpaikkoja_NOUND) tokens: Asuntojen rakennus työllistäisi paljon
+tags: NOUN NOUN VERB ADV
+tagged_tokens: Asuntojen_NOUN rakennus_NOUN työllistäisi_VERB paljon_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Baijerissa juoman kallistaminen on kansallinen urheilulaji .
+tags: PROPN NOUN AUX ADJ NOUN PUNCT
+tagged_tokens: Baijerissa_PROPN juoman_NOUN kallistaminen_NOUN on_AUX kansallinen_ADJ urheilulaji_NOUN ._PUNCT
+
+B) tokens: Baijerissa lasin nostaminen on maan tapa .
+tags: PROPN NOUN AUX NOUN PUNCT
+tagged_tokens: Baijerissa_PROPN lasin_NOUN nostaminen_NOUN on_AUX maan_NOUN tapa_NOUN ._PUNCT
+
+C) tokens: Baijerissa oluttuopin kallistelu on perinteinen ajanviete .
+tags: PROPN NOUN AUX ADJ NOUN PUNCT
+tagged_tokens: Baijerissa_PROPN oluttuopin_NOUN kallistelu_NOUN on_AUX perinteinen_ADJ ajanviete_NOUN ._PUNCTD) tokens: Baijerissa tuopin kallistelu on kansallisurheilua .
+tags: PROPN NOUN NOUN AUX NOUN PUNCT
+tagged_tokens: Baijerissa_PROPN tuopin_NOUN kallistelu_NOUN on_AUX kansallisurheilua_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän on valtava lupaus
+tags: PRON AUX ADJ NOUN
+tagged_tokens: Hän_PRON on_AUX valtava_ADJ lupaus_NOUN
+
+B) tokens: Hän on huikea lupaus
+tags: PRON AUX ADJ NOUN
+tagged_tokens: Hän_PRON on_AUX huikea_ADJ lupaus_NOUN
+
+C) tokens: Hän on loistava lupaus
+tags: PRON AUX ADJ NOUN
+tagged_tokens: Hän_PRON on_AUX loistava_ADJ lupaus_NOUND) tokens: Hän on suuri lupaus
+tags: PRON AUX ADJ NOUN
+tagged_tokens: Hän_PRON on_AUX suuri_ADJ lupaus_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Tunnelointi edistää kulkuyhteyksiä.
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Tunnelointi_NOUN edistää_VERB kulkuyhteyksiä_NOUN ._PUNCT
+
+B) tokens: Kaivautuminen parantaa kulkuyhteyksiä.
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Kaivautuminen_NOUN parantaa_VERB kulkuyhteyksiä_NOUN ._PUNCT
+
+C) tokens: Tunnelointi kohentaa kulkuyhteyksiä.
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Tunnelointi_NOUN kohentaa_VERB kulkuyhteyksiä_NOUN ._PUNCTD) tokens: Tunnelointi parantaa kulkuyhteyksiä .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Tunnelointi_NOUN parantaa_VERB kulkuyhteyksiä_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän suorittaa useimmiten valintansa pelkästä tai lähes pelkästä lehdistö näkemänsä tai televisiosta katsomansa nojalla .
+tags: PRON VERB ADV NOUN PART CCONJ PART PART NOUN VERB CCONJ NOUN VERB ADP PUNCT
+tagged_tokens: Hän_PRON suorittaa_VERB useimmiten_ADV valintansa_NOUN pelkästä_PART tai_CCONJ lähes_PART pelkästä_PART lehdistö_NOUN näkemänsä_VERB tai_CCONJ televisiosta_NOUN katsomansa_VERB nojalla_ADP ._PUNCT
+
+B) tokens: Hän tekee useimmiten päätöksensä vain tai lähes vain sanomalehdistä lukemaansa tai televisiosta näkemänsä nojalla .
+tags: PRON VERB ADV NOUN PART CCONJ PART PART NOUN VERB CCONJ NOUN VERB ADP PUNCT
+tagged_tokens: Hän_PRON tekee_VERB useimmiten_ADV päätöksensä_NOUN vain_PART tai_CCONJ lähes_PART vain_PART sanomalehdistä_NOUN lukemaansa_VERB tai_CCONJ televisiosta_NOUN näkemänsä_VERB nojalla_ADP ._PUNCT
+
+C) tokens: Hän päättää yleensä valintansa ainoastaan tai lähes ainoastaan lehdissä lukemaansa tai televisiosta näkemänsä perustuen .
+tags: PRON VERB ADV NOUN PART CCONJ PART PART NOUN VERB CCONJ NOUN VERB ADP PUNCT
+tagged_tokens: Hän_PRON päättää_VERB yleensä_ADV valintansa_NOUN ainoastaan_PART tai_CCONJ lähes_PART ainoastaan_PART lehdissä_NOUN lukemaansa_VERB tai_CCONJ televisiosta_NOUN näkemänsä_VERB perustuen_ADP ._PUNCTD) tokens: Hän tekee useimmiten valintansa vain tai lähes vain lehdistä lukemansa tai televisiosta näkemänsä perusteella .
+tags: PRON VERB ADV NOUN PART CCONJ PART PART NOUN VERB CCONJ NOUN VERB ADP PUNCT
+tagged_tokens: Hän_PRON tekee_VERB useimmiten_ADV valintansa_NOUN vain_PART tai_CCONJ lähes_PART vain_PART lehdistä_NOUN lukemansa_VERB tai_CCONJ televisiosta_NOUN näkemänsä_VERB perusteella_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Haka oli tänään suorastaan loppulukujen osoittamaa määärä verran parempi
+tags: PROPN AUX ADV PART NOUN VERB ADP ADJ
+tagged_tokens: Haka_PROPN oli_AUX tänään_ADV suorastaan_PART loppulukujen_NOUN osoittamaa_VERB määrä_ADP parempi_ADJ
+
+B) tokens: Haka oli tänään selvästi loppulukujen osoittamaa määrä verran parempi
+tags: PROPN AUX ADV ADJ NOUN VERB ADP ADJ
+tagged_tokens: Haka_PROPN oli_AUX tänään_ADV selvästi_ADJ loppulukujen_NOUN osoittamaa_VERB määrä_ADP parempi_ADJ
+
+C) tokens: Haka oli tänään kiistatta loppulukujen osoittamaa määrä verran parempi
+tags: PROPN AUX ADV ADJ NOUN VERB ADP ADJ
+tagged_tokens: Haka_PROPN oli_AUX tänään_ADV kiistatta_ADJ loppulukujen_NOUN osoittamaa_VERB määrä_ADP parempi_ADJD) tokens: Haka oli tänään juuri loppulukujen osoittaman verran parempi
+tags: PROPN AUX ADV PART NOUN VERB ADP ADJ
+tagged_tokens: Haka_PROPN oli_AUX tänään_ADV juuri_PART loppulukujen_NOUN osoittaman_VERB verran_ADP parempi_ADJ
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Se mikä hän julisti oli lopputuloksen kannalta ratkaiseva .
+tags: PRON PRON PRON VERB AUX NOUN ADP ADJ PUNCT
+tagged_tokens: Se_PRON mikä_PRON hän_PRON julisti_VERB oli_AUX lopputuloksen_NOUN kannalta_ADP ratkaiseva_ADJ ._PUNCT
+
+B) tokens: Hän lausunto oli lopputuloksen kannalta ratkaiseva .
+tags: PRON NOUN AUX NOUN ADP ADJ PUNCT
+tagged_tokens: Hän_PRON lausunto_NOUN oli_AUX lopputuloksen_NOUN kannalta_ADP ratkaiseva_ADJ ._PUNCT
+
+C) tokens: Hänen lausuntonsa oli lopputuloksen kannalta ratkaiseva .
+tags: PRON NOUN AUX NOUN ADP ADJ PUNCT
+tagged_tokens: Hänen_PRON lausuntonsa_NOUN oli_AUX lopputuloksen_NOUN kannalta_ADP ratkaiseva_ADJ ._PUNCTD) tokens: Se mitä hän lausui oli tuloksen kannalta ratkaiseva .
+tags: PRON PRON PRON VERB AUX NOUN ADP ADJ PUNCT
+tagged_tokens: Se_PRON mitä_PRON hän_PRON lausui_VERB oli_AUX tuloksen_NOUN kannalta_ADP ratkaiseva_ADJ ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Muikun ja siian kalastajat vihaavat limaista verkkoon takertuvaa olentoa .
+tags: NOUN CCONJ NOUN NOUN VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: Muikun_NOUN ja_CCONJ siian_NOUN kalastajat_NOUN vihaavat_VERB limaista_ADJ verkkoon_NOUN takertuvaa_NOUN olentoa_NOUN ._PUNCT
+
+B) tokens: Siian ja muikun pyydystäjät inhoavat tahmaista verkkoon takertuvaa oliota .
+tags: NOUN CCONJ NOUN NOUN VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: Siian_NOUN ja_CCONJ muikun_NOUN pyydystäjät_NOUN inhoavat_VERB tahmaista_ADJ verkkoon_NOUN takertuvaa_NOUN oliota_NOUN ._PUNCT
+
+C) tokens: Muikun ja siian kalastajat vihaavat tahmaista verkkoon takertuvaa limaa .
+tags: NOUN CCONJ NOUN NOUN VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: Muikun_NOUN ja_CCONJ siian_NOUN kalastajat_NOUN vihaavat_VERB tahmaista_ADJ verkkoon_NOUN takertuvaa_NOUN limaa_NOUN ._PUNCTD) tokens: Siian ja muikun kalastajat vihaavat limaista verkkoon takertujaa .
+tags: NOUN CCONJ NOUN NOUN VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: Siian_NOUN ja_CCONJ muikun_NOUN kalastajat_NOUN vihaavat_VERB limaista_ADJ verkkoon_NOUN takertujaa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: lautanen_NOUN juustoja_NOUN
+tags: NOUN NOUN
+tagged_tokens: lautanen_NOUN juustoja_NOUN
+
+B) tokens: astia_NOUN juustoa_NOUN
+tags: NOUN NOUN
+tagged_tokens: astia_NOUN juustoa_NOUN
+
+C) tokens: alusta_NOUN juustolajeja_NOUN
+tags: NOUN NOUN
+tagged_tokens: alusta_NOUN juustolajeja_NOUND) tokens: tarjottimellinen juustoja
+tags: NOUN NOUN
+tagged_tokens: tarjottimellinen_NOUN juustoja_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: jäinen puolukka
+tags: ADJ NOUN
+tagged_tokens: jäinen_ADJ puolukka_NOUN
+
+B) tokens: jäinen mustikka
+tags: ADJ NOUN
+tagged_tokens: jäinen_ADJ mustikka_NOUN
+
+C) tokens: kylmä hilla
+tags: ADJ NOUN
+tagged_tokens: kylmä_ADJ hilla_NOUND) tokens: jäinen puolukka
+tags: ADJ NOUN
+tagged_tokens: jäinen_ADJ puolukka_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: ihana ruoka
+tags: ADJ NOUN
+tagged_tokens: ihana_ADJ ruoka_NOUN
+
+B) tokens: suositeltava ruoka
+tags: ADJ NOUN
+tagged_tokens: suositeltava_ADJ ruoka_NOUN
+
+C) tokens: herkullinen ruoka
+tags: ADJ NOUN
+tagged_tokens: herkullinen_ADJ ruoka_NOUND) tokens: mieleinen ruoka
+tags: ADJ NOUN
+tagged_tokens: mieleinen_ADJ ruoka_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: rauta terveys
+tags: NOUN NOUN
+tagged_tokens: rauta_NOUN terveys_NOUN
+
+B) tokens: vahva terveys
+tags: ADJ NOUN
+tagged_tokens: vahva_ADJ terveys_NOUN
+
+C) tokens: teräs terveys
+tags: NOUN NOUN
+tagged_tokens: teräs_NOUN terveys_NOUND) tokens: rautainen terveys
+tags: ADJ NOUN
+tagged_tokens: rautainen_ADJ terveys_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: ulkoiset olosuhteet
+tags: ADJ NOUN
+tagged_tokens: ulkoiset_ADJ olosuhteet_NOUN
+
+B) tokens: ulkoiset kehykset
+tags: ADJ NOUN
+tagged_tokens: ulkoiset_ADJ kehykset_NOUN
+
+C) tokens: ulkoiset asetukset
+tags: ADJ NOUN
+tagged_tokens: ulkoiset_ADJ asetukset_NOUND) tokens: ulkoiset puitteet
+tags: ADJ NOUN
+tagged_tokens: ulkoiset_ADJ puitteet_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: jalkainen pöytä
+tags: ADJ NOUN
+tagged_tokens: jalkainen_ADJ pöytä_NOUN
+
+B) tokens: jaloin varustettu pöytä
+tags: ADJ NOUN
+tagged_tokens: jaloin varustettu_ADJ pöytä_NOUN
+
+C) tokens: jalkaa omaava pöytä
+tags: ADJ NOUN
+tagged_tokens: jalkaa omaava_ADJ pöytä_NOUND) tokens: jalallinen pöytä
+tags: ADJ NOUN
+tagged_tokens: jalallinen_ADJ pöytä_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: bonapartistisesta ylimielisyydestä
+tags: ADJ NOUN
+tagged_tokens: bonapartistisesta_ADJ ylimielisyydestä_NOUN
+
+B) tokens: keisarillisesta ylimielisyydestä
+tags: ADJ NOUN
+tagged_tokens: keisarillisesta_ADJ ylimielisyydestä_NOUN
+
+C) tokens: ylpeydestä
+tags: NOUN
+tagged_tokens: ylpeydestä_NOUND) tokens: napoleonmainen ylimielisyys
+tags: ADJ NOUN
+tagged_tokens: napoleonmainen_ADJ ylimielisyys_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: paikalliset valtionosuusmäärät
+tags: ADJ NOUN
+tagged_tokens: paikalliset_ADJ valtionosuusmäärät_NOUN
+
+B) tokens: kunnalliset valtionosuusmäärät
+tags: ADJ NOUN
+tagged_tokens: kunnalliset_ADJ valtionosuusmäärät_NOUN
+
+C) tokens: kuntien valtionosuusmäärät
+tags: NOUN NOUN
+tagged_tokens: kuntien_NOUN valtionosuusmäärät_NOUND) tokens: kunnittaiset valtionosuusmäärät
+tags: ADJ NOUN
+tagged_tokens: kunnittaiset_ADJ valtionosuusmäärät_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän heittäytyy niin leppoisaksi , että hänen äitinsäkin henkäisisi , jos näkisi .
+tags: PRON VERB PART ADJ PUNCT SCONJ DET NOUN VERB NOUN PUNCT SCONJ VERB PUNCT
+tagged_tokens: Hän_PRON heittäytyy_VERB niin_PART leppoisaksi_ADJ ,_PUNCT että_SCONJ hänen_DET äitinsäkin_NOUN henkäisisi_VERB ,_PUNCT jos_SCONJ näkisi_VERB ._PUNCT
+
+B) tokens: Hän antaa itsensä olla niin tuttavallinen , että hänen äitinsäkin hämmentyisi , jos näkisi .
+tags: PRON VERB PRON PART ADJ PUNCT SCONJ DET NOUN VERB NOUN PUNCT SCONJ VERB PUNCT
+tagged_tokens: Hän_PRON antaa_VERB itsensä_PRON olla_VERB niin_PART tuttavallinen_ADJ ,_PUNCT että_SCONJ hänen_DET äitinsäkin_NOUN hämmentyisi_VERB ,_PUNCT jos_SCONJ näkisi_VERB ._PUNCT
+
+C) tokens: Hän on niin välitön , että hänen äitinsäkin hämmennyksiä , jos näkisi .
+tags: PRON VERB PART ADJ PUNCT SCONJ DET NOUN VERB NOUN PUNCT SCONJ VERB PUNCT
+tagged_tokens: Hän_PRON on_VERB niin_PART välitön_ADJ ,_PUNCT että_SCONJ hänen_DET äitinsäkin_NOUN hämmennyksiä_VERB ,_PUNCT jos_SCONJ näkisi_VERB ._PUNCTD) tokens: Hän heittäytyy niin lupsakkaaksi , että hänen äitinsäkin haukkoisi henkeä , jos näkisi .
+tags: PRON VERB PART ADJ PUNCT SCONJ DET NOUN VERB NOUN PUNCT SCONJ VERB PUNCT
+tagged_tokens: Hän_PRON heittäytyy_VERB niin_PART lupsakkaaksi_ADJ ,_PUNCT että_SCONJ hänen_DET äitinsäkin_NOUN haukkoisi_VERB henkeä_NOUN ,_PUNCT jos_SCONJ näkisi_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: hirveä mahdoton tavallinen
+tags: ADJ ADJ ADJ
+tagged_tokens: hirveä_ADJ mahdoton_ADJ tavallinen_ADJ
+
+B) tokens: valtava määrätön tavallinen
+tags: ADJ ADJ ADJ
+tagged_tokens: valtava_ADJ määrätön_ADJ tavallinen_ADJ
+
+C) tokens: valtava suunnaton tavallinen
+tags: ADJ ADJ ADJ
+tagged_tokens: valtava_ADJ suunnaton_ADJ tavallinen_ADJD) tokens: tavaton tavallinen
+tags: ADJ ADJ
+tagged_tokens: tavaton_ADJ tavallinen_ADJ
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Reisilihakset olivat melko jäykät, ja juokseminen ei tuntunut erityisen hyvältä.
+tags: NOUN AUX ADV ADJ PUNCT AUX NOUN VERB PART ADJ
+tagged_tokens: Reisilihakset_NOUN olivat_AUX melko_ADV jäykät_ADJ ,_PUNCT ja_AUX juokseminen_NOUN ei_PART tuntunut_VERB erityisen_ADV hyvältä_ADJ.
+
+B) tokens: Takaraajat olivat melko kireät, ja juoksu ei tuntunut täysin hyvältä.
+tags: NOUN AUX ADV ADJ PUNCT AUX NOUN VERB PART ADJ
+tagged_tokens: Takaraajat_NOUN olivat_AUX melko_ADV kireät_ADJ ,_PUNCT ja_AUX juoksu_NOUN ei_PART tuntunut_VERB täysin_PART hyvältä_ADJ.
+
+C) tokens: Raajat olivat hieman tiukat, eikä juoksu tuntunut täysin mukavalta.
+tags: NOUN AUX ADV ADJ PUNCT AUX NOUN VERB PART ADJ
+tagged_tokens: Raajat_NOUN olivat_AUX hieman_ADV tiukat_ADJ ,_PUNCT eikä_AUX juoksu_NOUN tuntunut_VERB täysin_PART mukavalta_ADJ.D) tokens: Takareidet olivat vähän jäykähköt , eikä juoksu tuntunut aivan täydelliseltä
+tags: NOUN AUX ADV ADJ PUNCT AUX NOUN VERB PART ADJ
+tagged_tokens: Takareidet_NOUN olivat_AUX vähän_ADV jäykähköt_ADJ ,_PUNCT eikä_AUX juoksu_NOUN tuntunut_VERB aivan_PART täydelliseltä_ADJ
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Lausuin minulla olleen viime aikoina tähän sairaalaan myös pitkänlainen matka .
+tags: VERB PRON VERB ADJ NOUN DET NOUN PART ADJ NOUN PUNCT
+tagged_tokens: Lausuin_VERB minulla_PRON olleen_VERB viime_ADJ aikoina_NOUN tähän_DET sairaalaan_NOUN myös_PART pitkänlainen_ADJ matka_NOUN ._PUNCT
+
+B) tokens: Sanoin minulla olleen viime vuosina tähän sairaalaan myös pitkä matka .
+tags: VERB PRON VERB ADJ NOUN DET NOUN PART ADJ NOUN PUNCT
+tagged_tokens: Sanoin_VERB minulla_PRON olleen_VERB viime_ADJ vuosina_NOUN tähän_DET sairaalaan_NOUN myös_PART pitkä_ADJ matka_NOUN ._PUNCT
+
+C) tokens: Ilmaisin minulla olleen viime aikoina tähän sairaalaan varsin pitkä matka .
+tags: VERB PRON VERB ADJ NOUN DET NOUN PART ADJ NOUN PUNCT
+tagged_tokens: Ilmaisin_VERB minulla_PRON olleen_VERB viime_ADJ aikoina_NOUN tähän_DET sairaalaan_NOUN varsin_PART pitkä_ADJ matka_NOUN ._PUNCTD) tokens: Sanoin minulla olleen viime vuosina tähän sairaalaan myös pitkänlainen matka .
+tags: VERB PRON VERB ADJ NOUN DET NOUN PART ADJ NOUN PUNCT
+tagged_tokens: Sanoin_VERB minulla_PRON olleen_VERB viime_ADJ vuosina_NOUN tähän_DET sairaalaan_NOUN myös_PART pitkänlainen_ADJ matka_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Poliisitutkimusten mukaan palopaikalla oli ryyppäilty reilusti ennen onnettomuutta .
+tags: NOUN ADP NOUN AUX VERB ADV ADP NOUN PUNCT
+tagged_tokens: Poliisitutkimusten_NOUN mukaan_ADP palopaikalla_NOUN oli_AUX ryyppäilty_VERB reilusti_ADV ennen_ADP onnettomuutta_NOUN ._PUNCT
+
+B) tokens: Poliisitutkimusten mukaan palopaikalla oli juotu runsaasti ennen onnettomuutta .
+tags: NOUN ADP NOUN AUX VERB ADV ADP NOUN PUNCT
+tagged_tokens: Poliisitutkimusten_NOUN mukaan_ADP palopaikalla_NOUN oli_AUX juotu_VERB runsaasti_ADV ennen_ADP onnettomuutta_NOUN ._PUNCT
+
+C) tokens: Poliisitutkimusten mukaan palopaikalla oli juopoteltu reilusti ennen vahinkoa .
+tags: NOUN ADP NOUN AUX VERB ADV ADP NOUN PUNCT
+tagged_tokens: Poliisitutkimusten_NOUN mukaan_ADP palopaikalla_NOUN oli_AUX juopoteltu_VERB reilusti_ADV ennen_ADP vahinkoa_NOUN ._PUNCTD) tokens: Poliisitutkimusten mukaan palopaikalla oli juopoteltu reippaanlaisesti ennen onnettomuutta .
+tags: NOUN ADP NOUN AUX VERB ADV ADP NOUN PUNCT
+tagged_tokens: Poliisitutkimusten_NOUN mukaan_ADP palopaikalla_NOUN oli_AUX juopoteltu_VERB reippaanlaisesti_ADV ennen_ADP onnettomuutta_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Melkein joka repliikissä siistitään .
+tags: PART DET NOUN VERB PUNCT
+tagged_tokens: Melkein_PART joka_DET repliikissä_NOUN siistitään_VERB ._PUNCT
+
+B) tokens: Lähes jokaisessa repliikissä sanaillaan .
+tags: PART DET NOUN VERB PUNCT
+tagged_tokens: Lähes_PART jokaisessa_DET repliikissä_NOUN sanaillaan_VERB ._PUNCT
+
+C) tokens: Sanaselät ovat lähes jokaisessa repliikissä .
+tags: NOUN AUX PART DET NOUN PUNCT
+tagged_tokens: Sanaselät_NOUN ovat_AUX lähes_PART jokaisessa_DET repliikissä_NOUN ._PUNCTD) tokens: Melkein joka repliikissä siissitellään .
+tags: PART DET NOUN VERB PUNCT
+tagged_tokens: Melkein_PART joka_DET repliikissä_NOUN siissitellään_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Samassa sekamelskassa joukko hajotti huonekalut alkuaineisiinsa .
+tags: DET NOUN NOUN VERB NOUN NOUN NOUN PUNCT
+tagged_tokens: Samassa_DET sekamelskassa_NOUN joukko_NOUN hajotti_VERB huonekalut_NOUN alkuaineisiinsa_NOUN ._PUNCT
+
+B) tokens: Samanaikaisesti seurakunta hajotti taloustavarat perustekijöihinsä .
+tags: ADV NOUN VERB NOUN NOUN NOUN PUNCT
+tagged_tokens: Samanaikaisesti_ADV seurakunta_NOUN hajotti_VERB taloustavarat_NOUN perustekijöihinsä_NOUN ._PUNCT
+
+C) tokens: Samalla kertaa porukka hajotti huushollin omaisuuden alkutekiöihinsä .
+tags: CONJ NOUN VERB NOUN NOUN NOUN PUNCT
+tagged_tokens: Samalla_CONJ kertaa_NOUN porukka_NOUN hajotti_VERB huushollin_NOUN omaisuuden_NOUN alkutekiöihinsä_NOUN ._PUNCTD) tokens: Samassa rytäkässä seurue hajotti kodin irtaimiston alkutekijöihinsä .
+tags: DET NOUN NOUN VERB NOUN NOUN NOUN PUNCT
+tagged_tokens: Samassa_DET rytäkässä_NOUN seurue_NOUN hajotti_VERB kodin_NOUN irtaimiston_NOUN alkutekijöihinsä_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kasvikunnassa hellä talvi paisuttelee silmuja .
+tags: NOUN ADJ NOUN VERB NOUN PUNCT
+tagged_tokens: Kasvikunnassa_NOUN hellä_ADJ talvi_NOUN paisuttelee_VERB silmuja_NOUN ._PUNCT
+
+B) tokens: Kasvimaailmassa lempeä talvi turvottaa silmuja .
+tags: NOUN ADJ NOUN VERB NOUN PUNCT
+tagged_tokens: Kasvimaailmassa_NOUN lempeä_ADJ talvi_NOUN turvottaa_VERB silmuja_NOUN ._PUNCT
+
+C) tokens: Kasvimaailmassa lauhkea talvi paisuttaa silmuja .
+tags: NOUN ADJ NOUN VERB NOUN PUNCT
+tagged_tokens: Kasvimaailmassa_NOUN lauhkea_ADJ talvi_NOUN paisuttaa_VERB silmuja_NOUN ._PUNCTD) tokens: Kasvimaailmassa lämmin talvi paisuttaa silmuja .
+tags: NOUN ADJ NOUN VERB NOUN PUNCT
+tagged_tokens: Kasvimaailmassa_NOUN lämmin_ADJ talvi_NOUN paisuttaa_VERB silmuja_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kyllä se voisi paitansa ja saastaiset alushousunsa muuallakin puhdistaa kuin sinulla .
+tags: PART PRON AUX NOUN CCONJ ADJ NOUN ADV VERB SCONJ PRON PUNCT
+tagged_tokens: Kyllä_PART se_PRON voisi_AUX paitansa_NOUN ja_CCONJ saastaiset_ADJ alushousunsa_NOUN muuallakin_ADV puhdistaa_VERB kuin_SCONJ sinulla_PRON ._PUNCT
+
+B) tokens: Totta kai se voisi paitansa ja likaiset bokserinsa muuallakin pestä kuin sinulla .
+tags: ADV PRON AUX NOUN CCONJ ADJ NOUN ADV VERB SCONJ PRON PUNCT
+tagged_tokens: Totta_ADV kai_PRON se_PRON voisi_AUX paitansa_NOUN ja_CCONJ likaiset_ADJ bokserinsa_NOUN muuallakin_ADV pestä_VERB kuin_SCONJ sinulla_PRON ._PUNCT
+
+C) tokens: Varmasti se voisi paitansa ja tahraiset shorttinsa muuallakin pestata kuin sinulla .
+tags: ADV PRON AUX NOUN CCONJ ADJ NOUN ADV VERB SCONJ PRON PUNCT
+tagged_tokens: Varmasti_ADV se_PRON voisi_AUX paitansa_NOUN ja_CCONJ tahraiset_ADJ shorttinsa_NOUN muuallakin_ADV pestata_VERB kuin_SCONJ sinulla_PRON ._PUNCTD) tokens: Kyllä se voisi paitansa ja paskaset kalsarinsa muuallakin pesettää kuin sinulla .
+tags: PART PRON AUX NOUN CCONJ ADJ NOUN ADV VERB SCONJ PRON PUNCT
+tagged_tokens: Kyllä_PART se_PRON voisi_AUX paitansa_NOUN ja_CCONJ paskaset_ADJ kalsarinsa_NOUN muuallakin_ADV pesettää_VERB kuin_SCONJ sinulla_PRON ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Emoristi pelottaa pimeys .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Emoristi_NOUN pelottaa_VERB pimeys_NOUN ._PUNCT
+
+B) tokens: Äiti kauhistuttaa synkeys .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Äiti_NOUN kauhistuttaa_VERB synkeys_NOUN ._PUNCT
+
+C) tokens: Äiti kauhistuttaa pimennys .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Äiti_NOUN kauhistuttaa_VERB pimennys_NOUN ._PUNCTD) tokens: Äitiä kauhistuttaa pimeys .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: Äitiä_NOUN kauhistuttaa_VERB pimeys_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: pelottaa ja itkettää
+tags: VERB CCONJ VERB
+tagged_tokens: pelottaa_VERB ja_CCONJ itkettää_VERB
+
+B) tokens: hirvittää ja itkettää
+tags: VERB CCONJ VERB
+tagged_tokens: hirvittää_VERB ja_CCONJ itkettää_VERB
+
+C) tokens: pelottaa ja vollottaa
+tags: VERB CCONJ VERB
+tagged_tokens: pelottaa_VERB ja_CCONJ vollottaa_VERBD) tokens: pelottaa ja itketyttää
+tags: VERB CCONJ VERB
+tagged_tokens: pelottaa_VERB ja_CCONJ itketyttää_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Tällä häntä ei enää kutsuta huutamaan .
+tags: ADV PRON AUX PART VERB PUNCT
+tagged_tokens: Tällä_ADV häntä_PRON ei_AUX enää_PART kutsuta_VERB huutamaan_VERB ._PUNCT
+
+B) tokens: Hän ei enää näe pakoteta huutamaan .
+tags: PRON AUX PART VERB PUNCT
+tagged_tokens: Hän_PRON ei_AUX enää_PART näe_VERB pakoteta_VERB huutamaan_VERB ._PUNCT
+
+C) tokens: Häntä ei saada huutamaan .
+tags: PRON AUX VERB PUNCT
+tagged_tokens: Häntä_PRON ei_AUX saada_AUX huutamaan_VERB ._PUNCTD) tokens: Nyt häntä ei enää huudatuta .
+tags: ADV PRON AUX PART VERB PUNCT
+tagged_tokens: Nyt_ADV häntä_PRON ei_AUX enää_PART huudatuta_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: kusee koiraa
+tags: VERB NOUN
+tagged_tokens: kusee_VERB koiraa_NOUN
+
+B) tokens: kusettaa koiraa
+tags: VERB NOUN
+tagged_tokens: kusettaa_VERB koiraa_NOUN
+
+C) tokens: kusettaa lemmikkiä
+tags: VERB NOUN
+tagged_tokens: kusettaa_VERB lemmikkiä_NOUND) tokens: kusettaa koiraa
+tags: VERB NOUN
+tagged_tokens: kusettaa_VERB koiraa_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hämärä laskeutuu
+tags: NOUN VERB
+tagged_tokens: Hämärä_NOUN laskeutuu_VERB
+
+B) tokens: Pimeys laskeutuu
+tags: NOUN VERB
+tagged_tokens: Pimeys_NOUN laskeutuu_VERB
+
+C) tokens: Hämärä lankeaa
+tags: NOUN VERB
+tagged_tokens: Hämärä_NOUN lankeaa_VERBD) tokens: Hämärä laskeutuu
+tags: NOUN VERB
+tagged_tokens: Hämärä_NOUN laskeutuu_VERB
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Lohduttautuuko suomalainen katsoja tajutessaan , että Englannissakin tehdään välillä joskus vaatimatonta viihdettä ?
+tags: VERB NOUN VERB PUNCT SCONJ PROPN VERB ADV ADJ NOUN PUNCT
+tagged_tokens: Lohduttautuuko_VERB suomalainen_NOUN katsoja_NOUN tajutessaan_VERB ,_PUNCT että_SCONJ Englannissakin_PROPN tehdään_VERB välillä_ADV joskus_ADV vaatimatonta_ADJ viihdettä_NOUN ?_PUNCT
+
+B) tokens: Vakuuttuuko suomalainen katsoja tajutessaan , että Englannissakin tuotetaan toisinaan vaatimatonta viihdettä ?
+tags: VERB NOUN VERB PUNCT SCONJ PROPN VERB ADV ADJ NOUN PUNCT
+tagged_tokens: Vakuuttuuko_VERB suomalainen_NOUN katsoja_NOUN tajutessaan_VERB ,_PUNCT että_SCONJ Englannissakin_PROPN tuotetaan_VERB toisinaan_ADV vaatimatonta_ADJ viihdettä_NOUN ?_PUNCT
+
+C) tokens: Tyytyydyttäkö suomalainen katsoja tajutessaan , että Englannissakin tuotetaan joskus keskinkertaista viihdettä ?
+tags: VERB NOUN VERB PUNCT SCONJ PROPN VERB ADV ADJ NOUN PUNCT
+tagged_tokens: Tyytyydyttäkö_VERB suomalainen_NOUN katsoja_NOUN tajutessaan_VERB ,_PUNCT että_SCONJ Englannissakin_PROPN tuotetaan_VERB joskus_ADV keskinkertaista_ADJ viihdettä_NOUN ?_PUNCTD) tokens: Lohduttuuko suomalaiskatsoja huomatessaan , että Englannissakin tehdään joskus vaatimatonta viihdettä ?
+tags: VERB NOUN VERB PUNCT SCONJ PROPN VERB ADV ADJ NOUN PUNCT
+tagged_tokens: Lohduttuuko_VERB suomalaiskatsoja_NOUN huomatessaan_VERB ,_PUNCT että_SCONJ Englannissakin_PROPN tehdään_VERB joskus_ADV vaatimatonta_ADJ viihdettä_NOUN ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Mikäli ilmaantuu ongelmia, niin sopimus irtisanotaan.
+tags: SCONJ VERB NOUN PUNCT PART NOUN VERB PUNCT
+tagged_tokens: Mikäli_SCONJ ilmaantuu_VERB ongelmia_NOUN ,_PUNCT niin_PART sopimus_NOUN irtisanotaan_VERB ._PUNCT
+
+B) tokens: Jos ongelmia esiintyy, niin sopimus raukeaa.
+tags: SCONJ VERB NOUN PUNCT PART NOUN VERB PUNCT
+tagged_tokens: Jos_SCONJ ongelmia_NOUN esiintyy_VERB ,_PUNCT niin_PART sopimus_NOUN raukeaa_VERB ._PUNCT
+
+C) tokens: Jos häiriöitä ilmenee, niin sopimus purkautuu.
+tags: SCONJ VERB NOUN PUNCT PART NOUN VERB PUNCT
+tagged_tokens: Jos_SCONJ häiriöitä_NOUN ilmenee_VERB ,_PUNCT niin_PART sopimus_NOUN purkautuu_VERB ._PUNCTD) tokens: Jos tulee häiriöitä , niin sopimus purkautuu .
+tags: SCONJ VERB NOUN PUNCT PART NOUN VERB PUNCT
+tagged_tokens: Jos_SCONJ tulee_VERB häiriöitä_NOUN ,_PUNCT niin_PART sopimus_NOUN purkautuu_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kasvavassa metsässä ja tuuheammassa sammalistossa kukinta heikkenee .
+tags: VERB NOUN CCONJ VERB ADJ NOUN VERB PUNCT
+tagged_tokens: Kasvavassa_VERB metsässä_NOUN ja_CCONJ tuuheammassa_VERB sammalistossa_NOUN kukinta_NOUN heikkenee_VERB ._PUNCT
+
+B) tokens: Tiheämmässä metsässä ja paksummassa sammalikossa kukoistus vähenee .
+tags: ADJ NOUN CCONJ ADJ NOUN VERB VERB PUNCT
+tagged_tokens: Tiheämmässä_ADJ metsässä_NOUN ja_CCONJ paksummassa_ADJ sammalikossa_NOUN kukoistus_NOUN vähenee_VERB ._PUNCT
+
+C) tokens: Levinneessä metsässä ja syvemmässä sammalikossa kukinta vähenee .
+tags: VERB NOUN CCONJ ADJ NOUN VERB VERB PUNCT
+tagged_tokens: Levinneessä_VERB metsässä_NOUN ja_CCONJ syvemmässä_ADJ sammalikossa_NOUN kukinta_NOUN vähenee_VERB ._PUNCTD) tokens: Tihentyvässä metsässä ja paksunevassa sammalikossa kukinta heikkenee .
+tags: VERB NOUN CCONJ VERB NOUN NOUN VERB PUNCT
+tagged_tokens: Tihentyvässä_VERB metsässä_NOUN ja_CCONJ paksunevassa_VERB sammalikossa_NOUN kukinta_NOUN heikkenee_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Vesimittarit näköö lentelemässä lokakuuhun asti .
+tags: NOUN VERB VERB NOUN ADP PUNCT
+tagged_tokens: Vesimittarit_NOUN näköö_VERB lentelemässä_VERB lokakuuhun_NOUN asti_ADP ._PUNCT
+
+B) tokens: Vesiluteita näkee lentelemässä lokakuulle saakka .
+tags: NOUN VERB VERB NOUN ADP PUNCT
+tagged_tokens: Vesiluteita_NOUN näkee_VERB lentelemässä_VERB lokakuulle_NOUN saakka_ADP ._PUNCT
+
+C) tokens: Vesiperhosia havaitsee lentelemässä pitkälle syksyyn asti .
+tags: NOUN VERB VERB ADJ NOUN ADP PUNCT
+tagged_tokens: Vesiperhosia_NOUN havaitsee_VERB lentelemässä_VERB pitkälle_ADJ syksyyn_NOUN asti_ADP ._PUNCTD) tokens: Vesiperhosia näkee lentelemässä lokakuulle asti .
+tags: NOUN VERB VERB NOUN ADP PUNCT
+tagged_tokens: Vesiperhosia_NOUN näkee_VERB lentelemässä_VERB lokakuulle_NOUN asti_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Helsingin rakennusten katoilta ja räystäiltä on viime aikoina pudonnut paljon lunta ja jäätä jalankulkijoiden keskuuteen .
+tags: PROPN NOUN NOUN CCONJ NOUN AUX ADV NOUN VERB ADV NOUN CCONJ NOUN NOUN ADP PUNCT
+tagged_tokens: Helsingin_PROPN rakennusten_NOUN katoilta_NOUN ja_CCONJ räystäiltä_NOUN on_AUX viime_ADV aikoina_NOUN pudonnut_VERB paljon_ADV lunta_NOUN ja_CCONJ jäätä_NOUN jalankulkijoiden_NOUN keskuuteen_ADP ._PUNCT
+
+B) tokens: Helsingin rakennusten katteiltä ja ikkunalistoilta on jälleen pudonnut roppakaupalla lunta ja käpyjää jalankulkijoiden niskaan .
+tags: PROPN NOUN NOUN CCONJ NOUN AUX ADV NOUN VERB ADV NOUN CCONJ NOUN NOUN ADP PUNCT
+tagged_tokens: Helsingin_PROPN rakennusten_NOUN katteiltä_NOUN ja_CCONJ ikkunalistoilta_NOUN on_AUX jälleen_ADV pudonnut_VERB roppakaupalla_ADV lunta_NOUN ja_CCONJ käpyjää_NOUN jalankulkijoiden_NOUN niskaan_ADP ._PUNCT
+
+C) tokens: Helsingin talojen katteilta ja ikkunaliustoilta on tänään tipahtanut reilusti lunta ja jäätä maankiertäjien sekkaan .
+tags: PROPN NOUN NOUN CCONJ NOUN AUX ADV NOUN VERB ADV NOUN CCONJ NOUN NOUN ADP PUNCT
+tagged_tokens: Helsingin_PROPN talojen_NOUN katteilta_NOUN ja_CCONJ ikkunaliustoilta_NOUN on_AUX tänään_ADV tipahtanut_VERB reilusti_ADV lunta_NOUN ja_CCONJ jäätä_NOUN maankiertäjien_NOUN sekkaan_ADP ._PUNCTD) tokens: Helsingin rakennusten katoilta ja ikkunaräystäiltä on viime päivinä putoillut runsaasti lunta ja jäätä jalankulkijoiden sekaan .
+tags: PROPN NOUN NOUN CCONJ NOUN AUX ADJ NOUN VERB ADV NOUN CCONJ NOUN NOUN ADP PUNCT
+tagged_tokens: Helsingin_PROPN rakennusten_NOUN katoilta_NOUN ja_CCONJ ikkunaräystäiltä_NOUN on_AUX viime_ADJ päivinä_NOUN putoillut_VERB runsaasti_ADV lunta_NOUN ja_CCONJ jäätä_NOUN jalankulkijoiden_NOUN sekaan_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän riisui paitaa päälleen .
+tags: PRON VERB NOUN ADV PUNCT
+tagged_tokens: Hän_PRON riisui_VERB paitaa_NOUN päälleen_ADV ._PUNCT
+
+B) tokens: Hän kiskoi paitaa ylleen .
+tags: PRON VERB NOUN ADV PUNCT
+tagged_tokens: Hän_PRON kiskoi_VERB paitaa_NOUN ylleen_ADV ._PUNCT
+
+C) tokens: Hän veti puseroa päälleen .
+tags: PRON VERB NOUN ADV PUNCT
+tagged_tokens: Hän_PRON veti_VERB puseroa_NOUN päälleen_ADV ._PUNCTD) tokens: Hän tempoi paitaa päälleen .
+tags: PRON VERB NOUN ADV PUNCT
+tagged_tokens: Hän_PRON tempoi_VERB paitaa_NOUN päälleen_ADV ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: auto rysähti sähkötolppaan .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: auto_NOUN rysähti_VERB sähkötolppaan_NOUN ._PUNCT
+
+B) tokens: auto osui sähkötolppaan .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: auto_NOUN osui_VERB sähkötolppaan_NOUN ._PUNCT
+
+C) tokens: auto mäiskähti sähkötolppaan .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: auto_NOUN mäiskähti_VERB sähkötolppaan_NOUN ._PUNCTD) tokens: auto pyöri sähkötolppaan .
+tags: NOUN VERB NOUN PUNCT
+tagged_tokens: auto_NOUN pyöri_VERB sähkötolppaan_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: kodissa video tallentaa joskus mielivaltaisesti .
+tags: ADV NOUN VERB ADV ADV ADV VERB PUNCT
+tagged_tokens: kodissa_ADV video_NOUN tallentaa_VERB joskus_ADV mielivaltaisesti_ADV .__PUNCT
+
+B) tokens: kotona video filmaa joskus miten sattuu .
+tags: ADV NOUN VERB ADV ADV ADV VERB PUNCT
+tagged_tokens: kotona_ADV video_NOUN filmaa_VERB joskus_ADV miten_ADV sattuu_VERB .__PUNCT
+
+C) tokens: kotona videolta tallentaa joskus sattumanvaraisesti .
+tags: ADV NOUN VERB ADV ADV ADV VERB PUNCT
+tagged_tokens: kotona_ADV videolta_NOUN tallentaa_VERB joskus_ADV sattumanvaraisesti_ADV .__PUNCTD) tokens: kotona video nauhoittelee joskus miten päin sattuu .
+tags: ADV NOUN VERB ADV ADV ADV VERB PUNCT
+tagged_tokens: kotona_ADV video_NOUN nauhoittelee_VERB joskus_ADV miten_ADV päin_ADV sattuu_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: herättelimme tuota kännistä kalaa .
+tags: VERB DET NUM NOUN PUNCT
+tagged_tokens: herättelimme_VERB tuota_DET kännistä_NUM kalaa_NOUN ._PUNCT
+
+B) tokens: herättelimme sitä kännistä kalaa .
+tags: VERB DET NUM NOUN PUNCT
+tagged_tokens: herättelimme_VERB sitä_DET kännistä_NUM kalaa_NOUN ._PUNCT
+
+C) tokens: herättelimme tuota juoppoa kalaa .
+tags: VERB DET NUM NOUN PUNCT
+tagged_tokens: herättelimme_VERB tuota_DET juoppoa_NUM kalaa_NOUN ._PUNCTD) tokens: herättelimme sitä yhtä kännikalaa .
+tags: VERB DET NUM NOUN PUNCT
+tagged_tokens: herättelimme_VERB sitä_DET yhtä_NUM kännikalaa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Tampereen 170_837 veronmaksajasta yli puolet , 94_227 saa hyvitystä ja 41_302 pulittaa enemmän .
+tags: PROPN NUM ADJ ADV NUM PUNCT NUM VERB NOUN CCONJ NUM VERB ADV PUNCT
+tagged_tokens: Tampereen_PROPN 170_837_NUM veronmaksajasta_ADJ yli_ADV puolet_NUM ,_PUNCT 94_227_NUM saa_VERB hyvitystä_NOUN ja_CCONJ 41_302_NUM pulittaa_VERB enemmän_ADV ._PUNCT
+
+B) tokens: Tampereen 170_837 veronmaksajasta enemmistö , 94_227 saa rahallista hyvitystä ja 41_302 maksaa lisää .
+tags: PROPN NUM ADJ ADV NUM PUNCT NUM VERB ADJ NOUN CCONJ NUM VERB ADV PUNCT
+tagged_tokens: Tampereen_PROPN 170_837_NUM veronmaksajasta_ADJ enemmistö_ADV ,_PUNCT 94_227_NUM saa_VERB rahallista_ADJ hyvitystä_NOUN ja_CCONJ 41_302_NUM maksaa_VERB lisää_ADV ._PUNCT
+
+C) tokens: Yli puolet Tampereen 170_837 veronmaksajista , 94_227 saa palautusta ja 41_302 maksaa lisää .
+tags: ADV NUM PROPN NUM ADJ CCONJ NUM VERB NOUN CCONJ NUM VERB ADV PUNCT
+tagged_tokens: Yli_ADV puolet_NUM Tampereen_PROPN 170_837_NUM veronmaksajista_ADJ ,_CCONJ 94_227_NUM saa_VERB palautusta_NOUN ja_CCONJ 41_302_NUM maksaa_VERB lisää_ADV ._PUNCTD) tokens: Tampereen 170_837 verovelvollisesta yli puolet , 94_227 saa palautusta ja 41_302 makselee lisää .
+tags: PROPN NUM ADJ ADV NUM PUNCT NUM VERB NOUN CCONJ NUM VERB ADV PUNCT
+tagged_tokens: Tampereen_PROPN 170_837_NUM verovelvollisesta_ADJ yli_ADV puolet_NUM ,_PUNCT 94_227_NUM saa_VERB palautusta_NOUN ja_CCONJ 41_302_NUM makselee_VERB lisää_ADV ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Lepäiltyään hän oli mennyt uimaan hiekan pois ihostaan ja kuivannut itsensä rannalla .
+tags: VERB PRON AUX VERB VERB NOUN NOUN ADV CCONJ VERB PRON NOUN PUNCT
+tagged_tokens: Lepäiltyään_VERB hän_PRON oli_AUX mennyt_VERB uimaan_VERB hiekan_NOUN pois_NOUN ihostaan_NOUN ja_CCONJ kuivannut_VERB itsensä_PRON rannalla_NOUN ._PUNCT
+
+B) tokens: Levittyään hän oli loikkinut uimassa hiekkaa pois ihostaan ja kastelukannulla itsensä rannalla .
+tags: VERB PRON AUX VERB VERB NOUN NOUN ADV CCONJ VERB PRON NOUN PUNCT
+tagged_tokens: Levittyään_VERB hän_PRON oli_AUX loikkinut_VERB uimassa_VERB hiekkaa_NOUN pois_NOUN ihostaan_NOUN ja_CCONJ kastelukannulla_VERB itsensä_PRON rannalla_NOUN ._PUNCT
+
+C) tokens: Levättyä hän oli pulahdellut uimassa hiekka pois ihostaan ja kuivattanut itsensä rannalla .
+tags: VERB PRON AUX VERB VERB NOUN NOUN ADV CCONJ VERB PRON NOUN PUNCT
+tagged_tokens: Levättyä_VERB hän_PRON oli_AUX pulahdellut_VERB uimassa_VERB hiekka_NOUN pois_NOUN ihostaan_NOUN ja_CCONJ kuivattanut_VERB itsensä_PRON rannalla_NOUN ._PUNCTD) tokens: Levättyään hän oli käynyt uimassa hiekan ihostaan pois ja kuivatellut itseään rannalla .
+tags: VERB PRON AUX VERB VERB NOUN NOUN ADV CCONJ VERB PRON NOUN PUNCT
+tagged_tokens: Levättyään_VERB hän_PRON oli_AUX käynyt_VERB uimassa_VERB hiekan_NOUN ihostaan_NOUN pois_ADV ja_CCONJ kuivatellut_VERB itseään_PRON rannalla_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: En pyysin suostumusta , kiskoin kuljettajan oven auki , tunsin syyttömän matkustajan paikalle ja aloin selittää .
+tags: AUX VERB NOUN PUNCT VERB NOUN NOUN ADV PUNCT VERB ADJ NOUN NOUN CCONJ AUX VERB PUNCT
+tagged_tokens: En_AUX pyysin_VERB suostumusta_NOUN ,_PUNCT kiskoin_VERB kuljettajan_NOUN oven_NOUN auki_ADV ,_PUNCT tunsin_VERB syyttömän_ADJ matkustajan_NOUN paikalle_NOUN ja_CCONJ aloin_AUX selittää_VERB ._PUNCT
+
+B) tokens: En tiedustellut lupaa , kiskaisin kuskin oven auki , sysäsin syyttömän matkustajan paikalle ja aloin puhua .
+tags: AUX VERB NOUN PUNCT VERB NOUN NOUN ADV PUNCT VERB ADJ NOUN NOUN CCONJ AUX VERB PUNCT
+tagged_tokens: En_AUX tiedustellut_VERB lupaa_NOUN ,_PUNCT kiskaisin_VERB kuskin_NOUN oven_NOUN auki_ADV ,_PUNCT sysäsin_VERB syyttömän_ADJ matkustajan_NOUN paikalle_NOUN ja_CCONJ aloin_AUX puhua_VERB ._PUNCT
+
+C) tokens: En kysynyt suostumusta , avasin kuskin oven nopeasti , törkkäsin syyttömän matkustajan paikalle ja aloin puhua .
+tags: AUX VERB NOUN PUNCT VERB NOUN ADV PUNCT VERB ADJ NOUN NOUN CCONJ AUX VERB PUNCT
+tagged_tokens: En_AUX kysynyt_VERB suostumusta_NOUN ,_PUNCT avasin_VERB kuskin_NOUN oven_NOUN nopeasti_ADV ,_PUNCT törkkäsin_VERB syyttömän_ADJ matkustajan_NOUN paikalle_NOUN ja_CCONJ aloin_AUX puhua_VERB ._PUNCTD) tokens: En kysynyt lupaa , kiskaisin kuskin oven auki , tönäisin syyttömän pelkääjän paikalle ja aloin kertoa .
+tags: AUX VERB NOUN PUNCT VERB NOUN NOUN ADV PUNCT VERB ADJ NOUN NOUN CCONJ AUX VERB PUNCT
+tagged_tokens: En_AUX kysynyt_VERB lupaa_NOUN ,_PUNCT kiskaisin_VERB kuskin_NOUN oven_NOUN auki_ADV ,_PUNCT tönäisin_VERB syyttömän_ADJ pelkääjän_NOUN paikalle_NOUN ja_CCONJ aloin_AUX kertoa_VERB ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: alueella tyypillisiä laajalti levinneitä tyyppejä
+tags: NOUN ADV VERB NOUN
+tagged_tokens: alueella_NOUN tyypillisiä_ADV levinneitä_VERB tyyppejä_NOUN
+
+B) tokens: seuduilla yleisesti laajalti levinneitä tyyppejä
+tags: NOUN ADV VERB NOUN
+tagged_tokens: seuduilla_NOUN yleisesti_ADV levinneitä_VERB tyyppejä_NOUN
+
+C) tokens: seudulla yleisesti esiintyviä tyyppejä
+tags: NOUN ADV VERB NOUN
+tagged_tokens: seudulla_NOUN yleisesti_ADV esiintyviä_VERB tyyppejä_NOUND) tokens: alueella laajalti levinneitä tyyppejä
+tags: NOUN ADV VERB NOUN
+tagged_tokens: alueella_NOUN laajalti_ADV levinneitä_VERB tyyppejä_NOUN
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Lado riisiseos ja juustoraaste kerroksittain uunivuokaan .
+tags: VERB NOUN CCONJ NOUN ADV NOUN PUNCT
+tagged_tokens: Lado_VERB riisiseos_NOUN ja_CCONJ juustoraaste_NOUN kerroksittain_ADV uunivuokaan_NOUN ._PUNCT
+
+B) tokens: Lado riisi-vihannes-seos ja juustoraaste kerroksittain uunivuokaan .
+tags: VERB NOUN CCONJ NOUN ADV NOUN PUNCT
+tagged_tokens: Lado_VERB riisi-vihannes-seos_NOUN ja_CCONJ juustoraaste_NOUN kerroksittain_ADV uunivuokaan_NOUN ._PUNCT
+
+C) tokens: Asettele riisi-kasvisseos ja juustoraaste kerroksittain uunivuokaan .
+tags: VERB NOUN CCONJ NOUN ADV NOUN PUNCT
+tagged_tokens: Asettele_VERB riisi-kasvisseos_NOUN ja_CCONJ juustoraaste_NOUN kerroksittain_ADV uunivuokaan_NOUN ._PUNCTD) tokens: Lado riisi-kasvisseos ja juustoraaste kerroksittain uunivuokaan .
+tags: VERB NOUN CCONJ NOUN ADV NOUN PUNCT
+tagged_tokens: Lado_VERB riisi-kasvisseos_NOUN ja_CCONJ juustoraaste_NOUN kerroksittain_ADV uunivuokaan_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Istumapaikat ovat joko suorat yhdellä seinällä, kulmittain, vastapäisin tai kehänä kiukaan ympärillä.
+tags: NOUN AUX CCONJ ADJ NUM NOUN PUNCT ADV PUNCT ADV CCONJ NOUN NOUN ADP PUNCT
+tagged_tokens: Istumapaikat_NOUN ovat_AUX joko_CCONJ suorat_ADJ yhdellä_NUM seinällä_NOUN ,_PUNCT kulmittain_ADV ,_PUNCT vastapäisin_ADV tai_CCONJ kehänä_NOUN kiukaan_NOUN ympärillä_ADP ._PUNCT
+
+B) tokens: Penkit ovat joko suorat yhdellä seinällä, kulmittain, vastapäisin tai ympyrän muotoisena kiukaan ympärillä.
+tags: NOUN AUX CCONJ ADJ NUM NOUN PUNCT ADV PUNCT ADV CCONJ NOUN ADP PUNCT
+tagged_tokens: Penkit_NOUN ovat_AUX joko_CCONJ suorat_ADJ yhdellä_NUM seinällä_NOUN ,_PUNCT kulmittain_ADV ,_PUNCT vastapäisin_ADV tai_CCONJ ympyrän_NOUN muotoisena_ADJ kiukaan_NOUN ympärillä_ADP ._PUNCT
+
+C) tokens: Istuimet ovat joko suorat yhdellä seinällä, kulmittain vastapäisin tai kaarevina kiukaan ympärillä.
+tags: NOUN AUX CCONJ ADJ NUM NOUN PUNCT ADV ADV CCONJ ADJ ADP PUNCT
+tagged_tokens: Istuimet_NOUN ovat_AUX joko_CCONJ suorat_ADJ yhdellä_NUM seinällä_NOUN ,_PUNCT kulmittain_ADV vastapäisin_ADV tai_CCONJ kaarevina_ADJ kiukaan_NOUN ympärillä_ADP ._PUNCTD) tokens: Lauteet ovat joko suorat yhdellä seinällä , kulmittain , vastakkain tai kehänä kiukaan ympärillä .
+tags: NOUN AUX CCONJ ADJ NUM NOUN PUNCT ADV PUNCT ADV CCONJ NOUN NOUN ADP PUNCT
+tagged_tokens: Lauteet_NOUN ovat_AUX joko_CCONJ suorat_ADJ yhdellä_NUM seinällä_NOUN ,_PUNCT kulmittain_ADV ,_PUNCT vastakkain_ADV tai_CCONJ kehänä_NOUN kiukaan_NOUN ympärillä_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kävelevä metsäkone kulkee paitsi eteen- ja taaksepäin, myös sivusuunnassa ja vinottain.
+tags: VERB NOUN VERB ADV X CCONJ ADV PUNCT PART ADV CCONJ ADV PUNCT
+tagged_tokens: Kävelevä_VERB metsäkone_NOUN kulkee_VERB paitsi_ADV eteen-_X ja_CCONJ taaksepäin_ADV ,_PUNCT myös_PART sivusuunnassa_ADV ja_CCONJ vinottain_ADV ._PUNCT
+
+B) tokens: Asteleva metsäkone liikkuu paitsi eteen- ja taakse, myös sivuttain ja viistosti.
+tags: VERB NOUN VERB ADV X CCONJ ADV PUNCT PART ADV CCONJ ADV PUNCT
+tagged_tokens: Asteleva_VERB metsäkone_NOUN liikkuu_VERB paitsi_ADV eteen-_X ja_CCONJ taakse_ADV ,_PUNCT myös_PART sivuttain_ADV ja_CCONJ viistosti_ADV ._PUNCT
+
+C) tokens: Kulkeva metsäkone liikkuu paitsi edestakaisin, myös sivuttain ja viistoon.
+tags: VERB NOUN VERB ADV X PUNCT PART ADV CCONJ ADV PUNCT
+tagged_tokens: Kulkeva_VERB metsäkone_NOUN liikkuu_VERB paitsi_ADV edestakaisin_X ,_PUNCT myös_PART sivuttain_ADV ja_CCONJ viistoon_ADV ._PUNCTD) tokens: Kävelevä metsäkone liikkuu paitsi eteen- ja taaksepäin , myös sivuittain ja viistoon .
+tags: VERB NOUN VERB ADV X CCONJ ADV PUNCT PART ADV CCONJ ADV PUNCT
+tagged_tokens: Kävelevä_VERB metsäkone_NOUN liikkuu_VERB paitsi_ADV eteen-_X ja_CCONJ taaksepäin_ADV ,_PUNCT myös_PART sivuittain_ADV ja_CCONJ viistoon_ADV ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Ensin Johannes ei huomaakkaan pakettia , mutta pian pelaa innoissaan
+tags: ADV PROPN AUX VERB NOUN PUNCT CCONJ ADV VERB ADV
+tagged_tokens: Ensin_ADV Johannes_PROPN ei_AUX huomaakkaan_VERB pakettia_NOUN ,_PUNCT mutta_CCONJ pian_ADV pelaa_VERB innoissaan_ADV
+
+B) tokens: Aluksi Joonas ei kiinnitäkään paketin olemassaoloon lainkaan huomiota , mutta alkaa pian touhuta innoissaan
+tags: ADV PROPN AUX VERB NOUN CCONJ ADV VERB ADV
+tagged_tokens: Aluksi_ADV Joonas_PROPN ei_AUX kiinnitäkään_VERB paketin_NOUN olemassaoloon_NOUN lainkaan_ADV huomiota_NOUN ,_PUNCT mutta_CCONJ alkaa_VERB pian_ADV touhuta_VERB innoissaan_ADV
+
+C) tokens: Aluksi Johannes ei kiinnitä ollenkaan huomioita paketin olemassaoloon , mutta ryhtyy pian pelaamaan innoissaan
+tags: ADV PROPN AUX ADV VERB NOUN CCONJ ADV VERB ADV
+tagged_tokens: Aluksi_ADV Johannes_PROPN ei_AUX ollenkaan_ADV kiinnitä_VERB huomioita_NOUN paketin_NOUN olemassaoloon_NOUN ,_PUNCT mutta_CCONJ ryhtyy_VERB pian_ADV pelaamaan_VERB innoissaan_ADVD) tokens: Ensin Joonas ei vilkaisekaan pakettia , mutta pian pelaa himona
+tags: ADV PROPN AUX VERB NOUN PUNCT CCONJ ADV VERB ADV
+tagged_tokens: Ensin_ADV Joonas_PROPN ei_AUX vilkaisekaan_VERB pakettia_NOUN ,_PUNCT mutta_CCONJ pian_ADV pelaa_VERB himona_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Englannista kotoisin olevat Paul ja Susan Crawford ylistivät risteilyn.
+tags: PROPN ADV VERB PROPN CCONJ PROPN PROPN VERB NOUN PUNCT
+tagged_tokens: Englannista_PROPN kotoisin_ADV olevat_VERB Paul_PROPN ja_CCONJ Susan_PROPN Crawford_PROPN ylistivät_VERB risteilyn_NOUN ._PUNCT
+
+B) tokens: Paul ja Susan Crawford, Englannista, ylistivät risteilyn.
+tags: PROPN CCONJ PROPN PROPN ADV VERB NOUN PUNCT
+tagged_tokens: Paul_PROPN ja_CCONJ Susan_PROPN Crawford_PROPN ,_ADV ylistivät_VERB risteilyn_NOUN ._PUNCT
+
+C) tokens: Paul ja Susan Crawford, molemmat Englannista, ylistivät risteilyn.
+tags: PROPN CCONJ PROPN PROPN ADV VERB NOUN PUNCT
+tagged_tokens: Paul_PROPN ja_CCONJ Susan_PROPN Crawford_PROPN ,_ADV molemmat_ADV Englannista_ADV ylistivät_VERB risteilyn_NOUN ._PUNCTD) tokens: Englannista kotoisin olevat Paul ja Susan Crawford kehuivat kilvan risteilyä .
+tags: PROPN ADV VERB PROPN CCONJ PROPN PROPN VERB NOUN NOUN PUNCT
+tagged_tokens: Englannista_PROPN kotoisin_ADV olevat_VERB Paul_PROPN ja_CCONJ Susan_PROPN Crawford_PROPN kehuivat_VERB kilvan_NOUN risteilyä_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Uusia golfmailaa kaupattiin rinnakkain halpatavaroiden kanssa .
+tags: ADJ NOUN VERB ADV NOUN ADP PUNCT
+tagged_tokens: Uusia_ADJ golfmailaa_NOUN kaupattiin_VERB rinnakkain_ADV halpatavaroiden_NOUN kanssa_ADP ._PUNCT
+
+B) tokens: Uusia mailoja myytiin samalla alennustavaroiden rinnalla .
+tags: ADJ NOUN VERB ADV NOUN ADP PUNCT
+tagged_tokens: Uusia_ADJ mailoja_NOUN myytiin_VERB samalla_ADV alennustavaroiden_NOUN rinnalla_ADP ._PUNCT
+
+C) tokens: Uusia golf-välineitä myytiin yhtäaikaa tavaroiden kanssa .
+tags: ADJ NOUN VERB ADV NOUN ADP PUNCT
+tagged_tokens: Uusia_ADJ golf-välineitä_NOUN myytiin_VERB yhtäaikaa_ADV tavaroiden_NOUN kanssa_ADP ._PUNCTD) tokens: Uusia mailoja myytiin rinnan aletavaroiden kanssa .
+tags: ADJ NOUN VERB ADV NOUN ADP PUNCT
+tagged_tokens: Uusia_ADJ mailoja_NOUN myytiin_VERB rinnan_ADV aletavaroiden_NOUN kanssa_ADP ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: asettuvat naimisiin
+tags: VERB ADV
+tagged_tokens: asettuvat_VERB naimisiin_ADV
+
+B) tokens: menevät naimisiin
+tags: VERB ADV
+tagged_tokens: menevät_VERB naimisiin_ADV
+
+C) tokens: ryhtyvät avioliittoon
+tags: VERB ADV
+tagged_tokens: ryhtyvät_VERB avioliittoon_ADVD) tokens: joutuvat naimisiin
+tags: VERB ADV
+tagged_tokens: joutuvat_VERB naimisiin_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: puolet Tenon pääuoman lohista on asustanut viimeaikaiset jokivuotensa sivupuroissa .
+tags: NUM PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: puolet_NUM Tenon_PROPN pääuoman_NOUN lohista_NOUN on_AUX asustanut_VERB viimeaikaiset_ADJ jokivuotensa_NOUN sivupuroissa_NOUN ._PUNCT
+
+B) tokens: puoliksi Tenon pääjoen lohista on elellyt viimeiset jokivuotensa sivujoissa .
+tags: NUM PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: puoliksi_NUM Tenon_PROPN pääjoen_NOUN lohista_NOUN on_AUX elellyt_VERB viimeiset_ADJ jokivuotensa_NOUN sivujoissa_NOUN ._PUNCT
+
+C) tokens: puolet Tenon pääuoman lohista on viettänyt elinkaarensa järviosuuksissa .
+tags: NUM PROPN NOUN NOUN AUX VERB VERB NOUN PUNCT
+tagged_tokens: puolet_NUM Tenon_PROPN pääuoman_NOUN lohista_NOUN on_AUX viettänyt_VERB elinkaarensa_NOUN järviosuuksissa_NOUN ._PUNCTD) tokens: puolet Tenon pääuoman lohista on viettänyt viimeiset jokivuotensa sivupuroissa .
+tags: NUM PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: puolet_NUM Tenon_PROPN pääuoman_NOUN lohista_NOUN on_AUX viettänyt_VERB viimeiset_ADJ jokivuotensa_NOUN sivupuroissa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Vaihtoko Kääriäinen ydinvoimatakkia taas?
+tags: VERB PROPN ADV NOUN PUNCT
+tagged_tokens: Vaihtoko_VERB Kääriäinen_PROPN taas_ADV ydinvoimatakkia_NOUN ?_PUNCT
+
+B) tokens: Käänsiko Kääriäinen ydinvoimamielipidettäänsä taas?
+tags: VERB PROPN NOUN ADV PUNCT
+tagged_tokens: Käänsiko_VERB Kääriäinen_PROPN ydinvoimamielipidettäänsä_NOUN taas_ADV ?_PUNCT
+
+C) tokens: Käänsiko Kääriäinen ydinvoimakantaansa taas?
+tags: VERB PROPN NOUN ADV PUNCT
+tagged_tokens: Käänsiko_VERB Kääriäinen_PROPN ydinvoimakantaansa_NOUN taas_ADV ?_PUNCTD) tokens: Käänsikö Kääriäinen taas ydinvoimatakkia ?
+tags: VERB PROPN ADV NOUN PUNCT
+tagged_tokens: Käänsikö_VERB Kääriäinen_PROPN taas_ADV ydinvoimatakkia_NOUN ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: joutuvat avioituvat
+tags: VERB VERB
+tagged_tokens: joutuvat_VERB avioituvat_VERB
+
+B) tokens: oikeutetut naimisiin
+tags: ADJ ADV
+tagged_tokens: oikeutetut_ADJ naimisiin_ADV
+
+C) tokens: saavat naimisiin
+tags: VERB ADV
+tagged_tokens: saavat_VERB naimisiin_ADVD) tokens: joutuvat naimisiin
+tags: VERB ADV
+tagged_tokens: joutuvat_VERB naimisiin_ADV
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Hän tulkitsi sopimuskirjaa siten , että sen viimeinen kohta sallii jo nykymuodossaankin muutoksia ja lisäyksiä , "" koska kyseinen erehdys on ilmiselvästi tekninen erehdys "" .
+tags: PRON VERB NOUN PRON PUNCT SCONJ DET ADJ NOUN VERB PART NOUN NOUN CCONJ NOUN NOUN PUNCT PUNCT SCONJ ADJ NOUN AUX ADV ADJ NOUN PUNCT PUNCT
+tagged_tokens: Hän_PRON tulkitsi_VERB sopimuskirjaa_NOUN siten_PRON ,_PUNCT että_SCONJ sen_DET viimeinen_ADJ kohta_NOUN sallii_VERB jo_PART nykymuodossaankin_NOUN muutoksia_NOUN ja_CCONJ lisäyksiä_NOUN ,_PUNCT ""_PUNCT koska_SCONJ kyseinen_ADJ erehdys_NOUN on_AUX ilmiselvästi_ADV tekninen_ADJ erehdys_NOUN ""_PUNCT ._PUNCT
+
+B) tokens: Hän selitti sopimusasiakirjaa siten , että sen viimeinen osio sallii jo nykymuodossaankin parannuksia ja tarkistuksia , "" koska mainittu puute on ilmiselvästi teknillinen puute "" .
+tags: PRON VERB NOUN PRON PUNCT SCONJ DET ADJ NOUN VERB PART NOUN NOUN CCONJ NOUN NOUN PUNCT PUNCT SCONJ ADJ NOUN AUX ADV ADJ NOUN PUNCT PUNCT
+tagged_tokens: Hän_PRON selitti_VERB sopimusasiakirjaa_NOUN siten_PRON ,_PUNCT että_SCONJ sen_DET viimeinen_ADJ osio_NOUN sallii_VERB jo_PART nykymuodossaankin_NOUN parannuksia_NOUN ja_CCONJ tarkistuksia_NOUN ,_PUNCT ""_PUNCT koska_SCONJ mainittu_ADJ puute_NOUN on_AUX ilmiselvästi_ADV teknillinen_ADJ puute_NOUN ""_PUNCT ._PUNCT
+
+C) tokens: Hän tulkitsi sopimuspapereita siten , että sen viimeinen kappale mahdollistaa jo nykytilanteessakin selvennyksiä ja korjauksia , "" sillä kyseinen vika on selvästi tekninen vika "" .
+tags: PRON VERB NOUN PRON PUNCT SCONJ DET ADJ NOUN VERB PART NOUN NOUN CCONJ NOUN NOUN PUNCT PUNCT SCONJ ADJ NOUN AUX ADV ADJ NOUN PUNCT PUNCT
+tagged_tokens: Hän_PRON tulkitsi_VERB sopimuspapereita_NOUN siten_PRON ,_PUNCT että_SCONJ sen_DET viimeinen_ADJ kappale_NOUN mahdollistaa_VERB jo_PART nykytilanteessakin_NOUN selvennyksiä_NOUN ja_CCONJ korjauksia_NOUN ,_PUNCT ""_PUNCT sillä_SCONJ kyseinen_ADJ vika_NOUN on_AUX selvästi_ADV tekninen_ADJ vika_NOUN ""_PUNCT ._PUNCTD) tokens: Hän tulkitsi sopimuspaperia siten , että sen viimeinen kappale sallii jo nykymuodossaankin täsmennyksiä ja tarkennuksia , "" koska kyseinen virhe on ilmiselvästi tekninen virhe "" .
+tags: PRON VERB NOUN PRON PUNCT SCONJ DET ADJ NOUN VERB PART NOUN NOUN CCONJ NOUN PUNCT PUNCT SCONJ ADJ NOUN AUX ADV ADJ NOUN PUNCT PUNCT
+tagged_tokens: Hän_PRON tulkitsi_VERB sopimuspaperia_NOUN siten_PRON ,_PUNCT että_SCONJ sen_DET viimeinen_ADJ kappale_NOUN sallii_VERB jo_PART nykymuodossaankin_NOUN täsmennyksiä_NOUN ja_CCONJ tarkennuksia_NOUN ,_PUNCT ""_PUNCT koska_SCONJ kyseinen_ADJ virhe_NOUN on_AUX ilmiselvästi_ADV tekninen_ADJ virhe_NOUN ""_PUNCT ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: osa Tenon uoman lohista on elellyt viimeisimmät jokivuotensa sivu-uomissa.
+tags: NOUN PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: osa_NOUN Tenon_PROPN uoman_NOUN lohista_NOUN on_AUX elellyt_VERB viimeisimmät_ADJ jokivuotensa_NOUN sivu-uomissa_NOUN ._PUNCT
+
+B) tokens: enemmistö Tenon valtaväylän kaloista on asunut äärimmäiset jokivuotensa haarajoissa.
+tags: NOUN PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: enemmistö_NOUN Tenon_PROPN valtaväylän_NOUN kaloista_NOUN on_AUX asunut_VERB äärimmäiset_ADJ jokivuotensa_NOUN haarajoissa_NOUN ._PUNCT
+
+C) tokens: puolet Tenon pääkulkuväylän kaloista on viipyttänyt loppuiset jokivuotensa apujoissa.
+tags: NUM PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: puolet_NUM Tenon_PROPN pääkulkuväylän_NOUN kaloista_NOUN on_AUX viipyttänyt_VERB loppuiset_ADJ jokivuotensa_NOUN apujoissa_NOUN ._PUNCTD) tokens: puolet Tenon pääuoman lohista on viettänyt viimeiset jokivuotensa sivupuroissa .
+tags: NUM PROPN NOUN NOUN AUX VERB ADJ NOUN NOUN PUNCT
+tagged_tokens: puolet_NUM Tenon_PROPN pääuoman_NOUN lohista_NOUN on_AUX viettänyt_VERB viimeiset_ADJ jokivuotensa_NOUN sivupuroissa_NOUN ._PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the udpos dataset and of Finnish language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) tokens: Kääntyikö Kääriäinen jälleen ydinenergiapuseroon ?
+tags: VERB PROPN ADV NOUN PUNCT
+tagged_tokens: Kääntyikö_VERB Kääriäinen_PROPN jälleen_ADV ydinenergiapuseroon_NOUN ?_PUNCT
+
+B) tokens: Muuttiko Kääriäinen uudestaan ydinfysiikkapukuun ?
+tags: VERB PROPN ADV NOUN PUNCT
+tagged_tokens: Muuttiko_VERB Kääriäinen_PROPN uudestaan_ADV ydinfysiikkapukuun_NOUN ?_PUNCT
+
+C) tokens: Käänsikö Kääriäinen takaisin ydinvoimavaatteeseen ?
+tags: VERB PROPN ADV NOUN PUNCT
+tagged_tokens: Käänsikö_VERB Kääriäinen_PROPN takaisin_ADV ydinvoimavaatteeseen_NOUN ?_PUNCTD) tokens: Käänsikö Kääriäinen taas ydinvoimatakkia ?
+tags: VERB PROPN ADV NOUN PUNCT
+tagged_tokens: Käänsikö_VERB Kääriäinen_PROPN taas_ADV ydinvoimatakkia_NOUN ?_PUNCT
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"

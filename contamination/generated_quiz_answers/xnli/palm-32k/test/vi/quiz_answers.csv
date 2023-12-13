@@ -1,0 +1,3191 @@
+answer,prompt
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi đã không nói chuyện với anh ta nữa.
+Label: 2 (contradiction)
+
+B) Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi đã không nói chuyện với anh ta nữa.
+Label: 2 (contradiction)
+
+C) Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi đã không nói chuyện với anh ta nữa.
+Label: 2 (contradiction)
+
+D) Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi đã không nói chuyện với anh ta nữa.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thưa ngḥi, tôi thậm chí nghị tối điều đó, nhưng tôi đã rất thất vọng, và, tôi nói chuyện với anh ta lận nữa.
+Question: Tôi buồn đến tối tôi lại bắt đầu nói chuyện lận với anh ta.
+Label: 1 (contradiction)
+
+B) Premise: Vâng, tôi thậm chí nghị tối điều đó, nhưng tôi đã rất thất vọng, và, tôi nói chuyện với anh ta lận nữa.
+Question: Tôi buồn tối mởẹc đố tôi bắt đầu nói chuyện lận với anh ta.
+Label: 1 (contradiction)
+
+C) Premise: Vâng, tôi thậm chí nghị tối điều đó, nhưng tôi đã rất thất vọng, và, tôi nói chuyện với anh ta lận nữa.
+Question: Tôi buồn tối mởẹc đố tôi nói chuyện lận với anh ta.
+Label: 1 (contradiction)
+
+D) Premise: Vâng, tôi thậm chí không nghĩ về điều đó, nhưng tôi đã rất thất vọng, và, tôi lại nói chuyện với anh ta lần nữa.
+Question: Tôi buồn tới mức tôi lại bắt đầu nói chuyện lại với anh ta.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và tôi nghỉ đó là một cơ hợu, và nó vần còn, nó vản là, tôi là chín mũi mười bạch chuyên không quân AFFC của tôi.
+Question: Tôi không nhận ra rằng tôi không phải là người duy nhất ở trong sân ngày hôm đó.
+Label: 1 (trung tị)
+
+B) Premise: Và tôi tính đó là một lệ quần, và nó vạn phải có, nó vản là, tôi là tám mới mười không quân AFFC của tôi.
+Question: Tôi không biết rằng tôi không phải là người duy nhất ở trong sân ngày hôm qua.
+Label: 1 (trung tị)
+
+C) Premise: Và tôi cho rằng đó là một phục tại, và nó còn, nó vản là, tôi là mớ mười mà AFFC không quên trường của tôi.
+Question: Tôi không nhận ra rằng tôi không phải là người duy nhất ở trong sân hôm nay.
+Label: 1 (trung tị)
+
+D) Premise: Và tôi nghĩ đó là một đặc ân, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tôi không nhận ra rằng tôi không phải là người duy nhất ở trong sân ngày hôm đó.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và tôi nghi đó là một quý tự hạnh, và nó vận, nó vận là, tôi là Chín dự Ex-O là lò giới cổng việc không quân hạng không AFFC của tôi.
+Question: Tất cả chúng ta đều được củng một con số chính xác bất kể chúng ta được hừa được hững tự, đó là một cách nói dổi.
+Label: 2 (contradiction)
+
+B) Premise: Và tôi tưởng đó là một phản thưởừng, và nó vận, nó vận là, tôi là cậều Ex-O là lò giới cổng việc không quân hạng không AFFC của tôi.
+Question: Tất cả chúng ta đều được củng một con số chính xác bất kể chúng ta được hừa được hững tự, đó là một cách nói dổi.
+Label: 2 (contradiction)
+
+C) Premise: Và tôi cho rằng đó là một mời, và nó vận, nó vận là, tôi là Chín dự Ex-O là lò giới cổng việc không quân hạng không AFFC của tôi.
+Question: Tất cả chúng ta đều được củng một con số chính xác bất kể chúng ta được hừa được hững tự, đó là một cách nói dổi.
+Label: 2 (contradiction)
+
+D) Premise: Và tôi nghĩ đó là một đặc ân, và nó vẫn còn, nó vẫn là, tôi là chín hai hai Ex-O là lĩnh vực nghề nghiệp không quân AFFC của tôi.
+Question: Tất cả chúng ta đều được cung cấp cùng một con số chính xác bất kể chúng ta được hứa được hưởng những đặc quyền nào, nó là một lời nói dối.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ nồi với tôi rằng, ừ, rằng tôi sẽ được gọi bởi một chàng trai vào cuối củng để gặp nhau.
+Question: Tôi được báo rằng sẽ có một người được gọi vào để tôi gặp.
+Label: 0 (entailment)
+
+B) Premise: Học nói với tôi rằng, ừ, rằng tôi sẽ được kéo bởi một anh chàng vào tấn củng để tạo nên mội quan hệ thăn mật.
+Question: Tôi được nói rằng tôi sẽ gặp gở một người để tạo nên mội mối quan hệ.
+Label: 0 (entailment)
+
+C) Premise: Họ nồi rằng với tôi rằng tôi sẽ được mồi ra mẶt buổi hệ hơn một chàng trai tôi không biết.
+Question: Tôi được mồi ra người để gặp gở một chàng trai.
+Label: 0 (entailment)
+
+D) Premise: Họ nói với tôi rằng, ừ, rằng tôi sẽ được gọi bởi một chàng trai vào cuối cùng để gặp nhau.
+Question: Tôi được báo rằng sẽ có một người được gọi vào để tôi gặp.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ bị ấy cho tôi biết, đúng, rằng tôi sẽ được gọi bởi một chàng trai cuối củng để gặp nhau.
+Question: Anh chàng xuất hiện muộn một chút.
+Label: 1 (neutral)
+
+B) Premise: Hệ nói rằng tưi, à, rằng tôi sẽ được kéo để một chàng trai cuối củng để gặp nhau.
+Question: Anh chàng kéo dài một chút.
+Label: 1 (neutral)
+
+C) Premise: Hệ nói với tôi rằng, à, rằng tôi sẽ được gọi bởi một chàng trai cuối củng để gặp nhau.
+Question: Anh chàng đến muộn hện.
+Label: 1 (neutral)
+
+D) Premise: Họ nói với tôi rằng, ừ, rằng tôi sẽ được gọi bởi một chàng trai vào cuối cùng để gặp nhau.
+Question: Anh chàng xuất hiện muộn một chút.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Có rất nhiều thứ bạn có thể nói mà tôi không muốn nghe thị đó thôi.
+Question: Tôi không có gì nói cho anh ta thề biết gì cả nội đó!
+Label: 2 (contradiction)
+
+B) Premise: Có vò số việc mà bạn có thể nói mà tôi không thể quan tâm.
+Question: Tôi muốn cho bạn biết tất cả những thứ gì mà tôi biết.
+Label: 2 (contradiction)
+
+C) Premise: Có không ít điều gì bạn có nói mà tôi có thể bề qua.
+Question: Tôi không muốn cho bạn biết bất cứ gì!
+Label: 2 (contradiction)
+
+D) Premise: Có rất nhiều điều bạn có thể nói mà tôi sẽ chỉ bỏ qua điều đó thôi.
+Question: Tôi muốn nói với bạn tất cả mọi thứ tôi biết về điều đó!
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Có rất nhiều điều bạn có thể nói mà tôi sẽ chỉ bể qua điều đồ thôi.
+Question: Tôi sẽ không nói về điều đồ, mặc dữ có rất nhiều điều phải nói.
+Label: 0 (entailment)
+
+B) Premise: Có không ít điều bạn có thể nói mà tôi sẽ ngoạ điều đồ đi.
+Question: Tôi sẽ không nói về điều đồ, mặc dữ có không ít gì phải nói.
+Label: 0 (entailment)
+
+C) Premise: Có không ít gì bạn nó thể nói mà tôi sẽ bể qua điều đồ đi.
+Question: Tôi sẽ không nói về điều đồ, mặc dữ không ít gì cản phải nói.
+Label: 0 (entailment)
+
+D) Premise: Có rất nhiều điều bạn có thể nói mà tôi sẽ chỉ bỏ qua điều đó thôi.
+Question: Tôi sẽ không nói về điều đó, mặc dù có rất nhiều thứ phảinói.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Có rất nhiều sự bạn có thể nói mà tôi chỉ bể qua đó thôi.
+Question: Tôi không nói về lịch sự của thành phố vì có quá nhiều điều để nói.
+Label: 1 (neutral)
+
+B) Premise: Có không ít điều gì bạn có thể nói mà tôi sẽ chỉ qua đó thôi.
+Question: Tôi sẽ không nói về lịch sự của thành phố vì nó quá nhiều điều để nói.
+Label: 1 (neutral)
+
+C) Premise: Có vô cùng nhiều điều bạn có thể nói mà tôi sẽ bỏ qua đó thôi.
+Question: Tôi sẽ không nói về lịch sự của thành phố vì có quá nhiều điều để nói.
+Label: 1 (neutral)
+
+D) Premise: Có rất nhiều điều bạn có thể nói mà tôi sẽ chỉ bỏ qua điều đó thôi.
+Question: Tôi sẽ không nói về lịch sử của thành phố vì có quá nhiều điều để nói.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đó là cái đầu tiên mà chúng tôi muốn giừen là không có cách nào để ném một quả bom nhiệt hạch nằng 20 triệu tấn từ máy bay C124, 30 cả.
+Question: Chúng tôi muốn tiết kiệm một thứ nhiều hơn phần còn lại.
+Label: 0 (entailment)
+
+B) Premise: Đó là cái đầu tiên mà chúng tôi muốn lưu lại vì không có cách nào để ném một trái bom nhiệt hạch nằng 20 triệu tấn từ trên máy bay C124, 30 cả.
+Question: Chúng tôi muốn cản thần một sự có hơn phần còn lại.
+Label: 0 (entailment)
+
+C) Premise: Cái đầu tiên mà tôi chúng tôi muốn cản thần là không có cách nào để ném một cái bom nhiệt hạch nằng 20 triệu tấn từ máy bay C124, 30 cả.
+Question: Tôi thích tiết kiệm điều này hơn tất cả cái khác.
+Label: 0 (entailment)
+
+D) Premise: Đó là thứ đầu tiên chúng tôi muốn giữ lại vì không có cách nào để ném một quả bom nhiệt hạch nặng 20 triệu tấn xuống từ máy bay C124, 30 cả.
+Question: Chúng tôi muốn tiết kiệm một thứ nhiều hơn phần còn lại.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Do vậây tôi chẳng biết tại sao nỬa.
+Question: Tôi biết chắc lý do tại sao.
+Label: 2 (contradiction)
+
+B) Premise: Do vậây tôi không rõ rà tại sao nỬa.
+Question: Tôi rõ rà lý do tại sao.
+Label: 2 (contradiction)
+
+C) Premise: Do vậây tôi không hiểu tại sao nỬa.
+Question: Tôi hiểu lý do tại sao.
+Label: 2 (contradiction)
+
+D) Premise: Vì vậy tôi không chắc tại sao nữa.
+Question: Tôi chắc chắn là lý do tại sao.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Bố vậy tôi không chắc tại sao nḑa.
+Question: Tôi không biết tại sao anh áy lại chuyển trường.
+Label: 1 (neutral)
+
+B) Premise: Chính về tôi không rổ ràng tại sao nḑa.
+Question: Tôi không biết tại sao anh áy lại chuyển trường.
+Label: 1 (neutral)
+
+C) Premise: Vị thế tôi không rổ ràng tại sao nḑa.
+Question: Tôi không biết tại sao anh áy lại chuyển trường.
+Label: 1 (neutral)
+
+D) Premise: Vì vậy tôi không chắc tại sao nữa.
+Question: Tôi không biết vì sao anh ấy lại chuyển trường.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Vì sao tôi không chắc tại sao nḟa.
+Question: Tôi không biết tại sao nỏ phạt triển.
+Label: 0 (entailment)
+
+B) Premise: Vì sao tôi không chắc tại sao nḟa.
+Question: Tôi không biết tại sao nộ trưởng.
+Label: 0 (entailment)
+
+C) Premise: Vì sao tôi không chắc tại sao nḟa.
+Question: Tôi không biết tại sao nỏ để thay đổi.
+Label: 0 (entailment)
+
+D) Premise: Vì vậy tôi không chắc tại sao nữa.
+Question: Tôi không biết vì sao nó xảy ra.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đây là Fannie Flono, và cô áy sinh ra ở Ag - Augusta, GA, và cô áy để nói về một số câu chuyện từ thời thơ áu của mình.
+Question: Fannie Flono đã lên lịch lại và không thể kể cho chúng tôi bất kỳ câu chuyện nào hôm nay.
+Label: 2 (contradiction)
+
+B) Premise: Fannie Flono là một người phụ nữ có mài tối Georgia.
+Question: Fannie Flono không bao giề tối Georgia.
+Label: 2 (contradiction)
+
+C) Premise: Fannie Flono là một người phụ nữ có mài tối Augusta.
+Question: Fannie Flono không bao giề tối Augusta.
+Label: 2 (contradiction)
+
+D) Premise: Đây là Fannie Flono, và cô ấy đã lớn lên ở Ag - Augusta, GA, và cô ấy sẽ nói về một số câu chuyện từ thời thơ ấu của cô ấy.
+Question: Fannie Flono đã phải lên lịch lại và không thể kể cho chúng tôi nghe bất kỳ câu chuyện nào ngày hôm nay.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Fannie Flono này, và cô áy để lôn ở Ag - Augusta, GA, và có áy địa một số câu chuyện từ thời thố của có áy.
+Question: Fannie Flono đã ở đây và có áy địa chúng tôi về các câu chuyện thời độ của cô áy khi lớn lén ở Augusta, GA.
+Label: 0 (entailment)
+
+B) Premise: Fannie Flono này, và cô áy để lôn ở Ag - Augusta, GA, và có áy địa một vài câu chuyện từ thời thố của có áy.
+Question: Fannie Flono đã ở đây và có áy địa chúng tôi về một vài các câu chuyện thời độ của cô áy khi lớn lén lớn ở Augusta, GA.
+Label: 1 (not_entailment)
+
+C) Premise: Fannie Flono này, và cô áy để lôn ở Ag - Augusta, GA, và có áy địa một số câu chuyện từ thời thố của có áy.
+Question: Fannie Flono đã ở đây và có áy địa chúng tôi về các câu chuyện thời độ của cô áy khi lớn lén lén ở Augusta, GA.
+Label: 1 (not_entailment)
+
+D) Premise: Đây là Fannie Flono, và cô ấy đã lớn lên ở Ag - Augusta, GA, và cô ấy sẽ nói về một số câu chuyện từ thời thơ ấu của cô ấy.
+Question: Fannie Flono ở đây và cô ấy sẽ nói chuyện với chúng tôi về những câu chuyện thời thơ ấu của cô ấy khi lớn lên ở Augusta, GA.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đây là Fannie Flono, và cơ áy đỉ lôn ở Ag - Augusta, GA, và cơ áy sẽ nói về một số cũ ánh từ thời thể của cơ áy.
+Question: Hôm nay Fannie Flono đã có thể trò chuyện với chúng ta mặc dữ lịch làm việc rật bận rộn của cơ áy.
+Label: 1
+
+B) Premise: Fannie Flono là người có một bủ giời tính nhỏ thể hiện, và cơ áy đã cách nói rằt thu hót người.
+Question: Fannie Flono đã có thể trò chuyện với người ngay cả không gặp sự khó khạn nào.
+Label: 1
+
+C) Premise: Fannie Flono là người rất nhạy bén và tóc động, và cơ áy luồn cố gặng vượt lên tối để góp đối với mọi người khác.
+Question: Fannie Flono là một người tổt bạn, và cơ áy luồn tỉnh nguyện làm giụp đối với cộng đồng.
+Label: 1
+
+D) Premise: Đây là Fannie Flono, và cô ấy đã lớn lên ở Ag - Augusta, GA, và cô ấy sẽ nói về một số câu chuyện từ thời thơ ấu của cô ấy.
+Question: Hôm nay Fannie Flono đã có thể trò chuyện với chúng ta mặc dù lịch làm việc rất bận rộn của cô ấy.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và tôi đã đặt, năm sự tách rời khỏi U2.
+Question: Tôi đã xử lý U2.
+Label: 0 (entailment)
+
+B) Premise: Và tôi đã đặt, năm sự tách biệt khỏi U2.
+Question: Tôi đã giải quyết U2.
+Label: 0 (entailment)
+
+C) Premise: Và tôi đã đặt, năm sự tách rời khỏi U2.
+Question: Tôi đã xử lý U2.
+Label: 0 (entailment)
+
+D) Premise: Và tôi đã đặt uh, năm sự tách rời khỏi U2.
+Question: Tôi đã xử lý U2.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và tôi đã đệt uh, năm sự tách rời khỏi U2.
+Question: Tôi đã làm việc với các đội của U2 mổi ngày trong bốn mươi năm.
+Label: 1 (neutral)
+
+B) Premise: Và tôi đã phân tách uh, năm sự tách rời khỏi U2.
+Question: Tôi đã cóng tác với các đội của U2 hàng ngày trong bốn mươi năm.
+Label: 1 (neutral)
+
+C) Premise: Và tôi đã tách hợp uh, năm sự tách rời khỏi U2.
+Question: Tôi đã làm việc với các đội của U2 từ ngày trong bốn mươi năm.
+Label: 1 (neutral)
+
+D) Premise: Và tôi đã đặt uh, năm sự tách rời khỏi U2.
+Question: Tôi đã làm việc với các đội của U2 mỗi ngày trong bốn mươi năm.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi là ngườĩi duy nhât mà ũh, từng điều hành các bộ điều chỉnh cho ở, cho phần thử nghiệm trong các buồng áp lực cở nhỏ.
+Question: Các thử nghiệm đã được thực hiện trong các phòng thu nhỏ trên cao.
+Label: 1 (contradiction)
+
+B) Premise: Tôi là ngườĩi duy nhât mà ũh, từng điều hành các bộ điều chỉnh cho ở, cho phần thử nghiệm trong các buồng áp lực cở nhỏ.
+Question: Các thử nghiệm đã được thực hiện trong các phòng thu nhỏ dưới dưới một cách cận thận.
+Label: 0 (entailment)
+
+C) Premise: Tôi là ngườĩi duy nhât mà ũh, từng điều hành các bộ điều chỉnh cho ở, cho phần thử nghiệm trong các buồng áp lực cở nhỏ.
+Question: Các thử nghiệm đã được thực hiện trong các buồng áp lực cở nhỏ.
+Label: 0 (entailment)
+
+D) Premise: Tôi là người duy nhất mà uh, từng điều hành các bộ điều chỉnh cho ờ, cho phần thử nghiệm trong các buồng áp lực cỡ nhỏ.
+Question: Các thử nghiệm đã được thực hiện trong các phòng thu nhỏ trên cao.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi là kẻ người duy nhât mà uh, từng điều hành các bộ điều chỉnh cho ở, cho phần thử nghiệm trong các buồng áp lực cở nhỏ.
+Question: Có một vài người trong chúng tôi điều hành các máy điều chỉnh để kiểm tra.
+Label: 1 (entailment)
+
+B) Premise: Tôi là người duy nhât mà uh, từng điều hành các bộ điều chỉnh cho ở, cho phần thử nghiệm trong các buồng áp lực cở nhỏ.
+Question: Có vài người trong chúng tôi điều hành các máy điều chỉnh để kiểm tra.
+Label: 1 (entailment)
+
+C) Premise: Tôi là người duy nhât mà uh, từng điều hành các bộ điều chỉnh cho ở, cho phần thử nghiệm trong các buồng áp lực cở nhỏ.
+Question: Có một vài người trong chúng tôi điều hành các máy điều chỉnh để kiểm tra.
+Label: 0 (neutral)
+
+D) Premise: Tôi là người duy nhất mà uh, từng điều hành các bộ điều chỉnh cho ờ, cho phần thử nghiệm trong các buồng áp lực cỡ nhỏ.
+Question: Có một vài người trong chúng tôi điều hành các máy điều chỉnh để kiểm tra.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi tuên, Trung sự, đã về nghiện, như Rick đã nói.
+Question: Tôi vản đang làm việc cho đến ngày hơm nay.
+Label: 2 (contradiction)
+
+B) Premise: Tôi khuết, Trung sự, đã về nghiện, theo cách nói của Rick.
+Question: Tôi vản có thề lệm cho đến ngày hơm nay.
+Label: 2 (contradiction)
+
+C) Premise: Tôi văn tuên là, Thậy sự, đã đơi hữu, theo như Rick của tôi.
+Question: Tôi vản làm việc cho đến ngày hơm nay.
+Label: 2 (contradiction)
+
+D) Premise: Tôi vâng, Thượng Sỹ, đã nghỉ hưu, như Rick đã nói.
+Question: Tôi vẫn đang làm việc cho đến ngày nay.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thưa ngựời, đã nghi hưu, như Rick đã nói.
+Question: Tôi đã đi hưu vào năm 2002.
+Label: 1 (neutral)
+
+B) Premise: Thưa ngựời, đã ra rồi, như Rick đã nói.
+Question: Tôi đã đó ra rồi vào năm 2002.
+Label: 1 (neutral)
+
+C) Premise: Thưa quý ông, đã tồ hưu, như Rick đã nói.
+Question: Tôi đã về hưu vào năm 2002.
+Label: 1 (neutral)
+
+D) Premise: Tôi vâng, Thượng Sỹ, đã nghỉ hưu, như Rick đã nói.
+Question: Tôi đã về hưu vào năm 2002.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi nghe lời, Trung Sự, đã nghi hưu, như Rick đã nói.
+Question: Rick nói với bạn tôi đã nghi hưu.
+Label: 0 (entailment)
+
+B) Premise: Tôi lịnh lời, Trung Sự, đã rḥ hưu, như Rick đã nói.
+Question: Rick nói với bạn tôi đã rḥ hưu.
+Label: 0 (entailment)
+
+C) Premise: Tôi vâng lịnh, Trung Sự, đã hằu, như Rick đã nói.
+Question: Rick nói với bạn tôi đã hằu.
+Label: 0 (entailment)
+
+D) Premise: Tôi vâng, Thượng Sỹ, đã nghỉ hưu, như Rick đã nói.
+Question: Rick nói với bạn tôi đã nghỉ hưu.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Có một số dịnh toán trên bàn làm việc của tôi và, ừm, nó dành cho một khách hàng tên Cutty.
+Question: Khách hàng có tên Cutty kiếm được 10000 dô la một tháng.
+Label: 1 (neutral)
+
+B) Premise: Có một vài giả tử toán trên bàn làm việc của tôi và, ừm, nó dành cho một khách hàng tên Cutty.
+Question: Khách hàng có tên Cutty làm ra 10000 dô la một tháng.
+Label: 1 (neutral)
+
+C) Premise: Có vài các giả tử toán trên bàn làm việc của tôi và, ừm, nó dành cho một khách hàng tên Cutty.
+Question: Khách hàng có tên Cutty kiếm được 10000 dô la một tháng.
+Label: 1 (neutral)
+
+D) Premise: Có một số dự đoán về dòng tiền trên bàn làm việc của tôi và, ừm, nó dành cho một khách hàng tên Cutty.
+Question: Khách hàng có tên Cutty kiếm được $ 10000 một tháng.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Có một số dự đoán tiền trên bàn làm việc của tôi và, ă, nó dành cho một khách hàng tên la Cutty.
+Question: Có một khách hàng tên là Cutty.
+Label: 0 (entailment)
+
+B) Premise: Có một vải dự đoán tiền trên bàn làm việc của tôi và, ừ, nó dành cho một khách hàng tên Cutty.
+Question: Có một khách hàng tên là Cutty.
+Label: 0 (entailment)
+
+C) Premise: Có một số dự đoán tiền trên bàn làm việc của tôi và, ă, nó là dành cho một khách hàng tên là Cutty.
+Question: Có một khách hàng tên là Cutty.
+Label: 0 (entailment)
+
+D) Premise: Có một số dự đoán về dòng tiền trên bàn làm việc của tôi và, ừm, nó dành cho một khách hàng tên Cutty.
+Question: Có một khách hàng tên là Cutty.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Có lượng số dịnh luận về tiền trên bàn làm việc của tôi và, đú, nó dành cho một khách hàng tên Cutty.
+Question: Chúng tôi không có bất kỳ khách hàng nào là Cutty.
+Label: 2 (contradiction)
+
+B) Premise: Có một số giả sử về dồng tiền trên bàn làm việc của tôi và, đú, nó dành cho một khách hàng có tên là Cutty.
+Question: Chúng tôi không có bất kỳ khách hàng nào là Cutty.
+Label: 2 (contradiction)
+
+C) Premise: Có một vài suy luận về tiền tề trên bàn làm việc của tôi và, đú, nó dành cho một khách hàng tên là Cutty.
+Question: Chúng tôi không có bất kỳ khách hàng nào là Cutty.
+Label: 2 (contradiction)
+
+D) Premise: Có một số dự đoán về dòng tiền trên bàn làm việc của tôi và, ừm, nó dành cho một khách hàng tên Cutty.
+Question: Chúng tôi không có bất kỳ khách hàng nào là Cutty.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Người phụ nữ có thể giúp tôi khắp cả thị trấn.
+Question: Người phụ nữ  tôi cần sự giúp đỡ sống xa cách xa.
+Label: 0 (entailment)
+
+B) Premise: Quý cô gái đó thể giúp tôi khắp thẻ xã.
+Question: Quý cô tôi cần sự giúp sởng đôi tạch biệt.
+Label: 0 (entailment)
+
+C) Premise: Cô gái đó thể giúp tôi quanh thẻ.
+Question: Cô gái tôi cần giúp đang sởng để xa tạch.
+Label: 0 (entailment)
+
+D) Premise: Cô gái có thể giúp tôi khắp cả thị trấn.
+Question: Cô gái tôi cần sự giúp đỡ sống một cách xa vời.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Quà gái có thể giúp tôi khếp thỉ xã
+Question: Quà gái ai sẽ là người giúp tôi là 5 dạm.
+Label: 1 (neutral)
+
+B) Premise: Con gái bề có thể giúp tối khếp thỉ xã
+Question: Con gái ai sẽ là người giúp tôi là 5 dạm.
+Label: 1 (neutral)
+
+C) Premise: Cô gái có thể giúp tôi khếp thỉ xã
+Question: Cô gái ai sẽ là người giúp tôi là 5 dạm.
+Label: 1 (neutral)
+
+D) Premise: Cô gái có thể giúp tôi khắp cả thị trấn.
+Question: Cô gái ai sẽ là người giúp đỡ tôi là 5 dặm.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Phụ gái đơ giúp tôi bết cả thị trấn.
+Question: Không ai đơ giúp tôi được.
+Label: 2 (contradiction)
+
+B) Premise: Phụ gái đơ giúp tôi bết cả thị trấn.
+Question: Không ai đơ giúp tôi được.
+Label: 2 (contradiction)
+
+C) Premise: Phụ gái đơ giúp tôi bết cả thị trấn.
+Question: Không ai đơ giúp tôi được.
+Label: 2 (contradiction)
+
+D) Premise: Cô gái có thể giúp tôi khắp cả thị trấn.
+Question: Không ai có thể giúp tôi.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nhưng chúng ta bấy giờ chia ra hai nhóm kiểu như ai là kẻ làm làm kiếm tiền và ai là kẻ ngồi nhà ăn bám, việc này cứ kiểu như--
+Question: Tất cả đều đồng ỹ rằng tất cả hệ đều làm việc trong các lịnh vực.
+Label: 2 (contradiction)
+
+B) Premise: Nhưng chúng ta bấy giờ phân chia ra hai bền rồ kiểu như ai là kẻ làm làm kiếm tiền và ai là kẻ ngồi nhà ăn bám, việc này cứ kiểu như--
+Question: Tất cả đều đồng ỹ rằng tất cả hệ đều làm việc trong các lịnh vực.
+Label: 2 (contradiction)
+
+C) Premise: Nhưng chúng ta bấy giờ chia ra hai phán riêng kiểu như ai là kẻ làm làm kiếm tiền và ai là kẻ ngồi nhà ăn bám, việc này cứ kiểu như--
+Question: Tất cả đều đồng ỹ rằng tất cả hệ đều làm việc trong các lịnh vực.
+Label: 2 (contradiction)
+
+D) Premise: Nhưng chúng tôi lúc đó chia thành hai nhóm kiểu như ai là kẻ làm lụng kiếm tiền và ai là kẻ ngồi nhà ăn bám, việc này cứ kiểu như--
+Question: Tất cả đều đồng ý rằng tất cả họ đều làm việc trong các lĩnh vực.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nhưng sau đó chúng tôi chia thành hai phe hoặc như ai là kẻ làm lệng kiếm tiền và ai là kẻ ngồi nhà ăn bám, việc này cứ học như--
+Question: Hộ không thể đồng ý về ai làm ruộng và ai làm trong nhà.
+Label: 0 (entailment)
+
+B) Premise: Nhưng sau đó chúng tôi tách ra làm hai nhóm, phân chia xem ai sếm vá ai là ký sinh, vậy là--
+Question: Bề không thể đồng ý ai làm ruộng và ai làm việc nhà.
+Label: 0 (entailment)
+
+C) Premise: Nhưng sau đó chúng tôi chia ra làm hai bên nhóm, tách hộp xem ai làm việc nhà và ai là ngồi nhền thưởng, vậy là--
+Question: Bề không thể đồng ý ai làm ruộng và ai làm việc nhà.
+Label: 0 (entailment)
+
+D) Premise: Nhưng chúng tôi lúc đó chia thành hai nhóm kiểu như ai là kẻ làm lụng kiếm tiền và ai là kẻ ngồi nhà ăn bám, việc này cứ kiểu như--
+Question: Họ không thể đồng ý về ai làm ruộng và ai làm trong nhà.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Hôm nay anh áy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh áy đã quyết định không nói chuyện nữa.
+Label: 1 (entailment)
+
+B) Premise: Hôm nay anh áy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh áy đã quyết định nói chuyện về Fourth SS, U2 Quick và Oriole.
+Label: 0 (neutral)
+
+C) Premise: Hôm nay anh áy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh áy đã quyết định nói chuyện về Fourth SS, U2 Slow và Robin.
+Label: 0 (neutral)
+
+D) Premise: Hôm nay anh ấy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ấy đã quyết định không nói chuyện nữa.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Hôm nay anh áy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta nói về ba chiềc tàu ngậm khác nhau.
+Label: 1 (neutral)
+
+B) Premise: Hôm nay anh áy sẽ trao đổi với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta đá nói về ba chiềc tàu ngậm khác biệt.
+Label: 1 (neutral)
+
+C) Premise: Hôm nay anh áy sẽ tăng thầo với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta nói về ba chiềc tàu ngậm khác nhau.
+Label: 1 (neutral)
+
+D) Premise: Hôm nay anh ấy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta nói về ba chiếc tàu ngầm khác nhau.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Anh áy sẵ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta nói về ba điều.
+Label: 0
+
+B) Premise: Hơm nay ông sẵ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Chúng trai đã nói về ba điều.
+Label: 0
+
+C) Premise: Anh áy sẵ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta nói về ba điều.
+Label: 0
+
+D) Premise: Hôm nay anh ấy sẽ nói chuyện với chúng ta về Third SS, U2 Quick và Blackbird.
+Question: Anh ta nói về ba điều.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Í tô là hệ chỉ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Tất cả con cái của hệ đều sống sốt.
+Label: 1 (entailment)
+
+B) Premise: Í tô là hệ chỉ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Tất cả con cái của hệ đều đế ảnh hưởng.
+Label: 2 (contradiction)
+
+C) Premise: Í tô là hệ chỉ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Hệ có 5 đứa con và tất cả cền sống.
+Label: 1 (entailment)
+
+D) Premise: Ý tôi là họ chỉ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Tất cả con cái của họ đều sống sót.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Điề là hệ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Một đứa trế đã chết trong số năm đứa trế.
+Label: 0 (entailment)
+
+B) Premise: Chí là tôi muốn nói là hệ có 5 đứa con nhưng một đứa đã ra đi.
+Question: Một đứa trế đã chết trong số năm đứa trế.
+Label: 0 (entailment)
+
+C) Premise: Điề là tôi muốn nói là hệ có tảm 5 đứa con nhưng thưa thiệt một đứa.
+Question: Một đứa trế đã chết trong số năm đứa trế.
+Label: 0 (entailment)
+
+D) Premise: Ý tôi là họ chỉ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Một đứa trẻ đã chết trong số năm đứa trẻ.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Điề là hệ có 5 đứa con nhưng một đứa ăn đến rồi.
+Question: Cứ trế đã chết đóc sinh ra ở yếu.
+Label: 1 (neutral)
+
+B) Premise: Điề là hệ có 5 đứa con nhưng một đứa ăn đến rồi.
+Question: Cứ trế đã chết đóc sinh ra yếu đột.
+Label: 1 (neutral)
+
+C) Premise: Điề là hệ có 5 đứa con nhưng một đứa ăn đến rồi.
+Question: Cứ trế đã chết đóc sinh ra có thể ở.
+Label: 1 (neutral)
+
+D) Premise: Ý tôi là họ chỉ có 5 đứa con nhưng một đứa đã mất rồi.
+Question: Đứa trẻ đã chết được sinh ra ốm yếu.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và, tự nhiên, Androv Gromikov không trả lời câi gì, nhưng chúng tôi có tất cả thông tin từ nhữ phim được U2 củng cập.
+Question: U2 quay rất nhiều phim.
+Label: 0 (entailment)
+
+B) Premise: Và, tự nhiên, Androv Gromikov không phản hời gì, nhưng chúng tôi có hết cả thông tin từ nhữ phim mà U2 cung cập.
+Question: U2 quay rất nhiều phim.
+Label: 0 (entailment)
+
+C) Premise: Và, tự nhiên, Androv Gromikov không trả lời bất củ gì, nhưng chúng tôi có tất cả thông tin từ cuốn phim mà U2 cung cập.
+Question: U2 quay rất nhiều phim.
+Label: 0 (entailment)
+
+D) Premise: Và, đương nhiên, Androv Gromikov không trả lời điều gì, nhưng chúng tôi có tất cả các thông tin từ những thước phim do U2 cung cấp.
+Question: U2 quay rất nhiều phim.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và, thực ra, Androv Gromikov không trả lời gì, nhưng chúng tôi có tất cả các thông tin từ nhữ phim do U2 cung cấp.
+Question: U2 lạy rất nhiều tắm phim từ dưới nước.
+Label: 1 (neutral)
+
+B) Premise: Và, chuyện này, Androv Gromikov không nói lời, nhưng chúng tôi có tất cả thông tin từ nhữ phim mà U2 cung cấp.
+Question: U2 lạy rất nhiều tắm phim từ dưới nước.
+Label: 1 (neutral)
+
+C) Premise: Và, thực tế, Androv Gromikov không nói lời gì, nhưng chúng tôi có tất cả các thông tin từ phim mà U2 cung cấp.
+Question: U2 lạy rất nhiều tắm phim từ dưới nước.
+Label: 1 (neutral)
+
+D) Premise: Và, đương nhiên, Androv Gromikov không trả lời điều gì, nhưng chúng tôi có tất cả các thông tin từ những thước phim do U2 cung cấp.
+Question: U2 lấy rất nhiều tấm phim từ dưới nước.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và, từ nhiên, Andrei Gromyko không trả lời câu gì, nhưng chúng tôi có tất cả thông tin từ nhữ phim do U2 cung cấp.
+Question: Chúng tôi không quay, nên chúng tôi phải đoán.
+Label: 1 (entailment)
+
+B) Premise: Và, vây, Andrei Gromyko không trả lời câu gì, nhưng chúng tôi có tất cả thông tin từ nhữ phim do U2 cung cấp.
+Question: Chúng tôi không quay, nên chúng tôi phải đoán.
+Label: 2 (contradiction)
+
+C) Premise: Và, chế tậ, Andrei Gromyko không trả lời câu gì, nhưng chúng tôi có tất cả thông tin từ nhữ phim do U2 cung cấp.
+Question: Chúng tôi không quay, nên chúng tôi phải đoán.
+Label: 0 (neutral)
+
+D) Premise: Và, đương nhiên, Androv Gromikov không trả lời điều gì, nhưng chúng tôi có tất cả các thông tin từ những thước phim do U2 cung cấp.
+Question: Chúng tôi không có cảnh quay, nên chúng tôi phải đoán.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Bà nói tối tạy ảy nă là người tất xưa nởng
+Question: Khi cô ấy nói anh ăy lên lên hiên nhà, ởng mắt của cơ ã ngấn lệ.
+Label: 0
+
+B) Premise: Cố nói chỉ có mình bà từ hơi và cố ái là, sau đó cố nói rằng Joe xuất hiện trên hiên nhà.
+Question: Khi cố nói với anh ăy đi lên hiên nhà, đôi mắt của cơ ã đổng nếp lệ.
+Label: 0
+
+C) Premise: Cố ái lì chỉ có mình là người tất xưa, và rồi cố nói thị Joe xuất hiện trên hiên nhà.
+Question: Khi cố nói rằng anh ăy nào lên hiên nhà, đôi mắt của cơ ã đổng nếp lệ.
+Label: 0
+
+D) Premise: Cô ấy nói chỉ có mình cô ấy là rơi nước mắt và cô ấy nói là, sau đó cô ấy nói rằng Joe xuất hiện trên hiên nhà.
+Question: Khi cô nói với anh ấy đi lên hiên nhà, đôi mắt cô đã ngấn lệ.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Cố ấy nói chỉ mình cô áy là rơi nước mất và cô ấy nói là, sau đó cô ấy nói rằng Joe xuất hiện trên hiên nhà.
+Question: Cô đảnh lau đi những giệt nước mất sau khi đảy Joe ra khởi hiên nhà.
+Label: 2 (contradiction)
+
+B) Premise: Cố ấy nói chỉ mình cô áy là rơi nước mất và cô ấy nói là, sau đó cô ấy nói rằng Joe bước vào hiên nhà.
+Question: Cô đảnh lau đi những giệt nước mất sau khi đảy Joe ra khởi hiên nhà.
+Label: 2 (contradiction)
+
+C) Premise: Cố ấy nói chỉ mình cô áy là rơi nước mất và cô ấy nói là, sau đó cô ấy nói rằng Joe rồi đi trên hiên nhà.
+Question: Cô đảnh lau đi những giệt nước mất sau khi đảy Joe ra khởi hiên nhà.
+Label: 2 (contradiction)
+
+D) Premise: Cô ấy nói chỉ có mình cô ấy là rơi nước mắt và cô ấy nói là, sau đó cô ấy nói rằng Joe xuất hiện trên hiên nhà.
+Question: Cô nhanh chóng lau đi những giọt nước mắt sau khi đẩy Joe ra khỏi hiên nhà.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Cô áy nói chỉ có mình cô áy là rơi nước mát và cô áy nói là, sau đó cô áy nói rằng Joe xuất hiện trên hiên nhà.
+Question: Cô áy rất vui khi thấy Joe đến nối cô bất đầu khốc.
+Label: 1 (neutral)
+
+B) Premise: Cô áy nói rằng chỉ có mình cô áy là người nước mát và cô áy nói là, sau đó cô áy nói rằng Joe đến hiện trên sán hiên.
+Question: Cô áy thực sự khưng vui khi nhỉn thấy Joe.
+Label: 0 (entailment)
+
+C) Premise: Cô áy nói rằng chỉ có mình cô áy là người nước mát và cô áy nói là, sau đó cô áy nói rằng Joe xuất hiện trên hiên nhà.
+Question: Cô áy không vui khi thấy Joe đến nói.
+Label: 0 (entailment)
+
+D) Premise: Cô ấy nói chỉ có mình cô ấy là rơi nước mắt và cô ấy nói là, sau đó cô ấy nói rằng Joe xuất hiện trên hiên nhà.
+Question: Cô rất vui khi thấy Joe đến nỗi cô bắt đầu khóc.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thậm chí khi chiếc máy bay bị bỏ lửa, vậy tại sao, đú sao nó lại bỏ lửa và có thể tan chảy qua một thành phần bằng chỉ để bức xạ lổ rò rị.
+Question: Bức xạ sẽ rò rị từ một thành phần bằng chỉ sau khi máy bay bị thiêu hợt.
+Label: 0 (entailment)
+
+B) Premise: Cà kể khi máy bay phạt hòa, vậy tại sao, tại sao nó lại phạt hòa và có thể tan chảy qua một thành phần bằng chỉ để bức xạ lổ rò rị.
+Question: Bức xạ sẽ rò rị từ một thành phần bằng chỉ sau khi máy bay phạt hòa.
+Label: 0 (entailment)
+
+C) Premise: Thệ kể máy bay bị bỏ lửa, thì tại sao, tại sao nó lại bỏ lửa và có thể tan chảy qua một thành phần bằng chỉ để bức xạ lổ rò rị.
+Question: Bức xạ sẽ rò rị từ một thành phần bằng chỉ sau khi máy bay bị phạ.
+Label: 0 (entailment)
+
+D) Premise: Ngay cả khi chiếc máy bay đang cháy, thì tại sao, ừ sao nó lại bị cháy và có thể tan chảy xuyên qua một thành phần bằng chì để bức xạ bị rò rỉ.
+Question: Bức xạ sẽ rò rỉ ra từ một thành phần chì sau khi máy bay bị đốt cháy.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Ngay cả khi chiếc máy bay đang cháy, thì tại sao, ừ sao nó lại bị cháy và có thể tan chảy qua một thành phần bằng chì để bục xạ rò rì.
+Question: Bục xạ không bị rò rì trong một đám cháy.
+Label: 2 (contradiction)
+
+B) Premise: Ngay cả khi chiềc máy bay đang bề cháy, vậy tại sao, ừ sao nó lại bị cháy và có thể tan chảy qua một thành phần bằng chì để bục xạ rò rì.
+Question: Bục xạ sẽ không bị rò rì trong một đám cháy.
+Label: 2 (contradiction)
+
+C) Premise: Ngay cả khi chiềc máy bay đang bề cháy, thì tại sao, hệ sao nó lại bị cháy và có thể tan chảy qua một thành phần bằng chì để bục xạ rò rì.
+Question: Bục xạ không bị rò rì trong một ngưn lửa.
+Label: 2 (contradiction)
+
+D) Premise: Ngay cả khi chiếc máy bay đang cháy, thì tại sao, ừ sao nó lại bị cháy và có thể tan chảy xuyên qua một thành phần bằng chì để bức xạ bị rò rỉ.
+Question: Bức xạ sẽ không bị rò rỉ trong một đám cháy.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đây là Trung sĩ trưởng Clem Francis, đã nghỉ hưu từ Không quân Hoa Kỳ.
+Question: Trung sĩ trưởng đã nghỉ hưu từ Không quân Hoa Kỳ.
+Label: 0 (entailment)
+
+B) Premise: Trung sĩ trưởng Clem Francis, đã nghỉ hưu từ Lực lượng Hoa Kỳ, là cựu chiến binh cuối cùng được trao huơn chương Bạc tinh lấp quân hàng, nói nào rẵng hạnh trịnh làm hìệu làm tảc giá bảo từ sử nghiệp của ông.
+Question: Trung sĩ trưởng đã nghỉ hưu từ Lực lượng Hoa Kỳ.
+Label: 1 (not entailment)
+
+C) Premise: Đây là Trung sĩ trưởng Clem Francis, đã nghỉ hưu từ Không quân Hoa Kỳ. Ông là cựu chiến binh cuối cùng cền sống của Chiến tranh Thế giới thứ hai và cũng là nhâ khoa bộc từ trường của LỤ quấn Phạp trong Chiếền tranh Thế giới thứ nhất.
+Question: Người đứng đầu đã nghỉ hưu từ Không quân Hoa Kỳ.
+Label: 0 (entailment)
+
+D) Premise: Đây là Trung sĩ trưởng Clem Francis, đã nghỉ hưu từ Không quân Hoa Kỳ.
+Question: Người đứng đầu đã nghỉ hưu từ Không quân Hoa Kỳ.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đây là Trung sĩ trưởng Clem Francis, cựu chiến binh từ Lực lượng hàng không Hoa Kỳ.
+Question: Lực lượng hàng không Hoa Kỳ mới bắt đầu công việc trong tuần này.
+Label: 2 (contradiction)
+
+B) Premise: Đây là Trung sĩ trưởng Clem Francis, đã nghỉ hưu từ Lực lượng hàng không Hoa Kỳ.
+Question: Lực lượng hàng không Hoa Kỳ vừa bắt đầu công việc trong tuần này.
+Label: 2 (contradiction)
+
+C) Premise: Đây là Trung sĩ trưởng Clem Francis, cựu chiến binh từ Lực lượng hàng không Hoa Kỳ.
+Question: Lực lượng hàng không Hoa Kỳ vừa bắt đầu công việc trong tuần này.
+Label: 1 (entailment)
+
+D) Premise: Đây là Trung sĩ trưởng Clem Francis, đã nghỉ hưu từ Không quân Hoa Kỳ.
+Question: Không quân Mỹ chỉ mới bắt đầu công việc của mình trong tuần này.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Vâng, có khi có hai hay ba máy bay đến trong một tuần và tôi không biết hệ đang bay đi đẫu.
+Question: Có hơn một phi cơ đến mỗi tuần.
+Label: 0 (entailment)
+
+B) Premise: Vâng, đợ lúc có hai hay ba máy bay đến trong một tuần và tôi không biết hệ đang bay đi đẫu.
+Question: Có hơn một phi cơ đến mỗi tuần.
+Label: 0 (entailment)
+
+C) Premise: Vâng, có lúc có hai hay ba máy bay đến trong một tuần và tôi không biết hệ đang bay đi đẫu.
+Question: Có hơn một phi cơ đến mỗi tuần.
+Label: 0 (entailment)
+
+D) Premise: Vâng, có lúc có hai hoặc ba máy bay đến trong một tuần và tôi không biết họ đang bay đi đâu.
+Question: Có hơn một phi cơ đến mỗi tuần.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đúng vậy, đôi khi có hai hoặc ba chiếc máy bay đến trong một tuần và tôi không biết họ đang bay đến đâu.
+Question: Giao thơng máy bay tăng lên rất nhiều khó chỉ.
+Label: 1 (neutral)
+
+B) Premise: Vâng, có khi có hai hoặc ba chiếc máy bay đến trong một tuần và tôi không biết chúng bay đi đâu.
+Question: Giao thơng máy bay tăng lên rất nhiều khó chỉ.
+Label: 1 (neutral)
+
+C) Premise: Đúng, và, có khi có hai hoặc ba chiếc máy bay đến trong một tuần và tôi không biết chúng bay đi đâu.
+Question: Giao thơng máy bay tăng lên rất nhiều khó chỉ.
+Label: 1 (neutral)
+
+D) Premise: Vâng, có lúc có hai hoặc ba máy bay đến trong một tuần và tôi không biết họ đang bay đi đâu.
+Question: Lưu lượng máy bay tăng lên rất rắc rối.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thưa ngài, có lúc có hai hoặc ba máy bay đến vào trong một tuần và tôi không biết hệ đang bay đi đâu.
+Question: Không bao giờ có máy bay nào bay đến.
+Label: 2 (contradiction)
+
+B) Premise: Vâng, có lúc có hai hoặc ba máy bay đến vào trong một tuần và tôi không biết hệ đang bay đi đâu.
+Question: Không bao giờ có máy bay nào đến đến nưốc.
+Label: 2 (contradiction)
+
+C) Premise: Vâng, có lúc có hai hoặc ba máy bay đến vào trong một tuần và tôi không biết hệ đang bay đi đâu.
+Question: Không bao giờ có máy bay nào đến đến.
+Label: 2 (contradiction)
+
+D) Premise: Vâng, có lúc có hai hoặc ba máy bay đến trong một tuần và tôi không biết họ đang bay đi đâu.
+Question: Không bao giờ có máy bay nào bay đến.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ đã tập trong sự com lä đềp nhiệu lực và mất nhiều thời gian nếu bạn mặc đồ phục đềp lực để.
+Question: Phải mất đến ba tháng để hoàn thành khóa đạo tạo về việc sử dụng toàn bộ bộ com lä đềp lực.
+Label: 1 (neutral)
+
+B) Premise: Họ đã tập trong sự com lä có áp lực và mất thờ gian dài nếu bạn đeo đồ phục bểo vệ.
+Question: Phải mất ba tháng để hoàn thành khóa huấn luyện về việc sử dụng toàn bộ đồ phục bểo có ăp lực.
+Label: 1 (neutral)
+
+C) Premise: Họ đã luyện tập trong đố phục đềp lực và mất một thời gian nếu bạn đeo đồ phục đềp lực.
+Question: Phải mất ba tháng để hoàn thành việc đạo tạo cho việc sử dụng đồ phục đềp lực toàn diện.
+Label: 1 (neutral)
+
+D) Premise: Họ đã luyện tập trong bộ com lê đầy áp lực và mất một thời gian nếu bạn mặc bộ quần áo đầy áp lực.
+Question: Phải mất đến ba tháng để hoàn thành khóa đào tạo về việc sử dụng bộ com lê áp lực đầy đủ.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ đã tập trong đồ com le đầy áp lục và mất một thời gian nếu bạn mặc đồ quần áo áp lục.
+Question: Huấn luện để sử dụng một bộ đồ áp suất tốn nhiều thời gian.
+Label: 0
+
+B) Premise: Hệ lưyện tập trong đồ com le tềo bố và mất một thời gian nếu bạn đẹng đồ quần áo tềo bố.
+Question: Việc đạo tạo một bộ đồ áp suất rất tốn kẻ.
+Label: 0
+
+C) Premise: Hệ luyện tập trong đồ vest phản xạ và mất một thời gian nếu bạn mặc đồ vest phản xạ.
+Question: Việc đạo tạo một bộ vest phản xạ đối hơi nhiều thời gian.
+Label: 0
+
+D) Premise: Họ đã luyện tập trong bộ com lê đầy áp lực và mất một thời gian nếu bạn mặc bộ quần áo đầy áp lực.
+Question: Đào tạo để sử dụng một bộ đồ áp lực tốn nhiều thời gian.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ đã thề dượng trong đố com le đầp lục và mất nhiều thờ giả nếu bạn mặc đố quần áo lục.
+Question: Chúng tôi có thể giúp bạn tập luyện để mặc đố com le áp lục vào cuối ngày.
+Label: 2 (contradiction)
+
+B) Premise: Hệ các văn đề tồ mẹt và áo đạy ề ó máy giờ khí để ó bật cược đơ bạt đầu làm việc.
+Question: Bạt đầu làm việc là một công việc dễ dàng.
+Label: 2 (contradiction)
+
+C) Premise: Một thừêu tồ bằ cổ gái
+Question: Một thừêu cổ gái bằ đang làm một ác nhạn đán ở.
+Label: 2 (contradiction)
+
+D) Premise: Họ đã luyện tập trong bộ com lê đầy áp lực và mất một thời gian nếu bạn mặc bộ quần áo đầy áp lực.
+Question: Chúng tôi có thể giúp bạn luyện tập để mặc bộ com lê áp lực vào cuối ngày.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi muốn nói rằng không có nguy cơ nào xảy ra với quả bom vì nó sẽ không nổ tung, không kể nó khó thế nạo.
+Question: Có một nguy cơ lớn là bom sẽ nổ.
+Label: 2 (mâu thuẫn)
+
+B) Premise: Tôi cần phải nói rằng không có rợi ro nào sẵ xảy ra với quả bom bối vì nó sẽ không nổ tung ra, không kể nó khó thế nạo cả.
+Question: Có một rợi ro lớn là bom sẽ nổ tung ra.
+Label: 2 (mâu thuẫn)
+
+C) Premise: Tôi cần phải nói rằng không có mụ nào nãy sinh ra với quả bom bối vì nó sẽ không nổ bộ tung, không kể nó khó thế nạo.
+Question: Có một mụ nào nãy sinh ra bom sẽ nổ bộ tung.
+Label: 2 (mâu thuẫn)
+
+D) Premise: Tôi muốn nói rằng không có nguy cơ nào xảy ra với quả bom vì nó sẽ không nổ tung, bất kể nó khó đến thế nào.
+Question: Có một nguy cơ lớn là bom sẽ nổ.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Điều đó thực sự giống như những gì tôi đang cố gắng đạt được.
+Question: Tôi không chắc điều này có ý nghĩa như thế nào đối với bạn.
+Label: 2 (contradiction)
+
+B) Premise: Nó trông giống hệt như thứ tôi đang cố gắng thực hiện.
+Question: Tôi không chắc chắn điều này trông giống như thế nào đối với bạn.
+Label: 2 (contradiction)
+
+C) Premise: Nó có vẻ giống như điều tôi đã cố gắng đạt được.
+Question: Tôi không chắc bạn nghĩ gì về điều này.
+Label: 2 (contradiction)
+
+D) Premise: Nó trông đúng như điều tôi đang cố gắng thực hiện.
+Question: Tôi không chắc điều này trông như thế nào đối với bạn.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Cái nó trông khá là điều tôi đang cố gẵng thực hiện.
+Question: Rồ ràng là tôi đang cố gẵng làm điều này.
+Label: 0 (entailment)
+
+B) Premise: Nó có vẻ như điều tôi đang thực hiện.
+Question: Rồ ràng là tôi đang cố gẵng làm điều này.
+Label: 0 (entailment)
+
+C) Premise: Nó rõ ràng là tôi đang cố gẵng thực hiện điều gì.
+Question: Rồ ràng là tôi đang cố gẵng làm điều này.
+Label: 0 (entailment)
+
+D) Premise: Nó trông đúng như điều tôi đang cố gắng thực hiện.
+Question: Rõ ràng là tôi đang cố gắng làm điều này.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nó có vẻ cách chính xác mà tơi đang cố gấng sử làm.
+Question: Tơi có gấng hoàn thành dữ án của mình vào tuần tối.
+Label: 1 (neutral)
+
+B) Premise: Nó trông chính xác mà tơi đang cảm thấy khá thẻ.
+Question: Tơi cám thấy khá hợt mục của mình vào tuần tối.
+Label: 1 (neutral)
+
+C) Premise: Nó có vẻ là một số lượng tốt đế.
+Question: Tơi có làm tốt nhất của mình vào tuần tối.
+Label: 1 (neutral)
+
+D) Premise: Nó trông đúng như điều tôi đang cố gắng thực hiện.
+Question: Tôi đang cố hoàn thành dự án của mình vào tuần tới.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nhưng dù sao đi nữa, những con vật sẽ bị mất toàn bộ thời gian, đặc biệt là những con dé.
+Question: Những con dé trốn thoát khỏi chuồng mỗi ngày.
+Label: 1 (neutral)
+
+B) Premise: Nhưng dữ giề sao đi nṁa, các con vật sẽ bị mất toàn bộ thời gian, đặc biệt là các con dâu.
+Question: Các con dâu trón thoát khỏi chuồng mổi ngày.
+Label: 1 (neutral)
+
+C) Premise: Nhưng dữ sao của đẹ, các con vật sẽ bị mất hết thời gian, đặc biệt là các con người.
+Question: Các con người trón thoát khỏi chuồng mổi ngày.
+Label: 1 (neutral)
+
+D) Premise: Nhưng dù sao đi nữa, những con vật sẽ bị mất toàn bộ thời gian, đặc biệt là những con dê.
+Question: Những con dê trốn thoát khỏi chuồng mỗi ngày.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nhưng dẫu sao đi nữa, bầy vật nuôi sẽ bị mất toàn bộ thời gian, đặc biệt là đám dê.
+Question: Những con dê thường xuyên trốn thoát.
+Label: 0 (entailment)
+
+B) Premise: Nhưng dù sao nữa đi, lũ vật nuôi sẽ mất hết cả thời gian, đặc biệt là bọn dê.
+Question: Những con dê thường xuyên trốn thoát.
+Label: 0 (entailment)
+
+C) Premise: Nhưng mà dù sao thì, con vật cưng sẽ bị mất hết giờ giấc rồi, đặc biệt là mấy con dê.
+Question: Những con dê thường xuyên trốn thoát.
+Label: 0 (entailment)
+
+D) Premise: Nhưng dù sao đi nữa, những con vật sẽ bị mất toàn bộ thời gian, đặc biệt là những con dê.
+Question: Những con dê thường xuyên trốn thoát.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nhưng dù sao đi nữa, những con vật sẽ bị mất toàn bộ thời gian, đặc biệt là những con dâ.
+Question: Những con dâ được giừ an toàn.
+Label: 2 (contradiction)
+
+B) Premise: Nhưng dụ dào đi nửa, các con vật sẽ bị mạt tất cả thời gian, đặc biệt là các con dâ.
+Question: Những con dâ được giừ an toàn.
+Label: 2 (contradiction)
+
+C) Premise: Nhưng dụ sao đi nửa, các con vật sẽ bị mạt tất cả thời gian, đặc biệt là các con dâ.
+Question: Những con dâ được giừ an toàn.
+Label: 2 (contradiction)
+
+D) Premise: Nhưng dù sao đi nữa, những con vật sẽ bị mất toàn bộ thời gian, đặc biệt là những con dê.
+Question: Những con dê được giữ an toàn.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: C{á}nh c{ṯa} b{ì} kh{ó}a khi chúng tôi đi vào.
+Question: Tất cả cảa cṣa đề mở.
+Label: 2 (contradiction)
+
+B) Premise: C{á}nh c{ṯa} bì kh{ó}a khi chúng tôi đi vào.
+Question: Tất cả cảa cṣa đơng mở.
+Label: 2 (contradiction)
+
+C) Premise: C{á}nh c{ṯa} bì kh{ó}a khi chúng tôi đi vào.
+Question: Tất cả cảa cṣa đề mở.
+Label: 2 (contradiction)
+
+D) Premise: Cánh cửa bị khoá khi chúng tôi bước vào.
+Question: Tất cả các cửa đều mở.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Cạnh cửa bị chấn khi chúng tôi bướ̀c vào.
+Question: Chúng tôi có chềa khoá.
+Label: 1 (neutral)
+
+B) Premise: Cạnh cửa bị két khi chúng tôi bướ̀c vào.
+Question: Chúng tôi có chềa khoá.
+Label: 1 (neutral)
+
+C) Premise: Cạnh cửa bị mố khi chúng tôi bướ̀c vào.
+Question: Chúng tôi có chềa khoá.
+Label: 1 (neutral)
+
+D) Premise: Cánh cửa bị khoá khi chúng tôi bước vào.
+Question: Chúng tôi có chìa khóa.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Cảnh cửa bị khóa khi chúng tôi bước vào.
+Question: Chúng tôi đã đi vào mặc dữ cửa đã bị khóa.
+Label: 0
+
+B) Premise: Cảnh cửa bị khóa khi chúng tôi bước vào.
+Question: Chúng tôi đã xơi bào làm vào mặc dữ cửa đã bị khóa.
+Label: 0
+
+C) Premise: Cảnh cửa bị khóa khi chúng tôi bước vào.
+Question: Chúng tôi đã vào nhà chúng tôi không thể mở mở cửa đã bị khóa.
+Label: 0
+
+D) Premise: Cánh cửa bị khoá khi chúng tôi bước vào.
+Question: Chúng tôi đã đi vào mặc dù cửa đã bị khóa.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thế nên tôi đã phải lấy cái tổng thể và cố gẵng hình dung ra như vậy đó.
+Question: Tôi tự tin rằng số tổng là tất cả cải tôi cần để giải quyết việc này.
+Label: 1 (neutral)
+
+B) Premise: Thế là nên tôi đã phải rượt cả cái tổng thể, và sau đó tó thể nó thề hình dung ra như vậy đó.
+Question: Tôi tự tin rằng số tổng là tất cả cải tôi cần để giải quyết việc này.
+Label: 1 (neutral)
+
+C) Premise: Nên tôi cố gẵng tóm cách nhìn thức tất cả mệnh có thể, và tó thể làm được đó.
+Question: Tôi tự tin rằng số tổng là tất cả cải tôi cần để giải quyết việc này.
+Label: 0 (contradictory)
+
+D) Premise: Nên tôi đã phải lấy cái tổng thể và cố gắng hình dung ra như thế đó.
+Question: Tôi tự tin rằng con số tổng là tất cả những gì tôi cần để giải quyết việc này.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Nên tôi phải lấy cái tổng thể và cố gấng hình dung ra như thế đó.
+Question: Tôi không biết phải làm gì với chỉ tổng số xin vui lòng cho tôi biết thêm chi tiết để tìm ra mớ hỗn độ.
+Label: 2 (contradiction)
+
+B) Premise: Nên tôi phải lấy cái tổng thể và cố gấng hình dung ra như thế đó.
+Question: Tôi không biết phải làm gì với chỉ tổng số xin vui lòng cho tôi biết thêm chi tiết để tìm ra mớ hỗn độ.
+Label: 2 (contradiction)
+
+C) Premise: Nên tôi phải lấy cái tổng thể và cố gấng hình dung ra như thế đó.
+Question: Tôi không biết phải làm gì với chỉ tổng số xin vui lòng cho tôi biết thêm chi tiết để tìm ra mớ hỗn độ.
+Label: 2 (contradiction)
+
+D) Premise: Nên tôi đã phải lấy cái tổng thể và cố gắng hình dung ra như thế đó.
+Question: Tôi không biết phải làm gì với chỉ tổng số xin vui lòng cho tôi biết thêm chi tiết để tìm ra mớ hỗn độn này.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Do vậy, tôi đã phải xem xét những nhà tổng quát và cố gấng hình dung ra nhữ đó.
+Question: Tôi tính toán nó dừa trên tổng thể.
+Label: 0 (entailment)
+
+B) Premise: Bối vị tôi đã cập vạn đề tổng thể, tôi cũng cố thể tìm ra đáp án như đây.
+Question: Tôi có thể tìm ra đáp án như đây dữ trên tổng thể.
+Label: 0 (entailment)
+
+C) Premise: Nên bạn muốn làm một cái gì đó, hãy làm nó cào nhất.
+Question: Làm sao để tạo ra một cái gì tốt nhất?
+Label: 0 (entailment)
+
+D) Premise: Nên tôi đã phải lấy cái tổng thể và cố gắng hình dung ra như thế đó.
+Question: Tôi sẽ tính toán nó dựa trên tổng số.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Anh ấy bước tới, mở tung cửa sổ, và tôi nhớ rằng đặc ngược ra phía sau và thấy cảnh mặt của anh áy, và tôi có thể biết anh áy đang giện vống.
+Question: Anh ấy rất mừng và bủng nổ trong sung sướng nến anh áy cỚ đỉnh cảnh cửa ra khỏi khung áo của nó.
+Label: 2 (contradiction)
+
+B) Premise: Anh ta bước tới, mở tung cửa sổ, và tôi nhớ rằng đặc ngược ra phía sau và thấy cảnh mặt của anh áy, và tôi có thể biết anh áy đang táu dễ.
+Question: Anh ấy rất mừng và bủng nổ trong sung sướng nến anh áy cỚ đỉnh cảnh cửa ra khỏi khung áo của nó.
+Label: 2 (contradiction)
+
+C) Premise: Anh ấy đi tới, mở tung cửa sổ, và tôi nhớ rằng đặc ra phía sau và thấy cảnh mặt của anh áy, và tôi có thể biết anh áy đang phật động.
+Question: Anh ấy rất mừng và bủng nổ trong sung sướng nến anh áy cỚ đỉnh cảnh cửa ra khỏi khung áo của nó.
+Label: 2 (contradiction)
+
+D) Premise: Anh ấy đến, mở cửa ra và tôi nhớ rằng đã nhìn ra phía sau và nhìn thấy vẻ mặt của anh ấy, và tôi có thể biết được anh ấy đang thất vọng.
+Question: Anh ấy rất mừng và bùng nổ với niềm vui rằng anh ấy đã bật cánh cửa ra khỏi khung của nó.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Anh ta xuất hiện, mở cửa và tôi nhớ rằng đã ngước mắt nhìn lại và nhín ra vẻ mặt của anh ta và tói có thể biết được anh ta đang thất vớng.
+Question: Anh ta đang cố gắng không khiến chúng tôi cảm thấy tối lỗi mà chúng tôi biết anh ta vào tềnh huống khó xử.
+Label: 1 (neutral)
+
+B) Premise: Hắn bước tới, mở cửa ra và tôi nhớ rằng đã ngước mắt lên sau và nhìn ra về mẶt của hắn, và tói có thể biết rẵng hắn ta đang thất vớng.
+Question: Hắn ta đang cố gắng không khiến chúng tôi cảm thấy cᨚ tỗi mà chúng tôi khiến hắn vào một tình huống khó.
+Label: 1 (neutral)
+
+C) Premise: Anh óng đi, mở cửa ra và tôi nhớ rằng đã liếc nhìn lại và thấy biểu cảm trên khuôn mẶt của anh áy, và tói có thể phán biệt được anh áy đang thất vớng.
+Question: Anh áy đang cố gẵng không để anh chúng tôi cảm thấy tối lỗi, mà chúng tôi biết anh áy vào một hoàn cảnh tồi tệ.
+Label: 1 (neutral)
+
+D) Premise: Anh ấy đến, mở cửa ra và tôi nhớ rằng đã nhìn ra phía sau và nhìn thấy vẻ mặt của anh ấy, và tôi có thể biết được anh ấy đang thất vọng.
+Question: Anh ấy đang cố không làm chúng tôi cảm thấy tội lỗi nhưng chúng tôi biết chúng tôi đã gây ra rắc rối cho anh ấy.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Anh ấy xuất hiện, mở tung cửa ra và tôi nhớ rằng tôi nhìn sang phía sau và quan sát biểu hiện của anh ấy, và tôi biết rằng anh ấy thất vọng.
+Question: Tôi biết anh ấy đã thất vọng khi chỉ cần liếc nhìn biểu cảm trên khuôn mặt anh ấy khi anh ấy bước qua cánh cửa.
+Label: entailment
+
+B) Premise: Anh ta xuất hiện, mở tung cánh cửa ra và tôi nhớ rằng tôi nhìn sang phía sau và ngắm nghía diện mạo của anh ta, và tôi có thể biết rằng anh ta không hài lòng.
+Question: Tôi biết anh ta bị bỏ rơi khi chỉ cần nhìn vào vẻ mặt của anh ta khi anh ta bước qua cánh cửa.
+Label: entailment
+
+C) Premise: Anh ấy đến, mở cửa ra và tôi nhớ rằng tôi quay lại đằng sau và quan sát mặt mũi của anh ấy, và tôi có thể thấy anh ấy thất vọng.
+Question: Chỉ khi nhìn vào khuôn mặt của anh ấy khi anh ấy bước qua cánh cửa thì tôi mới biết anh ấy bị bỏ rơi.
+Label: entailment
+
+D) Premise: Anh ấy đến, mở cửa ra và tôi nhớ rằng đã nhìn ra phía sau và nhìn thấy vẻ mặt của anh ấy, và tôi có thể biết được anh ấy đang thất vọng.
+Question: Chỉ khi nhìn vào khuôn mặt của anh ấy khi anh ấy bước qua cánh cửa tôi mới biết anh ấy đã bị bỏ rơi.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thús, tôi không có bất cứ câu chuyện chi tiết cào.
+Question: Tôi không có một cửa hàng củ thể.
+Label: 0 (entailment)
+
+B) Premise: Nhữ vậy, tôi không có bất cứ sự kiện có thể nói chi tiết.
+Question: Tôi không có một cửa hàng đế thể nói chi tiết.
+Label: 0 (entailment)
+
+C) Premise: Do vậy, tôi không có bất cứ chuyện gì gề chi tiết.
+Question: Tôi không có một cửa hàng gì gề chi tiết.
+Label: 0 (entailment)
+
+D) Premise: Vậy nên, tôi không có bất cứ câu chuyện cụ thể nào.
+Question: Tôi không có một cửa hàng cụ thể.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Bối vậy, tôi không có bất cũ thề chuyện cụ thề nào.
+Question: Tôi có một cửa hàng riêng.
+Label: 2 (contradiction)
+
+B) Premise: Thề là, tôi không có bất kỳ câu chuyện riêng rần rệ.
+Question: Tôi có một cửa hàng riêng.
+Label: 2 (contradiction)
+
+C) Premise: Vậy nên, tôi không có bất kỳ câu chuyện củ thể.
+Question: Tôi có một cửa hàng riêng.
+Label: 2 (contradiction)
+
+D) Premise: Vậy nên, tôi không có bất cứ câu chuyện cụ thể nào.
+Question: Tôi có 1 cửa hàng riêng.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thụ là, tôi không có bất cứ cư chuyện cụ thể nào.
+Question: Có rất nhiều cửa hàng.
+Label: 1 (neutral)
+
+B) Premise: Thề là, tôi không có bất kỳ cư chuyện cụ thể nào.
+Question: Có rất nhiều cửa hàng.
+Label: 1 (neutral)
+
+C) Premise: Bố, tôi không có bất cứ cư chuyện cụ thể nào.
+Question: Có rất nhiều cửa hàng.
+Label: 1 (neutral)
+
+D) Premise: Vậy nên, tôi không có bất cứ câu chuyện cụ thể nào.
+Question: Có rất nhiều cửa hàng.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và đây, anh ta không bao giề thực sự làm điều gì cho mình.
+Question: Anh ta nhận được rất nhiều sự giúp đố.
+Label: 0 (entailment)
+
+B) Premise: Và đây, anh ta không bao giề làm cại gì cho tôi.
+Question: Anh ta nhận được rất nhiều sự giúp đố.
+Label: 0 (entailment)
+
+C) Premise: Và đây, anh chăng bao giề thực sự làm điều gì cho mình.
+Question: Anh ta nhận được rất nhiều sự giúp đố.
+Label: 0 (entailment)
+
+D) Premise: Và đây, anh ấy chẳng bao giờ thật sự làm điều gì đó cho mình.
+Question: Anh ấy nhận được rất nhiều sự giúp đỡ.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Cà đây, anh ta không bao giờ thực sự giúp cho chính mình môt cái gì.
+Question: Anh ta được hỗ trợ với bữa ăn và quần áo.
+Label: 1 (neutral)
+
+B) Premise: Thế này, anh ta không bao giờ có làm gì cho bản thân mình.
+Question: Anh ta được cung cấp bữa ăn và quần áo.
+Label: 1 (neutral)
+
+C) Premise: Rồi này, anh ta không bao giờ có gì cho chính mình môt mình.
+Question: Anh ta được cung cấp thức ăn và quần áo.
+Label: 1 (neutral)
+
+D) Premise: Và đây, anh ấy chẳng bao giờ thật sự làm điều gì đó cho mình.
+Question: Anh ta được giúp đỡ với bữa ăn và quần áo.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Và đây, anh ta không bao giề thật sự làm điều gì cho mình.
+Question: Anh ta rất phụ thuộc.
+Label: 2 (contradiction)
+
+B) Premise: Và đây, anh ta không bao giề thật sự làm điều gì cho mình.
+Question: Anh ta là kế hoạn toàn một mình.
+Label: 2 (contradiction)
+
+C) Premise: Và đây, anh ta không bao giề thật sự làm điều gì cho mình.
+Question: Anh ta rất kế hoạn toàn với các công việc.
+Label: 1 (entailment)
+
+D) Premise: Và đây, anh ấy chẳng bao giờ thật sự làm điều gì đó cho mình.
+Question: Anh ấy rất độc lập.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thế là tôi căm thấy như là, Trườể, đó là Ramona đăng ở đó.
+Question: Ramona nềm cuồn tròn nên nhà trong tự thẻ bào thai.
+Label: 2 (contradiction)
+
+B) Premise: Thỉ là tôi loại tương lên, Chú ôi, đó là Ramona đăng ở đó.
+Question: Ramona nềm thu gòn trên nên trong tự thẻ bào thai.
+Label: 2 (contradiction)
+
+C) Premise: Thỉ là tôi nghĩ lên, Trườể, đó là Ramona đăng ở đó.
+Question: Ramona nềm cuồn tròn nên nhà trong tự thẻ bào thai.
+Label: 2 (contradiction)
+
+D) Premise: Thế là tôi kiểu như là, Ôi trời ơi, và Ramona đang đứng ở đó.
+Question: Ramona nằm cuộn tròn trên nền nhà trong tư thế bào thai.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thế là tôi phân loại đề là: Điềc khuềng, và Ramona đang đứ ở đó.
+Question: Ramona im lểm phán đềnh tôi.
+Label: 1 (neutral)
+
+B) Premise: Thế là tôi sững sơ, tôi kinh ngằc, và Ramona đang đứ ở đó.
+Question: Ramona đánh giá tôi với cạm giác hơn thủ cũng.
+Label: 1 (neutral)
+
+C) Premise: Thế là tôi kinh ngằc khi nhền thấy Ramona đang đứ ở đó.
+Question: Ramona không nói gì khi nhền thấy tôi.
+Label: 1 (neutral)
+
+D) Premise: Thế là tôi kiểu như là, Ôi trời ơi, và Ramona đang đứng ở đó.
+Question: Ramona lặng lẽ phán xét tôi.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thế là tôi thết lên là, Ơi trờ thượng ơi, và Ramona đang đứ ở đó.
+Question: Ramona rẹ lên ngườ trước kinh ngẵc của tôi.
+Label: 0 (entailment)
+
+B) Premise: Thết là tôi giống như, Ơi trờ thượng ơi, và Ramona đang đứ ở đó.
+Question: Ramona rẹ lên ngườ trước kinh ngẵc của tôi.
+Label: 0 (entailment)
+
+C) Premise: Thết là tôi rặng lên, Ơi chán ơi, và Ramona đang đứ ở đó.
+Question: Ramona rẹ lên ngườ trước kinh ngẵc của tôi.
+Label: 0 (entailment)
+
+D) Premise: Thế là tôi kiểu như là, Ôi trời ơi, và Ramona đang đứng ở đó.
+Question: Ramona thẳng đứng người trước sự kinh ngạc của tôi.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Thực tế là cô ấy mảnh mai!
+Question: Cô ấy không nặng chút nào.
+Label: 0 (entailment)
+
+B) Premise: Sự thật là cô ấy mỏng manh!
+Question: Cô ấy không nặng chút nào.
+Label: 0 (entailment)
+
+C) Premise: Sự thực là cô ấy yếu đuối!
+Question: Cô ấy không nặng chút nào.
+Label: 0 (entailment)
+
+D) Premise: Và thực tế là cô ấy thật nhẹ nhàng!
+Question: Cô ấy không nặng chút nào.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: và thềc tế là cô áy nhị nhệ!
+Question: Cô áy rất hành phúc.
+Label: 2 (contradiction)
+
+B) Premise: và thềc tế là rất nhệ!
+Question: Cô áy rất hành phúc.
+Label: 2 (contradiction)
+
+C) Premise: và thềc tế là rất mề!
+Question: Cô áy rất hành phúc.
+Label: 2 (contradiction)
+
+D) Premise: Và thực tế là cô ấy thật nhẹ nhàng!
+Question: Cô ấy rất hạnh phúc.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta vản tiếp tục sống ở Augusta ngay cả sau vụ tấn công.
+Label: 0 (contradiction)
+
+B) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta vản tiếp tục sống ở Augusta ngay cả sau vụ tấn công.
+Label: 2 (entailment)
+
+C) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta vản tiếp tục sống ở Augusta ngay cả sau vụ tấn công.
+Label: 3 (unknown)
+
+D) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta vẫn tiếp tục sống ở Augusta ngay cả sau vụ tấn công.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta tỉp tục sống ở Augusta.
+Label: 0 (entailment)
+
+B) Premise: Tôi không hiểu biết liệu anh ta có lại Augusta sau đó hay không.
+Question: Anh ta tỉp tục sống ở Augusta.
+Label: 0 (entailment)
+
+C) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta tỉp tục sống ở Augusta.
+Label: 1 (not-entailment)
+
+D) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh tiếp tục sống ở Augusta.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi không biết anh ta có lại Augusta không lâu sau đó hay không.
+Question: Anh ta rời khỏi Augusta ngay lập từc.
+Label: 2 (contradiction)
+
+B) Premise: Tôi không rổ anh ta có ở lại Augusta không lâu sau đó hay không.
+Question: Anh ta rời khỏi Augusta ngay lập từc.
+Label: 2 (contradiction)
+
+C) Premise: Tôi không biết anh ta có ở lại Augusta một thời gian sau đó hay không.
+Question: Anh ta rời khỏi Augusta ngay lập từc.
+Label: 0 (entailment)
+
+D) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta rời khỏi Augusta ngay lập tức.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Mọi cấnh cái chúng tôi làm, hỏ không bao giờ nói với chúng tôi bất cứ nơi nào hỏ đến, thậm chí hỏ rời khổi trại đi đến một nơi nào khác trong một thời gian.
+Question: Tôi không bao giờ hồi hỏ đang đi đâu.
+Label: 1 (trung tịnh)
+
+B) Premise: Tất cả mệi điều chúng tôi làm, hỏ không khi nào nói với chúng tôi bất kỳ nơi nào hỏ đến, kể cả khi hỏ rời trại đi đến một nơi khác trong một thời gian.
+Question: Tôi không hề khi nào hồi hỏ đang đi đâu.
+Label: 1 (trung tịnh)
+
+C) Premise: Tất cả mệi điều chúng tôi làm, hỏ không khi nào nói cho chúng tôi biết bất cứ nơi nào mà hỏ đến, kể cả khi hỏ rời trại đi đến một nơi khác trong một thời gian.
+Question: Tôi không hề khi nào hồi xem hỏ đang đi đâu.
+Label: 1 (trung tịnh)
+
+D) Premise: Tất cả những điều chúng tôi làm, họ chưa bao giờ nói với chúng tôi về bất cứ nơi nào họ đến, thậm chí khi họ rời khỏi trại đi đến một nơi nào khác trong một thời gian.
+Question: Tôi chưa bao giờ hỏi họ đang đi đâu.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Mọi điều chúng ta làm, họ chẳng bao giờ nói cho ta hay về bất cứ địa điểm nào họ đến, ngay cả khi họ rời khỏi trại để đến nơi khác trong một thời gian ngắn.
+Question: Họ luôn báo với chúng ta là họ đang ở đâu và sẽ đi đâu.
+Label: 2 (contradiction)
+
+B) Premise: Tất cả mọi thứ chúng tôi làm, họ chẳng hề nói với chúng tôi về bất cứ nơi nào họ đến, ngay cả khi họ rời khỏi trại đến nơi khác trong một khoảng thời gian.
+Question: Họ luôn nói với chúng tôi biết họ đang ở đâu và họ đi đâu.
+Label: 2 (contradiction)
+
+C) Premise: Mọi điều chúng ta làm, họ chẳng khi nào nói cho ta biết về bất cứ địa điểm nào họ tới, ngay cả khi họ rời khỏi trại đi đến nơi khác trong thời gian ngắn.
+Question: Họ liên tục báo với chúng ta là họ đang ở đâu và họ sẽ đi đâu.
+Label: 2 (contradiction)
+
+D) Premise: Tất cả những điều chúng tôi làm, họ chưa bao giờ nói với chúng tôi về bất cứ nơi nào họ đến, thậm chí khi họ rời khỏi trại đi đến một nơi nào khác trong một thời gian.
+Question: Họ luôn cho chúng tôi biết họ đang ở đâu và họ đi đâu.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tất cả những điều chúng tôi làm, hỏ chưa bao giờ nói với chúng tôi về bất cứ nơi nào hỏ đến, thềm chí khi hỏ rồi khởi trại đi đến một nơi nào khác trong một thời gian.
+Question: Hỏ không bao giờ nói cho chúng tôi biết hỏ sẽ đi đầu.
+Label: 0
+
+B) Premise: Mụi thử chúng tôi làm, hỏ chưa bao giờ thồ thị với chúng tôi về bất cứ nơi nào mà hỏ đi, kể tả khi hỏ bờ trại đi đến một địa khác trong một khoảng thời gian.
+Question: Hỏ không bao giờ cho chúng tôi hay hỏ đang đi đầu.
+Label: 0
+
+C) Premise: Tất cả những việc chúng tôi làm, hỏ chưa bao giờ nói với chúng tôi về bất kỹ nơi hỏ đi, kể tả khi hỏ rồi trại đi đến một nơi nào khác trong một thời gian dài.
+Question: Hỏ không bao giờ nói cho chúng tôi biết hỏ sẽ đi làm gì.
+Label: 0
+
+D) Premise: Tất cả những điều chúng tôi làm, họ chưa bao giờ nói với chúng tôi về bất cứ nơi nào họ đến, thậm chí khi họ rời khỏi trại đi đến một nơi nào khác trong một thời gian.
+Question: Họ không bao giờ nói cho chúng tôi biết họ sẽ đi đâu.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ nói, Chúng tôi đang trả tiền cho cái nhà bạn ở.
+Question: Hệ nhị không trả tiền cho bất cứ gì.
+Label: 2 (contradiction)
+
+B) Premise: Hệ nói, Chúng tôi đang trả tiền vào tài khoản của bạn.
+Question: Hệ không trả tiền vào tài khoản của bạn.
+Label: 2 (contradiction)
+
+C) Premise: Họ nói, Chúng tôi đang gửi tiền cho nơi bạn ở.
+Question: Họ sẽ không trả tiền cho bất cứ thứ gì.
+Label: 2 (contradiction)
+
+D) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Họ sẽ không trả tiền cho bất cứ thứ gì.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ nói, Chúng ta đang trả tiền cho nơi bạn ở.
+Question: Họ chi trả tiền thuê cho tôi và các anh chị em của tôi.
+Label: 1 (neutral)
+
+B) Premise: Họ nói, Chúng ta đang chi trả tiền thuê cho bạn.
+Question: Họ chi trả tiền thuê cho tôi và các anh chị em của tôi.
+Label: 1 (neutral)
+
+C) Premise: Họ nói, Chúng ta đang bản tiền cho bạn ở.
+Question: Họ chi trả tiền thuê cho tôi và các anh chị em của tôi.
+Label: 1 (neutral)
+
+D) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Họ trả tiền nhà cho tôi và các anh chị em của tôi.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Hệ nói, Chúng tôi đang trả tiền cho nơi bạn sở.
+Question: Bỏ đang trả tiền nhà ở.
+Label: 0 (entailment)
+
+B) Premise: Hệ nói, Chúng tôi đang chi tiền cho nơi bạn sở.
+Question: Bỏ đang chi tiền nhà ở.
+Label: 0 (entailment)
+
+C) Premise: Hệ nói, Chúng tôi đang thanh toán cho nơi bạn sở.
+Question: Bỏ đang thanh toán nhà ở.
+Label: 0 (entailment)
+
+D) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Họ đang trả tiền nhà ở.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Vâng, dĩ nhiên TỔng thống Kennedy đã phong từa Cuba ngày hôm sau và các tàu của chúng tôi được một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và hỏ đã tìm thấy tên lầ ở đó.
+Question: Kennedy đã yêu cầu quân đội của mình tìm kiếm tên lầ.
+Label: 0
+
+B) Premise: Tổt nhiên, TỔng thống Kennedy đã có quán triệt Cuba ngay ngày hôm sau à các tàu thuyền của chúng tó đã chặn được một chiềc tàu của Liên Xô đang đứng ngay bên ngoài ranh giới với Cuba. Kếi điềm tra, hệ thấy rẵng có tên lầ ở đó.
+Question: Kennedy đã yêu cầu quân đội của mình tìm kiếm tên lầ.
+Label: 0
+
+C) Premise: Đúng nhiên, TỔng thống Kennedy đã ra lềnh cách ly Cuba ngay trong ngày hôm sau à các tàu chiến của chúng đã chặn được một con tàu của Nga đang đứng ngay bên ngoài vùng lãnh hài với Cuba. Kếi kiểm tra, tàu chiến phát hiện ra có tên lầ ở đó.
+Question: Kennedy đã yêu cầu quân đội tìm kiếm tên lầ.
+Label: 0
+
+D) Premise: Vâng, tất nhiên Tổng thống Kennedy đã phong tỏa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và họ đã tìm thấy tên lửa ở đó.
+Question: Kennedy yêu cầu quân đội của chúng ta tìm kiếm tên lửa.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đúng, từ nhiên Tổng thống Kennedy đã phong tửa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và hộ tìm thấy tên lả ở đó.
+Question: Hỏ tìm thấy 20 tên lả trên tàu.
+Label: 1 (neutral)
+
+B) Premise: Có, tạt nhiên là Tổng thống Kennedy đã ban hành đống phong tửa Cuba ngay trong ngày hôm sau và các chiền hạm của chúng tôi đã chặn một con tàu thuộc tại Chiến hàng Nga đang neo ngay bên ngoài vùng lánh hải Cuba, tềm thấy một kho tên lả xuyên tại nơi đó.
+Question: Hỏ tìm thấy hai mươi tên lả trên con tàu này.
+Label: 1 (neutral)
+
+C) Premise: Dị, tỉ nhiên, Tổng Thống Kennedy đã áp đặt lệnh cầm vận Cuba vào ngày hôm sau ành hàng tàu của Mô-tô-va chặn cần một tàu chỉ Nga đang đứng neo tại ranh giới lái già Cuba, kéo theo việc tìm ra kho tên lả ở đó.
+Question: Hỏ tìm ra hai mươi tên lả.
+Label: 1 (neutral)
+
+D) Premise: Vâng, tất nhiên Tổng thống Kennedy đã phong tỏa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và họ đã tìm thấy tên lửa ở đó.
+Question: Họ tìm thấy 20 tên lửa trên tàu.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Dù sao thì gã trai trẻ bước vào.
+Question: Người đàn ông bước vào phòng xử án.
+Label: 1 (neutral)
+
+B) Premise: Dù thế nào đi chăng nữa người nam nhi vẫn đi vào.
+Question: Người đàn ông bước vào phòng xử lán.
+Label: 1 (neutral)
+
+C) Premise: Dù thế nào chằng nữa gã trai trẻ vẫn đi vào.
+Question: Người đàn ông bước vào phòng xử lán.
+Label: 1 (neutral)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Người đàn ông bước vào phòng xử án.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""C""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Người đàn ông vẫn liều lĩnh tiến vào nhà.
+Question: Người đàn ông bước vào trong phòng.
+Label: 0 (entailment)
+
+B) Premise: Dù sao thì người cá cũng vào.
+Question: Người cá bước vào phòng.
+Label: 0 (entailment)
+
+C) Premise: Dá vậy, người đàn ông vào.
+Question: Người đàn ông bước vào căn phòng.
+Label: 0 (entailment)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Người đàn ông bước vào phòng.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Bất kể anh chàng làm gì, anh ta vẫn bước vào.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+
+B) Premise: Dù thế nào đi chăng nữa, người đàn ông vẫn tiến vào.
+Question: Anh ta đã chạy theo hướng khác.
+Label: 2 (contradiction)
+
+C) Premise: Mặc dù vậy, anh ta vẫn tiến vào.
+Question: Anh ta đã chạy hướng khác.
+Label: 2 (contradiction)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đá, các bạc của tôi luôn là một nhóm người rất dị nhâu và thể nói, bố mệ và chúng tôi thật sự có một thời gian tuyệt ở đó.
+Question: Bạc của tôi là một cấp vờ rất dị nhâu.
+Label: 1
+
+B) Premise: Đá, ơng bà để à một nhóm người hạnh ủn và tổ nhó, bố mệ và chúng tôi có một thời gian vò cùng.
+Question: Bạc của tôi là một cấp vờ hạnh ủn.
+Label: 1
+
+C) Premise: Vâng, ơng bà và chúng tôi có một thời gian tuyệt cùng.
+Question: Bạc của tôi là một cấp vờ rất tuyệt.
+Label: 1
+
+D) Premise: Ừm, ông bà của tôi luôn là những người rất đáng yêu và đại loại vậy, bố mẹ và chúng tôi thực sự đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Ông bà của tôi là một cặp vợ chồng rất đáng yêu.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tôi không biết liệu ông áy có cề Augusta sau đó hay không.
+Question: Anh ta rời Augusta ngay lập tức.
+Label: 2 (contradiction)
+
+B) Premise: Tôi không biết liệu ông áy có tề Augusta sau đó hay không.
+Question: Ông áy tề Augusta liền tục.
+Label: 2 (contradiction)
+
+C) Premise: Tôi không rổ hưởng anh ta có cề lại Augusta hay không.
+Question: Anh ta rời Augusta ngay lập tức.
+Label: 2 (contradiction)
+
+D) Premise: Tôi không biết liệu anh ta có ở lại Augusta sau đó hay không.
+Question: Anh ta rời khỏi Augusta ngay lập tức.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tất cả cạc điều chúng tôi làm, hỏ chưa bao giờ nói với chúng tôi về bất cứ nơi nào hỏ đến, thẻ khi hỏ rồi khởi trại đi đến một nơi nào khác trong một thời gian.
+Question: Hỏ không bao giờ nói cho chúng tôi biết hỏ sẽ đi đẦu.
+Label: 0 (entailment)
+
+B) Premise: Tất cả cạc điều chúng tôi làm, hỏ chưa bao giờ nói với chúng tôi về bất cứ nơi nào hỏ đến, thẻ khi hỏ rồi khởi trại đi tối một nơi khác trong một thời gian.
+Question: Hỏ không bao giờ nói cho chúng tôi biết hỏ sẽ đi đẦu.
+Label: 0 (entailment)
+
+C) Premise: Tất cả cạc điều chúng tôi làm, hỏ chưa bao giờ nói với chúng tôi về bất cứ nơi nào hỏ đến, thẻ khi hỏ rồi khởi trại đi tối một nơi khác trong một khoảng thời gian.
+Question: Hỏ không bao giờ nói cho chúng tôi biết hỏ sẽ đi đẦu.
+Label: 0 (entailment)
+
+D) Premise: Tất cả những điều chúng tôi làm, họ chưa bao giờ nói với chúng tôi về bất cứ nơi nào họ đến, thậm chí khi họ rời khỏi trại đi đến một nơi nào khác trong một thời gian.
+Question: Họ không bao giờ nói cho chúng tôi biết họ sẽ đi đâu.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Hệ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Hệ sẽ không trả tiền cho bất cứ gì.
+Label: 2 (phễ định)
+
+B) Premise: Bỏ nói, Chúng tôi chi phí cho nơi bạn ở.
+Question: Bỏ sẽ không chi phí cho bất kỳ gì.
+Label: 2 (phễ định)
+
+C) Premise: Bỏ các nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Bỏ không sẽ trả tiền cho bất cứ gì.
+Label: 2 (phễ định)
+
+D) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Họ sẽ không trả tiền cho bất cứ thứ gì.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Hỏ trả tiền nhà cho tôi và các anh chỉ em của tôi.
+Label: 1 (neutral)
+
+B) Premise: Hỏ nói, Chúng tôi đang trả tiền cho nơi bạn sinh sống.
+Question: Hỏ trả tiền nhà cho tôi và các anh chỉ em của tôi.
+Label: 1 (neutral)
+
+C) Premise: Hỏ nói, Chúng tôi đang chi tiền vào nơi ở của bạn.
+Question: Hỏ trả tiền nhà cho tôi và các anh chỉ em của tôi.
+Label: 1 (neutral)
+
+D) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Họ trả tiền nhà cho tôi và các anh chị em của tôi.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""A""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Họ nớ, Chúng tôi đang trả tiền cho căn nhà bạn ở.
+Question: Hệ đang trả tiền nhà ở.
+Label: 0 (entailment)
+
+B) Premise: Hệ nói, Chúng tôi đang chi trả tiền cho nơi bạn sở.
+Question: Hệ đang trả tiền vào tùi nhà.
+Label: 0 (entailment)
+
+C) Premise: Hệ phát biểu, Chúng tôi đang thanh toán chi phí cho cái nhà mà bạn đang sở.
+Question: Hệ đang trả tiền nhà ở.
+Label: 1 (not_entailment)
+
+D) Premise: Họ nói, Chúng tôi đang trả tiền cho nơi bạn ở.
+Question: Họ đang trả tiền nhà ở.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đúng, tất nhiên Tổng thống Kennedy đã phong từa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và hộ đã tìm thấy tên lửa ở đó.
+Question: Kennedy yêu cầu quân đội của chúng tìm kiếm tên lửa.
+Label: 0 (entailment)
+
+B) Premise: Thực tẻ, Tổng thống Kennedy đã áp dụng lệnh cầm vận Cuba ngày hôm sau à các tàu chiến của chúng tôi đã chặn một con tàu của Liên Xô đang đứng ngay bên ngoài lăng thừa biển với Cuba, và hộ tìm ra rằt nhiều tên lửa tại đó.
+Question: Kennedy đã yêu cầu quân đội tìm kiếm tên lửa.
+Label: 0 (entailment)
+
+C) Premise: Tổng thống Kennedy đã áp dụng lệnh cầm vận Cuba vào ngày hôm sau à các tàu chiến của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba. Hộ tìm thấy rằt nhiều tên lửa trên tàu.
+Question: Kennedy đã ra lềnh cho quân đội tìm kiếm tên lửa.
+Label: 0 (entailment)
+
+D) Premise: Vâng, tất nhiên Tổng thống Kennedy đã phong tỏa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và họ đã tìm thấy tên lửa ở đó.
+Question: Kennedy yêu cầu quân đội của chúng ta tìm kiếm tên lửa.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đúng, từ nhiên Tổng thống Kennedy đã phong tửa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và hộ đã tìm thấy tên lửa ở đó.
+Question: Hộ tìm thấy 20 tên lửa trên tàu.
+Label: 1 (neutral)
+
+B) Premise: Chấc chắc, tổng thống Kennedy đã áp dụng lệnh cầm với Cuba ngày tiếp theo và các tàu thuềc thi của chúng đã chặn một chiếc tàu chỉa hàng thủy Nga đang neo ngay bân ngoài vùng làn thể của hồn đảo với Cuba, tìm thấy các tên lửa.
+Question: Có 20 tên lửa trên tàu.
+Label: 1 (neutral)
+
+C) Premise: Dó, Tổng Thống Kennedy, vào ngày hôm sau, đã thực hiện lệnh cầm với Cuba. Các tàu thuềc thi của Hoa Kỳ đã chặn một chiếc tàu thuềc thi của Liên Xô, neo ngay ngoài ranh giới của hai quốc, và tìm thấy một kho tàng quán tự trền boong.
+Question: Có hai mươi tên lửa.
+Label: 1 (neutral)
+
+D) Premise: Vâng, tất nhiên Tổng thống Kennedy đã phong tỏa Cuba ngày hôm sau và các tàu của chúng tôi đã chặn một con tàu của Nga đang đứng ngay bên ngoài ranh giới với Cuba và họ đã tìm thấy tên lửa ở đó.
+Question: Họ tìm thấy 20 tên lửa trên tàu.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tuy nhiên, người đàn ông vản cược bưốc vào.
+Question: Người đàn ông bước vào buồng.
+Label: 0 (entailment)
+
+B) Premise: Tuy nhiên, gã đàn ông vản bưốc vào.
+Question: Gã đàn ông bước vào phòng.
+Label: 0 (entailment)
+
+C) Premise: Dụ, người đàn ông vản bước vào.
+Question: Người đàn ông bước vào phòng.
+Label: 0 (entailment)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Người đàn ông bước vào phòng.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Dù gì đi nữa người đàn ông vẫn tiến vào.
+Question: Anh ta đã phóng đi nơi khác.
+Label: 2 (contradiction)
+
+B) Premise: Dù vậy người đàn ông vẫn bước vào.
+Question: Anh ta đã phóng đi nơi khác.
+Label: 2 (contradiction)
+
+C) Premise: Dù thế người đàn ông vẫn đi vào.
+Question: Anh ta đã phóng đi nơi khác.
+Label: 2 (contradiction)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đúng, ông bà tôi luôn là những người rất dị thương và đại loại vậy, bộ mệ và chúng tôi thực sự đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Phải mất một thời gian dài để lái xe đến nhà để tôi.
+Label: 1 (neutral)
+
+B) Premise: Đúng, ông bà tôi luôn là những người rất vền minh và đại loại vậy, bộ mệ và chúng tôi thực sự đã có một khoảng thời gian hoàn hảo ở đó.
+Question: Phải mất một thời gian dài để lái xe đến nhà để tôi.
+Label: 1 (neutral)
+
+C) Premise: Đúng, ông bà tôi luôn là những người rất dị thương và đại loại vậy, bộ mệ và chúng tôi thực sự đã có một khoảng thời gian thất thì ở đó.
+Question: Phải mất một thời gian dài để lái xe đến nhà để tôi.
+Label: 1 (neutral)
+
+D) Premise: Ừm, ông bà của tôi luôn là những người rất đáng yêu và đại loại vậy, bố mẹ và chúng tôi thực sự đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Phải mất một thời gian dài để lái xe đến nhà ông bà tôi.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đúng, các các bà để tôi luôn là nhịng ngườ rất đáng yêu và cửa loại, ba mệ và chúng tôi thật sự có một khoảng thời gian tuyệt vời ở đó.
+Question: Các các bà tôi là một cập vời chồng rất đáng yêu.
+Label: 0 (entailment)
+
+B) Premise: Đúng, các ông bà của tôi luôn là nhịng ngườ rất dịnh thúv và cửa loại, ba mệ và chúng tôi thật sự có một khoảng thời gian hoàn hảo ở đó.
+Question: Các ông bà tôi là một cập vời chồng rất dịnh thúv.
+Label: 0 (entailment)
+
+C) Premise: Đúng, các ông bà của tôi luôn là nhịng ngườ rất thó và cửa loại, ba mệ và chúng tôi thật sự có một khoảng thời gian thánh công ở đó.
+Question: Các ông bà tôi là một cập vời chồng rất thó.
+Label: 0 (entailment)
+
+D) Premise: Ừm, ông bà của tôi luôn là những người rất đáng yêu và đại loại vậy, bố mẹ và chúng tôi thực sự đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Ông bà của tôi là một cặp vợ chồng rất đáng yêu.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Tuy nhiên, tâm người đà đi
+Question: Người đã vào nhà
+Label: 0 (entailment)
+
+B) Premise: Dễ dù, người đà đi vào
+Question: Người đã vào trong nhà
+Label: 0 (entailment)
+
+C) Premise: Thề nào, quét đân ông vần đế vào
+Question: Quét đân ông rồi không thể nói, nhưng vần bưốc vào
+Label: 0 (entailment)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Người đàn ông bước vào phòng.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""B""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Mặc dù vậy, người đòn ông bước vào.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+
+B) Premise: Dù sao thì người đòn ông tiến tới.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+
+C) Premise: Nhưng mà người đàn ông đã bước vào.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+
+D) Premise: Dù sao thì người đàn ông vẫn bước vào.
+Question: Anh ta đã chạy hướng kia.
+Label: 2 (contradiction)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: ừa, ông bà của tôi luôn là những người rất đạng yêu và ông bạy như ái, bố mệ và chúng tôi thật sự đả cố một khoảng thời gian tuyệt vời ở đó.
+Question: Mất thời gian dài mới mớ đến đến nhà ông bà tôi.
+Label: 1 (neutral)
+
+B) Premise: ừa, ông bà của tôi luôn là những người rất đạng thương và ông bạy như ái, bố mệ và chúng tôi thật sự đả cố một khoảng thời gian thần thời ở đó.
+Question: Mất thời gian dài mới mớ đến đến nhà ông bà tôi.
+Label: 1 (neutral)
+
+C) Premise: Thợ, ông bà tôi luôn là những người rất đảng yêu và ông bạy như ái, bố mệ và chúng tôi có một khoảng thời gian phá là ở đó.
+Question: Mất thời gian dài mới mớ đến đến nhà ông bà tôi.
+Label: 1 (neutral)
+
+D) Premise: Ừm, ông bà của tôi luôn là những người rất đáng yêu và đại loại vậy, bố mẹ và chúng tôi thực sự đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Phải mất một thời gian dài để lái xe đến nhà ông bà tôi.
+Label: 1 (neutral)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"
+"{""answer"": ""D""}","Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xnli dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.
+---
+Options are listed below:
+
+A) Premise: Đó, các các ơng bà đế ý thậ;t đáng yêu à thường lò à ô, ba mệ à chúng tôi thậ;t sự có một khoảng thời gian tuyệt vời ở đó.
+Question: Các các ơng bà của tôi là một cập vời về đáng yêu.
+Label: 0 (entailment)
+
+B) Premise: Đó, ơng và mặ đế ý thậ;t đáng yêu à thường lô à ô, ba mệ à chúng tôi thậ;t sự có một khoảng thời gian ái thượng ở đó.
+Question: Các ơng và mặ đế ý thậ;t đáng yêu.
+Label: 0 (entailment)
+
+C) Premise: Văng, cha mặ đế ý là một đối đáng yêu à thường lô à ô, chúng tôi à chúng tôi đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Cha mặ đế ý là một đối đáng yêu.
+Label: 0 (entailment)
+
+D) Premise: Ừm, ông bà của tôi luôn là những người rất đáng yêu và đại loại vậy, bố mẹ và chúng tôi thực sự đã có một khoảng thời gian tuyệt vời ở đó.
+Question: Ông bà của tôi là một cặp vợ chồng rất đáng yêu.
+Label: 0 (entailment)
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```"

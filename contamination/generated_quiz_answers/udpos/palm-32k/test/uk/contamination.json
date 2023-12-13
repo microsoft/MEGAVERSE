@@ -1,0 +1,1 @@
+{"dataset_name": "udpos", "dataset_split": "test", "model_name": "palm-32k", "lang": "uk", "out_dir": "contamination/generated_quiz_answers/udpos/palm-32k/test/uk", "chat_prompt": false, "substrate_prompt": false, "max_tokens": 10, "temperature": 0.0, "score": 0.08, "contamination": -0.22666666666666666}
