@@ -167,7 +167,7 @@ def get_quiz_answers(
             chat_prompt,
             substrate_prompt,
             pydantic_parser,
-        )
+        ).strip()
         answer = model_completion(
             prompt,
             model_name,
@@ -178,14 +178,14 @@ def get_quiz_answers(
             llm_client=llm_client,
         )
         try:
-            # parsed_response = pydantic_parser.parse(answer)
+            parsed_response = pydantic_parser.parse(answer)
             # parsed_response = {}
-            parsed_response = '{"answer": ' + '"' + answer + '"' + "}"
+            # parsed_response = '{"answer": ' + '"' + answer + '"' + "}"
             
             results.append(
                 {
-                    # "answer": parsed_response.json(),
-                    "answer": parsed_response,
+                    "answer": parsed_response.json(),
+                    # "answer": parsed_response,
                     "prompt": prompt,
                 }
             )
