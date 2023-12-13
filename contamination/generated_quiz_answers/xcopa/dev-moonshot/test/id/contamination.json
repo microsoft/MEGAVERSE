@@ -1,0 +1,1 @@
+{"dataset_name": "xcopa", "dataset_split": "test", "model_name": "dev-moonshot", "lang": "id", "out_dir": "contamination/generated_quiz_answers/xcopa/dev-moonshot/test/id", "chat_prompt": true, "substrate_prompt": true, "max_tokens": 50, "temperature": 0.0, "score": 0.66, "contamination": 0.5466666666666667}

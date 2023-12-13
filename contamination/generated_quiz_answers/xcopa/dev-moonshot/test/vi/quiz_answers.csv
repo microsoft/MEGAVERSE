@@ -1,0 +1,3851 @@
+answer,prompt
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các mặt hàng đã được bọc trong vỏ bong bóng.
+choice1: Nó dễ hỏng.
+choice2: Nó nhẹ.
+label: choice1
+
+B) premise: Các mặt hàng đã được gói trong lớp bọt biển.
+choice1: Nó dễ nứt.
+choice2: Nó bé.
+label: choice1
+
+C) premise: Các mặt hàng đã được đan trong tầng bong bóng.
+choice1: Nó dễ bể.
+choice2: Nó nhỏ xíu.
+label: choice1D) 'premise': Các mặt hàng đã được đóng gói trong bọc bong bóng.
+'choice1': Nó dễ vỡ.
+'choice2': Nó nhỏ.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi soi bên trong túi của tôi.
+choice1: Tôi lôi ra một tấm vé.
+choice2: Tôi thấy một khẩu súng.
+label: choice1
+
+B) premise: Tôi nhìn sang túi của tôi.
+choice1: Tôi rút ra một vế vé.
+choice2: Tôi phát hiện một khúc sắt.
+label: choice1
+
+C) premise: Tôi kẹp túi của tôi.
+choice1: Tôi đưa lên một tờ vé.
+choice2: Tôi nhận ra một món đồ.
+label: choice1D) 'premise': Tôi lục túi của tôi.
+'choice1': Tôi lấy một cuống vé.
+'choice2': Tôi tìm thấy một vũ khí.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Mối đầy nhà.
+choice1: Mối tẩu thoát khỏi nhà.
+choice2: Mối phá hoại gỗ trong nhà.
+label: choice2
+
+B) premise: Mối đầy nhà.
+choice1: Mối trốn khỏi nhà.
+choice2: Mối tàn phá gỗ trong nhà.
+label: choice2
+
+C) premise: Mối đầy nhà.
+choice1: Mối thoát khỏi nhà.
+choice2: Mối hủy diệt gỗ trong nhà.
+label: choice2D) 'premise': Mối đầy nhà.
+'choice1': Mối biến mất khỏi nhà.
+'choice2': Mối ăn gỗ trong nhà.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các du lịch viên đã đến ranh giới.
+choice1: Các nhân viên duyệt hộ chiếu của họ.
+choice2: Các nhân viên duyệt cáo buộc họ buôn lậu.
+label: choice1
+
+B) premise: Các khách du lịch đã đến biên cương.
+choice1: Các nhân viên kiểm duyệt hộ chiếu của họ.
+choice2: Các nhân viên kiểm duyệt kết tội họ buôn lậu.
+label: choice1
+
+C) premise: Các khách lữ hành đã đến đường biên.
+choice1: Các nhân viên thanh tra hộ chiếu của họ.
+choice2: Các nhân viên thanh tra buộc tội họ buôn lậu.
+label: choice1D) 'premise': Các du khách đã đến biên giới.
+'choice1': Các nhân viên tuần tra kiểm tra hộ chiếu của họ.
+'choice2': Các nhân viên tuần tra buộc tội họ buôn lậu.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Công sở tạm ngưng hoạt động.
+choice1: Đang thời kỳ nghỉ lễ.
+choice2: Đang giai đoạn hè.
+label: choice1
+
+B) premise: Văn phòng tạm thời đóng cửa.
+choice1: Đang kỳ nghỉ phép.
+choice2: Đang mùa nắng nóng.
+label: choice1
+
+C) premise: Cơ quan tạm dừng làm việc.
+choice1: Đang chu kỳ nghỉ mát.
+choice2: Đang đợt hè.
+label: choice1D) 'premise': Văn phòng đóng cửa.
+'choice1': Đang vào đợt nghỉ.
+'choice2': Đang mùa hè.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô gái kiệt sức.
+choice1: Cô chơi cờ vây.
+choice2: Cô nhảy dây.
+label: choice2
+
+B) premise: Cô gái mệt mỏi.
+choice1: Cô chơi cờ caro.
+choice2: Cô nhảy dây.
+label: choice2
+
+C) premise: Cô gái mệt nhoài.
+choice1: Cô chơi cờ tướng.
+choice2: Cô nhảy dây.
+label: choice2D) 'premise': Cô gái hết năng lượng.
+'choice1': Cô chơi cờ đam.
+'choice2': Cô nhảy dây.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người phụ nữ bị mất vị trí trong hàng.
+choice1: Đám đông tăng lên.
+choice2: Bà rời đi khỏi hàng.
+label: choice2
+
+B) premise: Người phụ nữ đánh mất chỗ của mình trong hàng.
+choice1: Nhiều người thêm vào hàng.
+choice2: Cô đi ra ngoài hàng.
+label: choice2
+
+C) premise: Người phụ nữ mất đi chỗ đứng trong hàng.
+choice1: Đông người gia tăng.
+choice2: Bà bước ra khỏi hàng.
+label: choice2D) 'premise': Người phụ nữ mất chỗ trong hàng.
+'choice1': Nhiều người hơn đaz vào hàng.
+'choice2': Cô bước ra khỏi hàng.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô gái vặn mũi.
+choice1: Đứa bé ứa nước miếng trên cái giẻ của cô.
+choice2: Đứa bé làm ướt quần áo của mình.
+label: choice2
+
+B) premise: Cô gái ngạt mũi.
+choice1: Đứa bé ốm nước dãi trên cái khăn của cô.
+choice2: Đứa bé làm đầy tã của mình.
+label: choice2
+
+C) premise: Cô gái bóp mũi.
+choice1: Đứa bé nhổ nước bọt trên cái lót của cô.
+choice2: Đứa bé làm dơ quần lót của mình.
+label: choice2D) 'premise': Cô gái véo mũi.
+'choice1': Đứa bé chảy nước dãi trên chiếc yếm của cô.
+'choice2': Đứa bé làm bẩn tã của mình.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Ban nhạc chơi bản nhạc ăn khách của họ.
+choice1: Khán giả hoan hô theo tiếng nhạc.
+choice2: Khán giả trang trọng thưởng thức trong yên lặng.
+label: choice1
+
+B) premise: Ban nhạc chơi ca khúc nổi tiếng của họ.
+choice1: Khán giả hoà mình vào điệu nhạc.
+choice2: Khán giả tôn trọng nghe trong tĩnh lặng.
+label: choice1
+
+C) premise: Ban nhạc chơi nhạc phẩm thành công của họ.
+choice1: Khán giả reo hò theo giai điệu.
+choice2: Khán giả kính nể lắng nghe trong lặng thinh.
+label: choice1D) 'premise': Ban nhạc chơi bài hát hit của họ.
+'choice1': Khán giả vỗ tay theo điệu nhạc.
+'choice2': Khán giả lịch sự lắng nghe trong im lặng.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô gái muốn biểu lộ sự biết ơn của mình với cô giáo dạy toán.
+choice1: Cô gái uốn ngoan sau lớp học.
+choice2: Cô gái tặng cho cô giáo một quả cam.
+label: choice2
+
+B) premise: Cô gái muốn tri ân cô giáo dạy toán.
+choice1: Cô gái ở lại sau giờ học.
+choice2: Cô gái mua cho cô giáo một quả lê.
+label: choice2
+
+C) premise: Cô gái muốn bày tỏ lòng kính trọng đối với cô giáo dạy toán.
+choice1: Cô gái chờ cô giáo sau buổi học.
+choice2: Cô gái cho cô giáo một quả dưa.
+label: choice2D) 'premise': Cô gái muốn cảm ơn cô giáo dạy toán.
+'choice1': Cô gái bị giữ lại sau giờ học.
+'choice2': Cô gái mang cho cô giáo một quả táo.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các trại sinh nhỏ bị hoang mang.
+choice1: Người hướng dẫn trại kể cho họ một truyện kinh dị.
+choice2: Họ nướng kẹo nhân trên lửa trại.
+label: choice1
+
+B) premise: Các em nhỏ ở trại thấy sợ run.
+choice1: Người chỉ dẫn trại làm cho họ nghe một chuyện ma quái.
+choice2: Họ nướng kẹo bông trên lửa trại.
+label: choice1
+
+C) premise: Các học trò trại lo lắng.
+choice1: Người dìu dắt trại truyền tai cho họ một câu chuyện đáng sợ.
+choice2: Họ nướng kẹo phồng trên lửa trại.
+label: choice1D) 'premise': Các trại viên trẻ cảm thấy sợ hãi.
+'choice1': Cố vấn trại của họ kể cho họ một câu chuyện ma.
+'choice2': Họ nướng marshmallows trên lửa trại.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông đập đầu.
+choice1: Anh mất trí.
+choice2: Anh ấy bị chọng.
+label: choice2
+
+B) premise: Người đàn ông đập đầu.
+choice1: Anh tâm thần.
+choice2: Anh ấy bị rung lắc.
+label: choice2
+
+C) premise: Người đàn ông đập đầu.
+choice1: Anh mơ màng.
+choice2: Anh ấy bị sẩy não.
+label: choice2D) 'premise': Người đàn ông đập đầu.
+'choice1': Anh lạc trong suy nghĩ.
+'choice2': Anh ấy bị chấn động.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bài viết của tôi bị từ chối.
+choice1: Số dư ngân hàng của tôi không còn gì.
+choice2: Tôi đã được thăng chức.
+label: choice1
+
+B) premise: Đoạn văn tôi soạn bị hoàn trả.
+choice1: Tài khoản tiết kiệm của tôi cạn kiệt.
+choice2: Tôi đã được nâng lương.
+label: choice1
+
+C) premise: Bài báo tôi gửi bị gửi lại.
+choice1: Số tiền ngân hàng của tôi hết sạch.
+choice2: Tôi đã được tăng thưởng.
+label: choice1D) 'premise': Check tôi viết bị trả lại.
+'choice1': Tài khoản ngân hàng của tôi trống rỗng.
+'choice2': Tôi đã được tăng lương.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Thư viện điện tử của ông ấy ngập email rác.
+choice1: Ông ấy dọn email rác.
+choice2: Ông ấy phát một thư điện tử lớp.
+label: choice1
+
+B) premise: Hộp thư của ông ấy chứa nhiều thư quảng cáo.
+choice1: Ông ấy xóa thư quảng cáo.
+choice2: Ông ấy gửi một thư điện tử khối.
+label: choice1
+
+C) premise: Hộp thư nhận của ông ấy đầy email phiền phức.
+choice1: Ông ấy loại bỏ email phiền phức.
+choice2: Ông ấy gửi một email đồng loạt.
+label: choice1D) 'premise': Hộp thư đến của ông ấy đầy thư rác.
+'choice1': Ông ấy xóa thư rác.
+'choice2': Ông đã gửi một email hàng loạt.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Thủy thủ đã bị cô lập.
+choice1: Anh đã có mặt ở vùng dịch.
+choice2: Anh đã hồi phục.
+label: choice1
+
+B) premise: Người lái đò đã phải cách ly.
+choice1: Anh đã tiếp xúc với người bệnh.
+choice2: Anh đã khỏi bệnh.
+label: choice1
+
+C) premise: Người đi biển đã bị cách ly.
+choice1: Anh đã dính vào ổ dịch.
+choice2: Anh đã bình phục.
+label: choice1D) 'premise': Người thủy thủ đã được cách ly.
+'choice1': Anh đã tiếp xúc với dịch bệnh.
+'choice2': Anh đã khỏi bệnh.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô gái lưu giữ mã.
+choice1: Cô tự tưởng tượng lại.
+choice2: Cô bỏ qua không ghi chép nó.
+label: choice1
+
+B) premise: Cô gái nhớ mã.
+choice1: Cô tự nhắc đi nhắc lại.
+choice2: Cô bỏ sót không viết ra giấy.
+label: choice1
+
+C) premise: Cô gái giữ mã trong đầu.
+choice1: Cô tự lặp lại nó.
+choice2: Cô phớt lờ không chép nó.
+label: choice1D) 'premise': Cô gái ghi nhớ mã.
+'choice1': Cô tự đọc nhẩm lại.
+'choice2': Cô quên viết nó xuống.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi đổ nước vào ly.
+choice1: Nước làm hạ nhiệt cơn khát của tôi.
+choice2: Chiếc ly trở nên tràn đầy.
+label: choice2
+
+B) premise: Tôi chuyển nước vào ly.
+choice1: Nước làm giảm cơn khát của tôi.
+choice2: Chiếc ly trở nên nước đầy.
+label: choice2
+
+C) premise: Tôi lấy nước vào ly.
+choice1: Nước làm tiêu cơn khát của tôi.
+choice2: Chiếc ly trở nên đầy ớt.
+label: choice2D) 'premise': Tôi rót nước vào ly.
+'choice1': Nước làm dịu cơn khát của tôi.
+'choice2': Chiếc ly trở nên đầy.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông không phát âm tiếng nào khi nghe bạn nói xong.
+choice1: Ông ấy muốn ủng hộ bạn nói.
+choice2: Ông ấy đang suy ngẫm về những lời của bạn nói.
+label: choice2
+
+B) premise: Người đàn ông vẫn câm nín khi bạn nói hết.
+choice1: Ông ấy muốn giúp đỡ bạn nói.
+choice2: Ông ấy đang suy nghĩ về những gì bạn nói.
+label: choice2
+
+C) premise: Người đàn ông không nói gì khi bạn nói xong.
+choice1: Ông ấy muốn động viên bạn nói.
+choice2: Ông ấy đang cân nhắc về những lời bạn nói.
+label: choice2D) 'premise': Người đàn ông vẫn im lặng khi bạn mình nói xong.
+'choice1': Ông ấy muốn hỗ trợ bạn mình.
+'choice2': Ông ấy đang nghĩ về những lời nói của bạn mình.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi gây ra tai nạn.
+choice1: Tôi ân hận.
+choice2: Tôi đâm đơn.
+label: choice1
+
+B) premise: Tai nạn do tôi mắc sai lầm.
+choice1: Tôi hối hận.
+choice2: Tôi kiện tụng.
+label: choice1
+
+C) premise: Tôi có lỗi với tai nạn.
+choice1: Tôi xin lỗi.
+choice2: Tôi tố cáo.
+label: choice1D) 'premise': Tai nạn là lỗi của tôi.
+'choice1': Tôi cảm thấy tội lỗi.
+'choice2': Tôi kiện.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Dây xích đã bị đứt.
+choice1: Dây xích bị xoắn lấy một bánh xe.
+choice2: Có một mắt xích bị vỡ trong dây.
+label: choice2
+
+B) premise: Dây xích đã bị đứt.
+choice1: Dây xích bị rối vào một lốp xe.
+choice2: Có một phần nối bị gãy trong dây.
+label: choice2
+
+C) premise: Dây xích đã bị đứt.
+choice1: Dây xích bị thắt quanh một vành xe.
+choice2: Có một đoạn xích bị hư trong dây.
+label: choice2D) 'premise': Dây xích đã bị đứt.
+'choice1': Dây xích bị quấn quanh một lốp xe.
+'choice2': Có một liên kết bị hỏng trong dây.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Hai bên chồng vợ thống nhất nhượng bộ.
+choice1: Họ không chịu được vì cãi vã.
+choice2: Họ né tránh bàn luận về vấn đề này.
+label: choice1
+
+B) premise: Hai người chung sống đồng ý nhịn nhục.
+choice1: Họ lên cơn mệt mỏi vì gây gổ.
+choice2: Họ lảng tránh nói chuyện về vấn đề này.
+label: choice1
+
+C) premise: Hai quả phụ thuộc nhau ứng xử khoan dung.
+choice1: Họ mệt nhoài vì xung đột.
+choice2: Họ trốn chạy thảo thích về vấn đề này.
+label: choice1D) 'premise': Hai vợ chồng quyết định thỏa hiệp.
+'choice1': Họ trở nên mệt mỏi vì tranh cãi.
+'choice2': Họ tránh thảo luận về vấn đề này.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bà phụ nữ quyết tâm tranh cử chức vụ.
+choice1: Bà đã thuê một người điều phối chiến lược.
+choice2: Bà làm lời khai tại phiên tòa.
+label: choice1
+
+B) premise: Phụ nữ quyết đoán phấn đấu cho chức danh.
+choice1: Bà đã thuê một người quản lý chiến lược.
+choice2: Bà làm chứng tại tòa án.
+label: choice1
+
+C) premise: Bà phụ nữ quyết chí ứng cử vị trí.
+choice1: Bà đã thuê một người thực hiện chiến dịch.
+choice2: Bà làm lời khai trước tòa.
+label: choice1D) 'premise': Người phụ nữ quyết định ứng cử công chức.
+'choice1': Cô đã thuê một người quản lý chiến dịch.
+'choice2': Cô làm chứng trước tòa.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông dự kiến thời tiết rét trong chuyến du lịch của mình.
+choice1: Anh gói đồ len vào hành lý.
+choice2: Anh phượt với một chiếc vali to.
+label: choice1
+
+B) premise: Người đàn ông dự báo thời tiết lạnh trong chuyến đi xa của mình.
+choice1: Anh nhồi quần áo nỉ vào túi xách.
+choice2: Anh du ngoạn với một chiếc vali khổng lồ.
+label: choice1
+
+C) premise: Người đàn ông dự định thời tiết lẫn trong chuyến ham chơi của mình.
+choice1: Anh đóng quần áo bông vào thùng.
+choice2: Anh dạo phố với một chiếc vali đồ sộ.
+label: choice1D) 'premise': Người đàn ông dự đoán thời tiết lạnh trong chuyến đi của mình.
+'choice1': Anh xếp quần áo ấm vào vali.
+'choice2': Anh đi du lịch với một chiếc vali lớn.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Học sinh nhận ra đáp án của câu hỏi.
+choice1: Cậu ấy giương tay.
+choice2: Cậu ấy lười biếng.
+label: choice1
+
+B) premise: Học sinh hiểu rõ câu hỏi.
+choice1: Cậu ấy đưa tay.
+choice2: Cậu ấy thờ ơ.
+label: choice1
+
+C) premise: Học sinh nắm được câu hỏi.
+choice1: Cậu ấy vẫy tay.
+choice2: Cậu ấy uể oải.
+label: choice1D) 'premise': Học sinh biết câu trả lời cho câu hỏi.
+'choice1': Cậu ấy giơ tay.
+'choice2': Cậy ấy làm biếng.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông chảy nước mắt.
+choice1: Bụi bặm vào mắt ông ta.
+choice2: Anh ta đeo gọng mắt lên.
+label: choice1
+
+B) premise: Người đàn ông sụt sùi.
+choice1: Bụi vẩn vào mắt ông ấy.
+choice2: Anh ấy đội kính lên mắt.
+label: choice1
+
+C) premise: Người đàn ông rơi lệ.
+choice1: Bụi phấn vào mắt ông nọ.
+choice2: Anh nọ đeo kính áp tròng lên.
+label: choice1D) 'premise': Người đàn ông ngấn lệ.
+'choice1': Bụi bay vào mắt ông ấy.
+'choice2': Anh đeo kính lên mắt.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người chơi đã chiến thắng năm trận liên tục.
+choice1: Đối thủ của cô cáo buộc cô gian lận.
+choice2: Đối thủ của cô thương cảm cho cô.
+label: choice1
+
+B) premise: Người chơi đã đoạt năm trận liền một.
+choice1: Đối thủ của cô tố cáo cô gian lận.
+choice2: Đối thủ của cô xót xa cho cô.
+label: choice1
+
+C) premise: Người chơi đã vượt qua năm trận liên hoàn.
+choice1: Đối thủ của cô buộc tội cô gian lận.
+choice2: Đối thủ của cô đồng cảm cho cô.
+label: choice1D) 'premise': Người chơi đã thắng năm trận liên tiếp.
+'choice1': Đối thủ của cô buộc tội cô gian lận.
+'choice2': Đối thủ của cô cảm thấy tiếc cho cô.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Thầy giáo xé nát bài làm của học trò.
+choice1: Ông ấy phát hiện học trò ăn gian.
+choice2: Đáp án của học trò không đúng.
+label: choice1
+
+B) premise: Giáo sư rách bài thi của sinh viên.
+choice1: Người ấy bắt sinh viên quay cóp.
+choice2: Lời giải của sinh viên không chính xác.
+label: choice1
+
+C) premise: Cô giáo nhổ bài đánh giá của học sinh.
+choice1: Bà ấy tóm học sinh gian dối.
+choice2: Câu trả lời của học sinh không đúng.
+label: choice1D) 'premise': Giáo viên xé bài kiểm tra của học sinh.
+'choice1': Anh ấy bắt được học sinh gian lận.
+'choice2': Câu trả lời của học sinh không chính xác.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi tạm dừng để ngừng nói chuyện.
+choice1: Tôi không kịp nói.
+choice2: Tôi thiếu hụt không khí.
+label: choice2
+
+B) premise: Tôi dừng lại để chấm dứt nói chuyện.
+choice1: Tôi bị ho.
+choice2: Tôi cạn lời.
+label: choice2
+
+C) premise: Tôi tạm ngừng để hết nói chuyện.
+choice1: Tôi tắt tiếng.
+choice2: Tôi đứt hơi.
+label: choice2D) 'premise': Tôi dừng lại để dừng nói chuyện.
+'choice1': Tôi mất giọng.
+'choice2': Tôi hết hơi.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các thực phẩm đông lạnh hết băng.
+choice1: Tôi nấu nó bằng lò vi sóng.
+choice2: Tôi phủ nó bằng giấy nhựa.
+label: choice1
+
+B) premise: Các thực phẩm đông lạnh thôi băng.
+choice1: Tôi quay nó bằng lò vi sóng.
+choice2: Tôi đóng nó bằng túi nhựa.
+label: choice1
+
+C) premise: Các thực phẩm đông lạnh vón băng.
+choice1: Tôi làm nóng nó bằng lò vi sóng.
+choice2: Tôi gói nó bằng màng nhựa.
+label: choice1D) 'premise': Các thực phẩm đông lạnh tan băng.
+'choice1': Tôi cho nó vào lò vi sóng.
+'choice2': Tôi bọc nó bằng bọc nhựa.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Nhân viên vờ đau.
+choice1: Anh ta bị chướng bụng.
+choice2: Anh ta muốn một ngày nghỉ.
+label: choice2
+
+B) premise: Nhân viên cãi đau.
+choice1: Anh ta bị buồn bụng.
+choice2: Anh ta muốn một ngày nghỉ.
+label: choice2
+
+C) premise: Nhân viên kêu đau.
+choice1: Anh ta bị đau dạ dày.
+choice2: Anh ta muốn một ngày nghỉ.
+label: choice2D) 'premise': Nhân viên giả ốm.
+'choice1': Anh ta bị đau bụng.
+'choice2': Anh ta muốn một ngày nghỉ.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô gái rơi vào hồ bơi.
+choice1: Cô chạy trên vỉa hè bên cạnh hồ bơi.
+choice2: Cô nhảy từ bục nhảy.
+label: choice2
+
+B) premise: Cô gái té xuống bể bơi.
+choice1: Cô chạy trên nền nhà quanh hồ bơi.
+choice2: Cô nhảy qua bảng nhảy.
+label: choice2
+
+C) premise: Cô gái trượt dưới hồ bơi.
+choice1: Cô chạy trên lối đi xung quanh hồ bơi.
+choice2: Cô nhảy lên ván nhảy.
+label: choice2D) 'premise': Cô gái rớt xuống bể bơi.
+'choice1': Cô chạy trên sàn hồ bơi.
+'choice2': Cô nhảy khỏi bảng lặn.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Thẻ xem phim đã mua hết.
+choice1: Đó là ngày ra mắt cho bộ phim.
+choice2: Bộ phim nhận được phản hồi tồi.
+label: choice1
+
+B) premise: Phiếu xem phim đã hết sạch.
+choice1: Đó là ngày công chiếu cho bộ phim.
+choice2: Bộ phim nhận được bình luận xấu.
+label: choice1
+
+C) premise: Chứng xem phim đã bán tất.
+choice1: Đó là ngày trình chiếu cho bộ phim.
+choice2: Bộ phim nhận được đánh giá thấp.
+label: choice1D) 'premise': Vé xem phim đã bán hết.
+'choice1': Đó là ngày khai mạc cho bộ phim.
+'choice2': Bộ phim nhận được đánh giá kém.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông giảm cân.
+choice1: Mọi người xa lánh anh.
+choice2: Mọi người tán dương anh.
+label: choice2
+
+B) premise: Người đàn ông giảm cân.
+choice1: Mọi người cách ly anh.
+choice2: Mọi người ca ngợi anh.
+label: choice2
+
+C) premise: Người đàn ông giảm cân.
+choice1: Mọi người lánh xa anh.
+choice2: Mọi người khen ngợi anh.
+label: choice2D) 'premise': Người đàn ông giảm cân.
+'choice1': Mọi người cô lập anh.
+'choice2': Mọi người khen anh.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bàn tay của cô gái trở nên sưng tấy.
+choice1: Cô viết một bức thư.
+choice2: Cô leo lên một sợi thừng.
+label: choice2
+
+B) premise: Bàn tay của cô gái trở nên nề hà.
+choice1: Cô soạn một lá thư.
+choice2: Cô bò lên một sợi dây.
+label: choice2
+
+C) premise: Bàn tay của cô gái trở nên tấy đỏ.
+choice1: Cô chép một bức thư.
+choice2: Cô trèo lên một sợi thừng.
+label: choice2D) 'premise': Bàn tay của cô gái trở nên phồng rộp.
+'choice1': Cô gõ một lá thư.
+'choice2': Cô trèo lên một sợi dây.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người diễn xiếc ném bắt trong khi đi xe đạp đơn.
+choice1: Khán giả vỗ tay trong sự kinh ngạc.
+choice2: Acrobat nhảy lên từ một chiếc xích.
+label: choice1
+
+B) premise: Người diễn xiếc quăng hứng trong khi đi xe đạp một bánh.
+choice1: Khán giả hò hét trong sự kinh thích.
+choice2: Acrobat bật lên từ một cái gài.
+label: choice1
+
+C) premise: Người diễn xiếc phóng ném trong khi đi xe đạp đơn.
+choice1: Khán giả cổ vũ trong sự thán phục.
+choice2: Acrobat rơi xuống từ một cái đuôi.
+label: choice1D) 'premise': Người biểu diễn xiếc tung hứng trong khi đi xe đạp một bánh.
+'choice1': Khán giả reo hò trong sự ngạc nhiên.
+'choice2': Acrobat vung lên từ một cái bẫy.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi không chịu nổi.
+choice1: Bạn tôi để tôi đợi.
+choice2: Bạn tôi tới đúng hẹn.
+label: choice1
+
+B) premise: Tôi bực mình.
+choice1: Bạn tôi khiến tôi chờ.
+choice2: Bạn tôi đến đúng lúc.
+label: choice1
+
+C) premise: Tôi hết kiên trì.
+choice1: Bạn tôi quên tôi mất.
+choice2: Bạn tôi có mặt đúng giờ.
+label: choice1D) 'premise': Tôi mất kiên nhẫn.
+'choice1': Bạn tôi làm tôi chờ.
+'choice2': Bạn tôi đến đúng giờ.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các nước tranh đấu muốn bình yên.
+choice1: Họ đã nghiên cứu vũ khí nguyên tử.
+choice2: Họ đã đàm phán một thoả thuận.
+label: choice2
+
+B) premise: Các nước đối đầu muốn ổn định.
+choice1: Họ đã sáng chế vũ khí hạch.
+choice2: Họ đã hội đàm một hợp đồng.
+label: choice2
+
+C) premise: Các nước giằng co muốn thỏa hiệp.
+choice1: Họ đã tạo ra vũ khí phân tử.
+choice2: Họ đã thảo luận một giao kèo.
+label: choice2D) 'premise': Các nước tham chiến muốn hòa bình.
+'choice1': Họ đã phát triển vũ khí hạt nhân.
+'choice2': Họ đã thương lượng một hiệp ước.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông uống thuốc để ngủ.
+choice1: Ông cảm thấy mệt mỏi.
+choice2: Ông bị nóng.
+label: choice1
+
+B) premise: Người đàn ông uống thuốc an thần.
+choice1: Ông có cơn buồn ngủ.
+choice2: Ông bị ốm.
+label: choice1
+
+C) premise: Người đàn ông uống thuốc đình chỉ.
+choice1: Ông trở nên ngủ gà.
+choice2: Ông bị phát ban.
+label: choice1D) 'premise': Người đàn ông uống thuốc ngủ.
+'choice1': Ông trở nên buồn ngủ.
+'choice2': Ông bị sốt.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bà cụ đâm vào băng ghế sofa.
+choice1: Chân băng ghế sofa bị lật tung.
+choice2: Bà bị bầm dập gối chân.
+label: choice2
+
+B) premise: Quý cô va phải ghế dài.
+choice1: Chân ghế dài bị gãy ra.
+choice2: Cô sưng tím xương gối.
+label: choice2
+
+C) premise: Cô gái vấp ngã về phía ghế salon.
+choice1: Chân ghế salon bị nứt ra.
+choice2: Cô bị thâm màu đốt gối.
+label: choice2D) 'premise': Người phụ nữ va vào ghế sofa.
+'choice1': Chân ghế sofa bị lỏng ra.
+'choice2': Cô bầm tím đầu gối.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Đứa trẻ nén quả cầu không khí.
+choice1: Bi hơi vỡ.
+choice2: Bi hơi phất lên.
+label: choice1
+
+B) premise: Bé gái nghịch ổ khí đốt.
+choice1: Hạt giọng nứt.
+choice2: Hạt giọng bị phóng.
+label: choice1
+
+C) premise: Em bé chọc viên phi khí.
+choice1: Bóng bay toang.
+choice2: Bóng bay thoát ra.
+label: choice1D) 'premise': Cậu bé bóp bóng bay.
+'choice1': Bong bóng nổ.
+'choice2': Bong bóng bay đi.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Du khách đã nhận lấy phòng khách sạn.
+choice1: Họ bung hành lý ra.
+choice2: Họ đã tới phi trường.
+label: choice1
+
+B) premise: Du khách đã đăng ký phòng khách sạn.
+choice1: Họ mở vali ra.
+choice2: Họ đã đến sân bay.
+label: choice1
+
+C) premise: Du khách đã nhận được phòng khách sạn.
+choice1: Họ xả lý ra.
+choice2: Họ đã đặt chân đến phi trường.
+label: choice1D) 'premise': Du khách đã nhận phòng khách sạn.
+'choice1': Họ tháo vali ra.
+'choice2': Họ đã đến sân bay.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi nhai quả đào.
+choice1: Quả đào nát tan.
+choice2: Nước trái cây chảy ra.
+label: choice2
+
+B) premise: Tôi ăn quả đào.
+choice1: Quả đào bị bể.
+choice2: Nước trái cây đổ ra.
+label: choice2
+
+C) premise: Tôi ngậm quả đào.
+choice1: Quả đào vỡ ra.
+choice2: Nước trái cây lênh láng.
+label: choice2D) 'premise': Tôi cắn vào quả đào.
+'choice1': Quả đào bầm dập.
+'choice2': Nước trái cây tràn ra.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bàn tay tôi bị nhớt.
+choice1: Tôi ăn một chiếc bánh ngọt.
+choice2: Tôi thưởng thức đồ ngọt.
+label: choice1
+
+B) premise: Tay tôi sền sệt.
+choice1: Tôi ăn một chiếc bánh sữa.
+choice2: Tôi mê đồ ngọt.
+label: choice1
+
+C) premise: Lòng bàn tay tôi trơn trượt.
+choice1: Tôi ăn một chiếc bánh quy.
+choice2: Tôi ham đồ ngọt.
+label: choice1D) 'premise': Tay tôi trở nên dính.
+'choice1': Tôi đã ăn một chiếc bánh rán.
+'choice2': Tôi thích ăn ngọt.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi ấn cửa.
+choice1: Cánh cửa há mở.
+choice2: Cánh cửa bị đóng.
+label: choice1
+
+B) premise: Tôi lùi cửa.
+choice1: Cánh cửa ra vào.
+choice2: Cánh cửa cố định.
+label: choice1
+
+C) premise: Tôi kéo cửa.
+choice1: Cánh cửa riêng rẽ.
+choice2: Cánh cửa chung nhau.
+label: choice1D) 'premise': Tôi đẩy cửa.
+'choice1': Cánh cửa mở ra.
+'choice2': Cánh cửa bị khóa.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các nhà hoạt động ngăn cản các sản phẩm.
+choice1: Các sản phẩm đã được thử nghiệm để bảo đảm chất lượng.
+choice2: Các sản phẩm được chế tạo nhờ lao động trẻ em.
+label: choice2
+
+B) premise: Các nhà hoạt động biểu tình chống lại các sản phẩm.
+choice1: Các sản phẩm đã được kiểm duyệt để đảm bảo chất lượng.
+choice2: Các sản phẩm được sản xuất do lao động trẻ em.
+label: choice2
+
+C) premise: Các nhà hoạt động phản đối các sản phẩm.
+choice1: Các sản phẩm đã được kiểm tra để bảo đảm chất lượng.
+choice2: Các sản phẩm được làm ra bằng lao động trẻ em.
+label: choice2D) 'premise': Các nhà hoạt động tẩy chay các sản phẩm.
+'choice1': Các sản phẩm đã được kiểm tra để đảm bảo chất lượng.
+'choice2': Các sản phẩm được sản xuất thông qua lao động trẻ em.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bà hận đời khi nhìn thấy chị ruột của mình.
+choice1: Chị ấy vui vẻ.
+choice2: Chị ấy đã tan gia bại sản.
+label: choice1
+
+B) premise: Phụ nữ đố kỵ vì chị mình có cuộc sống tốt đẹp.
+choice1: Chị nàng có hạnh phúc.
+choice2: Chị nàng đã chia tay chồng.
+label: choice1
+
+C) premise: Bà ta cảm thấy ghen ghét với chị gái của bà.
+choice1: Chị bà có niềm vui.
+choice2: Chị bà đã ly thân.
+label: choice1D) 'premise': Người phụ nữ cảm thấy ghen tị với chị gái mình.
+'choice1': Chị cô hạnh phúc.
+'choice2': Chị gái cô đã ly hôn.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi đánh văng ly rượu lên áo.
+choice1: Tôi mặc áo khoác.
+choice2: Tôi đã giặt áo.
+label: choice2
+
+B) premise: Tôi làm tràn nước rượu ra áo.
+choice1: Tôi che bằng khăn.
+choice2: Tôi đã đổi áo.
+label: choice2
+
+C) premise: Tôi làm vãi rượu xuống áo.
+choice1: Tôi quấn áo lại.
+choice2: Tôi đã cởi áo.
+label: choice2D) 'premise': Tôi làm đổ rượu lên áo.
+'choice1': Tôi đeo tạp dề.
+'choice2': Tôi đã thay áo.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Nhân viên thu ngân bật máy tính tiền.
+choice1: Người mua tìm trong bóp của anh ta.
+choice2: Khách hàng trả tiền cho cô ấy.
+label: choice2
+
+B) premise: Nhân viên thu ngân khởi động máy tính tiền.
+choice1: Vị khách lục trong túi của mình.
+choice2: Khách hàng thanh toán cho cô.
+label: choice2
+
+C) premise: Nhân viên thu ngân mở máy tính tiền.
+choice1: Khách mua hàng đào trong ví của họ.
+choice2: Khách hàng nộp tiền cho cô.
+label: choice2D) 'premise': Nhân viên thu ngân mở máy tính tiền.
+'choice1': Vị khách kiếm trong ví của mình.
+'choice2': Khách hàng đưa tiền cho cô.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người chơi guitar bên đường gây ấn tượng với đám người.
+choice1: Họ để lại cho chàng các đồng xu.
+choice2: Chàng cảm ơn và chia tay họ.
+label: choice1
+
+B) premise: Nhạc công đánh đàn ở vỉa hè khiến mọi người chú ý.
+choice1: Họ vui lòng đóng góp một ít tiền cho anh.
+choice2: Anh chào tạm biệt và đi rời khỏi đó.
+label: choice1
+
+C) premise: Đoàn người dừng lại để nghe nghệ sĩ biểu diễn nhạc trên phố.
+choice1: Họ thưởng cho anh những tiền lẻ.
+choice2: Anh cúi đầu và tiễn họ đi.
+label: choice1D) 'premise': Nhạc sĩ đường phố thu hút một đám đông.
+'choice1': Mọi người cho anh tiền lẻ.
+'choice2': Anh tiễn đám đông đi.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bé trai lóc cóc với cô giúp việc.
+choice1: Bé muốn gặp mẹ cha.
+choice2: Đến giờ ăn bánh quy.
+label: choice1
+
+B) premise: Cháu nhóc càu nhàu với bà babysitter.
+choice1: Cháu thương bố mẹ.
+choice2: Là lúc ăn vặt.
+label: choice1
+
+C) premise: Đứa bé gào khóc với người giữ trẻ.
+choice1: Đứa nhớ cha mẹ.
+choice2: Tới giờ ăn snack.
+label: choice1D) 'premise': Cậu bé khóc với người trông trẻ.
+'choice1': Cậu ấy nhớ bố mẹ.
+'choice2': Đó là thời gian ăn nhẹ.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Radar của phi công đã nhận diện được một cơn bão.
+choice1: Phi công lách khỏi cơn bão.
+choice2: Phi công đã vượt qua cơn bão.
+label: choice1
+
+B) premise: Radar của phi công đã phân tích ra một cơn bão.
+choice1: Phi công né tránh cơn bão.
+choice2: Phi công đã xuyên qua cơn bão.
+label: choice1
+
+C) premise: Radar của phi công đã dò ra một cơn bão.
+choice1: Phi công tránh né cơn bão.
+choice2: Phi công đã chạy qua cơn bão.
+label: choice1D) 'premise': Radar của phi công đã phát hiện ra một cơn bão.
+'choice1': Phi công điều hướng khỏi cơn bão.
+'choice2': Phi công đã bay qua cơn bão.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cây rụng lá.
+choice1: Lá thay màu.
+choice2: Lá tích tụ trên phố.
+label: choice2
+
+B) premise: Cây rụng lá.
+choice1: Lá đổi sắc.
+choice2: Lá tập trung trên đường.
+label: choice2
+
+C) premise: Cây rụng lá.
+choice1: Lá biến màu.
+choice2: Lá cộng đồng trên lối.
+label: choice2D) 'premise': Cây rụng lá.
+'choice1': Lá chuyển màu.
+'choice2': Lá dồn trên mặt đường.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cậu bé đang trong tâm trạng nghịch ngợm.
+choice1: Cậu quyết định xếp một trận bài với chị gái.
+choice2: Cậu quyết định trêu em gái mình.
+label: choice2
+
+B) premise: Cậu bé đang trong tâm trạng tinh quái.
+choice1: Cậu quyết định đánh một vòng bài với chị gái.
+choice2: Cậu quyết định chọc ghẹo em gái mình.
+label: choice2
+
+C) premise: Cậu bé đang trong tâm trạng quậy phá.
+choice1: Cậu quyết định chơi một cây bài với chị gái.
+choice2: Cậu quyết định nghịch ngợm em gái mình.
+label: choice2D) 'premise': Cậu bé đang trong tâm trạng tinh nghịch.
+'choice1': Cậu quyết định chơi một ván bài với chị gái.
+'choice2': Cậu quyết định chọc em gái mình.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Đứa trẻ than là nó cần đi nhà vệ sinh.
+choice1: Bố nó đưa nó uống nước ngọt.
+choice2: Bố nó tạm dừng xe ở cây xăng.
+label: choice2
+
+B) premise: Đứa trẻ kêu ca rằng nó muốn đi vệ sinh.
+choice1: Bố nó cho phép nó uống nước có ga.
+choice2: Bố nó dừng lại ở trạm dịch vụ.
+label: choice2
+
+C) premise: Đứa trẻ phàn nàn rằng nó không chịu được đi tiểu.
+choice1: Bố nó mua cho nó uống nước soda.
+choice2: Bố nó dừng xe ở chỗ đổ xăng.
+label: choice2D) 'premise': Đứa trẻ phàn nàn rằng nó phải đi vệ sinh.
+'choice1': Bố nó cho nó uống soda.
+'choice2': Bố nó dừng xe ở trạm xăng.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Đứa bé rải miếng mồi cho cá vào bể.
+choice1: Con cá lặn xuống đáy bể.
+choice2: Con cá vẫy về phía miếng mồi.
+label: choice2
+
+B) premise: Đứa nhỏ tung thức ăn cho cá lên bể.
+choice1: Con cá nhảy lên khỏi bể.
+choice2: Con cá bơi tới thức ăn.
+label: choice2
+
+C) premise: Đứa con gieo mồi cho cá xuống bể.
+choice1: Con cá nhô lên khỏi bể.
+choice2: Con cá chạy về phía mồi.
+label: choice2D) 'premise': Đứa trẻ rắc thức ăn cho cá vào bể.
+'choice1': Con cá nhảy ra khỏi bể.
+'choice2': Con cá bơi về phía thức ăn.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Quan điểm chính trị của người phụ nữ đã biến đổi.
+choice1: Cô thay đổi sự gắn kết đảng của mình.
+choice2: Cô tham dự một cuộc biểu tình.
+label: choice1
+
+B) premise: Quan điểm chính trị của người phụ nữ đã đổi khác.
+choice1: Cô cải thiện liên hệ đảng của mình.
+choice2: Cô tham gia vào một cuộc vận động.
+label: choice1
+
+C) premise: Quan điểm chính trị của người phụ nữ đã thay đổi.
+choice1: Cô chuyển đổi quan hệ đảng của mình.
+choice2: Cô tham gia vào một cuộc tuần hành.
+label: choice1D) 'premise': Quan điểm chính trị của người phụ nữ đã thay đổi.
+'choice1': Cô chuyển liên kết đảng của mình.
+'choice2': Cô tham gia vào một cuộc biểu tình.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Lỗ thoát nước trong buồng vệ sinh bị nghẽn.
+choice1: Tôi mở van nước.
+choice2: Tôi làm sạch nó bằng nước tráng.
+label: choice2
+
+B) premise: Đường xá trong nhà tắm bị kẹt.
+choice1: Tôi xoay vòi nước.
+choice2: Tôi dùng nước ướt để giải quyết.
+label: choice2
+
+C) premise: Cống nước trong phòng rửa bị bít.
+choice1: Tôi quay núm nước.
+choice2: Tôi đổ nước hãm vào đấy.
+label: choice2D) 'premise': Bồn rửa trong phòng tắm bị tắc.
+'choice1': Tôi bật vòi nước.
+'choice2': Tôi đổ nước xả vào đó.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các khách đi đã rời khỏi tàu.
+choice1: Tàu cập bến.
+choice2: Tàu phát tiếng còi.
+label: choice1
+
+B) premise: Các hành khách đã ra khỏi tàu.
+choice1: Tàu vào ga.
+choice2: Tàu báo hiệu.
+label: choice1
+
+C) premise: Các khách du lịch đã thoát khỏi tàu.
+choice1: Tàu dừng lại.
+choice2: Tàu gây tiếng ồn.
+label: choice1D) 'premise': Các hành khách đã xuống tàu.
+'choice1': Tàu đến ga.
+'choice2': Tàu nổ còi.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông ép mặt ngâm của bì thư.
+choice1: Ông dính tem vào bì thư.
+choice2: Ông bấm dính bì thư.
+label: choice2
+
+B) premise: Người đàn ông bóp mặt ướt của lá thư.
+choice1: Ông hút tem lên lá thư.
+choice2: Ông kẹp miệng lá thư.
+label: choice2
+
+C) premise: Người đàn ông nén mặt nhơi của phúc trình.
+choice1: Ông vai tem xuống phúc trình.
+choice2: Ông đậy lại phúc trình.
+label: choice2D) 'premise': Người đàn ông ấn mặt ẩm của phong bì.
+'choice1': Ông dán tem lên phong bì.
+'choice2': Ông đóng kín phong bì.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bạn bè lìa xa.
+choice1: Họ mong muốn được bên nhau.
+choice2: Họ di cư đến các đô thị khác nhau.
+label: choice2
+
+B) premise: Bạn bè thất lạc.
+choice1: Họ yêu thương được gần nhau.
+choice2: Họ chuyển tới các thành phố khác nhau.
+label: choice2
+
+C) premise: Bạn bè mất liên hệ.
+choice1: Họ ước được ở bên nhau.
+choice2: Họ dọn đến các đô thị khác nhau.
+label: choice2D) 'premise': Bạn bè mất liên lạc.
+'choice1': Họ rất thích được ở cạnh nhau.
+'choice2': Họ chuyển đến các thành phố khác nhau.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Kế toán quản lý lộn xộn quỹ của công ty.
+choice1: Cô bị đuổi việc khỏi chức vụ của mình.
+choice2: Cô đi nghỉ hưởng thai.
+label: choice1
+
+B) premise: Kế toán quản lý làm mất quỹ của công ty.
+choice1: Cô bị loại bỏ khỏi vị trí của mình.
+choice2: Cô đi nghỉ chờ sinh.
+label: choice1
+
+C) premise: Kế toán quản lý xử lý sai quỹ của công ty.
+choice1: Cô bị cách chức khỏi vai trò của mình.
+choice2: Cô đi nghỉ thai kỳ.
+label: choice1D) 'premise': Kế toán quản lý sai quỹ của công ty.
+'choice1': Cô bị sa thải khỏi vị trí của mình.
+'choice2': Cô đi nghỉ thai sản.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi nhìn chiếc đồng hồ.
+choice1: Tôi nghe âm thanh tích tắc.
+choice2: Tôi muốn xác định thời gian.
+label: choice2
+
+B) premise: Tôi quan sát cái đồng hồ.
+choice1: Tôi nghe tiếng đồng hồ kêu.
+choice2: Tôi muốn biết thời gian.
+label: choice2
+
+C) premise: Tôi liếc nhìn con đồng hồ.
+choice1: Tôi nghe âm thanh đồng hồ bấm giờ.
+choice2: Tôi muốn kiểm tra giờ.
+label: choice2D) 'premise': Tôi nhìn đồng hồ.
+'choice1': Tôi nghe tiếng tích tắc.
+'choice2': Tôi muốn kiểm tra thời gian.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tay tôi bị co bóp.
+choice1: Tôi đã viết văn bằng tay.
+choice2: Vợ chồng tôi nắm tay nhau.
+label: choice1
+
+B) premise: Tay tôi bị co thắt.
+choice1: Tôi đã viết lách bằng tay.
+choice2: Vợ chồng tôi nắm tay nhau.
+label: choice1
+
+C) premise: Tay tôi bị co giật.
+choice1: Tôi đã viết bài bằng tay.
+choice2: Vợ chồng tôi nắm lấy tay nhau.
+label: choice1D) 'premise': Tay tôi bị chuột rút.
+'choice1': Tôi đã viết bài luận bằng tay.
+'choice2': Vợ chồng tôi nắm tay nhau.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cái búa siết chặt.
+choice1: Tôi thay búa.
+choice2: Tôi dùng cờ lê.
+label: choice2
+
+B) premise: Cái chốt khóa chặt.
+choice1: Tôi đổi chốt.
+choice2: Tôi lấy cờ xạc.
+label: choice2
+
+C) premise: Cái thanh lắp chặt.
+choice1: Tôi tháo thanh.
+choice2: Tôi dùng cờ sắt.
+label: choice2D) 'premise': Cái chốt siết chặt.
+'choice1': Tôi thay chốt.
+'choice2': Tôi vặn mỏ lết.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Hai người vợ chồng có hợp đồng thuê một căn hộ.
+choice1: Hai người vợ chồng đến ở căn hộ.
+choice2: Căn hộ bị phản đối bởi thành phố.
+label: choice1
+
+B) premise: Hai bên vợ chồng tạo thỏa thuận thuê một căn hộ.
+choice1: Hai bên vợ chồng nhập trạng căn hộ.
+choice2: Thành phố chỉ trích căn hộ.
+label: choice1
+
+C) premise: Hai cặp vợ chồng làm hợp đồng thuê một căn hộ.
+choice1: Hai cặp vợ chồng dọn vào căn hộ.
+choice2: Căn hộ bị chỉ mục của thành phố.
+label: choice1D) 'premise': Hai vợ chồng ký hợp đồng thuê một căn hộ.
+'choice1': Hai vợ chồng chuyển vào căn hộ.
+'choice2': Thành phố lên án căn hộ.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bà phụ nữ ngồi ở hiên nhà.
+choice1: Bà muốn chiêm ngưỡng bình minh.
+choice2: Bà nghĩ mình đã nhìn thấy chớp.
+label: choice1
+
+B) premise: Chị gái ngồi trên sân.
+choice1: Chị muốn xem hoàng hôn.
+choice2: Chị nghĩ mình đã thấy tia sáng.
+label: choice1
+
+C) premise: Người đàn bà ngồi ra veranda.
+choice1: Bà muốn quan sát mặt trời lặn.
+choice2: Bà nghĩ mình đã nhận ra sấm.
+label: choice1D) 'premise': Người phụ nữ ngồi ngoài hiên.
+'choice1': Cô muốn ngắm hoàng hôn.
+'choice2': Cô nghĩ mình đã thấy sét.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông mặc áo cứu sinh.
+choice1: Anh ta không thạo nghệ bơi lội.
+choice2: Nước cạn.
+label: choice1
+
+B) premise: Người đàn ông mặc áo chống trượt nước.
+choice1: Anh ấy không tinh thông bơi trườn.
+choice2: Nước thấp.
+label: choice1
+
+C) premise: Người đàn ông mặc áo chống chìm.
+choice1: Anh ta không đủ khả năng bơi ván.
+choice2: Nước rút.
+label: choice1D) 'premise': Người đàn ông mặc áo phao.
+'choice1': Anh ấy không biết bơi.
+'choice2': Nước cạn.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người phụ nữ gõ sai trong phần mềm soạn thảo.
+choice1: Cô xóa nội dung.
+choice2: Cô bấm phím backspace.
+label: choice2
+
+B) premise: Người phụ nữ đánh lỗi trong chương trình văn bản.
+choice1: Cô xoá dữ liệu.
+choice2: Cô ấn phím trở lại.
+label: choice2
+
+C) premise: Người phụ nữ nhập sai trong ứng dụng soạn văn.
+choice1: Cô xoá tập tin.
+choice2: Cô nhấn phím xóa.
+label: choice2D) 'premise': Người phụ nữ mắc lỗi đánh máy trong trình xử lý văn bản.
+'choice1': Cô xóa tài liệu.
+'choice2': Cô nhấn phím xóa lùi.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô gái tự phụ với bạn bè.
+choice1: Cô bị học kém.
+choice2: Cô đã đoạt một giải thưởng.
+label: choice2
+
+B) premise: Cô gái khoe mẽ với bạn bè.
+choice1: Cô bị điểm yếu.
+choice2: Cô đã chiến thắng một cuộc thi.
+label: choice2
+
+C) premise: Cô gái thích đụng chạm với bạn bè.
+choice1: Cô bị học tệ.
+choice2: Cô đã nhận một phần thưởng.
+label: choice2D) 'premise': Cô gái khoe khoang với bạn bè.
+'choice1': Cô bị điểm kém.
+'choice2': Cô đã thắng một cuộc thi.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bãi đất lầy nhớt.
+choice1: Trời đổ mưa tối qua.
+choice2: Nó đầy rác thải.
+label: choice1
+
+B) premise: Bãi cọp nhão nhoét.
+choice1: Trời mưa to hôm qua.
+choice2: Nó đầy cỏ gai.
+label: choice1
+
+C) premise: Bãi sình bùn đặc.
+choice1: Trời mưa lớn hôm trước.
+choice2: Nó đầy cỏ hoang.
+label: choice1D) 'premise': Bãi cỏ lầy lội.
+'choice1': Trời mưa vào đêm qua.
+'choice2': Nó đầy cỏ dại.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người phụ nữ ngủ lỡ.
+choice1: Cô ở qua đêm tại một nhà nghỉ.
+choice2: Cô quên mở bộ định giờ.
+label: choice2
+
+B) premise: Người phụ nữ ngủ gục.
+choice1: Cô ở lại đêm ở một khách sạn.
+choice2: Cô quên kích hoạt loa báo thức.
+label: choice2
+
+C) premise: Người phụ nữ ngủ nướng.
+choice1: Cô ở qua đêm trong một khách sạn.
+choice2: Cô quên thiết lập đồng hồ báo thức.
+label: choice2D) 'premise': Người phụ nữ ngủ quên.
+'choice1': Cô ở lại đêm trong một khách sạn.
+'choice2': Cô quên cài đồng hồ báo thức.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông thoa lớp kem chống nắng.
+choice1: Anh ta ngồi dưới cành cây.
+choice2: Anh ta đã đến bờ biển.
+label: choice2
+
+B) premise: Người đàn ông bôi kem chống nắng lên da.
+choice1: Anh nằm trong bóng mát.
+choice2: Anh đã tới bãi cát.
+label: choice2
+
+C) premise: Người đàn ông phết kem chống nắng trên cơ thể.
+choice1: Anh đứng dưới gốc cây.
+choice2: Anh đã về đến bến biển.
+label: choice2D) 'premise': Người đàn ông bôi kem chống nắng.
+'choice1': Anh ngồi trong bóng râm.
+'choice2': Anh ấy đã đi đến bãi biển.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các nhà nghiên cứu đã khẳng định minh tính lý thuyết.
+choice1: Các nhà nghiên cứu từ chối lý thuyết.
+choice2: Mọi người tin tưởng lý thuyết.
+label: choice2
+
+B) premise: Các nhà nghiên cứu đã thuyết phục tương quan lý thuyết.
+choice1: Các nhà nghiên cứu đưa ra lý thuyết.
+choice2: Mọi người đồng ý lý thuyết.
+label: choice2
+
+C) premise: Các nhà nghiên cứu đã bảo vệ tính đúng đắn lý thuyết.
+choice1: Các nhà nghiên cứu bác bỏ lý thuyết.
+choice2: Mọi người ủng hộ lý thuyết.
+label: choice2D) 'premise': Các nhà nghiên cứu đã chứng được minh lý thuyết.
+'choice1': Các nhà nghiên cứu rút lại lý thuyết.
+'choice2': Mọi người chấp nhận lý thuyết.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Những kẻ cổ động vang lên tiếng ồn.
+choice1: Trận đấu phải kéo dài thêm thời gian.
+choice2: Trọng tài đưa ra phán quyết nhầm.
+label: choice2
+
+B) premise: Những tín đồ cổ vũ inh ỏi.
+choice1: Trận đấu phải tiếp tục vào những phút nối thêm.
+choice2: Trọng tài có quyết định lầm.
+label: choice2
+
+C) premise: Những fan hò hét náo nhiệt.
+choice1: Trận đấu phải chơi thêm thời gian bù.
+choice2: Trọng tài mắc sai lầm trong quyết định.
+label: choice2D) 'premise': Những người hâm mộ la ó.
+'choice1': Trận đấu phải bước vào phút bù giờ.
+'choice2': Trọng tài ra quyết định sai.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi gõ mật khẩu vào hộp khóa.
+choice1: Tôi khoá lại.
+choice2: Khóa mở ra.
+label: choice2
+
+B) premise: Tôi nhập mã số vào thiết bị khóa.
+choice1: Tôi khép khóa.
+choice2: Khóa tháo rời.
+label: choice2
+
+C) premise: Tôi đánh mã bảo mật vào cỗ khóa.
+choice1: Tôi đậy khóa.
+choice2: Khóa cởi lỏng.
+label: choice2D) 'premise': Tôi nhập dãy mã vào ổ khóa.
+'choice1': Tôi đóng khóa.
+'choice2': Khóa bật mở.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tình hình đông nghịt.
+choice1: Người cha cho con trai ít bạc.
+choice2: Người cha nắm chặt tay con trai mình.
+label: choice2
+
+B) premise: Số người đầy ắp.
+choice1: Người cha biếu con trai chút tiền.
+choice2: Người cha nắm vững tay con trai mình.
+label: choice2
+
+C) premise: Đám người ngập tràn.
+choice1: Người cha tặng con trai một khoản tiền.
+choice2: Người cha nắm rắn tay con trai mình.
+label: choice2D) 'premise': Đám đông nhiều lên.
+'choice1': Người cha đưa cho con trai một ít tiền.
+'choice2': Người cha nắm lấy tay con trai mình.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tuyết đã ngăn cản giao thông.
+choice1: Tôi vặn thành một hình tròn tuyết.
+choice2: Tôi đẩy tuyết ra ngoài đường.
+label: choice2
+
+B) premise: Tuyết đã cản trở việc lái xe.
+choice1: Tôi vo thành một quả bóng tuyết.
+choice2: Tôi dọn tuyết ra khỏi đường.
+label: choice2
+
+C) premise: Tuyết đã làm tắc đường.
+choice1: Tôi nén thành một viên tuyết.
+choice2: Tôi quét tuyết ra xa đường.
+label: choice2D) 'premise': Tuyết đã chặn đường lái xe.
+'choice1': Tôi nặn thành một quả cầu tuyết.
+'choice2': Tôi xúc tuyết ra khỏi đường.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Những người lái du thuyền chèo mái chèo của họ.
+choice1: Du thuyền chèo đến bờ.
+choice2: Chiếc du thuyền chèo gặp một con sóng.
+label: choice1
+
+B) premise: Những người đi thuyền kayak vận dụng mái chèo của họ.
+choice1: Thuyền kayak tới bờ.
+choice2: Chiếc thuyền kayak bị một con sóng quật.
+label: choice1
+
+C) premise: Những người đua thuyền kayak sử dụng mái chèo của họ.
+choice1: Thuyền kayak đạt bờ.
+choice2: Chiếc thuyền kayak đụng một con sóng.
+label: choice1D) 'premise': Những người chèo thuyền kayak chèo mái chèo của họ.
+'choice1': Thuyền kayak đến bờ.
+'choice2': Chiếc thuyền kayak gặp một con sóng.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cô nữ phi trắng xanh chiếc xe đạp của mình.
+choice1: Cô thả tay cầm.
+choice2: Cô va chạm vào một hàng rào.
+label: choice2
+
+B) premise: Cô gái không thể làm chủ chiếc xe đạp của mình.
+choice1: Cô để tay quay.
+choice2: Cô đụng vào một hàng rào.
+label: choice2
+
+C) premise: Cô bé mất quyền điều khiển chiếc xe đạp của mình.
+choice1: Cô bỏ tay cầm.
+choice2: Cô tông vào một hàng rào.
+label: choice2D) 'premise': Cô gái mất kiểm soát chiếc xe đạp của mình.
+'choice1': Cô buông tay lái.
+'choice2': Cô đâm vào một hàng rào.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi bật quạt.
+choice1: Nước nhỏ lên da tôi.
+choice2: Không khí se lạnh trôi qua tôi.
+label: choice2
+
+B) premise: Tôi bật quạt.
+choice1: Nước giọt lên da tôi.
+choice2: Không khí mát lành lượn qua tôi.
+label: choice2
+
+C) premise: Tôi bật quạt.
+choice1: Nước ướt lên da tôi.
+choice2: Không khí thơm mát thổi qua tôi.
+label: choice2D) 'premise': Tôi bật quạt.
+'choice1': Nước rắc lên da tôi.
+'choice2': Không khí mát mẻ lướt qua tôi.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Những người chơi ván trượt sóng quay lại bờ.
+choice1: Họ vô cùng ướt sũng.
+choice2: Họ đã chứng kiến một con cá mập.
+label: choice2
+
+B) premise: Những người đùa nước trên ván sóng trở về bãi cát.
+choice1: Họ nhoèo nhoèo nước.
+choice2: Họ đã phát hiện một con cá mập.
+label: choice2
+
+C) premise: Những người lướt ván dưới nước về lại bến.
+choice1: Họ thấm đẫm nước.
+choice2: Họ đã nhận ra một con cá mập.
+label: choice2D) 'premise': Những người lướt sóng trở lại bãi biển.
+'choice1': Họ ướt đẫm.
+'choice2': Họ đã nhìn thấy một con cá mập.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi kéo phích cắm ngoài bồn tắm.
+choice1: Nước ồ ạt ra khỏi bồn.
+choice2: Nước bắn tung toé sàn nhà.
+label: choice1
+
+B) premise: Tôi trục phích cắm dưới bồn tắm.
+choice1: Nước thoát ra khỏi bồn.
+choice2: Nước phun lên nền nhà.
+label: choice1
+
+C) premise: Tôi nhổ phích cắm ở bồn tắm.
+choice1: Nước chảy ra khỏi bồn.
+choice2: Nước vọt lên sàn nhà.
+label: choice1D) 'premise': Tôi rút phích cắm trong bồn tắm.
+'choice1': Nước rút ra khỏi bồn.
+'choice2': Nước văng lên sàn nhà.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Ông xã cảm thấy đau khổ khi gian dối thê tử.
+choice1: Ông tố cáo bà ngoại tình.
+choice2: Ông thú tội ngoại tình với bà.
+label: choice2
+
+B) premise: Chồng tỏ ra ăn năn khi mắc lỗi với vợ.
+choice1: Chồng buộc vợ phải nhắn nhủ.
+choice2: Chồng nhận lỗi phản bội vợ.
+label: choice2
+
+C) premise: Ông chủ cảm nhận hối hận khi lừa đảo vợ.
+choice1: Ông cáo buộc vợ làm tiểu tam.
+choice2: Ông thừa nhận làm bậy với vợ.
+label: choice2D) 'premise': Người chồng cảm thấy có lỗi khi lừa dối vợ.
+'choice1': Anh buộc tội cô ngoại tình.
+'choice2': Anh thú nhận ngoại tình với cô.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Mực trên áp phích bị nhòe.
+choice1: Tôi chờ mực khô.
+choice2: Tôi làm tưới nước lên áp phích.
+label: choice2
+
+B) premise: Mực trên biển quảng cáo bị mờ.
+choice1: Tôi đợi mực khô.
+choice2: Tôi làm tràn nước lên biển quảng cáo.
+label: choice2
+
+C) premise: Mực trên tờ rơi bị phai.
+choice1: Tôi chờ mực khô.
+choice2: Tôi làm đánh nước lên tờ rơi.
+label: choice2D) 'premise': Mực trên poster bị lem.
+'choice1': Tôi đợi mực khô.
+'choice2': Tôi làm đổ nước lên poster.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Đứa nhỏ thức giấc khóc thét.
+choice1: Nó mơ thấy quỷ.
+choice2: Nó đánh đổ bình nước.
+label: choice1
+
+B) premise: Đứa bé chợt mở mắt la to.
+choice1: Nó nằm mộng kinh hoàng.
+choice2: Nó ướt đẫm chăn ga.
+label: choice1
+
+C) premise: Đứa con giật mình gào lên.
+choice1: Nó hóa ra ác mộng.
+choice2: Nó làm ngập đệm nệm.
+label: choice1D) 'premise': Đứa trẻ tỉnh dậy la hét.
+'choice1': Nó gặp ác mộng.
+'choice2': Nó làm ướt giường.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cậu bé tựa chân lên bàn.
+choice1: Bố cậu ngồi vào bàn.
+choice2: Bố cậu dạy dỗ cậu.
+label: choice2
+
+B) premise: Cậu bé đặt chân lên bàn.
+choice1: Bố cậu ngồi cạnh bàn.
+choice2: Bố cậu thuyết phục cậu.
+label: choice2
+
+C) premise: Cậu bé coi thường chân lên bàn.
+choice1: Bố cậu ngồi gần bàn.
+choice2: Bố cậu nhắc nhở cậu.
+label: choice2D) 'premise': Cậu bé gác chân lên bàn.
+'choice1': Bố cậu ngồi xuống bàn.
+'choice2': Bố cậu giáo huấn cậu.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bạn tôi xoay người về phía tôi.
+choice1: Tôi gọi to tên anh.
+choice2: Tôi vẫy tay.
+label: choice1
+
+B) premise: Bạn tôi quay lưng về phía tôi.
+choice1: Tôi gọi to tên anh.
+choice2: Tôi vẩy tay.
+label: choice1
+
+C) premise: Bạn tôi đảo mặt về phía tôi.
+choice1: Tôi hò tên anh.
+choice2: Tôi vẫy tay.
+label: choice1D) 'premise': Bạn tôi quay đầu về phía tôi.
+'choice1': Tôi hét to tên anh.
+'choice2': Tôi vẫy tay.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Chính quyền áp bức công dân của mình.
+choice1: Các công dân đã tiến hành một cuộc khởi nghĩa.
+choice2: Các công dân đăng kí bầu cử.
+label: choice1
+
+B) premise: Chế độ đàn áp công dân của mình.
+choice1: Các công dân đã thực hiện một cuộc cách mạng.
+choice2: Các công dân đăng ký tham gia biểu quyết.
+label: choice1
+
+C) premise: Quyền lực hà hiếp công dân của mình.
+choice1: Các công dân đã phát động một cuộc nổi loạn.
+choice2: Các công dân đăng ký lấy phiếu.
+label: choice1D) 'premise': Chính phủ đàn áp công dân của mình.
+'choice1': Các công dân đã tổ chức một cuộc nổi dậy.
+'choice2': Các công dân đăng ký bỏ phiếu.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cậu bé lạc mất trong rừng.
+choice1: Cậu xây trại.
+choice2: Cậu gào to tìm giúp.
+label: choice2
+
+B) premise: Cậu bé bị mất phương hướng trong rừng.
+choice1: Cậu dựng lều.
+choice2: Cậu kêu la mong được cứu.
+label: choice2
+
+C) premise: Cậu bé thất lạc trong rừng.
+choice1: Cậu lập trại.
+choice2: Cậu hò hét mong có người nghe thấy.
+label: choice2D) 'premise': Cậu bé bị lạc trong rừng.
+'choice1': Cậu dựng lều.
+'choice2': Cậu hét lên cầu cứu.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người phụ nữ du ngoạn quốc tế.
+choice1: Cô muốn học hoạ.
+choice2: Cô muốn khám phá các nền văn minh khác.
+label: choice2
+
+B) premise: Người phụ nữ du lịch ngoại hạng.
+choice1: Cô muốn học tranh.
+choice2: Cô muốn nghiên cứu các nền văn hóa khác.
+label: choice2
+
+C) premise: Người phụ nữ lang thang nước ngoài.
+choice1: Cô muốn học mỹ thuật.
+choice2: Cô muốn tìm hiểu các nền văn hóa khác.
+label: choice2D) 'premise': Người phụ nữ đi du lịch nước ngoài.
+'choice1': Cô muốn học vẽ.
+'choice2': Cô muốn tìm hiểu về các nền văn hóa khác.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông cảm thấy bất mãn với đồng nghiệp của mình.
+choice1: Đồng nghiệp của anh ấy đã được đề bạt.
+choice2: Đồng nghiệp của anh ấy phải tăng ca.
+label: choice1
+
+B) premise: Người đàn ông ghen ghét với đồng nghiệp của mình.
+choice1: Đồng nghiệp của anh ấy đã được thăng cấp.
+choice2: Đồng nghiệp của anh ấy làm việc đến khuya.
+label: choice1
+
+C) premise: Người đàn ông ăn năn với đồng nghiệp của mình.
+choice1: Đồng nghiệp của anh ấy đã được bổ nhiệm.
+choice2: Đồng nghiệp của anh ấy làm thêm giờ.
+label: choice1D) 'premise': Người đàn ông ghen tị với đồng nghiệp của mình.
+'choice1': Đồng nghiệp của anh ấy đã được thăng chức.
+'choice2': Đồng nghiệp của anh ấy ở lại  muộn.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông thấy người ngoài hành tinh.
+choice1: Anh ta bị mê sảng.
+choice2: Anh ta đang thiền định.
+label: choice1
+
+B) premise: Người đàn ông thấy người ngoài hành tinh.
+choice1: Anh ta bị hoang tưởng.
+choice2: Anh ta đang tu luyện.
+label: choice1
+
+C) premise: Người đàn ông thấy người ngoài hành tinh.
+choice1: Anh ta bị ảnh hưởng của chất gây nghiện.
+choice2: Anh ta đang nhập thần.
+label: choice1D) 'premise': Người đàn ông thấy người ngoài hành tinh.
+'choice1': Anh ta bị ảo giác.
+'choice2': Anh ta đang ngồi thiền.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tóc của người đàn ông chuyển sang màu vàng.
+choice1: Ông ấy ngâm tóc vào thuốc nhuộm.
+choice2: Ông ấy xoa kem dưỡng lên tóc.
+label: choice1
+
+B) premise: Tóc của người đàn ông chuyển sang màu vàng.
+choice1: Ông ấy đổ dung dịch tẩy vào tóc.
+choice2: Ông ấy thoa sữa tắm lên tóc.
+label: choice1
+
+C) premise: Tóc của người đàn ông chuyển sang màu vàng.
+choice1: Ông ấy bôi chất tẩy lên tóc.
+choice2: Ông ấy bôi dầu gội đầu lên tóc.
+label: choice1D) 'premise': Tóc của người đàn ông chuyển sang màu vàng.
+'choice1': Ông ấy bỏ thuốc tẩy lên tóc.
+'choice2': Ông ấy thoa dầu gội lên đó.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Các nghệ sĩ đã sáng tác tác phẩm mới.
+choice1: Cô bình luận công trình trước đây của mình.
+choice2: Cô cảm nhận một cơn nguồn cảm.
+label: choice2
+
+B) premise: Các nghệ sĩ đã làm ra tác phẩm mới.
+choice1: Cô đánh giá công việc trước đây của mình.
+choice2: Cô cảm thấy một cơn hứng khởi.
+label: choice2
+
+C) premise: Các nghệ sĩ đã tạo nên tác phẩm mới.
+choice1: Cô nhận xét công tác trước đây của mình.
+choice2: Cô cảm nhận một cơn cảm xúc.
+label: choice2D) 'premise': Các nghệ sĩ đã tạo ra tác phẩm mới.
+'choice1': Cô phê bình công việc trước đây của mình.
+'choice2': Cô cảm thấy một cơn cảm hứng.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người con trai chuyển đi nơi khác.
+choice1: Anh ấy nhận nghĩa vụ.
+choice2: Anh ấy theo học cao đẳng.
+label: choice2
+
+B) premise: Người con trai rời bỏ nhà cửa.
+choice1: Anh ấy hoàn thành quân sự.
+choice2: Anh ấy nhập học trường đại học.
+label: choice2
+
+C) premise: Người con trai bỏ nhà ra đi.
+choice1: Anh ấy thực hiện nghĩa vụ quân đội.
+choice2: Anh ấy học tập ở cấp đại học.
+label: choice2D) 'premise': Người con trai dọn ra khỏi nhà.
+'choice1': Anh ấy được xuất ngũ.
+'choice2': Anh ấy đi học đại học.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""C""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tập sách tuột xuống từ giá sách.
+choice1: Những nấc sách bao phủ bởi bụi.
+choice2: Một cơn địa chấn khiến kệ sách dao động.
+label: choice2
+
+B) premise: Quyển sách ngã văng từ tủ sách.
+choice1: Các tầng sách che đầy bụi.
+choice2: Một trận động đất làm lắc tủ sách.
+label: choice2
+
+C) premise: Cuốn sách bị rơi ra từ giá sách.
+choice1: Các bậc sách bị phủ lấp bởi bụi.
+choice2: Một cơn địa chấn làm rung giá sách.
+label: choice2D) 'premise': Sách rơi ra khỏi tủ sách.
+'choice1': Các kệ sách phủ bụi.
+'choice2': Một trận động đất làm rung chuyển tủ sách.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Điện trong nhà tôi ngừng.
+choice1: Tôi mở đèn ra.
+choice2: Tôi khởi động lại bộ kết nối điện.
+label: choice2
+
+B) premise: Điện trong nhà tôi mất.
+choice1: Tôi tạo ánh sáng.
+choice2: Tôi sửa chữa lại bộ cắt điện.
+label: choice2
+
+C) premise: Điện trong nhà tôi hết.
+choice1: Tôi thắp đèn lên.
+choice2: Tôi đặt lại bộ chuyển mạch.
+label: choice2D) 'premise': Điện trong nhà tôi tắt.
+'choice1': Tôi bật đèn lên.
+'choice2': Tôi cài đặt lại bộ ngắt mạch.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Chúng tôi đi xe lượn thần chết.
+choice1: Trông nó kinh khủng quá.
+choice2: Trông nó thật thú vị.
+label: choice2
+
+B) premise: Chúng tôi đi tàu bay siêu phẩm.
+choice1: Trông nó thật hãi hùng.
+choice2: Trông nó rất hấp dẫn.
+label: choice2
+
+C) premise: Chúng tôi đi xe lượn cóc.
+choice1: Trông nó ghê rợn lắm.
+choice2: Trông nó cực kỳ vui nhộn.
+label: choice2D) 'premise': Chúng tôi đi tàu lượn siêu tốc.
+'choice1': Trông nó thật đáng sợ.
+'choice2': Trông nó rất vui.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Bọc bắp rang nở ra.
+choice1: Tôi nhúng bơ vào bọc.
+choice2: Tôi làm nóng nó trong lò vi sóng.
+label: choice2
+
+B) premise: Gói ngô nướng to ra.
+choice1: Tôi thêm bơ vào gói.
+choice2: Tôi sưởi nó trong lò vi sóng.
+label: choice2
+
+C) premise: Bao bột ngô tăng kích thước.
+choice1: Tôi rưới bơ vào bao.
+choice2: Tôi trình nó trong lò vi sóng.
+label: choice2D) 'premise': Túi bỏng ngô bắt đầu phồng lên.
+'choice1': Tôi đổ bơ vào túi.
+'choice2': Tôi  hâm nóng nó trong lò vi sóng.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Một cái thân trên lưới điện.
+choice1: Điện trong phường đã ngắt.
+choice2: Dự báo có gió mạnh.
+label: choice1
+
+B) premise: Một cái gốc rơi xuống đường dây cao thế.
+choice1: Điện trong khu vực đã mất.
+choice2: Dự báo có gió to.
+label: choice1
+
+C) premise: Một cái cành đổ lên dây điện.
+choice1: Điện trong khu đã hết.
+choice2: Dự báo có gió độc.
+label: choice1D) 'premise': Một cái cây rơi trên đường dây điện.
+'choice1': Điện trong khu phố đã tắt.
+'choice2': Dự báo có gió lớn.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Diễn giả đã phát ngôn sai lầm.
+choice1: Anh làm khán giả mệt mỏi.
+choice2: Anh lăng mạ khán giả.
+label: choice2
+
+B) premise: Diễn giả đã nói quăng quật.
+choice1: Anh làm khán giả buồn ngủ.
+choice2: Anh sỉ nhục khán giả.
+label: choice2
+
+C) premise: Diễn giả đã bày tỏ không chính xác.
+choice1: Anh làm khán giả nhàm chán.
+choice2: Anh tổn thương khán giả.
+label: choice2D) 'premise': Diễn giả đã bình luận không chính xác.
+'choice1': Anh làm khán giả chán.
+'choice2': Anh xúc phạm khán giả.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Tôi tự tiêm bằng kim
+choice1: Một giọt mồ hôi rơi ra từ mặt tôi
+choice2: Một giọt máu nổi lên trên ngón tay của tôi
+label: choice2
+
+B) premise: Tôi tự chích bản thân bằng kim
+choice1: Một giọt mồ hôi lăn ra từ mặt tôi
+choice2: Một giọt máu xuất hiện trên ngón tay của tôi
+label: choice2
+
+C) premise: Tôi tự đâm vào mình bằng kim
+choice1: Một giọt mồ hôi tuôn ra từ mặt tôi
+choice2: Một giọt máu vọt ra từ ngón tay của tôi
+label: choice2D) 'premise': Tôi tự chích bằng kim.
+'choice1': Một giọt mồ hôi chảy ra từ mặt tôi.
+'choice2': Một giọt máu hình thành trên ngón tay của tôi.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Giọng nói của người đàn ông râm ran.
+choice1: Anh ta bị viêm họng.
+choice2: Anh từ bỏ thuốc lá.
+label: choice1
+
+B) premise: Giọng nói của người đàn ông đặc trưng.
+choice1: Anh ấy bị sổ mũi.
+choice2: Anh cai thuốc lá.
+label: choice1
+
+C) premise: Giọng nói của người đàn ông bị ảnh hưởng.
+choice1: Anh ấy bị ho.
+choice2: Anh ngừng hút thuốc.
+label: choice1D) 'premise': Giọng nói của người đàn ông khàn khàn.
+'choice1': Anh ấy bị cảm.
+'choice2': Anh bỏ thuốc lá.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cánh cửa thang máy hé mở.
+choice1: Thang máy vừa đến tầng mong muốn.
+choice2: Thang máy bị lỗi ở giữa các tầng.
+label: choice1
+
+B) premise: Miệng thang máy mở ra.
+choice1: Thang máy đến nơi tầng cần đến.
+choice2: Thang máy kẹt trên không giữa các tầng.
+label: choice1
+
+C) premise: Cửa thang máy ngỏ ra.
+choice1: Thang máy đạt tầng định trước.
+choice2: Thang máy rơi vào tình trạng hỏng giữa các tầng.
+label: choice1D) 'premise': Cửa thang máy mở ra.
+'choice1': Thang máy đã đến tầng được chỉ định.
+'choice2': Thang máy bị kẹt giữa các tầng.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cậu thiếu gia bỏ trốn khỏi nhà.
+choice1: Cậu lừa dối bố mẹ.
+choice2: Bố mẹ cậu giam cậu lại.
+label: choice2
+
+B) premise: Cậu con trai rời đi khỏi nhà.
+choice1: Cậu đánh lừa bố mẹ.
+choice2: Bố mẹ cậu phong bế cậu ở nhà.
+label: choice2
+
+C) premise: Cậu bé trốn thoát khỏi nhà.
+choice1: Cậu mịt mờ bố mẹ.
+choice2: Bố mẹ cậu quản thúc cậu ở nhà.
+label: choice2D) 'premise': Cậu thiếu niên lẻn ra khỏi nhà.
+'choice1': Cậu nói dối bố mẹ.
+'choice2': Bố mẹ cậu nhốt cậu anh.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Phòng vệ sinh bị ngập.
+choice1: Vòi nước bể ra.
+choice2: Máy lạnh bị đứt ống.
+label: choice1
+
+B) premise: Nước lũ tràn vào phòng tắm.
+choice1: Bồn tắm bị lỗi.
+choice2: Vòi hoa sen bị rò rỉ.
+label: choice2
+
+C) premise: Phòng tắm đầy nước.
+choice1: Ống thoát nước bị tắc.
+choice2: Bình nước nóng bị cháy.
+label: choice1D) 'premise': Phòng tắm ngập nước.
+'choice1': Nước nhà vệ sinh tràn ra.
+'choice2': Máy nước nóng bị hỏng.
+'answer': choice1
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Cún cưng ở gần người nuôi nó.
+choice1: Người nuôi cho cún cưng một vòng cổ.
+choice2: Người nuôi buộc cún cưng.
+label: choice2
+
+B) premise: Con chó nhỏ ở gần chủ nhân của nó.
+choice1: Chủ nhân mặc cho con chó nhỏ một cái yếm.
+choice2: Chủ nhân trói con chó nhỏ.
+label: choice2
+
+C) premise: Con cún ở gần bác chủ của nó.
+choice1: Bác chủ cho con cún một cái dây cổ.
+choice2: Bác chủ xiềng con cún.
+label: choice2D) 'premise': Con chó con ở gần chủ của nó.
+'choice1': Người chủ mặc cho con chó con một cổ áo.
+'choice2': Người chủ xích con chó con.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""D""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông nhìn thấy bóng hắn chiếu ra.
+choice1: Anh đứng dưới tán cây rậm rạp.
+choice2: Anh đứng trên bờ hồ yên ắng.
+label: choice2
+
+B) premise: Người đàn ông bắt ngắm phác họa của mình.
+choice1: Anh đứng dưới rặng cây xốc xếch.
+choice2: Anh đứng trên mặt nước phẳng lặng.
+label: choice2
+
+C) premise: Người đàn ông nhận ra ảnh bóng của bản thân.
+choice1: Anh đứng dưới chùm cây xù xì.
+choice2: Anh đứng trên dòng hồ êm đềm.
+label: choice2D) 'premise': Người đàn ông bắt gặp hình ảnh phản chiếu của mình.
+'choice1': Anh đứng dưới gốc cây ngổn ngang.
+'choice2': Anh đứng trên mặt hồ tĩnh lặng.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Con chó nhỏ ở gần bên người chủ của mình.
+choice1: Người chủ đeo cho con chó nhỏ một vòng cổ.
+choice2: Người chủ trói con chó nhỏ.
+label: choice2
+
+B) premise: Con chó bé ở gần cạnh chủ nhân của nó.
+choice1: Chủ nhân mắc cho con chó bé một chuỗi.
+choice2: Chủ nhân buộc con chó bé.
+label: choice2
+
+C) premise: Con chó cưng ở gần lều chủ của nó.
+choice1: Chủ mặc cho con chó cưng một vải.
+choice2: Chủ kéo con chó cưng.
+label: choice2D) 'premise': Con chó con ở gần chủ của nó.
+'choice1': Người chủ mặc cho con chó con một cổ áo.
+'choice2': Người chủ xích con chó con.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
+"{""answer"": ""B""}","<|im_start|>system
+Your task is to accurately select the option that corresponds exactly to an instance from the test split of the xcopa dataset and of Vietnamese language. Only generate a single option letter as your answer. You must not include any extra explanation.<|im_end|>
+<|im_start|>user
+---
+Options are listed below:
+
+A) premise: Người đàn ông nhìn thấy bóng mình phản chiếu.
+choice1: Anh đứng gần bụi cây rậm rạp.
+choice2: Anh đứng bên hồ yên ả.
+label: choice2
+
+B) premise: Người đàn ông chứng kiến ảnh mình chiếu lại.
+choice1: Anh đứng cạnh cây xà xỉ.
+choice2: Anh đứng lên bờ hồ lặng gió.
+label: choice2
+
+C) premise: Người đàn ông bắt gặp hình mình phản quang.
+choice1: Anh đứng đối diện cây tùng cao.
+choice2: Anh đứng trước hồ thanh bình.
+label: choice2D) 'premise': Người đàn ông bắt gặp hình ảnh phản chiếu của mình.
+'choice1': Anh đứng dưới gốc cây ngổn ngang.
+'choice2': Anh đứng trên mặt hồ tĩnh lặng.
+'answer': choice2
+---
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {""properties"": {""foo"": {""title"": ""Foo"", ""description"": ""a list of strings"", ""type"": ""array"", ""items"": {""type"": ""string""}}}, ""required"": [""foo""]}
+the object {""foo"": [""bar"", ""baz""]} is a well-formatted instance of the schema. The object {""properties"": {""foo"": [""bar"", ""baz""]}} is not well-formatted.
+
+Here is the output schema:
+```
+{""properties"": {""answer"": {""title"": ""Answer"", ""description"": ""Answer to the above multiple choice question. Answer must either be A, B, C, or D"", ""type"": ""string""}}, ""required"": [""answer""]}
+```
+<|im_end|>
+<|im_start|>assistant"
