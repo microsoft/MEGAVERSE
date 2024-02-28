@@ -19,6 +19,10 @@ __pycache__/
 # C extensions
 *.so
 
+
+amlt/
+.amltconfig
+
 # Distribution / packaging
 .Python
 build/

@@ -1,18 +1,20 @@
 import os
 from typing import List, Dict, Union, Tuple, Optional
-from tqdm import tqdm
+from tqdm.auto import tqdm
 import numpy as np
 import pandas as pd
 import wandb
 from datasets import Dataset
 from promptsource.templates import Template
 from mega.models.completion_models import get_model_pred
+from mega.models.hf_completion_models import get_hf_model_pred
 from mega.data.data_utils import choose_few_shot_examples
 from mega.utils.misc_utils import dump_predictions
+from transformers import AutoModelForCausalLM, AutoTokenizer
 import openai
 import json
 import sys
-
+import torch
 
 def run_seq_eval(
     save_preds_path,
@@ -22,6 +24,8 @@ def run_seq_eval(
     test_prompt_template: Template,
     model: str,
     lang: str,
+    tokenizer: AutoTokenizer=None,
+    model_obj: AutoModelForCausalLM = None,
     num_evals_per_sec: int = 2,
     chat_prompt: bool = False,
     instruction: str = "",
@@ -66,41 +70,85 @@ def run_seq_eval(
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         sys.exit(0)
+        
+    if "/" in model:
+        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        tokenizer = AutoTokenizer.from_pretrained(model)
+        
+        
+        
     for idx, test_example in pbar:
         train_examples_i = train_examples
 
         if idx in idx_set:
             continue
-        while len(train_examples_i) >= 0:
-            try:
-                pred_dict = get_model_pred(
-                    train_examples_i,
-                    test_example,
-                    train_prompt_template,
-                    test_prompt_template,
-                    model,
-                    lang,
-                    chat_prompt=chat_prompt,
-                    substrate_prompt=substrate_prompt,
-                    instruction=instruction,
-                    timeout=timeout,
-                    **model_params,
-                )
-                break
-            except (openai.error.InvalidRequestError, openai.error.Timeout):
-                if len(train_examples_i) == 0:
-                    pred_dict = {
-                        "prediction": np.random.choice(
-                            valid_labels
-                        ),  # Initialize with a random prediction
-                        "ground_truth": test_prompt_template.apply(test_example)[1],
-                    }
-                    print("Exausted Everything! Giving Random Prediction Now :(")
+        
+        if model_obj is not None and tokenizer is not None:  
+            while len(train_examples_i) >= 0:             
+                try:
+                    pred_dict = get_hf_model_pred(
+                        train_examples_i,
+                        test_example,
+                        train_prompt_template,
+                        test_prompt_template,
+                        model_name=model,
+                        lang=lang,
+                        model_obj=model_obj,
+                        tokenizer=tokenizer,
+                        chat_prompt=chat_prompt,
+                        substrate_prompt=substrate_prompt,
+                        instruction=instruction,
+                        timeout=timeout,
+                        **model_params,
+                    )
                     break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                )
+                    print(pred_dict)
+                except ValueError:
+                    if len(train_examples_i) == 0:
+                        pred_dict = {
+                            "prediction": np.random.choice(
+                                valid_labels
+                            ),  # Initialize with a random prediction
+                            "ground_truth": test_prompt_template.apply(test_example)[1],
+                        }
+                        print("Exausted Everything! Giving Random Prediction Now :(")
+                        break
+                    train_examples_i = train_examples_i[:-1]
+                    print(
+                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                    )
+                
+        else:
+            while len(train_examples_i) >= 0:     
+                try:
+                    pred_dict = get_model_pred(
+                        train_examples_i,
+                        test_example,
+                        train_prompt_template,
+                        test_prompt_template,
+                        model,
+                        lang,
+                        chat_prompt=chat_prompt,
+                        substrate_prompt=substrate_prompt,
+                        instruction=instruction,
+                        timeout=timeout,
+                        **model_params,
+                    )
+                    break
+                except (openai.error.InvalidRequestError, openai.error.Timeout):
+                    if len(train_examples_i) == 0:
+                        pred_dict = {
+                            "prediction": np.random.choice(
+                                valid_labels
+                            ),  # Initialize with a random prediction
+                            "ground_truth": test_prompt_template.apply(test_example)[1],
+                        }
+                        print("Exausted Everything! Giving Random Prediction Now :(")
+                        break
+                    train_examples_i = train_examples_i[:-1]
+                    print(
+                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                    )
 
         pred = pred_dict["prediction"].split("\n")[0]
         label = pred_dict["ground_truth"]

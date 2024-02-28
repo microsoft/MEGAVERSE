@@ -276,7 +276,7 @@ def hf_eval_qa(
         print(prompt)
         
         if chat_prompt:
-            prompt_input = convert_to_hf_chat_prompt(prompt_input)
+            prompt_input = convert_to_hf_chat_prompt(prompt_input, tokenizer)
         prompt_to_use = prompt_input
 
         # for trial in range(0, len(smaller_prompts) + 1):

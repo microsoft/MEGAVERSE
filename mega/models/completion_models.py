@@ -9,7 +9,7 @@ from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
-from mega.models.hf_completion_models import hf_model_api_completion
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
 from mega.utils.const import (
     SUPPORTED_MODELS,
     CHAT_MODELS,
@@ -25,8 +25,9 @@ from mega.utils.env_utils import (
 )
 import backoff
 from huggingface_hub import InferenceClient
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
 
@@ -267,6 +268,8 @@ def model_completion(
     run_substrate_llm_completion: bool = False,
     timeout: int = 0,
     llm_client: LLMClient = None,
+    model_obj: AutoModelForCausalLM = None,
+    tokenizer: AutoTokenizer = None,
     **model_params,
 ) -> str:
     """Runs the prompt over one of the `SUPPORTED_MODELS` for text completion
@@ -303,6 +306,9 @@ def model_completion(
         return palm_api_completion(
             prompt, model=PALM_MAPPING[model], lang=lang, **model_params
         )
+        
+    if model_obj is not None and tokenizer is not None:
+        return hf_model_completion(prompt, model_obj=model_obj, tokenizer=tokenizer, **model_params)
 
 
 def get_model_pred(
@@ -312,6 +318,8 @@ def get_model_pred(
     test_prompt_template: Template,
     model: str,
     lang: str,
+    model_obj: AutoModelForCausalLM = None,
+    tokenizer: AutoTokenizer = None,
     chat_prompt: bool = False,
     substrate_prompt: bool = False,
     run_substrate_llm_completion: bool = False,
@@ -330,7 +338,7 @@ def get_model_pred(
 
     Returns:
         Dict[str, str]: _description_
-    """
+    """    
 
     prompt_input, label = construct_prompt(
         train_examples,
@@ -341,6 +349,14 @@ def get_model_pred(
         instruction=instruction,
         substrate_prompt=substrate_prompt,
     )
+    
+    # print(prompt_input)
+    
+    if model_obj is not None and tokenizer is not None and chat_prompt:
+        prompt_input = convert_to_hf_chat_prompt(prompt_input, model)
+        
+    
+    
 
     if substrate_prompt:
         run_substrate_llm_completion = True
@@ -350,6 +366,8 @@ def get_model_pred(
         model,
         lang,
         timeout=timeout,
+        model_obj=model_obj,
+        tokenizer=tokenizer,
         run_substrate_llm_completion=run_substrate_llm_completion,
         **model_params,
     )
