@@ -14,8 +14,9 @@ environment:
 
   setup:
   - conda install conda=23.10.0 -y
-  # - conda env create --name megaverse --file=mega_env.yml -y
-  # - conda activate megaverse
+  - conda update -n base -c defaults conda
+  - conda env create --name megaverse --file=mega_env.yml
+  - conda activate megaverse
   - python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 --force
   - python -c "import torch; print('GPU Support:',torch.cuda.is_available())"
   - which pip

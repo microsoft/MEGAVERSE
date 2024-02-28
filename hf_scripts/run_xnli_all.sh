@@ -10,7 +10,7 @@ do
             for k in 8
             do
                 echo "Running for language $lang and prompt ${prompt_name} and k $k"
-                python -m mega.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k $k --model "google/gemma-7b-it" -e gpt4v3 --chat_prompt --temperature 0 --timeout 30 --save_dir "/mnt/megaverse/results"
+                python -m mega.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k $k --model $model -e gpt4v3 --chat_prompt --temperature 0 --timeout 30 --save_dir "/mnt/megaverse/results"
             done
         done
     done
@@ -27,7 +27,7 @@ do
             for k in 8
             do
                 echo "Running for language $lang and prompt ${prompt_name} and k $k"
-                python -m mega.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k $k --model "google/gemma-7b-it" -e gpt4v3 --temperature 0 --timeout 30 --save_dir "/mnt/megaverse/results"
+                python -m mega.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k $k --model $model -e gpt4v3 --temperature 0 --timeout 30 --save_dir "/mnt/megaverse/results"
             done
         done
     done
