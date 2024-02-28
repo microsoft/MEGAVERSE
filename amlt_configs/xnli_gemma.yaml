@@ -8,13 +8,14 @@ target:
 
 environment:
   image: amlt-sing/acpt-2.1.2-cuda11.8
-  image_setup: 
-  - conda install conda=23.10.0 -y
-  - conda env create --name megaverse --file=mega_env.yml
+  # image_setup: 
+  # - conda install conda=23.10.0 -y
+  # - conda env create --name megaverse --file=mega_env.yml
 
   setup:
   - conda install conda=23.10.0 -y
-  - conda activate megaverse
+  # - conda env create --name megaverse --file=mega_env.yml -y
+  # - conda activate megaverse
   - python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 --force
   - python -c "import torch; print('GPU Support:',torch.cuda.is_available())"
   - which pip
@@ -27,6 +28,8 @@ environment:
   - python -m pip install openai
   - python -m pip install google-generativeai
   - python -m pip install flash_attn==2.5.5
+  - python -m pip install git+https://github.com/lm-sys/FastChat.git
+  - python -m pip install python-dotenv
   - pip install -e promptsource/
 
   
