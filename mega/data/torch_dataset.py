@@ -13,11 +13,12 @@ torch.set_default_dtype(torch.float32)
 
 
 class PromptDataset(Dataset):
-    def __init__(self, prompts, tokenizer, device="cuda:0", **tokenizer_args):
+    def __init__(self, prompts, model, tokenizer, device="cuda:0", **tokenizer_args):
         self.prompts = prompts
         self.tokenizer = tokenizer
         self.max_len = self.get_max_len()
         self.device = device
+        self.model = model
         self.tokenizer_args = tokenizer_args
     
     def __len__(self):
@@ -33,7 +34,7 @@ class PromptDataset(Dataset):
                                   return_tensors="pt", 
                                   padding="max_length",
                                   truncation=True,
-                                  max_length=min(1024, self.max_len),
+                                  max_length=min(self.model.config.max_position_embeddings, self.max_len),
                                   add_special_tokens=True
                                  )
         

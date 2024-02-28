@@ -96,7 +96,7 @@ def evaluate(
             
             try:
                 if chat_prompt:
-                    prompt = convert_to_hf_chat_prompt(prompt)
+                    prompt = convert_to_hf_chat_prompt(prompt, model)
                 
                 # print(prompt)
                 # print()

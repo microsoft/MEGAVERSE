@@ -16,6 +16,10 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-70b-chat-hf",
     "palm",
     "palm-32k",
+    "google/gemma-7b-it",
+    "google/gemma-7b",
+    "google/gemma-2b-it",
+    "google/gemma-2b"
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -25,6 +29,8 @@ CHAT_MODELS = [
     "gpt4_deployment",
     "gpt-4",
     "gpt-4-32k",
+    "google/gemma-7b-it",
+    "google/gemma-2b-it"
     # "meta-llama/Llama-2-70b-chat-hf",
 ]
 
