@@ -132,6 +132,12 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Whether to use HF API",
     )
     
+    parser.add_argument(
+        "--from_hf_hub",
+        action="store_true",
+        help="Whether to use from HF Hub",
+    )
+    
     
     
     
