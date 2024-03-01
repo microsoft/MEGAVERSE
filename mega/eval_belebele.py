@@ -10,7 +10,7 @@ from mega.data.load_datasets import load_belebele_dataset, load_belebele_transla
 from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.eval_cls import evaluate_model
 from mega.models.completion_models import model_completion
-from mega.models.hf_completion_models import hf_model_api_completion
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
 from mega.prompting.prompting_utils import construct_belebele_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.instructions import INSTRUCTIONS
@@ -23,7 +23,7 @@ import pandas as pd
 import pdb
 import openai
 from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from mega.utils.substrate_llm import LLMClient
 
 
@@ -105,13 +105,15 @@ BELEBELE2PALM_MAP = {
 
 
 def parse_pred(pred: str) -> str:
-    if "A" in pred:
+    pred = str(pred)
+    # print(pred)
+    if "A" in pred or "1" in pred:
         return "A"
-    elif "B" in pred:
+    elif "B" in pred or "2" in pred:
         return "B"
-    elif "C" in pred:
+    elif "C" in pred or "3" in pred:
         return "C"
-    elif "D" in pred:
+    elif "D" in pred or "4" in pred:
         return "D"
     else:
         return pred
@@ -124,6 +126,7 @@ def evaluate(
     verbalizer: Dict[Any, str],
     model: str,
     tokenizer: AutoTokenizer,
+    model_obj: AutoModelForCausalLM,
     few_shot_size: int,
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
@@ -136,7 +139,8 @@ def evaluate(
     instruction: str = "",
     timeout: int = 0,
     substrate_prompt: bool = False,
-    use_hf_model: bool = False,
+    use_hf_api: bool = False,
+    from_hf_hub: bool = False,
     llm_client=None,
     out_dir: str = "",
     **model_params,
@@ -175,21 +179,24 @@ def evaluate(
         train_examples_i = train_examples
         label = verbalizer[test_example["correct_answer_num"]]
 
-        while len(train_examples_i) >= 0:
+        
+        if use_hf_api or from_hf_hub:
             prompt, _ = construct_belebele_prompt(
-                train_examples_i,
-                test_example,
-                prompt_template,
-                prompt_template,
-                verbalizer,
-                chat_prompt,
-                instruction,
-            )
-            if use_hf_model:
-                if chat_prompt:
-                    prompt_input = convert_to_hf_chat_prompt(prompt)
+                            train_examples_i,
+                            test_example,
+                            prompt_template,
+                            prompt_template,
+                            verbalizer,
+                            chat_prompt,
+                            instruction,
+                        )
+            if chat_prompt:
+                # print("chat prompt")
+                prompt_input = convert_to_hf_chat_prompt(prompt, model)
 
-                # print(prompt_input)
+            # print(prompt_input)
+            
+            if use_hf_api:
                 pred = hf_model_api_completion(
                     prompt=prompt_input,
                     model_name=model,
@@ -197,18 +204,39 @@ def evaluate(
                     timeout=timeout,
                 )
 
+            elif from_hf_hub:
+                # print("printing from hf hub")
+                pred = hf_model_completion(
+                    prompts=prompt_input,
+                    model_name=model,
+                    model_obj=model_obj,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
+                    max_new_tokens=25
+                )
+                
             else:
                 try:
-                    pred = model_completion(
-                        prompt,
-                        model,
-                        run_substrate_llm_completion=substrate_prompt,
-                        run_details=run_details,
-                        num_evals_per_sec=num_evals_per_sec,
-                        llm_client=llm_client,
-                        lang=model_lang,
-                    )
-                    break
+                    while len(train_examples_i) >= 0:
+                        prompt, _ = construct_belebele_prompt(
+                            train_examples_i,
+                            test_example,
+                            prompt_template,
+                            prompt_template,
+                            verbalizer,
+                            chat_prompt,
+                            instruction,
+                        )
+                        pred = model_completion(
+                            prompt,
+                            model,
+                            run_substrate_llm_completion=substrate_prompt,
+                            run_details=run_details,
+                            num_evals_per_sec=num_evals_per_sec,
+                            llm_client=llm_client,
+                            lang=model_lang,
+                        )
+                        break
                 except (
                     openai.error.InvalidRequestError,
                     openai.error.Timeout,
@@ -225,7 +253,7 @@ def evaluate(
                     )
 
         pred = parse_pred(pred)
-
+        # print(pred)
         preds.append(pred)
         labels.append(label)
         matches.append(float(pred == label))
@@ -324,8 +352,12 @@ def main(sys_args):
     pred_file_path = f"{out_dir}/preds.csv"
 
     tokenizer = None
-    if args.use_hf_api:
+    model_obj = None
+    if args.use_hf_api or args.from_hf_hub:
         tokenizer = AutoTokenizer.from_pretrained(args.model)
+    
+    if args.from_hf_hub:
+        model_obj = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto")
 
     model_lang = "english" if args.translate_test else args.tgt_lang
     llm_client = LLMClient() if args.substrate_prompt else None
@@ -337,6 +369,7 @@ def main(sys_args):
         verbalizer=verbalizer,
         model=args.model,
         tokenizer=tokenizer,
+        model_obj=model_obj,
         few_shot_size=args.few_shot_k,
         selection_criteria=args.few_shot_selection,
         num_evals_per_sec=args.num_evals_per_sec,
@@ -350,7 +383,8 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
         timeout=args.timeout,
-        use_hf_model=args.use_hf_api,
+        use_hf_api=args.use_hf_api,
+        from_hf_hub=args.from_hf_hub,
         out_dir=out_dir,
         llm_client=llm_client,
         substrate_prompt=args.substrate_prompt,

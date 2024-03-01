@@ -90,7 +90,7 @@ def hf_model_completion(
                 tokenizer: AutoTokenizer,
                 timeout: int = 10000000,
                 batch_size: int = 1, 
-                max_new_tokens: int =2,
+                max_new_tokens: int = 2,
                 **model_params,
             ):
 
