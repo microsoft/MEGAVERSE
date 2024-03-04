@@ -1,11 +1,16 @@
 #!/bin/bash
-set -e
-set -x
+
+arg=${1}
+
+save_dir=${arg:-"results"}
+
+echo $save_dir
+
 echo "Monolingual Evaluation"
 
-for model in dev-moonshot;
+for model in "google/gemma-7b-it" "google/gemma-2b-it";
 do
-    for lang in en hi fr ko zh enhi
+    for lang in en hi fr ko zh
     do
         echo "Running for lang $lang"
         python -m mega.eval_xrisawoz \
@@ -15,6 +20,8 @@ do
             --seed 1618 \
             --model "$model" \
             --tgt_lang "$lang" \
-            --substrate_prompt
+            --from_hf_hub \
+            --chat_prompt \
+            --save_dir $save_dir
     done
 done

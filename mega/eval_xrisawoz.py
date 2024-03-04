@@ -10,6 +10,9 @@ from mega.utils.parser import parse_args
 from mega.utils.substrate_llm import LLMClient
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import model_completion
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 # TODO: Unify chat and non-chat prompts
@@ -72,6 +75,11 @@ def main(sys_args):
         f"{args.xrisawoz_root_dir}/processed/{args.tgt_lang}/{args.xrisawoz_valid_fname}"
     )["data"]
     inputs = defaultdict(lambda: defaultdict(list))
+    
+    if args.use_hf_api and args.from_hf_hub:
+        model_obj = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto")
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
+    
     for datum in data:
         inputs[datum["train_target"]][datum["turn_id"]].append(datum)
     try:
@@ -116,14 +124,41 @@ def main(sys_args):
                     )
                     # TODO: Check if it's a chat model and use a chat prompt
                     final_prompt = "\n".join(x["content"] for x in messages) + "\n"
-                    response = model_completion(
-                        final_prompt,
-                        args.model,
-                        lang=args.tgt_lang[-2:],
-                        run_substrate_llm_completion=args.substrate_prompt,
-                        llm_client=LLMClient() if args.substrate_prompt else None,
-                        max_tokens=256,
-                    )
+                    
+                    
+                    if (args.use_hf_api or args.from_hf_hub) and args.chat_prompt:
+                        final_prompt = convert_to_hf_chat_prompt(final_prompt, args.model)
+                    
+                    if args.use_hf_api:
+                        response = hf_model_api_completion(
+                                                            prompt=final_prompt,
+                                                            model_name=args.model,
+                                                            tokenizer=tokenizer,
+                                                            timeout=args.timeout,
+                                                            )
+
+                    elif args.from_hf_hub:
+                        # print("printing from hf hub")
+                        pred = hf_model_completion(
+                            prompts=final_prompt,
+                            model_name=args.model,
+                            model_obj=model_obj,
+                            tokenizer=tokenizer,
+                            timeout=args.timeout,
+                            max_new_tokens=256
+                        )
+                
+                        
+                    else:   
+                        response = model_completion(
+                            final_prompt,
+                            args.model,
+                            lang=args.tgt_lang[-2:],
+                            run_substrate_llm_completion=args.substrate_prompt,
+                            llm_client=LLMClient() if args.substrate_prompt else None,
+                            max_tokens=256,
+                        )
+                        
                     out[datum["dial_id"]]["turns"][turn_id][
                         task_to_out[task]
                     ] = response
