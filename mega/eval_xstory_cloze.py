@@ -11,10 +11,13 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from datasets import Dataset
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from mega.data.load_datasets import (
     load_xstory_cloze_dataset,
     load_xstory_cloze_translate_test,
 )
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.data_utils import choose_few_shot_examples
 from mega.utils.misc_utils import dump_predictions
 from mega.models.completion_models import model_completion
@@ -48,6 +51,8 @@ def evaluate(
     model: str,
     lang: str,
     few_shot_size: int,
+    from_hf_hub: bool = False,
+    use_hf_api: bool = False,
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
     num_evals_per_sec: int = 2,
@@ -90,13 +95,23 @@ def evaluate(
         print("All items already evaluated!")
         sys.exit(0)
 
+    
+    if from_hf_hub:
+        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        tokenizer = AutoTokenizer.from_pretrained(model)
+    
+    if use_hf_api:
+        model_obj = None
+        tokenizer = AutoTokenizer.from_pretrained(model)
+
     for idx, test_example in pbar:
         if idx in idx_set:
             continue
 
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
-        while len(train_examples_i) >= 0:
+        
+        if use_hf_api or from_hf_hub:
             prompt, _ = construct_xstory_prompt(
                 train_examples_i,
                 test_example,
@@ -107,34 +122,73 @@ def evaluate(
                 instruction,
                 substrate_prompt,
             )
-            try:
-                if not substrate_prompt:
-                    pred = model_completion(
-                        prompt,
-                        model,
-                        lang,
-                        timeout=timeout,
-                        **model_params,
-                    )
+            
+            if chat_prompt:
+                # print("chat prompt")
+                prompt_input = convert_to_hf_chat_prompt(prompt, model)
 
-                else:
-                    pred = substrate_llm_completion(
-                        llm_client=llm_client,
-                        prompt=prompt,
-                        model_name=model,
-                        temperature=0,
-                        max_tokens=max_tokens,
-                    )
-                break
-            except (openai.error.InvalidRequestError, openai.error.Timeout):
-                if len(train_examples_i) == 0:
-                    pred = np.random.choice(valid_labels)
-                    print("Exausted Everything! Giving Random Prediction Now :(")
-                    break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+            # print(prompt_input)
+            
+            if use_hf_api:
+                pred = hf_model_api_completion(
+                    prompt=prompt_input,
+                    model_name=model,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
                 )
+
+            elif from_hf_hub:
+                # print("printing from hf hub")
+                pred = hf_model_completion(
+                    prompts=prompt_input,
+                    model_name=model,
+                    model_obj=model_obj,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
+                    max_new_tokens=25
+                )
+                
+        
+        else: 
+            while len(train_examples_i) >= 0:
+                prompt, _ = construct_xstory_prompt(
+                    train_examples_i,
+                    test_example,
+                    prompt_template,
+                    prompt_template,
+                    verbalizer,
+                    chat_prompt,
+                    instruction,
+                    substrate_prompt,
+                )
+                try:
+                    if not substrate_prompt:
+                        pred = model_completion(
+                            prompt,
+                            model,
+                            lang,
+                            timeout=timeout,
+                            **model_params,
+                        )
+
+                    else:
+                        pred = substrate_llm_completion(
+                            llm_client=llm_client,
+                            prompt=prompt,
+                            model_name=model,
+                            temperature=0,
+                            max_tokens=max_tokens,
+                        )
+                    break
+                except (openai.error.InvalidRequestError, openai.error.Timeout):
+                    if len(train_examples_i) == 0:
+                        pred = np.random.choice(valid_labels)
+                        print("Exausted Everything! Giving Random Prediction Now :(")
+                        break
+                    train_examples_i = train_examples_i[:-1]
+                    print(
+                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                    )
 
         dump_predictions(idx, pred, label, save_preds_path)
         preds.append(pred)
@@ -233,6 +287,8 @@ def main(sys_args):
         max_tokens=args.max_tokens,
         timeout=args.timeout,
         substrate_prompt=args.substrate_prompt,
+        use_hf_api=args.use_hf_api,
+        from_hf_hub=args.from_hf_hub,
     )
     # preds_df.to_csv(f"{out_dir}/preds.json")
     print(eval_score)
