@@ -1,4 +1,4 @@
-description: MEGAVERSE
+description: MEGAVERSE_BELEBELE
 
 target:
   service: sing
@@ -32,6 +32,7 @@ environment:
   - python -m pip install openai==0.28.0
   - python -m pip install google-generativeai
   - python -m pip install flash_attn==2.5.5
+  - python -m pip install wandb
   - python -m pip install git+https://github.com/lm-sys/FastChat.git
   - python -m pip install python-dotenv
   - python -m pip install azure-ai-translation-text==1.0.0b1
