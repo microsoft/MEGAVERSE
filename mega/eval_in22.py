@@ -80,6 +80,7 @@ def evaluate_IN22(
             substrate_prompt=substrate_prompt,
         )
 
+        
         try:
             pred = model_completion(
                 prompt,

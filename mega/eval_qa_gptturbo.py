@@ -25,12 +25,15 @@ from mega.models.completion_models import (
     palm_api_completion,
     model_completion,
 )
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
 PUNCT = {
@@ -216,9 +219,13 @@ def evaluate_qa_chatgpt(
     prompt_template,
     model,
     lang,
+    model_obj=None,
+    tokenizer=None,
     normalize_fn=normalize_answer,
     instruction="",
     chat_prompt=True,
+    use_hf_api=False,
+    from_hf_hub=False,
     num_evals_per_sec=2,
     substrate_prompt=False,
     temperature=0,
@@ -226,6 +233,7 @@ def evaluate_qa_chatgpt(
     log_wandb=False,
     metric="squad",
     llm_client=None,
+    timeout=10,
 ):
     f1_sum = 0
     em_sum = 0
@@ -253,11 +261,19 @@ def evaluate_qa_chatgpt(
         print("All items already evaluated!")
         sys.exit(0)
 
+    if from_hf_hub:
+        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        tokenizer = AutoTokenizer.from_pretrained(model)
+        
+    if use_hf_api:
+        tokenizer=AutoTokenizer.from_pretrained(model)
+
     for i, test_example in pbar:
         if i in idx_set:
             continue
         train_examples_i = train_examples
-        while len(train_examples_i) >= 0:
+        
+        if use_hf_api or from_hf_hub:
             prompt, label = construct_qa_prompt(
                 train_examples_i,
                 test_example,
@@ -268,41 +284,78 @@ def evaluate_qa_chatgpt(
                 substrate_prompt=substrate_prompt,
             )
             
-            try:
-                pred = model_completion(
-                    prompt,
-                    model,
-                    run_substrate_llm_completion=substrate_prompt,
-                    temperature=temperature,
-                    max_tokens=max_tokens,
-                    max_output_tokens=max_tokens,
-                    run_details=run_details,
-                    num_evals_per_sec=num_evals_per_sec,
-                    llm_client=llm_client,
-                    lang=lang,
+            if chat_prompt:
+                # print("chat prompt")
+                prompt_input = convert_to_hf_chat_prompt(prompt, model)
+
+            # print(prompt_input)
+            
+            if use_hf_api:
+                pred = hf_model_api_completion(
+                    prompt=prompt_input,
+                    model_name=model,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
                 )
-                break
 
-            # pred = substrate_llm_completion(
-            #     llm_client,
-            #     prompt,
-            #     max_tokens=max_tokens,
-            #     model_name=model,
-            #     temperature=temperature,
-            #     num_evals_per_sec=num_evals_per_sec,
-            #     run_details=run_details,
-            # )
-            except Exception as e:
-                print(e)
-
-                if len(train_examples_i) == 0:
-                    pred = ""
-                    print("Exausted Everything! Giving Empty Prediction Now :(")
-                    break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+            elif from_hf_hub:
+                # print("printing from hf hub")
+                pred = hf_model_completion(
+                    prompts=prompt_input,
+                    model_name=model,
+                    model_obj=model_obj,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
+                    max_new_tokens=25
+                )
+                
+        else:
+            while len(train_examples_i) >= 0:
+                prompt, label = construct_qa_prompt(
+                    train_examples_i,
+                    test_example,
+                    train_prompt_template=prompt_template,
+                    test_prompt_template=prompt_template,
+                    chat_prompt=chat_prompt,
+                    instruction=instruction,
+                    substrate_prompt=substrate_prompt,
+                )
+                
+                try:
+                    pred = model_completion(
+                        prompt,
+                        model,
+                        run_substrate_llm_completion=substrate_prompt,
+                        temperature=temperature,
+                        max_tokens=max_tokens,
+                        max_output_tokens=max_tokens,
+                        run_details=run_details,
+                        num_evals_per_sec=num_evals_per_sec,
+                        llm_client=llm_client,
+                        lang=lang,
                     )
+                    break
+
+                # pred = substrate_llm_completion(
+                #     llm_client,
+                #     prompt,
+                #     max_tokens=max_tokens,
+                #     model_name=model,
+                #     temperature=temperature,
+                #     num_evals_per_sec=num_evals_per_sec,
+                #     run_details=run_details,
+                # )
+                except Exception as e:
+                    print(e)
+
+                    if len(train_examples_i) == 0:
+                        pred = ""
+                        print("Exausted Everything! Giving Empty Prediction Now :(")
+                        break
+                    train_examples_i = train_examples_i[:-1]
+                    print(
+                            f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                        )
 
         pred = normalize_fn(pred)
 
@@ -362,7 +415,7 @@ def evaluate_qa_chatgpt(
             wandb.log({"f1": avg_f1, "em": avg_em}, step=i + 1)
             wandb.log(run_details, step=i + 1)
         pbar.set_description(f"em: {avg_em} f1: {avg_f1}. {i+1}/{len(test_dataset)}")
-        dump_predictions(i, prediction,label, save_preds_path)
+        dump_predictions(i, prediction, label, save_preds_path)
         preds.append(prediction)
         labels.append(reference)
         f1s.append(results["f1"])
@@ -461,11 +514,14 @@ def main(sys_args):
         temperature=args.temperature,
         max_tokens=args.max_tokens,
         log_wandb=True,
+        use_hf_api=args.use_hf_api,
+        from_hf_hub=args.from_hf_hub,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
         substrate_prompt=args.substrate_prompt,
         llm_client=llm_client,
         lang=args.tgt_lang,
+        timeout=args.timeout,
     )
 
     # preds_df.to_csv(f"{out_dir}/preds.csv")
