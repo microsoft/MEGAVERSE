@@ -18,7 +18,7 @@ do
             --xrisawoz_root_dir "./xrisawoz_data/" \
             --xrisawoz_valid_fname "compressed_0.1_valid.json" \
             --seed 1618 \
-            --model "$model" \
+            --model $model \
             --tgt_lang "$lang" \
             --from_hf_hub \
             --chat_prompt \

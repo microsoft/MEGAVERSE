@@ -21,6 +21,7 @@ from tqdm import tqdm
 import wandb
 import pandas as pd
 from mega.utils.substrate_llm import LLMClient
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 def read_parameters(args_path):
@@ -148,10 +149,13 @@ def compute_rouge(scorer, pred, label):
 
 
 if __name__ == "__main__":
-    args = read_parameters("./scripts/parameters_palm.yaml")
+
     env_name = "melange"
     load_openai_env_variables()
     lang = sys.argv[1]
+    paramaters_file = sys.argv[2]
+    save_dir = sys.argv[3]
+    args = read_parameters(paramaters_file)
     prompt_name = args["prompt_names"][0]
 
     if args["wandb_log"]:
@@ -161,9 +165,12 @@ if __name__ == "__main__":
 
     instruction = INSTRUCTIONS[args["instruction_identifier"]]
 
+    args['response_logger_root'] = f"{save_dir}/XLSum/{args['model']}/"
+    
     if not os.path.exists(args["response_logger_root"]):
-        os.mkdir(args["response_logger_root"])
-
+        os.makedirs(args["response_logger_root"], exist_ok=True)
+    
+    
     response_logger_file = f"{args['response_logger_root']}/{lang}_predictions.csv"
     # response_logger_file = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
 
@@ -186,6 +193,12 @@ if __name__ == "__main__":
 
     # Delimiting the test set to run prompt selection for the model
     model = args["model"]
+    
+    
+    if "/" in model:
+        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        tokenizer = AutoTokenizer.from_pretrained(model)
+    
     if args["prompt_selection"]:
         test_examples = load_xlsum_data(lang, "validation", args["dataset_frac"])
         model = args["turbo_identifier"]  # Used for faster inference
@@ -245,6 +258,8 @@ if __name__ == "__main__":
             temperature=args["temperature"],
             run_details=run_details,
             lang=lang,
+            model_obj=model_obj,
+            tokenizer=tokenizer,
             run_substrate_llm_completion=args["substrate_prompt"],
         )
 
