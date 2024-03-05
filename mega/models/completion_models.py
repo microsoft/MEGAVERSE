@@ -3,6 +3,8 @@ import warnings
 import signal
 import time
 import openai
+import google.generativeai as genai
+import os
 
 from typing import List, Dict, Union, Any
 from google.api_core.exceptions import ResourceExhausted
@@ -16,6 +18,7 @@ from mega.utils.const import (
     PALM_MAPPING,
     MODEL_TYPES,
     PALM_SUPPORTED_LANGUAGES_MAP,
+    GEMINI_SUPPORTED_LANGUAGES_MAP
 )
 from mega.utils.env_utils import (
     load_openai_env_variables,
@@ -29,7 +32,7 @@ from huggingface_hub import InferenceClient
 # from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
-
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -90,6 +93,27 @@ def palm_api_completion(
 
     return response.text
 
+@backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
+def gemini_completion(
+    prompt: str, model: str = "gemini-pro", lang: str = "", **model_params
+) -> str:
+
+    if lang == "":
+        raise ValueError("Language argument is necessary for gemini model")
+    if (
+        lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.keys()
+        and lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.values()
+    ):
+        raise ValueError("Language not supported by Gemini-Pro!")
+
+    model_load = genai.GenerativeModel(model)
+    print(model_load.generate_content("hello how are you"))
+    print(prompt)
+    response = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)))
+
+    print(response)
+
+    return response.text
 
 @backoff.on_exception(
     backoff.expo,
@@ -303,6 +327,12 @@ def model_completion(
         return palm_api_completion(
             prompt, model=PALM_MAPPING[model], lang=lang, **model_params
         )
+    
+    if "gemini" in model:
+        return gemini_completion(
+            prompt, model=model, lang=lang, **model_params
+        )
+
 
 
 def get_model_pred(

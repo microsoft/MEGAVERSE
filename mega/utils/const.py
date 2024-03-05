@@ -77,6 +77,8 @@ GEMINI_SUPPORTED_LANGUAGES_MAP = {
 	"bengali": "bn",
 	"bulgarian": "bg",
 	"chinese": "zh",
+    "chinese_simplified": "zh-CN",
+    "chinese_traditional": "zh-TW",
 	"croatian": "hr",
 	"czech": "cs",
 	"danish": "da",

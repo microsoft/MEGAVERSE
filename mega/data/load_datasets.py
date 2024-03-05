@@ -102,7 +102,7 @@ def load_belebele_dataset(
         Union[Dataset, DatasetDict]: huggingface dataset object
     """
 
-    dataset = load_dataset("facebook/belebele", BELEBELE_LANG2CODES[lang], split="test")
+    dataset = load_dataset("facebook/belebele", split=BELEBELE_LANG2CODES[lang])
 
     N = len(dataset)
     selector = np.arange(int(N * dataset_frac))
