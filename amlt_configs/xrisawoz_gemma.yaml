@@ -48,7 +48,6 @@ code:
   ignore:
   - data/*
   - MEGANotebooks/*
-  - xrisawoz_data/*
   - results/*
 
 storage:
