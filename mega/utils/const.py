@@ -16,6 +16,7 @@ SUPPORTED_MODELS = [
     "meta-llama/Llama-2-70b-chat-hf",
     "palm",
     "palm-32k",
+    "gemini-pro",
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
@@ -70,3 +71,44 @@ PALM_SUPPORTED_LANGUAGES_MAP = {
 }
 
 PALM_MAPPING = {"palm": "text-bison@001", "palm-32k": "text-bison-32k"}
+
+GEMINI_SUPPORTED_LANGUAGES_MAP = {
+	"arabic": "ar",
+	"bengali": "bn",
+	"bulgarian": "bg",
+	"chinese": "zh",
+	"croatian": "hr",
+	"czech": "cs",
+	"danish": "da",
+	"dutch": "nl",
+	"english": "en",
+	"estonian": "et",
+	"finnish": "fi",
+	"french": "fr",
+	"german": "de",
+	"greek": "el",
+	"hebrew": "iw",
+	"hindi": "hi",
+	"hungarian": "hu",
+	"indonesian": "id",
+	"italian": "it",
+	"japanese": "ja",
+	"korean": "ko",
+	"latvian": "lv",
+	"lithuanian": "lt",
+	"norwegian": "no",
+	"polish": "pl",
+	"portuguese": "pt",
+	"romanian": "ro",
+	"russian": "ru",
+	"serbian": "sr",
+	"slovak": "sk",
+	"slovenian": "sl",
+	"spanish": "es",
+	"swahili": "sw",
+	"swedish": "sv",
+	"thai": "th",
+	"turkish": "tr",
+	"ukrainian": "uk",
+	"vietnamese": "vi",
+}
