@@ -76,7 +76,7 @@ def main(sys_args):
     )["data"]
     inputs = defaultdict(lambda: defaultdict(list))
     
-    if args.use_hf_api and args.from_hf_hub:
+    if args.use_hf_api or args.from_hf_hub:
         model_obj = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto")
         tokenizer = AutoTokenizer.from_pretrained(args.model)
     
@@ -123,13 +123,20 @@ def main(sys_args):
                         }
                     )
                     # TODO: Check if it's a chat model and use a chat prompt
-                    final_prompt = "\n".join(x["content"] for x in messages) + "\n"
+                    
+                    # final_prompt = "\n".join(x["content"] for x in messages) + "\n"
                     
                     
-                    if (args.use_hf_api or args.from_hf_hub) and args.chat_prompt:
-                        final_prompt = convert_to_hf_chat_prompt(final_prompt, args.model)
+                    #make a string prompt for chat models
+                    # if (args.use_hf_api or args.from_hf_hub) and args.chat_prompt:
+                    #     final_prompt = convert_to_hf_chat_prompt(final_prompt, args.model)
+                    
+                    # print(final_prompt)
+                    
+                    final_prompt = messages
                     
                     if args.use_hf_api:
+                        final_prompt = convert_to_hf_chat_prompt(final_prompt, args.model)
                         response = hf_model_api_completion(
                                                             prompt=final_prompt,
                                                             model_name=args.model,
@@ -139,7 +146,8 @@ def main(sys_args):
 
                     elif args.from_hf_hub:
                         # print("printing from hf hub")
-                        pred = hf_model_completion(
+                        final_prompt = convert_to_hf_chat_prompt(final_prompt, args.model)
+                        response = hf_model_completion(
                             prompts=final_prompt,
                             model_name=args.model,
                             model_obj=model_obj,
@@ -149,7 +157,8 @@ def main(sys_args):
                         )
                 
                         
-                    else:   
+                    else:  
+                        final_prompt = "\n".join(x["content"] for x in messages) + "\n" 
                         response = model_completion(
                             final_prompt,
                             args.model,

@@ -1,4 +1,4 @@
-description: MEGAVERSE_INDICQA_GEMMA
+description: MEGAVERSE_XLSUM_GEMMA
 
 target:
   service: sing
@@ -20,9 +20,9 @@ environment:
   - python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 --force
   - python -c "import torch; print('GPU Support:',torch.cuda.is_available())"
   - which pip
-  - python -m pip install chardet
   - conda install cudatoolkit==12.1 -y
   - which python
+  - python -m pip install chardet
   - python -m pip install transformers -U
   - python -m pip install accelerate
   - python -m pip install deepspeed
@@ -59,7 +59,7 @@ storage:
 
 
 jobs:
-  - name: megaverse_indicqa_gemma
+  - name: megaverse_xlsum_gemma
     sku: 80G1-A100
     priority: High
     sla_tier: Standard
@@ -71,4 +71,4 @@ jobs:
       - python -m pip install -e promptsource/ --user
       - python -m pip install transformers -U --user
       - huggingface-cli login --token "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"
-      - bash hf_scripts/run_afriqa.sh "/mnt/megaverse/results"
+      - bash hf_scripts/run_xlsum.sh "/mnt/megaverse/results"

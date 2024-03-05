@@ -283,32 +283,32 @@ def model_completion(
     """
 
     # print(model)
+    
+    if model_obj is not None and tokenizer is not None:
+        return hf_model_completion(prompt, model_obj=model_obj, tokenizer=tokenizer, **model_params)
 
-    if model in CHAT_MODELS:
+    elif model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
 
-    if model == "BLOOM":
+    elif model == "BLOOM":
         return bloom_completion(prompt, **model_params)
 
-    if model == "BLOOMZ":
+    elif model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
 
-    if run_substrate_llm_completion:
+    elif run_substrate_llm_completion:
         if not llm_client:
             raise ValueError(
                 "LLM Client not provided! Please provide a valid LLM Client"
             )
         return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
-    if "Llama-2" in model:
+    elif "Llama-2" in model:
         return hf_model_api_completion(prompt, model, **model_params)
-    if "palm" in model:
+    elif "palm" in model:
         return palm_api_completion(
             prompt, model=PALM_MAPPING[model], lang=lang, **model_params
         )
-        
-    if model_obj is not None and tokenizer is not None:
-        return hf_model_completion(prompt, model_obj=model_obj, tokenizer=tokenizer, **model_params)
 
 
 def get_model_pred(

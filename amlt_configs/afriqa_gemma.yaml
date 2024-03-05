@@ -1,4 +1,4 @@
-description: MEGAVERSE_TYDIQA_GEMMA
+description: MEGAVERSE_AFRIQA_GEMMA
 
 target:
   service: sing
@@ -59,7 +59,7 @@ storage:
 
 
 jobs:
-  - name: megaverse_tydiqa_gemma
+  - name: megaverse_afriqa_gemma
     sku: 80G1-A100
     priority: High
     sla_tier: Standard

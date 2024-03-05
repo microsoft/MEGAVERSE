@@ -57,7 +57,7 @@ storage:
 
 
 jobs:
-  - name: megaverse_xnli_gemma
+  - name: megaverse_belebele_gemma
     sku: 80G1-A100
     priority: High
     sla_tier: Standard
