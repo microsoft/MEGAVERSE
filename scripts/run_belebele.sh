@@ -3,7 +3,7 @@
 echo "Monolingual Evaluation"
 for prompt_name in "Choose the correct answer"
 do
-    for lang in english spanish german japanese french portuguese italian chinese_simplified dutch swedish turkish danish finnish russian norwegian korean chinese_traditional polish turkish hebrew arabic czech hungarian thai
+    for lang in spanish german japanese french portuguese italian chinese_simplified dutch swedish turkish danish finnish russian norwegian korean chinese_traditional polish turkish hebrew arabic czech hungarian thai #english
     do
         for k in 0 
         do

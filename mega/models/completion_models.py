@@ -130,7 +130,11 @@ def gemini_completion(prompt: str, model: str = "gemini-pro", lang: str = "", **
     model_load = genai.GenerativeModel(model)
     response = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)), safety_settings = gemini_safety_settings)
 
-    return response.text
+    try:
+        return response.text
+    except:
+        print("Skipping")
+        return ""
 
 @backoff.on_exception(
     backoff.expo,
