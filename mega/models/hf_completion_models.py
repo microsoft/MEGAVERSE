@@ -89,7 +89,7 @@ def hf_model_completion(
     tokenizer: AutoTokenizer,
     timeout: int = 10000000,
     batch_size: int = 1,
-    max_new_tokens: int = 2,
+    # max_new_tokens: int = 2,
     **model_params,
 ):
 
@@ -117,7 +117,7 @@ def hf_model_completion(
 
             output = model_obj.generate(
                 **batch,
-                max_new_tokens=max_new_tokens,
+                max_new_tokens=model_params.get('max_new_tokens', 40),
                 return_dict_in_generate=True,
                 output_scores=True,
                 min_length=20,
