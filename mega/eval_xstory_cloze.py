@@ -194,8 +194,9 @@ def evaluate(
         dump_predictions(idx, pred, label, save_preds_path)
         preds.append(pred)
         labels.append(label)
-        matches.append(float(pred in label))
-        num_matches += float(pred in label)
+        if pred != '':
+            matches.append(float(pred in label) or float(label in pred))
+            num_matches += float(pred in label or float(label in pred))
         running_acc = np.mean(matches)
         pbar.set_description(f"Accuracy: {running_acc}")
         if log_wandb:
