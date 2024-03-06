@@ -56,7 +56,7 @@ def run_seq_eval(
     num_matches = 0
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]
-
+    
     try:
         with open(save_preds_path, "r") as file:
             json_data = [json.loads(line) for line in file]

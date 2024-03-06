@@ -170,8 +170,9 @@ def construct_qa_nocontext_prompt(
                 if not example["answers"] or example["answers"] == ["unanswerable"]
                 else example["answers"][0]
             )
-            return template.replace("{question}", example["question"]).replace(
-                "{answer}", answer
+            return (
+                template.replace("{question}", example["question"])
+                .replace("{answer}", answer)
             )
         else:
             return (
@@ -180,6 +181,7 @@ def construct_qa_nocontext_prompt(
                 .strip()
             )
 
+    test_example["answers"] = [test_example["answers"].strip("']").strip("['")]
     if not chat_prompt:
         train_prompts = [
             fill_template(train_prompt_template, example) for example in train_examples
@@ -188,9 +190,7 @@ def construct_qa_nocontext_prompt(
             test_prompt_template, test_example, fill_answer=False
         )
         prompt_input = "\n\n".join(train_prompts + [test_prompt_input])
-        test_prompt_label = (
-            test_example["answers"][0] if test_example["answers"] else "unanswerable"
-        )
+        test_prompt_label = test_example["answers"][0] if test_example["answers"] else "unanswerable"
 
     else:
         messages = []
