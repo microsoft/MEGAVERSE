@@ -292,7 +292,7 @@ def model_completion(
             prompt,
             model_obj=model_obj,
             tokenizer=tokenizer,
-            max_new_tokens=model_params.get("max_new_tokens", 40),
+            # max_new_tokens=model_params.get("max_new_tokens", 40),
             **model_params,
         )
 
