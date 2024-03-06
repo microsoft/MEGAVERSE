@@ -296,7 +296,10 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-
+            
+            # print(prompt)
+            # print(label)
+            
             if chat_prompt:
                 # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)

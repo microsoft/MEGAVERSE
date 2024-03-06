@@ -34,6 +34,8 @@ def evaluate_IN22(
     temperature=0,
     max_tokens=768,
     llm_client=None,
+    use_hf_api=False,
+    from_hf_hub=False
 ):
     run_details = {"num_calls": 0}
 
@@ -55,6 +57,8 @@ def evaluate_IN22(
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         sys.exit(0)
+    
+    from 
 
     for i, datapoint in pbar:
         if i in idx_set:
@@ -80,6 +84,10 @@ def evaluate_IN22(
             substrate_prompt=substrate_prompt,
         )
 
+        
+        if use_hf_api or from_hf_hub:
+            
+        
         try:
             pred = model_completion(
                 prompt,
