@@ -22,7 +22,7 @@ from mega.models.hf_completion_models import (
 )
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.data_utils import choose_few_shot_examples
-from mega.utils.misc_utils import dump_predictions
+from mega.utils.misc_utils import dump_predictions, normalize_answer
 from mega.models.completion_models import model_completion
 from mega.prompting.prompting_utils import construct_xstory_prompt
 from mega.prompting.instructions import INSTRUCTIONS
@@ -192,6 +192,8 @@ def evaluate(
                     )
 
         dump_predictions(idx, pred, label, save_preds_path)
+        pred = normalize_answer(pred)
+        label = normalize_answer(label)
         preds.append(pred)
         labels.append(label)
         if pred != '':

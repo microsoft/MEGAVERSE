@@ -9,7 +9,7 @@ from promptsource.templates import Template
 from mega.models.completion_models import get_model_pred
 from mega.models.hf_completion_models import get_hf_model_pred
 from mega.data.data_utils import choose_few_shot_examples
-from mega.utils.misc_utils import dump_predictions
+from mega.utils.misc_utils import dump_predictions, normalize_answer
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import openai
 import json
@@ -166,10 +166,14 @@ def run_seq_eval(
         # print(f"label decoded: {enc.decode(label)}")
         # print(f"pred decoded: {enc.decode(pred)}")
         # sys.exit(0)
-        num_matches += float(pred == label)
+        pred = normalize_answer(pred)
+        label = normalize_answer(label)
+        if pred != "":
+            num_matches += float((pred in label) or (label in pred))
+            
+            matches.append(float((pred in label) or (label in pred)))
         preds.append(pred)
         labels.append(label)
-        matches.append(float(pred == label))
         running_acc = np.mean(matches)
         pbar.set_description(f"Accuracy: {running_acc}")
         if log_wandb:
