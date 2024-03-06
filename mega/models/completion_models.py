@@ -9,7 +9,10 @@ from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
-from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.models.hf_completion_models import (
+    hf_model_api_completion,
+    hf_model_completion,
+)
 from mega.utils.const import (
     SUPPORTED_MODELS,
     CHAT_MODELS,
@@ -283,9 +286,15 @@ def model_completion(
     """
 
     # print(model)
-    
+
     if model_obj is not None and tokenizer is not None:
-        return hf_model_completion(prompt, model_obj=model_obj, tokenizer=tokenizer, **model_params)
+        return hf_model_completion(
+            prompt,
+            model_obj=model_obj,
+            tokenizer=tokenizer,
+            max_new_tokens=model_params.get("max_new_tokens", 40),
+            **model_params,
+        )
 
     elif model in CHAT_MODELS:
         return gpt3x_completion(prompt, model, timeout=timeout, **model_params)
@@ -338,7 +347,7 @@ def get_model_pred(
 
     Returns:
         Dict[str, str]: _description_
-    """    
+    """
 
     prompt_input, label = construct_prompt(
         train_examples,
@@ -349,14 +358,11 @@ def get_model_pred(
         instruction=instruction,
         substrate_prompt=substrate_prompt,
     )
-    
+
     # print(prompt_input)
-    
+
     if model_obj is not None and tokenizer is not None and chat_prompt:
         prompt_input = convert_to_hf_chat_prompt(prompt_input, model)
-        
-    
-    
 
     if substrate_prompt:
         run_substrate_llm_completion = True

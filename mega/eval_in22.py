@@ -80,7 +80,6 @@ def evaluate_IN22(
             substrate_prompt=substrate_prompt,
         )
 
-        
         try:
             pred = model_completion(
                 prompt,
@@ -106,7 +105,9 @@ def evaluate_IN22(
             "prediction": pred,
         }
 
-        dump_predictions(i, prediction, datapoint[f"sentence_{target}"], save_preds_path)
+        dump_predictions(
+            i, prediction, datapoint[f"sentence_{target}"], save_preds_path
+        )
         preds.append(prediction)
 
     return None, pd.DataFrame(preds)

@@ -16,6 +16,7 @@ import json
 import sys
 import torch
 
+
 def run_seq_eval(
     save_preds_path,
     train_examples: List[Dict[str, Union[str, int]]],
@@ -24,7 +25,7 @@ def run_seq_eval(
     test_prompt_template: Template,
     model: str,
     lang: str,
-    tokenizer: AutoTokenizer=None,
+    tokenizer: AutoTokenizer = None,
     model_obj: AutoModelForCausalLM = None,
     num_evals_per_sec: int = 2,
     chat_prompt: bool = False,
@@ -70,21 +71,19 @@ def run_seq_eval(
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         sys.exit(0)
-        
+
     if "/" in model:
         model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
         tokenizer = AutoTokenizer.from_pretrained(model)
-        
-        
-        
+
     for idx, test_example in pbar:
         train_examples_i = train_examples
 
         if idx in idx_set:
             continue
-        
-        if model_obj is not None and tokenizer is not None:  
-            while len(train_examples_i) >= 0:             
+
+        if model_obj is not None and tokenizer is not None:
+            while len(train_examples_i) >= 0:
                 try:
                     pred_dict = get_hf_model_pred(
                         train_examples_i,
@@ -117,9 +116,9 @@ def run_seq_eval(
                     print(
                         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
                     )
-                
+
         else:
-            while len(train_examples_i) >= 0:     
+            while len(train_examples_i) >= 0:
                 try:
                     pred_dict = get_model_pred(
                         train_examples_i,

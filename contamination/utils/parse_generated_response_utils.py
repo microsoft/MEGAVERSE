@@ -68,10 +68,10 @@ def generate_pawsx_str_from_generated_response(
         generated_str += "\n"
     return generated_str
 
+
 def generate_tydiqa_str_from_generated_response(
     generated_response: List[Dict[str, str]]
 ) -> str:
-    
     """Generate a string from the generated response.
 
     Args:
@@ -80,7 +80,7 @@ def generate_tydiqa_str_from_generated_response(
     Returns:
         str: Generated string
     """
-    
+
     generated_str = ""
     for i, option in enumerate(generated_response):
         generated_str += chr(ord("A") + i)
@@ -96,6 +96,7 @@ def generate_tydiqa_str_from_generated_response(
         # generated_str += "Label: " + option["Label"].strip() + "\n"
         generated_str += "\n"
     return generated_str
+
 
 def generated_udpos_str_from_generated_response(
     generated_response: List[Dict[str, str]]

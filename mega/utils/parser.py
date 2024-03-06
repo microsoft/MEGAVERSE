@@ -1,6 +1,7 @@
 import argparse
 from mega.utils.const import MODEL_TYPES, SUPPORTED_MODELS
 
+
 def parse_args(args: list) -> argparse.Namespace:
     """Parses the arguments provided in the command line
     Args:
@@ -48,7 +49,7 @@ def parse_args(args: list) -> argparse.Namespace:
     parser.add_argument(
         "-t",
         "--tgt_lang",
-        default="en", 
+        default="en",
         # choices=["en", "hi"],
         type=str,
         help="Language to evaluate on",
@@ -125,23 +126,19 @@ def parse_args(args: list) -> argparse.Namespace:
         action="store_true",
         help="Whether to use Validation Data for in-evaluation",
     )
-    
+
     parser.add_argument(
         "--use_hf_api",
         action="store_true",
         help="Whether to use HF API",
     )
-    
+
     parser.add_argument(
         "--from_hf_hub",
         action="store_true",
         help="Whether to use from HF Hub",
     )
-    
-    
-    
-    
-    
+
     parser.add_argument(
         "--substrate_prompt",
         action="store_true",
@@ -275,15 +272,9 @@ def parse_args(args: list) -> argparse.Namespace:
         help="Timeout for each call to the model. 0 means no timeout",
     )
 
-    parser.add_argument(
-        '--xrisawoz_root_dir',
-        type=str,
-        default='./xrisawoz_data/'
-    )
+    parser.add_argument("--xrisawoz_root_dir", type=str, default="./xrisawoz_data/")
 
     parser.add_argument(
-        '--xrisawoz_valid_fname',
-        type=str,
-        default='compressed_0.1_valid'
+        "--xrisawoz_valid_fname", type=str, default="compressed_0.1_valid"
     )
     return parser.parse_args(args)

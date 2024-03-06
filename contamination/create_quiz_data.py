@@ -98,18 +98,20 @@ def run_quiz_creation(
     elif dataset_name == "tydiqa":
 
         TYDIQA_LANG2CODES = {
-                                "bengali": "bn",
-                                "korean": "ko",
-                                "swahili": "sw",
-                                "english": "en",
-                                "indonesian": "id",
-                                "arabic": "ar",
-                                "finnish": "fi",
-                                "telugu": "te",
-                                "russian": "ru",
-                            }
+            "bengali": "bn",
+            "korean": "ko",
+            "swahili": "sw",
+            "english": "en",
+            "indonesian": "id",
+            "arabic": "ar",
+            "finnish": "fi",
+            "telugu": "te",
+            "russian": "ru",
+        }
         ds = load_dataset(dataset_name, "secondary_task")[dataset_split]
-        ds = ds.map(lambda example: {"lang": TYDIQA_LANG2CODES[example["id"].split("-")[0]]})
+        ds = ds.map(
+            lambda example: {"lang": TYDIQA_LANG2CODES[example["id"].split("-")[0]]}
+        )
 
     else:
         ds = load_dataset(dataset_name, lang)

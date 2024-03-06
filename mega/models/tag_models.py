@@ -242,9 +242,9 @@ def palm_tagger(
             max_output_tokens=model_params.get("max_tokens", 20),
             temperature=model_params.get("temperature", 1),
         )
-        
+
         return model_output.text
-    
+
     if one_shot_tag:
         predicted_tokens_wth_tags = predict_one_shot()
         predicted_tokens_wth_tags = predicted_tokens_wth_tags.split()

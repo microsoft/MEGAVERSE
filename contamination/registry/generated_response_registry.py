@@ -11,5 +11,5 @@ GENERATED_RESPONSE_REGISTRY = {
     "xcopa": generate_xcopa_str_from_generated_response,
     "paws-x": generate_pawsx_str_from_generated_response,
     "tydiqa": generate_tydiqa_str_from_generated_response,
-    "udpos" : generated_udpos_str_from_generated_response
+    "udpos": generated_udpos_str_from_generated_response,
 }

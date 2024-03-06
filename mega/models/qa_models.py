@@ -13,8 +13,7 @@ from langchain.text_splitter import TokenTextSplitter
 from langchain.vectorstores import Chroma
 
 from mega.models.completion_models import gpt3x_completion
-from mega.utils.env_utils import (BLOOMZ_API_URL, HF_API_KEY,
-                                  load_openai_env_variables)
+from mega.utils.env_utils import BLOOMZ_API_URL, HF_API_KEY, load_openai_env_variables
 
 load_openai_env_variables()
 
@@ -228,7 +227,6 @@ def answer_question(
         )
     elif model in ["gpt-4", "gpt-4-32k"]:
         return answer_question_gpt4(question, context, prompt, model)
-    
 
     else:
         raise NotImplementedError()

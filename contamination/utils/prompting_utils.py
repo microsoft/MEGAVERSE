@@ -70,9 +70,8 @@ def get_xcopa_quiz_generation_prompt(
     if not chat_prompt:
         return prompt
     else:
-        return generate_gpt4_style_prompt(
-            instruction, prompt, substrate_prompt, lang
-        )
+        return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
+
 
 def get_pawsx_quiz_generation_prompt(
     dataset_example: Dict[str, any],
@@ -98,6 +97,7 @@ def get_pawsx_quiz_generation_prompt(
     else:
         return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
 
+
 def get_tydiqa_quiz_generation_prompt(
     dataset_example: Dict[str, any],
     template: str,
@@ -120,6 +120,7 @@ def get_tydiqa_quiz_generation_prompt(
 
     else:
         return generate_gpt4_style_prompt(instruction, prompt, substrate_prompt, lang)
+
 
 def get_udpos_quiz_generation_prompt(
     dataset_example: Dict[str, any],
