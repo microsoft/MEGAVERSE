@@ -41,6 +41,29 @@ genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 # signal.signal(signal.SIGALRM, handler)
 
 
+gemini_safety_settings = [
+    {
+        "category": "HARM_CATEGORY_DANGEROUS",
+        "threshold": "BLOCK_NONE",
+    },
+    {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_NONE",
+    },
+    {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_NONE",
+    },
+    {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_NONE",
+    },
+    {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_NONE",
+    },
+]
+
 def timeout_handler(signum, frame):
     raise openai.Timeout("API Response Stuck!")
 
@@ -93,10 +116,8 @@ def palm_api_completion(
 
     return response.text
 
-@backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
-def gemini_completion(
-    prompt: str, model: str = "gemini-pro", lang: str = "", **model_params
-) -> str:
+@backoff.on_exception(backoff.expo, Exception, max_time=300, max_tries=5)
+def gemini_completion(prompt: str, model: str = "gemini-pro", lang: str = "", **model_params) -> str:
 
     if lang == "":
         raise ValueError("Language argument is necessary for gemini model")
@@ -107,11 +128,7 @@ def gemini_completion(
         raise ValueError("Language not supported by Gemini-Pro!")
 
     model_load = genai.GenerativeModel(model)
-    print(model_load.generate_content("hello how are you"))
-    print(prompt)
-    response = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)))
-
-    print(response)
+    response = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)), safety_settings = gemini_safety_settings)
 
     return response.text
 
