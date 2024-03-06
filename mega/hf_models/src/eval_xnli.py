@@ -16,6 +16,7 @@ from mega.utils.env_utils import load_openai_env_variables
 import pdb
 from pprint import pprint
 
+
 def main(sys_args):
     args = parse_args(sys_args)
     load_openai_env_variables()
@@ -63,13 +64,12 @@ def main(sys_args):
     test_prompt_template = load_prompt_template(
         args.tgt_lang, args.tgt_prompt_name, dataset="xnli"
     )
-    
+
     # print(dir(test_prompt_template))
 
     train_examples = choose_few_shot_examples(
         train_dataset, args.few_shot_k, args.few_shot_selection
     )
-    
 
     out_dir = f"{args.save_dir}/xnli/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}_temperature_{args.temperature}"
     if args.translate_test:
@@ -81,9 +81,9 @@ def main(sys_args):
         os.makedirs(out_dir)
 
     pred_file_path = f"{out_dir}/preds.csv"
-    
+
     results_file = f"{out_dir}/results.json"
-        
+
     if not os.path.exists(results_file):
         accuracy = evaluate_model(
             train_dataset,
@@ -118,6 +118,7 @@ def main(sys_args):
             wandb.log({"accuracy": accuracy})
     else:
         print(f"Results already exist in {out_dir}")
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

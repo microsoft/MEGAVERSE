@@ -12,7 +12,11 @@ from langchain.prompts.few_shot import FewShotPromptTemplate, PromptTemplate
 from langchain.text_splitter import TokenTextSplitter
 from langchain.vectorstores import Chroma
 
-from mega.models.hf_completion_models import hf_model_completion, hf_model_api_completion
+from mega.models.hf_completion_models import (
+    hf_model_completion,
+    hf_model_api_completion,
+)
+
 # from mega.utils.env_utils import (BLOOMZ_API_URL, HF_API_KEY,
 #                                   load_openai_env_variables)
 
@@ -140,10 +144,12 @@ def answer_question_gpt4(
 ):
     return hf_model_completion(prompt, model, **model_params)
 
+
 def answer_question_llama(
     question: str, context: str, prompt: Union[List, str], model: str, **model_params
 ):
     return hf_model_api_completion(prompt, model, **model_params)
+
 
 def answer_question_bloomz(
     question: str,

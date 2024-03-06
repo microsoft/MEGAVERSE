@@ -23,7 +23,6 @@ Label: {label} ({verbalized_label})
 'answer': {answer}
 {format_instructions}
 """,
-
     "paws-x": """{instruction}
 --TEXT--
 Sentence 1: {sentence1} 
@@ -31,14 +30,14 @@ Sentence 2: {sentence2} True or False?
 Label: {label} ({verbalized_label})
 {format_instructions}
 """,
-"udpos": """{instruction}
+    "udpos": """{instruction}
 --TEXT--
 tokens: {tokens}
 tags: {tags}
 tagged_tokens: {tagged_tokens}
 {format_instructions}
 """,
-"tydiqa": """{instruction}
+    "tydiqa": """{instruction}
 --TEXT--
 Context: {context}
 Question: {question}

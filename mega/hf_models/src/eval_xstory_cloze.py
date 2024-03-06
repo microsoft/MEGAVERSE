@@ -1,6 +1,7 @@
 import os
 import argparse
 from typing import Dict, Any, Optional
+
 # import openai
 import sys
 import time
@@ -16,7 +17,10 @@ from mega.data.load_datasets import (
     load_xstory_cloze_translate_test,
 )
 from mega.data.data_utils import choose_few_shot_examples
-from mega.models.hf_completion_models import hf_model_completion, hf_model_api_completion
+from mega.models.hf_completion_models import (
+    hf_model_completion,
+    hf_model_api_completion,
+)
 from mega.prompting.prompting_utils import construct_xstory_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
@@ -42,7 +46,7 @@ def evaluate(
     test_dataset: Dataset,
     prompt_template: str,
     verbalizer: Dict[Any, str],
-    model_name: str, 
+    model_name: str,
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
     few_shot_size: int,
@@ -71,16 +75,16 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
-    
+
     pbar = tqdm(test_dataset.shuffle(seed=42))
-    
+
     for idx, test_example in enumerate(pbar):
         # print(idx)
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
-        
+
         while len(train_examples_i) >= 0:
-            
+
             prompt, _ = construct_xstory_prompt(
                 train_examples_i,
                 test_example,
@@ -90,34 +94,34 @@ def evaluate(
                 chat_prompt,
                 instruction,
             )
-            
+
             # print(prompt)
             # print()
-            
+
             try:
                 if chat_prompt:
                     prompt = convert_to_hf_chat_prompt(prompt, model)
-                
+
                 # print(prompt)
                 # print()
-                
+
                 if use_api:
                     pred = hf_model_api_completion(
-                            prompt,
-                            model_name=model_name,
-                            tokenizer=tokenizer,
-                            timeout=timeout,
-                            **model_params,
-                        )
+                        prompt,
+                        model_name=model_name,
+                        tokenizer=tokenizer,
+                        timeout=timeout,
+                        **model_params,
+                    )
                 else:
                     pred = hf_model_completion(
-                            prompt,
-                            model=model,
-                            tokenizer=tokenizer,
-                            timeout=timeout,
-                            max_new_tokens=5,
-                            **model_params,
-                        )
+                        prompt,
+                        model=model,
+                        tokenizer=tokenizer,
+                        timeout=timeout,
+                        max_new_tokens=5,
+                        **model_params,
+                    )
                     break
             except:
                 if len(train_examples_i) == 0:
@@ -208,16 +212,16 @@ def main(sys_args):
         tokenizer = AutoTokenizer.from_pretrained(args.model)
     else:
         model, tokenizer = initialise_model(args.model)
-    
+
     results_file = f"{out_dir}/results.json"
-    
+
     if not os.path.exists(results_file):
         eval_score, preds_df = evaluate(
             train_dataset,
             test_dataset,
             prompt_template=prompt_template,
             verbalizer=verbalizer,
-            model_name=args.model, 
+            model_name=args.model,
             model=model,
             tokenizer=tokenizer,
             few_shot_size=args.few_shot_k,
@@ -247,6 +251,7 @@ def main(sys_args):
             wandb.log({"accuracy": eval_score})
     else:
         print(f"Results already exist in {out_dir}")
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

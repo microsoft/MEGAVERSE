@@ -10,7 +10,10 @@ from mega.data.load_datasets import load_belebele_dataset, load_belebele_transla
 from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.eval_cls import evaluate_model
 from mega.models.completion_models import model_completion
-from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.models.hf_completion_models import (
+    hf_model_api_completion,
+    hf_model_completion,
+)
 from mega.prompting.prompting_utils import construct_belebele_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.instructions import INSTRUCTIONS
@@ -179,23 +182,22 @@ def evaluate(
         train_examples_i = train_examples
         label = verbalizer[test_example["correct_answer_num"]]
 
-        
         if use_hf_api or from_hf_hub:
             prompt, _ = construct_belebele_prompt(
-                            train_examples_i,
-                            test_example,
-                            prompt_template,
-                            prompt_template,
-                            verbalizer,
-                            chat_prompt,
-                            instruction,
-                        )
+                train_examples_i,
+                test_example,
+                prompt_template,
+                prompt_template,
+                verbalizer,
+                chat_prompt,
+                instruction,
+            )
             if chat_prompt:
                 # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)
 
             # print(prompt_input)
-            
+
             if use_hf_api:
                 pred = hf_model_api_completion(
                     prompt=prompt_input,
@@ -212,9 +214,9 @@ def evaluate(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=25
+                    max_new_tokens=25,
                 )
-                
+
             else:
                 try:
                     while len(train_examples_i) >= 0:
@@ -355,7 +357,7 @@ def main(sys_args):
     model_obj = None
     if args.use_hf_api or args.from_hf_hub:
         tokenizer = AutoTokenizer.from_pretrained(args.model)
-    
+
     if args.from_hf_hub:
         model_obj = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto")
 
@@ -378,7 +380,9 @@ def main(sys_args):
         log_wandb=args.log_wandb,
         chat_prompt=args.chat_prompt,
         instruction=instruction,
-        model_lang=model_lang if args.model != "palm" else BELEBELE2PALM_MAP[model_lang],
+        model_lang=(
+            model_lang if args.model != "palm" else BELEBELE2PALM_MAP[model_lang]
+        ),
         temperature=args.temperature,
         top_p=args.top_p,
         max_tokens=args.max_tokens,

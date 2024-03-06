@@ -73,7 +73,7 @@ def main(sys_args):
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
-        
+
     instruction = INSTRUCTIONS[args.dataset]
     print(instruction)
 
@@ -111,6 +111,7 @@ def main(sys_args):
             wandb.log({"accuracy": accuracy})
     else:
         print(f"Results already exist in {out_dir}")
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

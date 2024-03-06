@@ -256,7 +256,7 @@ def main(sys_args):
         os.makedirs(out_dir)
 
     save_preds_path = f"{out_dir}/preds.json"
-    eval_score  = evaluate(
+    eval_score = evaluate(
         train_dataset,
         test_dataset,
         prompt_template=PROMPTS_DICT[args.tgt_prompt_name],

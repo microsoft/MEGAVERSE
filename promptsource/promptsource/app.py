@@ -210,7 +210,7 @@ def run_app():
         pool.join()
 
         results = []
-        for (dataset_name, subset_name) in template_collection.keys:
+        for dataset_name, subset_name in template_collection.keys:
             # Collect split sizes (train, validation and test)
             if dataset_name not in all_infos:
                 infos = get_dataset_infos(dataset_name)
@@ -243,9 +243,9 @@ def run_app():
                     "Dataset name": dataset_name,
                     "Subset name": "∅" if subset_name is None else subset_name,
                     "Train size": split_sizes["train"] if "train" in split_sizes else 0,
-                    "Validation size": split_sizes["validation"]
-                    if "validation" in split_sizes
-                    else 0,
+                    "Validation size": (
+                        split_sizes["validation"] if "validation" in split_sizes else 0
+                    ),
                     "Test size": split_sizes["test"] if "test" in split_sizes else 0,
                     "Number of prompts": len(dataset_templates),
                     "Number of original task prompts": sum(
@@ -443,9 +443,12 @@ def run_app():
                     split_dataset_key[-1],
                 )
             else:
-                source_link = "https://github.com/huggingface/datasets/blob/master/datasets/%s/%s.py" % (
-                    dataset_key,
-                    dataset_key,
+                source_link = (
+                    "https://github.com/huggingface/datasets/blob/master/datasets/%s/%s.py"
+                    % (
+                        dataset_key,
+                        dataset_key,
+                    )
                 )
 
             st.markdown(

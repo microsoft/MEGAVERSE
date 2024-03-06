@@ -181,7 +181,7 @@ def get_quiz_answers(
             parsed_response = pydantic_parser.parse(answer)
             # parsed_response = {}
             # parsed_response = '{"answer": ' + '"' + answer + '"' + "}"
-            
+
             results.append(
                 {
                     "answer": parsed_response.json(),

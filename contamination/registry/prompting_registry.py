@@ -4,7 +4,6 @@ from contamination.utils.prompting_utils import (
     get_pawsx_quiz_generation_prompt,
     get_udpos_quiz_generation_prompt,
     get_tydiqa_quiz_generation_prompt,
-
 )
 
 QUIZ_GENERATION_PROMPT_REGISTRY = {

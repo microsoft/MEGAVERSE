@@ -16,7 +16,10 @@ from mega.data.load_datasets import (
     load_xstory_cloze_dataset,
     load_xstory_cloze_translate_test,
 )
-from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.models.hf_completion_models import (
+    hf_model_api_completion,
+    hf_model_completion,
+)
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.data_utils import choose_few_shot_examples
 from mega.utils.misc_utils import dump_predictions
@@ -95,11 +98,10 @@ def evaluate(
         print("All items already evaluated!")
         sys.exit(0)
 
-    
     if from_hf_hub:
         model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
         tokenizer = AutoTokenizer.from_pretrained(model)
-    
+
     if use_hf_api:
         model_obj = None
         tokenizer = AutoTokenizer.from_pretrained(model)
@@ -110,7 +112,7 @@ def evaluate(
 
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
-        
+
         if use_hf_api or from_hf_hub:
             prompt, _ = construct_xstory_prompt(
                 train_examples_i,
@@ -122,13 +124,13 @@ def evaluate(
                 instruction,
                 substrate_prompt,
             )
-            
+
             if chat_prompt:
                 # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)
 
             # print(prompt_input)
-            
+
             if use_hf_api:
                 pred = hf_model_api_completion(
                     prompt=prompt_input,
@@ -145,11 +147,10 @@ def evaluate(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=25
+                    max_new_tokens=25,
                 )
-                
-        
-        else: 
+
+        else:
             while len(train_examples_i) >= 0:
                 prompt, _ = construct_xstory_prompt(
                     train_examples_i,

@@ -19,7 +19,7 @@ SUPPORTED_MODELS = [
     "google/gemma-7b-it",
     "google/gemma-7b",
     "google/gemma-2b-it",
-    "google/gemma-2b"
+    "google/gemma-2b",
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]

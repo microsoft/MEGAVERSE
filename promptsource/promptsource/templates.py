@@ -26,7 +26,15 @@ env.globals.update(zip=zip)
 
 # These are users whose datasets should be included in the results returned by
 # filter_english_datasets (regardless of their metadata)
-INCLUDED_USERS = {"Zaid", "craffel", "Divyanshu", "ai4bharat", "csebuetnlp", "juletxara", "facebook"}
+INCLUDED_USERS = {
+    "Zaid",
+    "craffel",
+    "Divyanshu",
+    "ai4bharat",
+    "csebuetnlp",
+    "juletxara",
+    "facebook",
+}
 
 # These are the metrics with which templates can be tagged
 METRICS = {
@@ -409,9 +417,11 @@ class Template(yaml.YAMLObject):
         # Replaces any occurrences of the "|||" separator in the example, which
         # which will be replaced back after splitting
         protected_example = {
-            key: value.replace("|||", cls.pipe_protector)
-            if isinstance(value, str)
-            else value
+            key: (
+                value.replace("|||", cls.pipe_protector)
+                if isinstance(value, str)
+                else value
+            )
             for key, value in example.items()
         }
         return protected_example
@@ -466,9 +476,9 @@ class TemplateCollection:
     def __init__(self):
 
         # Dict of all the DatasetTemplates, key is the tuple (dataset_name, subset_name)
-        self.datasets_templates: Dict[
-            (str, Optional[str]), DatasetTemplates
-        ] = self._collect_datasets()
+        self.datasets_templates: Dict[(str, Optional[str]), DatasetTemplates] = (
+            self._collect_datasets()
+        )
 
     @property
     def keys(self):

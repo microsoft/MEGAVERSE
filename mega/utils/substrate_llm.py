@@ -23,9 +23,11 @@ class LLMClient:
     def __init__(self):
         self._cache = SerializableTokenCache()
         atexit.register(
-            lambda: open(".llmapi.bin", "w").write(self._cache.serialize())
-            if self._cache.has_state_changed
-            else None
+            lambda: (
+                open(".llmapi.bin", "w").write(self._cache.serialize())
+                if self._cache.has_state_changed
+                else None
+            )
         )
 
         self._app = PublicClientApplication(

@@ -25,7 +25,10 @@ from mega.models.completion_models import (
     palm_api_completion,
     model_completion,
 )
-from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.models.hf_completion_models import (
+    hf_model_api_completion,
+    hf_model_completion,
+)
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
@@ -264,15 +267,15 @@ def evaluate_qa_chatgpt(
     if from_hf_hub:
         model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
         tokenizer = AutoTokenizer.from_pretrained(model)
-        
+
     if use_hf_api:
-        tokenizer=AutoTokenizer.from_pretrained(model)
+        tokenizer = AutoTokenizer.from_pretrained(model)
 
     for i, test_example in pbar:
         if i in idx_set:
             continue
         train_examples_i = train_examples
-        
+
         if use_hf_api or from_hf_hub:
             prompt, label = construct_qa_prompt(
                 train_examples_i,
@@ -283,13 +286,13 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-            
+
             if chat_prompt:
                 # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)
 
             # print(prompt_input)
-            
+
             if use_hf_api:
                 pred = hf_model_api_completion(
                     prompt=prompt_input,
@@ -306,9 +309,9 @@ def evaluate_qa_chatgpt(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=25
+                    max_new_tokens=25,
                 )
-                
+
         else:
             while len(train_examples_i) >= 0:
                 prompt, label = construct_qa_prompt(
@@ -320,7 +323,7 @@ def evaluate_qa_chatgpt(
                     instruction=instruction,
                     substrate_prompt=substrate_prompt,
                 )
-                
+
                 try:
                     pred = model_completion(
                         prompt,
@@ -354,8 +357,8 @@ def evaluate_qa_chatgpt(
                         break
                     train_examples_i = train_examples_i[:-1]
                     print(
-                            f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                        )
+                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                    )
 
         pred = normalize_fn(pred)
 

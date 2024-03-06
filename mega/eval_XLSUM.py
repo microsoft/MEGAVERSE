@@ -165,12 +165,11 @@ if __name__ == "__main__":
 
     instruction = INSTRUCTIONS[args["instruction_identifier"]]
 
-    args['response_logger_root'] = f"{save_dir}/XLSum/{args['model']}/"
-    
+    args["response_logger_root"] = f"{save_dir}/XLSum/{args['model']}/"
+
     if not os.path.exists(args["response_logger_root"]):
         os.makedirs(args["response_logger_root"], exist_ok=True)
-    
-    
+
     response_logger_file = f"{args['response_logger_root']}/{lang}_predictions.csv"
     # response_logger_file = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
 
@@ -193,12 +192,11 @@ if __name__ == "__main__":
 
     # Delimiting the test set to run prompt selection for the model
     model = args["model"]
-    
-    
+
     if "/" in model:
         model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
         tokenizer = AutoTokenizer.from_pretrained(model)
-    
+
     if args["prompt_selection"]:
         test_examples = load_xlsum_data(lang, "validation", args["dataset_frac"])
         model = args["turbo_identifier"]  # Used for faster inference
@@ -222,7 +220,7 @@ if __name__ == "__main__":
     print(f"Evaluating for {lang} on a test set of {len(test_examples)}")
     rouge1, rouge2, rougeL, batched_predictions = [], [], [], []
     llm_client = LLMClient()
-    # max_tokens = args["max_tokens"]
+    max_new_tokens = args["max_new_tokens"]
     pbar = tqdm(
         enumerate(
             test_examples.select(
@@ -254,7 +252,7 @@ if __name__ == "__main__":
         pred = model_completion(
             prompt=prompt,
             model=model,
-            max_tokens=args["max_tokens"],
+            max_new_tokens=args["max_new_tokens"],
             temperature=args["temperature"],
             run_details=run_details,
             lang=lang,

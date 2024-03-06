@@ -20,26 +20,25 @@ class PromptDataset(Dataset):
         self.device = device
         self.model = model
         self.tokenizer_args = tokenizer_args
-    
+
     def __len__(self):
         return len(self.prompts)
-    
+
     def get_max_len(self):
-        return max(len(self.tokenizer(text)['input_ids']) for text in self.prompts)
-    
+        return max(len(self.tokenizer(text)["input_ids"]) for text in self.prompts)
+
     def __getitem__(self, i):
         text = self.prompts[i]
         # self.tokenizer.pad_token = self.tokenizer.eos_token
-        encoding = self.tokenizer(text, 
-                                  return_tensors="pt", 
-                                  padding="max_length",
-                                  truncation=True,
-                                  max_length=min(self.model.config.max_position_embeddings, self.max_len),
-                                  add_special_tokens=True
-                                 )
-        
+        encoding = self.tokenizer(
+            text,
+            return_tensors="pt",
+            padding="max_length",
+            truncation=True,
+            max_length=min(self.model.config.max_position_embeddings, self.max_len),
+            add_special_tokens=True,
+        )
+
         encoding = {k: v[0].to(self.device) for k, v in encoding.items()}
         # print("encoded")
         return encoding
-
-    
