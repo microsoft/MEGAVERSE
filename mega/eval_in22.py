@@ -13,6 +13,10 @@ from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_translation_prompt
 from mega.utils.parser import parse_args
+from mega.models.completion_models import model_completion
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from mega.data.load_datasets import (
     load_in22_dataset,
@@ -35,7 +39,9 @@ def evaluate_IN22(
     max_tokens=768,
     llm_client=None,
     use_hf_api=False,
-    from_hf_hub=False
+    from_hf_hub=False,
+    chat_prompt=False,
+    timeout=60,
 ):
     run_details = {"num_calls": 0}
 
@@ -58,7 +64,15 @@ def evaluate_IN22(
         print("All items already evaluated!")
         sys.exit(0)
     
-    from 
+    
+    if from_hf_hub:
+        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        tokenizer = AutoTokenizer.from_pretrained(model)
+    
+    if use_hf_api:
+        model_obj = None
+        tokenizer = AutoTokenizer.from_pretrained(model)
+    
 
     for i, datapoint in pbar:
         if i in idx_set:
@@ -86,6 +100,30 @@ def evaluate_IN22(
 
         
         if use_hf_api or from_hf_hub:
+            if chat_prompt:
+                # print("chat prompt")
+                prompt_input = convert_to_hf_chat_prompt(prompt, model)
+
+            # print(prompt_input)
+
+            if use_hf_api:
+                pred = hf_model_api_completion(
+                    prompt=prompt_input,
+                    model_name=model,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
+                )
+
+            elif from_hf_hub:
+                # print("printing from hf hub")
+                pred = hf_model_completion(
+                    prompts=prompt_input,
+                    model_name=model,
+                    model_obj=model_obj,
+                    tokenizer=tokenizer,
+                    timeout=timeout,
+                    max_new_tokens=max_tokens,
+                )
             
         
         try:
@@ -158,6 +196,10 @@ def main(sys_args):
         temperature=args.temperature,
         max_tokens=args.max_tokens,
         llm_client=llm_client,
+        chat_prompt=args.chat_prompt,
+        timeout=args.timeout,
+        use_hf_api=args.use_hf_api,
+        from_hf_hub=args.from_hf_hub,
     )
 
     if not args.no_save:
