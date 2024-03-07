@@ -35,7 +35,7 @@ class XRiSAWOZArgs:
 def load_text(fname):
     with open(fname, "r") as f:
         return f.read()
-
+                          
 
 def load_json(fname):
     with open(fname, "r") as f:
@@ -68,7 +68,8 @@ def main(sys_args):
 
     random.seed(args.seed)
     prompts = {k: load_text(args.xrisawoz_root_dir + v) for k, v in prompts.items()}
-    out_fname = f'{args.xrisawoz_root_dir}/{args.tgt_lang}.{args.model.split("/")[-1]}.num_shots={args.few_shot_k}.pkl'
+    os.makedirs(f"{args.save_dir}/xrisawoz", exist_ok=True)
+    out_fname = f'{args.save_dir}/xrisawoz/{args.tgt_lang}.{args.model.split("/")[-1]}.num_shots={args.few_shot_k}.pkl'
     if not os.path.exists(out_fname):
         out = inf_ddict()
     else:
