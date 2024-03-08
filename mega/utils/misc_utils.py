@@ -1,4 +1,6 @@
 import json
+import string
+import re
 
 
 def dump_predictions(idx, pred, label, response_logger_file):
