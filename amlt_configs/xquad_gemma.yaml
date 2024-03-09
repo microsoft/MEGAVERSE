@@ -71,4 +71,4 @@ jobs:
       - python -m pip install -e promptsource/ --user
       - python -m pip install transformers -U --user
       - huggingface-cli login --token "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"
-      - bash hf_scripts/run_qa_gpt4.sh "/mnt/megaverse/results"
+      - bash hf_scripts/run_xquad_qa.sh "/mnt/megaverse/results"
