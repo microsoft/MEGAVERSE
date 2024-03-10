@@ -2,9 +2,10 @@ import sys
 import os
 import json
 import random
-from tqdm import tqdm
+import torch
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.env_utils import load_openai_env_variables
@@ -14,7 +15,10 @@ from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_translation_prompt
 from mega.utils.parser import parse_args
 from mega.models.completion_models import model_completion
-from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.models.hf_completion_models import (
+    hf_model_api_completion,
+    hf_model_completion,
+)
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -36,7 +40,7 @@ def evaluate_IN22(
     num_evals_per_sec=2,
     substrate_prompt=False,
     temperature=0,
-    max_tokens=768,
+    max_tokens=1024,
     llm_client=None,
     use_hf_api=False,
     from_hf_hub=False,
@@ -50,12 +54,9 @@ def evaluate_IN22(
 
     try:
         with open(save_preds_path, "r") as file:
-            # json_data = json.load(file)
             json_data = [json.loads(line) for line in file]
 
         idx_set = {obj["q_idx"] for obj in json_data}
-        preds = [obj["prediction"] for obj in json_data]
-        labels = [obj["ground_truth"] for obj in json_data]
     except:
         idx_set = set()
 
@@ -63,16 +64,19 @@ def evaluate_IN22(
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         sys.exit(0)
-    
-    
+
     if from_hf_hub:
-        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
         tokenizer = AutoTokenizer.from_pretrained(model)
-    
+
     if use_hf_api:
         model_obj = None
         tokenizer = AutoTokenizer.from_pretrained(model)
-    
 
     for i, datapoint in pbar:
         if i in idx_set:
@@ -98,7 +102,6 @@ def evaluate_IN22(
             substrate_prompt=substrate_prompt,
         )
 
-        
         if use_hf_api or from_hf_hub:
             if chat_prompt:
                 # print("chat prompt")
@@ -124,8 +127,7 @@ def evaluate_IN22(
                     timeout=timeout,
                     max_new_tokens=max_tokens,
                 )
-            
-        
+
         try:
             pred = model_completion(
                 prompt,
