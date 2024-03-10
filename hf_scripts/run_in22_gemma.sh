@@ -1,8 +1,6 @@
 #!/bin/bash
 
-arg=${1}
-
-save_dir=${arg:-"results"}
+save_dir=${1:-"results"}
 
 echo $save_dir
 
@@ -25,7 +23,24 @@ do
         --temperature 0 \
         --num_evals_per_sec 2 \
         --save_dir results \
-        --max_tokens 5120 \
+        --max_tokens 1024 \
+        --seed 42 \
+        --chat_prompt \
+        --from_hf_hub \
+        --save_dir $save_dir
+
+        echo "Running for language eng_Latn-${lang}"
+        python -m mega.eval_in22 \
+        -d $dataset \
+        -k 8 \
+        -e gpt4v2 \
+        --tgt_trans_lang $lang \
+        --src_trans_lang eng_Latn \
+        --model $model \
+        --temperature 0 \
+        --num_evals_per_sec 2 \
+        --save_dir results \
+        --max_tokens 1024 \
         --seed 42 \
         --chat_prompt \
         --from_hf_hub \

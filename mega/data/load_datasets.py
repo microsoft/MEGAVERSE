@@ -497,7 +497,9 @@ def load_xlsum_dataset(
 def load_in22_dataset(
     split: str, max_examples: int = -1, dataset_frac: float = 1.0, seed: int = 42
 ):
-    dataset = load_dataset(f"ai4bharat/IN22-{split}", "all", split=split.lower())
+    dataset = load_dataset(
+        f"ai4bharat/IN22-{split}", "all", split=split.lower(), trust_remote_code=True
+    )
     if max_examples != -1:
         dataset = dataset.shuffle(seed=seed).select(
             np.arange(min(len(dataset), max_examples))
@@ -510,7 +512,7 @@ def load_in22_dataset(
 
 
 def load_flores_test_dataset(split: str = "dev"):
-    return load_dataset("facebook/flores", "all", split=split)
+    return load_dataset("facebook/flores", "all", split=split, trust_remote_code=True)
 
 
 def load_dataset_mega(

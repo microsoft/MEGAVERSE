@@ -33,6 +33,7 @@ environment:
   - python -m pip install google-generativeai
   - python -m pip install flash_attn==2.5.5
   - python -m pip install wandb
+  - python -m pip install chardet
   - python -m pip install git+https://github.com/lm-sys/FastChat.git
   - python -m pip install python-dotenv
   - python -m pip install azure-ai-translation-text==1.0.0b1
@@ -46,15 +47,20 @@ code:
   local_dir: $CONFIG_DIR/..
   ignore:
   - data/*
+  - results/*
   - MEGANotebooks/*
   - xrisawoz_data/*
 
 storage:
-  megaverse:
-    storage_account_name: multillmft
-    container_name: megaverse
-    mount_dir: /mnt/megaverse
+  _default:
+    storage_account_name: varunartifacts
+    container_name: sanmati 
+    mount_dir: /mnt/_default
 
+  _output:
+    storage_account_name: varunartifacts
+    container_name: sanmati 
+    mount_dir: /mnt/_output
 
 jobs:
   - name: megaverse_in22_gemma
@@ -69,4 +75,4 @@ jobs:
       - python -m pip install -e promptsource/ --user
       - python -m pip install transformers -U --user
       - huggingface-cli login --token "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"
-      - bash hf_scripts/run_in22_gemma.sh "/mnt/megaverse/results"
+      - bash hf_scripts/run_in22_gemma.sh /mnt/_output/results
