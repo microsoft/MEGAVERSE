@@ -16,6 +16,9 @@ from mega.models.completion_models import (
     gpt3x_completion,
     substrate_llm_completion,
 )
+from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from mega.utils.substrate_llm import LLMClient
 
 
@@ -82,6 +85,13 @@ def main(sys_args):
 
     instruction = INSTRUCTIONS[args.dataset]
     # print(instruction)
+    
+    if args.from_hf_hub:
+        model_obj = AutoModelForCausalLM.from_pretrained(args.model, device="auto")
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
+    
+    if args.use_hf_api:
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
 
     pred_file_path = f"{out_dir}/preds.json"
     accuracy = evaluate_model(
@@ -101,6 +111,7 @@ def main(sys_args):
         temperature=args.temperature,
         top_p=args.top_p,
         substrate_prompt=args.substrate_prompt,
+        
     )
     print(accuracy)
     # Store results
