@@ -114,7 +114,7 @@ def evaluate_qa_chatgpt(
     chat_prompt: bool = True,
     num_evals_per_sec: int = 2,
     temperature: int = 0,
-    max_tokens: int = 20,
+    max_tokens: int = 40,
     log_wandb: bool = True,
 ):
     f1_sum = 0
