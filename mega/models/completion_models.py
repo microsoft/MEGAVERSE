@@ -18,7 +18,8 @@ from mega.utils.const import (
     PALM_MAPPING,
     MODEL_TYPES,
     PALM_SUPPORTED_LANGUAGES_MAP,
-    GEMINI_SUPPORTED_LANGUAGES_MAP
+    GEMINI_SUPPORTED_LANGUAGES_MAP,
+    GEMINI_SAFETY_SETTINGS
 )
 from mega.utils.env_utils import (
     load_openai_env_variables,
@@ -41,28 +42,7 @@ genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 # signal.signal(signal.SIGALRM, handler)
 
 
-gemini_safety_settings = [
-    {
-        "category": "HARM_CATEGORY_DANGEROUS",
-        "threshold": "BLOCK_NONE",
-    },
-    {
-        "category": "HARM_CATEGORY_HARASSMENT",
-        "threshold": "BLOCK_NONE",
-    },
-    {
-        "category": "HARM_CATEGORY_HATE_SPEECH",
-        "threshold": "BLOCK_NONE",
-    },
-    {
-        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        "threshold": "BLOCK_NONE",
-    },
-    {
-        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-        "threshold": "BLOCK_NONE",
-    },
-]
+
 
 def timeout_handler(signum, frame):
     raise openai.Timeout("API Response Stuck!")
@@ -128,7 +108,7 @@ def gemini_completion(prompt: str, model: str = "gemini-pro", lang: str = "", **
         raise ValueError("Language not supported by Gemini-Pro!")
 
     model_load = genai.GenerativeModel(model)
-    response = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)), safety_settings = gemini_safety_settings)
+    response = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)), safety_settings = GEMINI_SAFETY_SETTINGS)
 
     try:
         return response.text
