@@ -1,7 +1,8 @@
 echo "Mono lingual eval for Palm2"
 for prompt_name in "Answer Given options"
 do
-    for lang in ar
+    for lang in ar es eu hi id my ru sw te zh
+
     # for lang in te
     do
         k=8
