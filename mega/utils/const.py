@@ -89,7 +89,7 @@ GEMINI_SUPPORTED_LANGUAGES_MAP = {
 	"french": "fr",
 	"german": "de",
 	"greek": "el",
-	"hebrew": "iw",
+	"hebrew": "he",
 	"hindi": "hi",
 	"hungarian": "hu",
 	"indonesian": "id",
