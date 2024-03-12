@@ -3,7 +3,7 @@ echo "Starting Turbo  Evaluation"
 echo "Monolingual Evaluation"
 for prompt_name in "plausible_alternatives_discrete"
 do
-    for lang in vi zh
+    for lang in en et id it sw th tr
     do
         k=8
         echo "Running for language $lang and prompt ${prompt_name} and k $k"
