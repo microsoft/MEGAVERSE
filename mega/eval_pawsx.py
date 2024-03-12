@@ -86,12 +86,6 @@ def main(sys_args):
     instruction = INSTRUCTIONS[args.dataset]
     # print(instruction)
     
-    if args.from_hf_hub:
-        model_obj = AutoModelForCausalLM.from_pretrained(args.model, device="auto")
-        tokenizer = AutoTokenizer.from_pretrained(args.model)
-    
-    if args.use_hf_api:
-        tokenizer = AutoTokenizer.from_pretrained(args.model)
 
     pred_file_path = f"{out_dir}/preds.json"
     accuracy = evaluate_model(
