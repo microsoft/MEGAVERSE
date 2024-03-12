@@ -7,7 +7,7 @@ import google.generativeai as genai
 import os
 
 from typing import List, Dict, Union, Any
-from google.api_core.exceptions import ResourceExhausted
+from google.api_core.exceptions import ResourceExhausted, InternalServerError
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
@@ -96,7 +96,7 @@ def palm_api_completion(
 
     return response.text
 
-@backoff.on_exception(backoff.expo, Exception, max_time=300, max_tries=5)
+@backoff.on_exception(backoff.expo, (Exception, InternalServerError), max_time=300, max_tries=5)
 def gemini_completion(prompt: str, model: str = "gemini-pro", lang: str = "", **model_params) -> str:
 
     if lang == "":
