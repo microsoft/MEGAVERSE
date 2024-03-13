@@ -386,7 +386,7 @@ def load_xcopa_dataset(
         )
         split = "validation"
     if lang == "en":
-        if split in ["train", "validation"]:
+        if split in ["train", "validation", "test"]:
             # For english fetch data from COPA in SuperGLUE
             dataset = load_dataset("super_glue", "copa")[split]
         else:
@@ -469,7 +469,7 @@ def load_qa_dataset(dataset_name, lang, split, dataset_frac=1, translate_test=Fa
         dataset = load_dataset("mlqa", dataset_name)[split]
     elif dataset_name == "afriqa":
         dataset = load_dataset("masakhane/afriqa", lang)[split]
-        dataset = dataset.filter(lambda example: example['lang'] == lang)
+        dataset = dataset.filter(lambda example: example["lang"] == lang)
 
     else:
         raise NotImplementedError()

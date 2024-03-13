@@ -102,8 +102,7 @@ def main(sys_args):
         temperature=args.temperature,
         top_p=args.top_p,
         timeout=args.timeout,
-        substrate_prompt=args.substrate_prompt
-
+        substrate_prompt=args.substrate_prompt,
     )
     print(accuracy)
     # Store results

@@ -13,7 +13,7 @@ from mega.utils.const import (
     CHAT_MODELS,
     PALM_MAPPING,
     GEMINI_SUPPORTED_LANGUAGES_MAP,
-    GEMINI_SAFETY_SETTINGS
+    GEMINI_SAFETY_SETTINGS,
 )
 
 from mega.prompting.prompting_utils import construct_tagging_prompt
@@ -247,9 +247,9 @@ def palm_tagger(
             max_output_tokens=model_params.get("max_tokens", 20),
             temperature=model_params.get("temperature", 1),
         )
-        
+
         return model_output.text
-    
+
     if one_shot_tag:
         predicted_tokens_wth_tags = predict_one_shot()
         predicted_tokens_wth_tags = predicted_tokens_wth_tags.split()
@@ -280,7 +280,6 @@ def palm_tagger(
     return predicted_tags
 
 
-
 @backoff.on_exception(backoff.expo, Exception, max_time=300)
 def gemini_tagger(
     prompt: str,
@@ -303,23 +302,37 @@ def gemini_tagger(
 
     def predict_tag(prompt, token):
         prompt_with_token = f"{prompt} {token}{delimiter}"
-        model_output = model_load.generate_content(prompt_with_token, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)), safety_settings = GEMINI_SAFETY_SETTINGS)
-        
+        model_output = model_load.generate_content(
+            prompt_with_token,
+            generation_config=genai.types.GenerationConfig(
+                temperature=model_params.get("temperature", 1),
+                max_output_tokens=model_params.get("max_tokens", 50),
+            ),
+            safety_settings=GEMINI_SAFETY_SETTINGS,
+        )
+
         try:
             return model_output.text
         except Exception as e:
             print("Skipping due to error: ", e)
             return ""
-        
+
     def predict_one_shot():
-        model_output = model_load.generate_content(prompt, generation_config=genai.types.GenerationConfig(temperature=model_params.get("temperature", 1), max_output_tokens=model_params.get("max_tokens", 50)), safety_settings = GEMINI_SAFETY_SETTINGS)
-        
+        model_output = model_load.generate_content(
+            prompt,
+            generation_config=genai.types.GenerationConfig(
+                temperature=model_params.get("temperature", 1),
+                max_output_tokens=model_params.get("max_tokens", 50),
+            ),
+            safety_settings=GEMINI_SAFETY_SETTINGS,
+        )
+
         try:
             return model_output.text
         except Exception as e:
             print("Skipping due to error: ", e)
             return ""
-    
+
     if one_shot_tag:
         predicted_tokens_wth_tags = predict_one_shot()
         predicted_tokens_wth_tags = predicted_tokens_wth_tags.split()
@@ -455,7 +468,7 @@ def model_tagger(
 
     elif "gemini-pro" in model:
         return gemini_tagger(
-            prompt, 
+            prompt,
             model,
             lang,
             test_tokens,

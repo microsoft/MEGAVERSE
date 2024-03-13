@@ -27,7 +27,11 @@ from mega.models.completion_models import (
 )
 from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
-from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt, construct_qa_nocontext_prompt
+from mega.prompting.prompting_utils import (
+    construct_prompt,
+    construct_qa_prompt,
+    construct_qa_nocontext_prompt,
+)
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
@@ -206,7 +210,7 @@ def load_qa_dataset(dataset_name, lang, split, dataset_frac=1, translate_test=Fa
 
     elif dataset_name == "afriqa":
         dataset = load_dataset("masakhane/afriqa", lang)[split]
-        dataset = dataset.filter(lambda example: example["lang"] == lang) 
+        dataset = dataset.filter(lambda example: example["lang"] == lang)
 
     else:
         raise NotImplementedError()
@@ -260,7 +264,7 @@ def evaluate_qa_chatgpt(
         sys.exit(0)
 
     for i, test_example in pbar:
-        test_example['id'] = str(i)
+        test_example["id"] = str(i)
         # example_id = f"q_{i}"
         # if i in idx_set:
         #     continue
@@ -275,7 +279,7 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-            
+
             try:
                 pred = model_completion(
                     prompt,
@@ -309,8 +313,8 @@ def evaluate_qa_chatgpt(
                     break
                 train_examples_i = train_examples_i[:-1]
                 print(
-                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                    )
+                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                )
 
         pred = normalize_fn(pred)
 
@@ -324,9 +328,11 @@ def evaluate_qa_chatgpt(
                 "no_answer_probability": no_answer_probability,
             }
 
-        
         reference = {
-            "answers": {"text": test_example["answers"], "answer_start": [0]*len(test_example["answers"])},
+            "answers": {
+                "text": test_example["answers"],
+                "answer_start": [0] * len(test_example["answers"]),
+            },
             "id": str(i),
         }
         # results = squad_metric.compute(predictions=[prediction], references=[reference])
@@ -342,7 +348,7 @@ def evaluate_qa_chatgpt(
         #     reference["answers"]["text"] = []
         #     reference["answers"]["answer_start"] = []
 
-            # reference["answers"]["text"] = None if reference["answers"]["text"][0] == "" else reference["answers"]["text"]
+        # reference["answers"]["text"] = None if reference["answers"]["text"][0] == "" else reference["answers"]["text"]
         # else:
         #     reference = {}
         #     reference["id"] = test_example["id"]
@@ -441,7 +447,7 @@ def main(sys_args):
     prompt_template = PROMPTS_DICT[args.tgt_prompt_name]
 
     # Loading instruction for the task
-    instruction = INSTRUCTIONS["afriqa"] 
+    instruction = INSTRUCTIONS["afriqa"]
     print(instruction)
 
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
