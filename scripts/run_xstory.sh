@@ -1,7 +1,7 @@
-echo "Mono lingual eval for Palm2"
+echo "Mono lingual eval for Gemini-Pro"
 for prompt_name in "Answer Given options"
 do
-    for lang in ar es eu hi id my ru sw te zh
+    for lang in ar en es hi id ru sw zh
 
     # for lang in te
     do
