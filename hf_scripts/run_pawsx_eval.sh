@@ -12,7 +12,7 @@ prompt_name="PAWS-ANLI GPT3"
 langs=("en"  "zh")
 k=8
 
-for model in "google/gemma-7b-it" "google/gemma-2b-it":
+for model in "google/gemma-7b-it" "google/gemma-2b-it"
 do 
     for lang in "${langs[@]}"
     do
