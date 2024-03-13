@@ -107,10 +107,12 @@ def hf_model_completion(
     batch["input_ids"] = batch["input_ids"].unsqueeze(0)
     batch["attention_mask"] = batch["attention_mask"].unsqueeze(0)
 
-    output = model_obj.generate(
-        **batch,
-        max_new_tokens=model_params.get("max_new_tokens", 40)
-    )
+    with torch.no_grad():
+        output = model_obj.generate(
+            **batch,
+            do_sample=False,
+            max_new_tokens=model_params.get("max_new_tokens", 40)
+        )
 
     input_length = batch["input_ids"].shape[1]
     outputs += tokenizer.batch_decode(output[:, input_length:], skip_special_tokens=True)
