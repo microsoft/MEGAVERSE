@@ -1,4 +1,4 @@
-name: mega
+name: mega_new
 channels:
   - conda-forge
   - defaults
