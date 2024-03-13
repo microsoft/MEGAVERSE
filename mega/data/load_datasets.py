@@ -386,7 +386,7 @@ def load_xcopa_dataset(
         )
         split = "validation"
     if lang == "en":
-        if split in ["train", "validation"]:
+        if split in ["train", "validation", "test"]:
             # For english fetch data from COPA in SuperGLUE
             dataset = load_dataset("super_glue", "copa")[split]
         else:
