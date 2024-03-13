@@ -103,44 +103,40 @@ def hf_model_completion(
 
     # print(prompts[0])
     prompt_dataset = PromptDataset(prompts, model_obj, tokenizer)
+    batch = prompt_dataset[0]
 
-    for idx, batch in enumerate(
-        DataLoader(prompt_dataset, batch_size=batch_size, shuffle=False)
-    ):
-        # print("entered in loop")
-        with torch.no_grad():
-            # print("entered in no grad")
-            # try:
-            # set_trace()
+    batch["input_ids"] = batch["input_ids"].unsqueeze(0)
+    batch["attention_mask"] = batch["attention_mask"].unsqueeze(0)
 
-            # print(batch)
+    output = model_obj.generate(
+        **batch,
+        max_new_tokens=model_params.get("max_new_tokens", 40)
+    )
 
-            output = model_obj.generate(
-                **batch,
-                max_new_tokens=model_params.get('max_new_tokens', 40),
-                return_dict_in_generate=True,
-                output_scores=True,
-                min_length=20,
-                early_stopping=False,
-                max_time=timeout,
-                eos_token_id=tokenizer.eos_token_id,
-            )
-            # except:
-            #     output = batch
+    input_length = batch["input_ids"].shape[1]
+    outputs += tokenizer.batch_decode(output[:, input_length:], skip_special_tokens=True)
 
-        # print("generation done")
-        # print(output.keys())
-        # print(output['sequences'])
-        for idx, encoding in enumerate(batch["input_ids"]):
+    # for idx, batch in enumerate(DataLoader(prompt_dataset, batch_size=batch_size, shuffle=False)):
+    #     with torch.no_grad():
+    #         output = model_obj.generate(
+    #             **batch,
+    #             max_new_tokens=model_params.get('max_new_tokens', 40),
+    #             return_dict_in_generate=True,
+    #             output_scores=True,
+    #             min_length=20,
+    #             early_stopping=False,
+    #             max_time=timeout,
+    #             eos_token_id=tokenizer.eos_token_id,
+    #         )
 
-            input_length = encoding.shape[0]
-            generated_tokens = output["sequences"][idx, input_length:]
+    #     for idx, encoding in enumerate(batch["input_ids"]):
 
-            # print(generated_tokens)
+    #         input_length = encoding.shape[0]
+    #         generated_tokens = output["sequences"][idx, input_length:]
 
-            outputs += tokenizer.batch_decode(
-                [generated_tokens], skip_special_tokens=True
-            )
+    #         outputs += tokenizer.batch_decode(
+    #             [generated_tokens], skip_special_tokens=True
+    #         )
 
             # print(outputs)
 

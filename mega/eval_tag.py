@@ -8,6 +8,7 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 import wandb
+import torch
 from datasets import Dataset
 from seqeval.metrics import f1_score
 from promptsource.templates import Template

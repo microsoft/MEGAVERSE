@@ -5,6 +5,7 @@ import openai
 import sys
 import time
 import random
+import torch
 import json
 import wandb
 import numpy as np
@@ -99,7 +100,12 @@ def evaluate(
         sys.exit(0)
 
     if from_hf_hub:
-        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
         tokenizer = AutoTokenizer.from_pretrained(model)
 
     if use_hf_api:
@@ -196,7 +202,7 @@ def evaluate(
         label = normalize_answer(label)
         preds.append(pred)
         labels.append(label)
-        if pred != '':
+        if pred != "":
             matches.append(float(pred in label) or float(label in pred))
             num_matches += float(pred in label or float(label in pred))
         running_acc = np.mean(matches)

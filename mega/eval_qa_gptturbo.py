@@ -3,6 +3,7 @@ import os
 import time
 import json
 import random
+import torch
 from typing import List
 import string
 import re
@@ -265,7 +266,12 @@ def evaluate_qa_chatgpt(
         sys.exit(0)
 
     if from_hf_hub:
-        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
         tokenizer = AutoTokenizer.from_pretrained(model)
 
     if use_hf_api:

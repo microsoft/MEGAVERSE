@@ -5,6 +5,7 @@ import time
 import random
 import json
 import wandb
+import torch
 import numpy as np
 from mega.data.load_datasets import load_xlsum_data
 from mega.data.data_utils import choose_few_shot_examples

@@ -5,6 +5,7 @@ import time
 import random
 import json
 import wandb
+import torch
 import numpy as np
 from mega.data.load_datasets import load_belebele_dataset, load_belebele_translate_test
 from mega.data.data_utils import choose_few_shot_examples
@@ -359,7 +360,12 @@ def main(sys_args):
         tokenizer = AutoTokenizer.from_pretrained(args.model)
 
     if args.from_hf_hub:
-        model_obj = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            args.model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
 
     model_lang = "english" if args.translate_test else args.tgt_lang
     llm_client = LLMClient() if args.substrate_prompt else None
