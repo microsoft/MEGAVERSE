@@ -31,9 +31,11 @@ def construct_langchain_qa_prompt(
         return {
             "context": example["context"],
             "question": example["question"],
-            "answer": example["answers"]["text"][0]
-            if example["answers"]["text"] != []
-            else "unanswerable",
+            "answer": (
+                example["answers"]["text"][0]
+                if example["answers"]["text"] != []
+                else "unanswerable"
+            ),
         }
 
     if test_prompt_template is None:
@@ -146,6 +148,7 @@ def construct_qa_prompt(
 
     return prompt_input, test_prompt_label
 
+
 def construct_qa_nocontext_prompt(
     train_examples: List[Dict[str, Union[str, int]]],
     test_example: Dict[str, Union[str, int]],
@@ -154,22 +157,21 @@ def construct_qa_nocontext_prompt(
     chat_prompt: bool = False,
     instruction: str = "",
     substrate_prompt: bool = False,
-):  
+):
 
     def fill_template(template, example, fill_answer=True):
         # # Convert the string representation of list to an actual list
         # if isinstance(example["answers"], str):
         #     example["answers"] = ast.literal_eval(example["answers"])
-            
+
         if fill_answer:
             answer = (
                 "unanswerable"
                 if not example["answers"] or example["answers"] == ["unanswerable"]
                 else example["answers"][0]
             )
-            return (
-                template.replace("{question}", example["question"])
-                .replace("{answer}", answer)
+            return template.replace("{question}", example["question"]).replace(
+                "{answer}", answer
             )
         else:
             return (
@@ -186,7 +188,9 @@ def construct_qa_nocontext_prompt(
             test_prompt_template, test_example, fill_answer=False
         )
         prompt_input = "\n\n".join(train_prompts + [test_prompt_input])
-        test_prompt_label = test_example["answers"][0] if test_example["answers"] else "unanswerable"
+        test_prompt_label = (
+            test_example["answers"][0] if test_example["answers"] else "unanswerable"
+        )
 
     else:
         messages = []
@@ -208,7 +212,9 @@ def construct_qa_nocontext_prompt(
         test_prompt_input = fill_template(
             test_prompt_template, test_example, fill_answer=False
         )
-        test_prompt_label = test_example["answers"][0] if test_example["answers"] else "unanswerable"
+        test_prompt_label = (
+            test_example["answers"][0] if test_example["answers"] else "unanswerable"
+        )
         messages.append({"role": "user", "content": test_prompt_input})
         prompt_input = messages
         if substrate_prompt:

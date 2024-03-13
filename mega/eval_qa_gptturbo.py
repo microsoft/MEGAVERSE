@@ -267,7 +267,7 @@ def evaluate_qa_chatgpt(
                 instruction=instruction,
                 substrate_prompt=substrate_prompt,
             )
-            
+
             try:
                 pred = model_completion(
                     prompt,
@@ -301,8 +301,8 @@ def evaluate_qa_chatgpt(
                     break
                 train_examples_i = train_examples_i[:-1]
                 print(
-                        f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-                    )
+                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                )
 
         pred = normalize_fn(pred)
 
@@ -362,7 +362,7 @@ def evaluate_qa_chatgpt(
             wandb.log({"f1": avg_f1, "em": avg_em}, step=i + 1)
             wandb.log(run_details, step=i + 1)
         pbar.set_description(f"em: {avg_em} f1: {avg_f1}. {i+1}/{len(test_dataset)}")
-        dump_predictions(i, prediction,label, save_preds_path)
+        dump_predictions(i, prediction, label, save_preds_path)
         preds.append(prediction)
         labels.append(reference)
         f1s.append(results["f1"])
