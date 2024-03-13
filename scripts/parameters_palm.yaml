@@ -1,10 +1,10 @@
 key_path: /home/t-hdiddee/MultilingualBlanketEval/keys/openai_key.txt
 k: 4
-model: palm-32k
+model: gemini-pro
 chat_prompt: False
 turbo_identifier: palm-32k
 instruction_identifier: xlsum
-response_logger_root: /home/t-sahuja/MultilingualBlanketEval/results/XLSum/palm-32k/
+response_logger_root: /home/t-iswatts/Desktop/MultilingualBlanketEval/results/XLSum/gemini-pro/
 prompt_selection: False
 sleep_period: 60
 wandb_log: False
