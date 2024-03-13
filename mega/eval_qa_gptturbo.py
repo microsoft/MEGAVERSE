@@ -315,7 +315,7 @@ def evaluate_qa_chatgpt(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=25,
+                    max_new_tokens=40,
                 )
 
         else:
@@ -424,7 +424,13 @@ def evaluate_qa_chatgpt(
             wandb.log({"f1": avg_f1, "em": avg_em}, step=i + 1)
             wandb.log(run_details, step=i + 1)
         pbar.set_description(f"em: {avg_em} f1: {avg_f1}. {i+1}/{len(test_dataset)}")
-        dump_predictions(i, prediction, label, save_preds_path)
+        try:
+            dump_predictions(i, prediction, label, save_preds_path)
+        except Exception as e:
+            print(e)
+            print("Unable to write predictions to file!")
+            pass
+        
         preds.append(prediction)
         labels.append(reference)
         f1s.append(results["f1"])

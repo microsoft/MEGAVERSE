@@ -101,7 +101,6 @@ def hf_model_completion(
     if isinstance(prompts, str):
         prompts = [prompts]
 
-    # print(prompts[0])
     prompt_dataset = PromptDataset(prompts, model_obj, tokenizer)
     batch = prompt_dataset[0]
 

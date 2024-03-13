@@ -41,6 +41,13 @@ def main(sys_args):
         args.num_proc = wandb.config.num_proc
 
     # Load datasets for pivot and target languages
+    if args.tgt_lang == "en":
+        train_dataset = load_xcopa_dataset(args.pivot_lang, split="train")
+        test_dataset = load_xcopa_dataset(
+            args.tgt_lang,
+            split="validation",
+            dataset_frac=args.test_frac,
+        )
     train_dataset = load_xcopa_dataset(
         args.pivot_lang, split="train" if not args.use_val_to_prompt else "validation"
     )

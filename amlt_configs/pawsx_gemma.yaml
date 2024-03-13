@@ -1,4 +1,4 @@
-description: MEGAVERSE_XQUAD_GEMMA
+description: MEGAVERSE_PAWSX_GEMMA
 
 target:
   service: sing
@@ -17,12 +17,12 @@ environment:
   # - conda update -n base -c defaults conda
   # - conda env create --name megaverse --file=mega_env.yml
   # - conda activate megaverse
-  - python -m pip install chardet
   - python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 --force
   - python -c "import torch; print('GPU Support:',torch.cuda.is_available())"
   - which pip
   - conda install cudatoolkit==12.1 -y
   - which python
+  - python -m pip install chardet
   - python -m pip install transformers -U
   - python -m pip install accelerate
   - python -m pip install deepspeed
@@ -48,7 +48,6 @@ code:
   ignore:
   - data/*
   - MEGANotebooks/*
-  - xrisawoz_data/*
   - results/*
 
 storage:
@@ -59,7 +58,7 @@ storage:
 
 
 jobs:
-  - name: megaverse_xquad_gemma
+  - name: megaverse_pawsx_gemma
     sku: 80G1-A100
     priority: High
     sla_tier: Standard
@@ -71,4 +70,4 @@ jobs:
       - python -m pip install -e promptsource/ --user
       - python -m pip install transformers -U --user
       - huggingface-cli login --token "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"
-      - bash hf_scripts/run_xquad_qa.sh "/mnt/megaverse/results"
+      - bash hf_scripts/run_pawsx_eval.sh "/mnt/megaverse/results"

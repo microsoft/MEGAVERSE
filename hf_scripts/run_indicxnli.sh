@@ -16,7 +16,7 @@ do
         # for lang in gu
         do
             echo "Running for language $lang and prompt ${prompt_name}"
-            python -m mega.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k 8 --model $model -e "gpt4v2" --chat_prompt --temperature 0 --log_wandb --save_dir $save_dir
+            python -m mega.eval_xnli -p $lang -t $lang --pivot_prompt_name "${prompt_name}" --tgt_prompt_name "${prompt_name}" -k 8 --model $model -e "gpt4v2" --chat_prompt --temperature 0 --save_dir $save_dir
         done
     done
 done
