@@ -10,7 +10,7 @@ do
     for model in "google/gemma-7b-it" "google/gemma-2b-it"
     do 
     echo "Evaluating for ${dataset} for ${model}"
-    for lang in asm_Beng ben_Beng guj_Gujr hin_Deva kas_Arab kan_Knda mal_Mlym mar_Deva npi_Deva ori_Orya pan_Guru tam_Taml tel_Telu urd_Arab;
+    for lang in asm_Beng ben_Beng guj_Gujr hin_Deva kas_Arab kan_Knda mal_Mlym mar_Deva npi_Deva ory_Orya pan_Guru tam_Taml tel_Telu urd_Arab;
     do
         echo "Running for language ${lang}-eng_Latn"
         python -m mega.eval_in22 \
@@ -22,7 +22,6 @@ do
         --model $model \
         --temperature 0 \
         --num_evals_per_sec 2 \
-        --save_dir results \
         --max_tokens 1024 \
         --seed 42 \
         --chat_prompt \
@@ -39,7 +38,6 @@ do
         --model $model \
         --temperature 0 \
         --num_evals_per_sec 2 \
-        --save_dir results \
         --max_tokens 1024 \
         --seed 42 \
         --chat_prompt \

@@ -3,6 +3,7 @@ import sys
 import json
 import pickle
 import random
+import torch
 from tqdm import tqdm
 from dataclasses import dataclass
 from collections import defaultdict
@@ -35,7 +36,7 @@ class XRiSAWOZArgs:
 def load_text(fname):
     with open(fname, "r") as f:
         return f.read()
-                          
+
 
 def load_json(fname):
     with open(fname, "r") as f:
@@ -81,7 +82,12 @@ def main(sys_args):
     inputs = defaultdict(lambda: defaultdict(list))
 
     if args.use_hf_api or args.from_hf_hub:
-        model_obj = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            args.model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
         tokenizer = AutoTokenizer.from_pretrained(args.model)
 
     for datum in data:

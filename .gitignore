@@ -2,6 +2,7 @@
 results/*
 envs/*
 results/*
+results_xquad_temp/*
 openai_key.txt
 data/*
 keys/*.txt

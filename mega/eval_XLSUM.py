@@ -8,6 +8,7 @@ from promptsource.templates import Template, DatasetTemplates
 import yaml
 import random
 import openai
+import torch
 from mega.data.data_utils import choose_few_shot_examples
 from mega.models.completion_models import model_completion
 from mega.prompting.prompting_utils import get_substrate_prompt
@@ -194,7 +195,12 @@ if __name__ == "__main__":
     model = args["model"]
 
     if "/" in model:
-        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
         tokenizer = AutoTokenizer.from_pretrained(model)
 
     if args["prompt_selection"]:

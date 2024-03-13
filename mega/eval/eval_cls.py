@@ -56,7 +56,7 @@ def run_seq_eval(
     num_matches = 0
     valid_labels = test_prompt_template.answer_choices.split("|||")
     valid_labels = [label.strip().split()[0] for label in valid_labels]
-    
+
     try:
         with open(save_preds_path, "r") as file:
             json_data = [json.loads(line) for line in file]
@@ -73,7 +73,12 @@ def run_seq_eval(
         sys.exit(0)
 
     if "/" in model:
-        model_obj = AutoModelForCausalLM.from_pretrained(model, device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
         tokenizer = AutoTokenizer.from_pretrained(model)
 
     for idx, test_example in pbar:
@@ -170,7 +175,7 @@ def run_seq_eval(
         label = normalize_answer(label)
         if pred != "":
             num_matches += float((pred in label) or (label in pred))
-            
+
             matches.append(float((pred in label) or (label in pred)))
         preds.append(pred)
         labels.append(label)

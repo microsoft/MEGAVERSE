@@ -104,10 +104,7 @@ def evaluate_IN22(
 
         if use_hf_api or from_hf_hub:
             if chat_prompt:
-                # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)
-
-            # print(prompt_input)
 
             if use_hf_api:
                 pred = hf_model_api_completion(
@@ -118,7 +115,6 @@ def evaluate_IN22(
                 )
 
             elif from_hf_hub:
-                # print("printing from hf hub")
                 pred = hf_model_completion(
                     prompts=prompt_input,
                     model_name=model,
@@ -127,25 +123,25 @@ def evaluate_IN22(
                     timeout=timeout,
                     max_new_tokens=max_tokens,
                 )
-
-        try:
-            pred = model_completion(
-                prompt,
-                model,
-                run_substrate_llm_completion=substrate_prompt,
-                temperature=temperature,
-                max_tokens=max_tokens,
-                max_output_tokens=max_tokens,
-                run_details=run_details,
-                num_evals_per_sec=num_evals_per_sec,
-                llm_client=llm_client,
-                lang=source,
-            )
-        except Exception as e:
-            pred = "**********"
-            print(
-                f'Unable to make prediction due {e}.\nLanguage Pair: {source}-{target}, id: {datapoint["id"]}'
-            )
+        else:
+            try:
+                pred = model_completion(
+                    prompt,
+                    model,
+                    run_substrate_llm_completion=substrate_prompt,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    max_output_tokens=max_tokens,
+                    run_details=run_details,
+                    num_evals_per_sec=num_evals_per_sec,
+                    llm_client=llm_client,
+                    lang=source,
+                )
+            except Exception as e:
+                pred = "**********"
+                print(
+                    f'Unable to make prediction due {e}.\nLanguage Pair: {source}-{target}, id: {datapoint["id"]}'
+                )
 
         prediction = {
             "sentence": datapoint[f"sentence_{source}"],
