@@ -14,6 +14,7 @@ import gc
 import openai
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
+
 # import GPUtil
 import pprint
 
@@ -21,20 +22,24 @@ import pprint
 def initialise_model(model_name):
     torch.cuda.empty_cache()
     gc.collect()
-    
-    tokenizer =  AutoTokenizer.from_pretrained(model_name)
-    # tokenizer.padding_side = "left" 
-    tokenizer.pad_token = tokenizer.eos_token # to avoid an error
-        
+
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    # tokenizer.padding_side = "left"
+    tokenizer.pad_token = tokenizer.eos_token  # to avoid an error
+
     if model_name in HF_DECODER_MODELS:
-        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="auto")
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name, torch_dtype=torch.float32, device_map="auto"
+        )
     else:
-        model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="auto")
-    
+        model = AutoModelForSeq2SeqLM.from_pretrained(
+            model_name, torch_dtype=torch.float32, device_map="auto"
+        )
+
     model.config.pad_token_id = model.config.eos_token_id
-        
+
     model = model.to_bettertransformer()
-    
+
     return model, tokenizer
 
 
@@ -72,18 +77,18 @@ def run_seq_eval(
     running_acc = 0
     num_matches = 0
     valid_labels = test_prompt_template.answer_choices.split("|||")
-    valid_labels = [label.strip().split()[0] for label in valid_labels]    
-    
+    valid_labels = [label.strip().split()[0] for label in valid_labels]
+
     if use_api:
         model = None
         tokenizer = AutoTokenizer.from_pretrained(model_name)
     else:
         model, tokenizer = initialise_model(model_name)
-    
+
     pbar = tqdm(test_dataset)
-    
+
     for test_example in pbar:
-        
+
         # train_examples_i = train_examples
 
         # print(test_example)
@@ -94,7 +99,7 @@ def run_seq_eval(
             test_example,
             train_prompt_template,
             test_prompt_template,
-            model_name, 
+            model_name,
             model,
             tokenizer,
             use_api=use_api,
@@ -103,21 +108,21 @@ def run_seq_eval(
             timeout=timeout,
             **model_params,
         )
-            #     break
-            # except (openai.error.InvalidRequestError, openai.error.Timeout):
-            #     if len(train_examples_i) == 0:
-            #         pred_dict = {
-            #             "prediction": np.random.choice(
-            #                 valid_labels
-            #             ),  # Initialize with a random prediction
-            #             "ground_truth": test_prompt_template.apply(test_example)[1],
-            #         }
-            #         print("Exausted Everything! Giving Random Prediction Now :(")
-            #         break
-            #     train_examples_i = train_examples_i[:-1]
-            #     print(
-            #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-            #     )
+        #     break
+        # except (openai.error.InvalidRequestError, openai.error.Timeout):
+        #     if len(train_examples_i) == 0:
+        #         pred_dict = {
+        #             "prediction": np.random.choice(
+        #                 valid_labels
+        #             ),  # Initialize with a random prediction
+        #             "ground_truth": test_prompt_template.apply(test_example)[1],
+        #         }
+        #         print("Exausted Everything! Giving Random Prediction Now :(")
+        #         break
+        #     train_examples_i = train_examples_i[:-1]
+        #     print(
+        #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+        #     )
 
         pred = pred_dict["prediction"]
         # if pred == "Invalid request":
@@ -172,7 +177,7 @@ def run_parallel_eval(
         model, tokenizer = None, None
     else:
         model, tokenizer = initialise_model(model_name)
-    
+
     results_dataset = test_dataset.map(
         lambda example: get_hf_model_pred(
             train_examples,
@@ -197,7 +202,6 @@ def run_parallel_eval(
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
 
     return accuracy, results_df
-
 
 
 def evaluate_model(
@@ -269,7 +273,7 @@ def evaluate_model(
             timeout=timeout,
             **model_params,
         )
-    
+
     if save_preds_path is not None:
         preds_dir, _ = os.path.split(save_preds_path)
         if not os.path.exists(preds_dir):

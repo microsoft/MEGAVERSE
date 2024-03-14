@@ -105,7 +105,9 @@ def evaluate_IN22(
             "prediction": pred,
         }
 
-        dump_predictions(i, prediction, datapoint[f"sentence_{target}"], save_preds_path)
+        dump_predictions(
+            i, prediction, datapoint[f"sentence_{target}"], save_preds_path
+        )
         preds.append(prediction)
 
     return None, pd.DataFrame(preds)

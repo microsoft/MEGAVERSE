@@ -5,6 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 from mega.utils.parser import parse_args
 
+
 def get_results(filename):
     with open(filename) as f:
         results = json.load(f)
@@ -23,8 +24,8 @@ def get_results(filename):
         "Prompt Type": results["tgt_prompt_name"],
         "# Few-shot Examples": results["few_shot_k"],
         "Accuracy": results["metrics"]["accuracy"],
-        "Is Dev" : results["eval_on_val"],
-        'Test Fraction': results['test_frac']
+        "Is Dev": results["eval_on_val"],
+        "Test Fraction": results["test_frac"],
     }
 
 
@@ -39,4 +40,3 @@ if __name__ == "__main__":
 
     results_final = pd.DataFrame(result_rows)
     results_final.to_csv(f"results/{args.dataset}_{args.model}_final_.csv")
-

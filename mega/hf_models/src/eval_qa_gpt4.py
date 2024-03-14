@@ -9,8 +9,12 @@ import wandb
 from datasets import load_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
+
 # from mega.utils.env_utils import load_openai_env_variables
-from mega.models.hf_completion_models import hf_model_api_completion, hf_model_completion
+from mega.models.hf_completion_models import (
+    hf_model_api_completion,
+    hf_model_completion,
+)
 from mega.prompting.prompting_utils import construct_qa_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.utils.parser import parse_args
@@ -120,16 +124,16 @@ def evaluate_qa_chatgpt(
     run_details = {"num_calls": 0}
 
     pbar = tqdm(enumerate(test_dataset))
-    
+
     # pbar = enumerate(test_dataset)
 
     tokenizer = AutoTokenizer.from_pretrained(model)
-    
+
     if use_api:
         model = None
     else:
         model = AutoModelForCausalLM.from_pretrained(model)
-    
+
     preds = []
     labels = []
     f1s, ems = [], []
@@ -142,12 +146,12 @@ def evaluate_qa_chatgpt(
             chat_prompt=True,
             instruction=instruction,
         )
-        
+
         if chat_prompt:
             prompt = convert_to_hf_chat_prompt(prompt)
-        
+
         # print(prompt)
-        
+
         pred = hf_model_api_completion(
             prompt,
             model,
@@ -157,9 +161,9 @@ def evaluate_qa_chatgpt(
             num_evals_per_sec=num_evals_per_sec,
             max_tokens=max_tokens,
         )
-        
+
         # print(pred)
-        
+
         prediction = {"prediction_text": pred, "id": test_example["id"]}
         reference = {}
         reference["answers"] = test_example["answers"]
@@ -192,7 +196,6 @@ def evaluate_qa_chatgpt(
 def main(sys_args):
     args = parse_args(sys_args)
 
-
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}"
 
     if not os.path.isfile(f"{out_dir}/results.json"):
@@ -215,7 +218,7 @@ def main(sys_args):
         args.few_shot_k = wandb.config.few_shot_k
         args.temperature = wandb.config.temperature
         args.num_proc = wandb.config.num_proc
-        
+
         train_dataset = load_qa_dataset(
             args.dataset,
             lang=args.pivot_lang,
@@ -224,7 +227,7 @@ def main(sys_args):
         test_dataset = load_qa_dataset(
             args.dataset,
             lang=args.tgt_lang,
-            split="validation" if args.dataset in ['xquad', 'tydiqa'] else 'test',
+            split="validation" if args.dataset in ["xquad", "tydiqa"] else "test",
             dataset_frac=args.test_frac,
         )
 
@@ -270,7 +273,7 @@ def main(sys_args):
 
         if args.log_wandb:
             wandb.log(metrics)
-    
+
     else:
         print(f"Results already exist in {out_dir}")
 
