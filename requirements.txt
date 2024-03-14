@@ -18,5 +18,4 @@ azure-ai-translation-text
 google-cloud-aiplatform
 msal
 sentence-transformers
-promptsource
 google-generativeai
