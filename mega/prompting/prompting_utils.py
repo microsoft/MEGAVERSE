@@ -360,9 +360,9 @@ def construct_cmxnli_prompt(
     """
 
     def fill_xnli_template(example, template):
-        premise = example["premise"]
-        hypothesis = example["hypothesis"]
-        label = example["label"]
+        premise = example["Premise"]
+        hypothesis = example["Hypothesis"]
+        label = example["Label"]
 
         filled_template = template.replace("{premise}", premise).replace(
             "{hypothesis}", hypothesis
