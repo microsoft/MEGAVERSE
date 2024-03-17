@@ -53,10 +53,10 @@ def evaluate_IN22(
     preds = []
 
     try:
-        with open(save_preds_path, "r") as file:
+        with open(save_preds_path, "r", encoding="utf-8") as file:
             json_data = [json.loads(line) for line in file]
 
-        idx_set = {obj["q_idx"] for obj in json_data}
+        idx_set = set([obj["q_idx"] for obj in json_data])
     except:
         idx_set = set()
 
@@ -73,6 +73,7 @@ def evaluate_IN22(
             attn_implementation="flash_attention_2",
         )
         tokenizer = AutoTokenizer.from_pretrained(model)
+        model_obj.eval()
 
     if use_hf_api:
         model_obj = None

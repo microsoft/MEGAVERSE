@@ -107,7 +107,7 @@ def hf_model_completion(
     batch["input_ids"] = batch["input_ids"].unsqueeze(0)
     batch["attention_mask"] = batch["attention_mask"].unsqueeze(0)
 
-    with torch.no_grad():
+    with torch.inference_mode():
         output = model_obj.generate(
             **batch,
             do_sample=False,

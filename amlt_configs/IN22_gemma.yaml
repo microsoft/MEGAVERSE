@@ -48,6 +48,7 @@ code:
   ignore:
   - data/*
   - results/*
+  - results_xquad_temp/*
   - MEGANotebooks/*
   - xrisawoz_data/*
 

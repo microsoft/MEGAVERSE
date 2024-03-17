@@ -202,6 +202,7 @@ if __name__ == "__main__":
             attn_implementation="flash_attention_2",
         )
         tokenizer = AutoTokenizer.from_pretrained(model)
+        model_obj.eval()
 
     if args["prompt_selection"]:
         test_examples = load_xlsum_data(lang, "validation", args["dataset_frac"])

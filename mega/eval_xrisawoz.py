@@ -89,6 +89,7 @@ def main(sys_args):
             attn_implementation="flash_attention_2",
         )
         tokenizer = AutoTokenizer.from_pretrained(args.model)
+        model_obj.eval()
 
     for datum in data:
         inputs[datum["train_target"]][datum["turn_id"]].append(datum)

@@ -46,6 +46,7 @@ code:
   local_dir: $CONFIG_DIR/..
   ignore:
   - data/*
+  - results/*
   - MEGANotebooks/*
   - xrisawoz_data/*
 
