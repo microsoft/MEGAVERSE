@@ -80,6 +80,7 @@ def run_seq_eval(
             attn_implementation="flash_attention_2",
         )
         tokenizer = AutoTokenizer.from_pretrained(model)
+        model_obj.eval()
 
     for idx, test_example in pbar:
         train_examples_i = train_examples

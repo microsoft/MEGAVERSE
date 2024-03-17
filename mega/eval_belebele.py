@@ -366,6 +366,7 @@ def main(sys_args):
             torch_dtype=torch.bfloat16,
             attn_implementation="flash_attention_2",
         )
+        model_obj.eval()
 
     model_lang = "english" if args.translate_test else args.tgt_lang
     llm_client = LLMClient() if args.substrate_prompt else None

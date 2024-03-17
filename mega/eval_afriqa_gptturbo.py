@@ -281,6 +281,7 @@ def evaluate_qa_chatgpt(
             attn_implementation="flash_attention_2",
         )
         tokenizer = AutoTokenizer.from_pretrained(model)
+        model_obj.eval()
 
     if use_hf_api:
         tokenizer = AutoTokenizer.from_pretrained(model)

@@ -1,8 +1,7 @@
 # Data and output directories
 results/*
 envs/*
-results/*
-results_xquad_temp/*
+results_xquad/*
 openai_key.txt
 data/*
 keys/*.txt
