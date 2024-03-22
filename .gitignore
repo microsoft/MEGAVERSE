@@ -15,6 +15,9 @@ env.env
 __pycache__/
 *.py[cod]
 *$py.class
+mega/eval/*.csv
+mega/eval/*.pdf 
+mega/eval/*.ipynb
 
 # C extensions
 *.so
