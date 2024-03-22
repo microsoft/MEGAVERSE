@@ -1,4 +1,4 @@
-description: MEGAVERSE_XSTORY_GEMMA
+description: MEGAVERSE_PANX_GEMMA
 
 target:
   service: sing
@@ -28,6 +28,7 @@ environment:
   - python -m pip install deepspeed
   - python -m pip install datasets
   - python -m pip install sentencepiece
+  - python -m pip install seqeval
   - python -m pip install backoff
   - python -m pip install openai==0.28.0
   - python -m pip install google-generativeai
@@ -49,7 +50,7 @@ code:
   - MEGANotebooks/*
   - xrisawoz_data/*
   - results/*
-  - xtreme/*
+  - xtreme/download/udpos/*
 
 storage:
   megaverse:
@@ -59,7 +60,7 @@ storage:
 
 
 jobs:
-  - name: megaverse_xstory_gemma
+  - name: megaverse_panx_gemma
     sku: 80G1-A100
     priority: High
     sla_tier: Standard
@@ -71,4 +72,4 @@ jobs:
       - python -m pip install -e promptsource/ --user
       - python -m pip install transformers -U --user
       - huggingface-cli login --token "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"
-      - bash hf_scripts/run_xstory.sh "/mnt/megaverse/results"
+      - bash hf_scripts/run_panx_gpt4.sh "/mnt/megaverse/results"

@@ -132,10 +132,7 @@ def evaluate(
             )
 
             if chat_prompt:
-                # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)
-
-            # print(prompt_input)
 
             if use_hf_api:
                 pred = hf_model_api_completion(

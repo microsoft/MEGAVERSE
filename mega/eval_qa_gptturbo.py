@@ -430,7 +430,7 @@ def evaluate_qa_chatgpt(
             print(e)
             print("Unable to write predictions to file!")
             pass
-        
+
         preds.append(prediction)
         labels.append(reference)
         f1s.append(results["f1"])
