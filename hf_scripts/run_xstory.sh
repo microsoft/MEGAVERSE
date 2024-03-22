@@ -7,12 +7,14 @@ save_dir=${arg:-"results"}
 echo $save_dir
 
 
-for model in "google/gemma-7b-it" "google/gemma-2b-it"
+for model in "google/gemma-7b-it" 
 do 
     echo "Mono lingual eval for $model"
     for prompt_name in "Answer Given options"
     do
-        for lang in ar en es eu hi id my ru sw te zh
+        # for lang in ar en es eu hi id my ru sw te zh
+        # for lang in ar id my ru sw te
+        for lang in ar
         # for lang in te
         do
             k=8
