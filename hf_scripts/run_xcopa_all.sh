@@ -31,7 +31,7 @@ for prompt_name in "plausible_alternatives_discrete"
 do
     for model in "google/gemma-7b-it" "google/gemma-2b-it"
         do 
-        for lang in en
+        for lang in en sw tr
         do
             k=8
             echo "Running for language $lang and prompt ${prompt_name} and k $k"

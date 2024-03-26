@@ -111,11 +111,13 @@ def hf_model_completion(
         output = model_obj.generate(
             **batch,
             do_sample=False,
-            max_new_tokens=model_params.get("max_new_tokens", 40)
+            max_new_tokens=model_params.get("max_new_tokens", 40),
         )
 
     input_length = batch["input_ids"].shape[1]
-    outputs += tokenizer.batch_decode(output[:, input_length:], skip_special_tokens=True)
+    outputs += tokenizer.batch_decode(
+        output[:, input_length:], skip_special_tokens=True
+    )
 
     # for idx, batch in enumerate(DataLoader(prompt_dataset, batch_size=batch_size, shuffle=False)):
     #     with torch.no_grad():
@@ -139,7 +141,7 @@ def hf_model_completion(
     #             [generated_tokens], skip_special_tokens=True
     #         )
 
-            # print(outputs)
+    # print(outputs)
 
     # torch.cuda.empty_cache()
     # gc.collect()

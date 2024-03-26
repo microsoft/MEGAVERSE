@@ -2,8 +2,7 @@ import os
 import sys
 import json
 import random
-from typing import List, Dict, Union, Tuple, Optional
-import time
+from typing import List, Dict, Union, Optional
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
@@ -11,11 +10,14 @@ import wandb
 import torch
 from datasets import Dataset
 from seqeval.metrics import f1_score
-from promptsource.templates import Template
 from mega.utils.misc_utils import dump_predictions
 from mega.models.tag_models import get_model_pred
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
+from mega.prompting.prompting_utils import construct_tagging_prompt
+from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from mega.models.hf_completion_models import hf_model_completion
 from mega.utils.parser import parse_args
 from mega.data.load_datasets import load_tagging_dataset
 from mega.utils.env_utils import load_openai_env_variables
@@ -25,8 +27,6 @@ from mega.models.completion_models import (
     substrate_llm_completion,
 )
 from mega.utils.substrate_llm import LLMClient
-
-import pdb
 
 
 udpos_verbalizer = {
@@ -79,18 +79,19 @@ def evaluate(
     model: str,
     lang: str,
     few_shot_size: int,
+    from_hf_hub: bool = False,
     delimiter: str = "_",
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
-    num_evals_per_sec: int = 2,
-    parallel_eval: bool = False,
-    num_proc: Optional[int] = None,
+    # num_evals_per_sec: int = 2,
+    # parallel_eval: bool = False,
+    # num_proc: Optional[int] = None,
     log_wandb: bool = False,
     chat_prompt: bool = False,
     substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
-    dataset=None,
+    # dataset=None,
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
@@ -120,7 +121,6 @@ def evaluate(
     if len(idx_set) == total_items:
         print("All items already evaluated!")
         if os.path.exists(save_preds_path):
-            print("Here")
             with open(save_preds_path, "r") as file:
                 print("Loading preds from file")
                 json_data = [json.loads(line) for line in file]
@@ -130,62 +130,126 @@ def evaluate(
 
         return eval_score
 
+    if from_hf_hub:
+        tokenizer = AutoTokenizer.from_pretrained(model)
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+        )
     for idx, test_example in pbar:
         if idx in idx_set:
             continue
 
         train_examples_i = train_examples
+        if from_hf_hub:
 
-        while len(train_examples_i) >= 1:
+            prompt_input, label = construct_tagging_prompt(
+                train_examples,
+                test_example,
+                prompt_template,
+                verbalizer,
+                delimiter=delimiter,
+                chat_prompt=chat_prompt,
+                substrate_prompt=substrate_prompt,
+                instruction=instruction,
+            )
+            if chat_prompt:
+                prompt_input = convert_to_hf_chat_prompt(prompt_input, model)
+
+            # print(prompt_input)
+            pred = hf_model_completion(
+                prompts=prompt_input,
+                model_obj=model_obj,
+                tokenizer=tokenizer,
+                **model_params,
+            )
+            pred = pred.split()
+            if len(pred) < len(label):
+                # pred = pred + ["O"] * (len(label) - len(pred))
+                label = label[: len(pred)]
+            elif len(label) < len(pred):
+                pred = pred[: len(label)]
+                # label = label + ["O"] * (len(pred) - len(label))
+            preds.append(pred)
+            labels.append(label)
+            dump_predictions(idx, pred, label, save_preds_path)
             try:
-                pred_dict = get_model_pred(
-                    train_examples_i,
-                    test_example,
-                    prompt_template,
-                    verbalizer,
-                    model,
-                    lang,
-                    delimiter=delimiter,
-                    one_shot_tag=one_shot_tag,
-                    chat_prompt=chat_prompt,
-                    instruction=instruction,
-                    substrate_prompt=substrate_prompt,
-                    **model_params,
-                )
-                break
-            except (openai.error.InvalidRequestError, openai.error.Timeout):
-                if len(train_examples_i) == 0:
-                    pred_dict = {
-                        "prediction": np.random.choice(
-                            valid_labels, len(test_example["tags"]), replace=True
-                        ).tolist(),
-                        "ground_truth": test_example["tags"],
-                    }
-                    print("Exausted Everything! Giving Random Prediction Now :(")
+                # print(preds, "preds")
+                # print(labels, "labels")
+                # preds_fin = [
+                #     "".join(pred) if pred != "" else np.random.choice(valid_labels)
+                #     for pred in preds
+                # ]
+                # preds_fin = [pred.split() for pred in preds_fin]
+                f1_scores.append(f1_score(preds, labels))
+            except Exception as e:
+                # print(labels)
+                # print(preds_fin)
+                print(e)
+                print(f"skipping {idx} due to error")
+                continue
+                # breakpoint()
+            running_f1 = f1_scores[-1]
+            pbar.set_description(f"f1-score: {running_f1}")
+        else:
+
+            while len(train_examples_i) >= 1:
+                pred_dict = {}
+                try:
+                    pred_dict = get_model_pred(
+                        train_examples_i,
+                        test_example,
+                        prompt_template,
+                        verbalizer,
+                        model,
+                        lang,
+                        delimiter=delimiter,
+                        one_shot_tag=one_shot_tag,
+                        chat_prompt=chat_prompt,
+                        instruction=instruction,
+                        substrate_prompt=substrate_prompt,
+                        **model_params,
+                    )
                     break
-                train_examples_i = train_examples_i[:-1]
-                print(
-                    f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
+                # except (openai.error.Invalidrequesterror, openai.error.timeout):
+                except Exception as e:
+                    if len(train_examples_i) == 0:
+                        pred_dict = {
+                            "prediction": np.random.choice(
+                                valid_labels, len(test_example["tags"]), replace=True
+                            ).tolist(),
+                            "ground_truth": test_example["tags"],
+                        }
+                        print("exausted everything! giving random prediction now :(")
+                        break
+                    train_examples_i = train_examples_i[:-1]
+                    print(
+                        f"unable to fit context size. reducing few-size by 1. new size: {len(train_examples_i)}"
+                    )
+                pred_dict["prediction"] = [
+                    "".join(pred) if pred != "" else np.random.choice(valid_labels)
+                    for pred in pred_dict["prediction"]
+                ]
+                preds.append(pred_dict["prediction"])
+                labels.append(pred_dict["ground_truth"])
+                dump_predictions(
+                    idx,
+                    pred_dict["prediction"],
+                    pred_dict["ground_truth"],
+                    save_preds_path,
                 )
-        pred_dict["prediction"] = [
-            "".join(pred) if pred != "" else np.random.choice(valid_labels)
-            for pred in pred_dict["prediction"]
-        ]
-        preds.append(pred_dict["prediction"])
-        labels.append(pred_dict["ground_truth"])
-        dump_predictions(
-            idx, pred_dict["prediction"], pred_dict["ground_truth"], save_preds_path
-        )
-        # print("labels",pred_dict["ground_truth"])
-        try:
-            f1_scores.append(f1_score(preds, labels))
-        except Exception as e:
-            print(e)
-            print(f"Skipping {idx} due to error")
-            continue
-            # breakpoint()
-        running_f1 = f1_scores[-1]
-        pbar.set_description(f"F1-Score: {running_f1}")
+                # print("labels",pred_dict["ground_truth"])
+                try:
+                    f1_scores.append(f1_score(preds, labels))
+                except Exception as e:
+                    print(e)
+                    print(f"skipping {idx} due to error")
+                    continue
+                    # breakpoint()
+                running_f1 = f1_scores[-1]
+                pbar.set_description(f"f1-score: {running_f1}")
         if log_wandb:
             wandb.log({"f1": running_f1})
         # time.sleep(1 / num_evals_per_sec)
@@ -206,6 +270,7 @@ def evaluate(
 def main(sys_args):
     args = parse_args(sys_args)
     load_openai_env_variables()
+    print(args, "args")
 
     # Set seed
     random.seed(args.seed)
@@ -273,6 +338,7 @@ def main(sys_args):
         log_wandb=args.log_wandb,
         save_preds_path=save_preds_path,
         dataset=args.dataset,
+        from_hf_hub=args.from_hf_hub,
         chat_prompt=args.chat_prompt,
         substrate_prompt=args.substrate_prompt,
         instruction=instruction,
@@ -295,4 +361,5 @@ def main(sys_args):
 
 
 if __name__ == "__main__":
+    # print(sys.argv[1:])
     main(sys.argv[1:])
