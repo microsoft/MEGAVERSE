@@ -14,8 +14,9 @@ def normalize_answer(s):
     Taken from the official evaluation script for v1.1 of the SQuAD dataset.
     Lower text and remove punctuation, articles and extra whitespace.
     """
-    s = s.replace('</s>', '')
+    s = s.replace("</s>", "")
     s = s.strip()
+
     def remove_articles(text):
         return re.sub(r"\b(a|an|the)\b", " ", text)
 

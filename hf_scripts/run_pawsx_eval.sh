@@ -9,10 +9,10 @@ echo $save_dir
 echo "Evaluating GPT-4"
 echo "Monolingual Evaluation"
 prompt_name="PAWS-ANLI GPT3"
-langs=("en"  "zh")
+langs=("ja" "ko")
 k=8
 
-for model in "google/gemma-7b-it" "google/gemma-2b-it"
+for model in "google/gemma-2b-it"
 do 
     for lang in "${langs[@]}"
     do
