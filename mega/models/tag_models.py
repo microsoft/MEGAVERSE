@@ -3,6 +3,10 @@ import warnings
 from typing import Any, Dict, List, Union
 import backoff
 import openai
+from openai import AzureOpenAI
+
+client = AzureOpenAI(api_version="2023-03-15-preview",
+api_version="2022-12-01")
 import requests
 from mega.utils.substrate_llm import LLMClient, create_request_data
 from google.api_core.exceptions import ResourceExhausted
@@ -60,7 +64,7 @@ def substrate_llm_completion(
 ) -> str:
     request_data = create_request_data(prompt, **model_params)
     response = llm_client.send_request(model_name, request_data)
-    text_result = response["choices"][0]["text"]
+    text_result = response.choices[0].text
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
 
@@ -89,9 +93,9 @@ def gpt3x_tagger(
     @backoff.on_exception(
         backoff.expo,
         (
-            openai.error.APIError,
-            openai.error.APIConnectionError,
-            openai.error.RateLimitError,
+            openai.APIError,
+            openai.APIConnectionError,
+            openai.RateLimitError,
         ),
         max_time=60,
     )
@@ -100,13 +104,11 @@ def gpt3x_tagger(
         backoff_count = 0
         # Hit the api repeatedly till response is obtained
         try:
-            response = openai.Completion.create(
-                engine=model,
-                prompt=prompt_with_token,
-                max_tokens=model_params.get("max_tokens", 20),
-                temperature=model_params.get("temperature", 1),
-                top_p=model_params.get("top_p", 1),
-            )
+            response = client.completions.create(model=model,
+            prompt=prompt_with_token,
+            max_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+            top_p=model_params.get("top_p", 1))
 
         except TypeError:
             warnings.warn(
@@ -115,14 +117,14 @@ def gpt3x_tagger(
             return ""
         # import pdb
         # pdb.set_trace()
-        return response["choices"][0]["text"].strip().split()[0]
+        return response.choices[0].text.strip().split()[0]
 
     @backoff.on_exception(
         backoff.expo,
         (
-            openai.error.APIError,
-            openai.error.APIConnectionError,
-            openai.error.RateLimitError,
+            openai.APIError,
+            openai.APIConnectionError,
+            openai.RateLimitError,
         ),
         max_time=60,
     )
@@ -130,31 +132,27 @@ def gpt3x_tagger(
         output = None
         try:
             if isinstance(prompt, str):
-                response = openai.Completion.create(
-                    engine=model,
-                    prompt=prompt,
-                    max_tokens=model_params.get("max_tokens", 20),
-                    temperature=model_params.get("temperature", 1),
-                    top_p=model_params.get("top_p", 1),
-                )
+                response = client.completions.create(model=model,
+                prompt=prompt,
+                max_tokens=model_params.get("max_tokens", 20),
+                temperature=model_params.get("temperature", 1),
+                top_p=model_params.get("top_p", 1))
                 if "num_calls" in run_details:
                     run_details["num_calls"] += 1
-                output = response["choices"][0]["text"].strip().split("\n")[0]
+                output = response.choices[0].text.strip().split("\n")[0]
             else:
-                response = openai.ChatCompletion.create(
-                    engine=model,
-                    messages=prompt,
-                    max_tokens=model_params.get("max_tokens", 20),
-                    temperature=model_params.get("temperature", 1),
-                    top_p=model_params.get("top_p", 1),
-                )
+                response = client.chat.completions.create(model=model,
+                messages=prompt,
+                max_tokens=model_params.get("max_tokens", 20),
+                temperature=model_params.get("temperature", 1),
+                top_p=model_params.get("top_p", 1))
                 if "num_calls" in run_details:
                     run_details["num_calls"] += 1
-                if response["choices"][0]["finish_reason"] == "content_filter":
+                if response.choices[0].finish_reason == "content_filter":
                     output = ""
                 else:
                     output = (
-                        response["choices"][0]["message"]["content"]
+                        response.choices[0].message.content
                         .strip()
                         .split("\n")[0]
                     )
@@ -167,9 +165,7 @@ def gpt3x_tagger(
         return output
 
     if model in CHAT_MODELS:
-        openai.api_version = "2023-03-15-preview"
     else:
-        openai.api_version = "2022-12-01"
 
     if one_shot_tag:
         predicted_tokens_wth_tags = predict_one_shot()
@@ -316,7 +312,7 @@ def bloom_tagger(
                     "error" in model_output
                     and "must have less than 1000 tokens." in model_output["error"]
                 ):
-                    raise openai.error.InvalidRequestError(
+                    raise openai.InvalidRequestError(
                         model_output["error"], model_output["error_type"]
                     )
                 print("Exceeded Limit! Sleeping for a minute, will try again!")

@@ -79,6 +79,7 @@ def run_seq_eval(
             torch_dtype=torch.bfloat16,
             attn_implementation="flash_attention_2",
         )
+        model_obj = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.float16, attn_implementation="flash_attention_2", device_map="auto")
         tokenizer = AutoTokenizer.from_pretrained(model)
 
     for idx, test_example in pbar:
@@ -139,7 +140,7 @@ def run_seq_eval(
                         **model_params,
                     )
                     break
-                except (openai.error.InvalidRequestError, openai.error.Timeout):
+                except (openai.InvalidRequestError, openai.Timeout):
                     if len(train_examples_i) == 0:
                         pred_dict = {
                             "prediction": np.random.choice(

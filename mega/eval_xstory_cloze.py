@@ -184,7 +184,7 @@ def evaluate(
                             max_tokens=max_tokens,
                         )
                     break
-                except (openai.error.InvalidRequestError, openai.error.Timeout):
+                except (openai.InvalidRequestError, openai.Timeout):
                     if len(train_examples_i) == 0:
                         pred = np.random.choice(valid_labels)
                         print("Exausted Everything! Giving Random Prediction Now :(")

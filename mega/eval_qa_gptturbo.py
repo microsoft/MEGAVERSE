@@ -38,6 +38,7 @@ from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
 
 
 PUNCT = {
