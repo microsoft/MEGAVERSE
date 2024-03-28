@@ -109,15 +109,24 @@ def hf_model_completion(
 
     with torch.no_grad():
         output = model_obj.generate(
-            **batch,
-            do_sample=False,
-            max_new_tokens=model_params.get("max_new_tokens", 40),
-        )
+        **batch,
+        max_new_tokens=model_params.get('max_new_tokens', 40),
+        return_dict_in_generate=True,
+        output_scores=True,
+        min_length=20,
+        early_stopping=False,
+        max_time=timeout,
+        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id,
+    )
 
     input_length = batch["input_ids"].shape[1]
     outputs += tokenizer.batch_decode(
         output[:, input_length:], skip_special_tokens=True
     )
+    
+    # except:
+            #     output = batch
 
     # for idx, batch in enumerate(DataLoader(prompt_dataset, batch_size=batch_size, shuffle=False)):
     #     with torch.no_grad():

@@ -210,7 +210,7 @@ for seed in [42]:
                             timeout=60,
                         )
                         break
-                    except openai.error.Timeout:
+                    except openai.Timeout:
                         if num_fs >= 0:
                             num_fs -= 1
                             print(

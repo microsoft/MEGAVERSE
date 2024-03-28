@@ -152,7 +152,7 @@ def evaluate(
                     delimiter=delimiter,
                 )
                 break
-            except (openai.error.InvalidRequestError, openai.error.Timeout):
+            except (openai.InvalidRequestError, openai.Timeout):
                 if len(train_examples_i) == 0:
                     pred_dict = {
                         "prediction": np.random.choice(

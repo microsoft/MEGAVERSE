@@ -123,7 +123,7 @@ def get_line_with_answer(
         ).replace("{context_str}", sent)
         try:
             response = model_completion(prompt, model, **model_params)
-        except openai.error.InvalidRequestError:
+        except openai.InvalidRequestError:
             response = np.random.choose(["yes", "no"])
 
         if response.lower() == "yes" or response.lower() == "yes.":
