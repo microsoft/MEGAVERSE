@@ -5,7 +5,6 @@ import time
 import openai
 from openai import OpenAI
 
-client = OpenAI()
 
 from typing import List, Dict, Union, Any
 from google.api_core.exceptions import ResourceExhausted
@@ -43,6 +42,8 @@ load_openai_env_variables()
 #     raise Exception("API Response Stuck!")
 
 # signal.signal(signal.SIGALRM, handler)
+
+client = OpenAI()
 
 
 def timeout_handler(signum, frame):
