@@ -17,6 +17,7 @@ MODEL2PROMPT = {
     "google/gemma-7b-it": "gemma",
     "google/gemma-2b-it": "gemma",
     "mistralai/Mixtral-8x7B-Instruct-v0.1": "mistral",
+    "mistralai/Mistral-7B-Instruct-v0.2": "mistral"
 }
 
 

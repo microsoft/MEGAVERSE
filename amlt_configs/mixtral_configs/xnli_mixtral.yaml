@@ -48,6 +48,7 @@ code:
   - data/*
   - MEGANotebooks/*
   - xrisawoz_data/*
+  - results/
 
 storage:
   megaverse:
@@ -58,7 +59,7 @@ storage:
 
 jobs:
   - name: megaverse_xnli_mixtral
-    sku: 80G1-A100
+    sku: 80G2-A100
     priority: High
     sla_tier: Standard
     command:

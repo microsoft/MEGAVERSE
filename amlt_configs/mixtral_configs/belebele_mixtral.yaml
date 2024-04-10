@@ -29,7 +29,7 @@ environment:
   - python -m pip install datasets
   - python -m pip install sentencepiece
   - python -m pip install backoff
-  - python -m pip install openai==0.28.0
+  - python -m pip install openai
   - python -m pip install google-generativeai
   - python -m pip install flash_attn==2.5.5
   - python -m pip install wandb
@@ -37,17 +37,18 @@ environment:
   - python -m pip install python-dotenv
   - python -m pip install azure-ai-translation-text==1.0.0b1
   - python -m pip install langchain
-  - python -m pip install --upgrade huggingface_hub
+  - python -m pip install huggingface_hub==0.21.4
   - python -m pip install -r requirements_gemma.txt
   - python -m pip install -e promptsource/
 
   
 code: 
-  local_dir: $CONFIG_DIR/..
+  local_dir: $CONFIG_DIR/../..
   ignore:
   - data/*
   - MEGANotebooks/*
   - xrisawoz_data/*
+  - results/
 
 storage:
   megaverse:
@@ -57,8 +58,8 @@ storage:
 
 
 jobs:
-  - name: megaverse_belebele_gemma
-    sku: 80G1-A100
+  - name: megaverse_belebele_mixtral
+    sku: 80G2-A100
     priority: High
     sla_tier: Standard
     command:

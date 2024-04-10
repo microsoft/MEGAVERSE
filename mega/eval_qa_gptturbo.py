@@ -316,7 +316,7 @@ def evaluate_qa_chatgpt(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=40,
+                    max_new_tokens=100,
                 )
 
         else:

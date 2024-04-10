@@ -150,7 +150,7 @@ def evaluate(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=25,
+                    max_new_tokens=30,
                 )
 
         else:
