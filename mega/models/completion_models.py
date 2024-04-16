@@ -3,6 +3,8 @@ import warnings
 import signal
 import time
 import openai
+from openai import OpenAI
+
 
 from typing import List, Dict, Union, Any
 from google.api_core.exceptions import ResourceExhausted
@@ -41,6 +43,8 @@ load_openai_env_variables()
 
 # signal.signal(signal.SIGALRM, handler)
 
+client = OpenAI()
+
 
 def timeout_handler(signum, frame):
     raise openai.Timeout("API Response Stuck!")
@@ -60,7 +64,7 @@ def substrate_llm_completion(
         model_params.get("logprops", 1),
     )
     response = llm_client.send_request(model_name, request_data)
-    text_result = response["choices"][0]["text"]
+    text_result = response.choices[0].text
     text_result = text_result.replace("<|im_end|>", "")
     return text_result
 
@@ -97,7 +101,7 @@ def palm_api_completion(
 
 @backoff.on_exception(
     backoff.expo,
-    (openai.error.APIError, openai.error.RateLimitError, openai.error.Timeout),
+    (openai.APIError, openai.RateLimitError, openai.Timeout),
     max_time=300,
 )
 def gpt3x_completion(
@@ -109,33 +113,27 @@ def gpt3x_completion(
 ) -> str:
     output = None
     if isinstance(prompt, str):
-        response = openai.Completion.create(
-            engine=model,
-            prompt=prompt,
-            max_tokens=model_params.get("max_tokens", 20),
-            temperature=model_params.get("temperature", 1),
-            top_p=model_params.get("top_p", 1),
-        )
+        response = client.completions.create(engine=model,
+        prompt=prompt,
+        max_tokens=model_params.get("max_tokens", 20),
+        temperature=model_params.get("temperature", 1),
+        top_p=model_params.get("top_p", 1))
         if "num_calls" in run_details:
             run_details["num_calls"] += 1
-        output = response["choices"][0]["text"].strip().split("\n")[0]
+        output = response.choices[0].text.strip().split("\n")[0]
         time.sleep(1 / num_evals_per_sec)
     else:
-        response = openai.ChatCompletion.create(
-            engine=model,
-            messages=prompt,
-            max_tokens=model_params.get("max_tokens", 20),
-            temperature=model_params.get("temperature", 1),
-            top_p=model_params.get("top_p", 1),
-        )
+        response = client.chat.completions.create(engine=model,
+        messages=prompt,
+        max_tokens=model_params.get("max_tokens", 20),
+        temperature=model_params.get("temperature", 1),
+        top_p=model_params.get("top_p", 1))
         if "num_calls" in run_details:
             run_details["num_calls"] += 1
-        if response["choices"][0]["finish_reason"] == "content_filter":
+        if response.choices[0].finish_reason == "content_filter":
             output = ""
         else:
-            output = response["choices"][0]["message"][
-                "content"
-            ].strip()  # .split("\n")[0]
+            output = response.choices[0].message.content.strip()  # .split("\n")[0]
         time.sleep(1 / num_evals_per_sec)
 
     return output
@@ -169,7 +167,7 @@ def bloom_completion(prompt: str, **model_params) -> str:
                 "error_" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
             ):
-                raise openai.error.InvalidRequestError
+                raise openai.InvalidRequestError
             print("Exceeded Limit! Sleeping for a minute, will try again!")
             signal.alarm(0)  # Reset the alarm
             time.sleep(60)
@@ -208,7 +206,7 @@ def bloomz_completion(prompt: str, **model_params) -> str:
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
             ):
-                raise openai.error.InvalidRequestError(
+                raise openai.InvalidRequestError(
                     model_output["error"], model_output["error_type"]
                 )
             print("Exceeded Limit! Sleeping for a minute, will try again!")
@@ -253,7 +251,7 @@ def llama2_completion(prompt: str, model: str, **model_params) -> str:
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
             ):
-                raise openai.error.InvalidRequestError(
+                raise openai.InvalidRequestError(
                     model_output["error"], model_output["error_type"]
                 )
             print("Exceeded Limit! Sleeping for a minute, will try again!")

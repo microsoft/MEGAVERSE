@@ -13,13 +13,15 @@ torch.set_default_dtype(torch.float32)
 
 
 class PromptDataset(Dataset):
-    def __init__(self, prompts, model, tokenizer, device="cuda:0", **tokenizer_args):
+    def __init__(self, prompts, model, tokenizer, device="cuda", **tokenizer_args):
         self.prompts = prompts
         self.tokenizer = tokenizer
         self.max_len = self.get_max_len()
         self.device = device
         self.model = model
         self.tokenizer_args = tokenizer_args
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
 
     def __len__(self):
         return len(self.prompts)

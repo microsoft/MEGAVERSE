@@ -6,10 +6,8 @@ load_dotenv("envs/melange.env")
 
 
 def load_openai_env_variables():
+    # TODO: The 'openai.api_base' option isn't read in the client API. You will need to pass it when you instantiate the client, e.g. 'OpenAI(base_url=os.environ["OPENAI_END_POINT"])'
     openai.api_base = os.environ["OPENAI_END_POINT"]
-    openai.api_type = os.environ["OPENAI_API_TYPE"]
-    openai.api_version = os.environ["OPENAI_API_VERSION"]
-    openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
 HF_API_URL = os.environ["HF_API_URL"]

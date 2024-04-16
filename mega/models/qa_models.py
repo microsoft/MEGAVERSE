@@ -63,7 +63,7 @@ def answer_question_gpt(
             try:
                 docsearch.add_texts([text], metadatas=[{}])
                 break
-            except openai.error.APIConnectionError:
+            except openai.APIConnectionError:
                 continue
     qa = VectorDBQA.from_chain_type(
         llm=LLM,
@@ -77,7 +77,7 @@ def answer_question_gpt(
         try:
             response = qa.run(question)
             break
-        except openai.error.APIConnectionError:
+        except openai.APIConnectionError:
             continue
         except TypeError:
             response = ""
@@ -93,7 +93,6 @@ def answer_question_chatgpt(
     chunk_size: int = 100,
     chunk_overlap: int = 0,
 ):
-    openai.api_version = "2023-03-15-preview"
     text_splitter = TokenTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap
     )
@@ -106,7 +105,7 @@ def answer_question_chatgpt(
             try:
                 docsearch.add_texts([text], metadatas=[{}])
                 break
-            except (openai.error.APIConnectionError, openai.error.APIError):
+            except (openai.APIConnectionError, openai.APIError):
                 continue
 
     qa = VectorDBQA.from_chain_type(
@@ -121,7 +120,7 @@ def answer_question_chatgpt(
         try:
             response = qa.run(question)
             break
-        except openai.error.APIConnectionError:
+        except openai.APIConnectionError:
             continue
         except TypeError:
             response = ""
@@ -198,7 +197,7 @@ def answer_question_bloomz(
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
             ):
-                raise openai.error.InvalidRequestError(
+                raise openai.InvalidRequestError(
                     model_output["error"], model_output["error_type"]
                 )
             print("Exceeded Limit! Sleeping for a minute, will try again!")
