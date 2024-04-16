@@ -38,6 +38,7 @@ from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
 
 
 PUNCT = {
@@ -316,7 +317,7 @@ def evaluate_qa_chatgpt(
                     model_obj=model_obj,
                     tokenizer=tokenizer,
                     timeout=timeout,
-                    max_new_tokens=40,
+                    max_new_tokens=100,
                 )
 
         else:

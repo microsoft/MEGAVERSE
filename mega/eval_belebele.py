@@ -241,8 +241,8 @@ def evaluate(
                         )
                         break
                 except (
-                    openai.error.InvalidRequestError,
-                    openai.error.Timeout,
+                    openai.InvalidRequestError,
+                    openai.Timeout,
                     ValidationError,
                     OverloadedError,
                 ) as e:

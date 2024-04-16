@@ -20,6 +20,8 @@ SUPPORTED_MODELS = [
     "google/gemma-7b",
     "google/gemma-2b-it",
     "google/gemma-2b",
+    "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "mistralai/Mistral-7B-Instruct-v0.2"
 ]
 
 MODEL_TYPES = ["completion", "seq2seq"]
