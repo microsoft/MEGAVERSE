@@ -95,9 +95,9 @@ def palm_api_completion(
     return response.text
 
 
-@backoff.on_exception(
-    backoff.expo, (Exception, InternalServerError), max_time=300, max_tries=5
-)
+# @backoff.on_exception(
+#     backoff.expo, Exception, max_time=300, max_tries=5
+# )
 def gemini_completion(
     prompt: str, model: str = "gemini-pro", lang: str = "", **model_params
 ) -> str:
@@ -109,7 +109,7 @@ def gemini_completion(
         and lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.values()
     ):
         raise ValueError("Language not supported by Gemini-Pro!")
-
+    print(prompt)
     model_load = genai.GenerativeModel(model)
     response = model_load.generate_content(
         prompt,
