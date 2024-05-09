@@ -113,21 +113,25 @@ def gpt3x_completion(
 ) -> str:
     output = None
     if isinstance(prompt, str):
-        response = client.completions.create(engine=model,
-        prompt=prompt,
-        max_tokens=model_params.get("max_tokens", 20),
-        temperature=model_params.get("temperature", 1),
-        top_p=model_params.get("top_p", 1))
+        response = client.completions.create(
+            engine=model,
+            prompt=prompt,
+            max_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+            top_p=model_params.get("top_p", 1),
+        )
         if "num_calls" in run_details:
             run_details["num_calls"] += 1
         output = response.choices[0].text.strip().split("\n")[0]
         time.sleep(1 / num_evals_per_sec)
     else:
-        response = client.chat.completions.create(engine=model,
-        messages=prompt,
-        max_tokens=model_params.get("max_tokens", 20),
-        temperature=model_params.get("temperature", 1),
-        top_p=model_params.get("top_p", 1))
+        response = client.chat.completions.create(
+            engine=model,
+            messages=prompt,
+            max_tokens=model_params.get("max_tokens", 20),
+            temperature=model_params.get("temperature", 1),
+            top_p=model_params.get("top_p", 1),
+        )
         if "num_calls" in run_details:
             run_details["num_calls"] += 1
         if response.choices[0].finish_reason == "content_filter":

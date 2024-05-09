@@ -5,8 +5,7 @@ import backoff
 import openai
 from openai import AzureOpenAI
 
-client = AzureOpenAI(api_version="2023-03-15-preview",
-api_version="2022-12-01")
+client = AzureOpenAI(api_version="2023-03-15-preview", api_version="2022-12-01")
 import requests
 from mega.utils.substrate_llm import LLMClient, create_request_data
 from google.api_core.exceptions import ResourceExhausted
@@ -104,11 +103,13 @@ def gpt3x_tagger(
         backoff_count = 0
         # Hit the api repeatedly till response is obtained
         try:
-            response = client.completions.create(model=model,
-            prompt=prompt_with_token,
-            max_tokens=model_params.get("max_tokens", 20),
-            temperature=model_params.get("temperature", 1),
-            top_p=model_params.get("top_p", 1))
+            response = client.completions.create(
+                model=model,
+                prompt=prompt_with_token,
+                max_tokens=model_params.get("max_tokens", 20),
+                temperature=model_params.get("temperature", 1),
+                top_p=model_params.get("top_p", 1),
+            )
 
         except TypeError:
             warnings.warn(
@@ -132,30 +133,30 @@ def gpt3x_tagger(
         output = None
         try:
             if isinstance(prompt, str):
-                response = client.completions.create(model=model,
-                prompt=prompt,
-                max_tokens=model_params.get("max_tokens", 20),
-                temperature=model_params.get("temperature", 1),
-                top_p=model_params.get("top_p", 1))
+                response = client.completions.create(
+                    model=model,
+                    prompt=prompt,
+                    max_tokens=model_params.get("max_tokens", 20),
+                    temperature=model_params.get("temperature", 1),
+                    top_p=model_params.get("top_p", 1),
+                )
                 if "num_calls" in run_details:
                     run_details["num_calls"] += 1
                 output = response.choices[0].text.strip().split("\n")[0]
             else:
-                response = client.chat.completions.create(model=model,
-                messages=prompt,
-                max_tokens=model_params.get("max_tokens", 20),
-                temperature=model_params.get("temperature", 1),
-                top_p=model_params.get("top_p", 1))
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=prompt,
+                    max_tokens=model_params.get("max_tokens", 20),
+                    temperature=model_params.get("temperature", 1),
+                    top_p=model_params.get("top_p", 1),
+                )
                 if "num_calls" in run_details:
                     run_details["num_calls"] += 1
                 if response.choices[0].finish_reason == "content_filter":
                     output = ""
                 else:
-                    output = (
-                        response.choices[0].message.content
-                        .strip()
-                        .split("\n")[0]
-                    )
+                    output = response.choices[0].message.content.strip().split("\n")[0]
         except TypeError:
             warnings.warn(
                 "Couldn't generate response, returning empty string as response"
@@ -165,7 +166,9 @@ def gpt3x_tagger(
         return output
 
     if model in CHAT_MODELS:
+        openai.api_version = "2023-03-15-preview"
     else:
+        openai.api_version = "2022-12-01"
 
     if one_shot_tag:
         predicted_tokens_wth_tags = predict_one_shot()

@@ -1,7 +1,0 @@
-You are a helpful NLP assistant solving the "Task Oriented Dialogue" problem. In particular, you are solving the "Response Generation" subtask.
-In Response Generation, your task is to produce a natural language response from the chatbot given the context of the conversation.
-Based on the learning examples given below, complete the "Answer" part of the target example. Do not print any additional information.
-
-{learning_examples}
-
-{target_example}

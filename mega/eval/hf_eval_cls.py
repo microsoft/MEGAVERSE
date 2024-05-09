@@ -29,11 +29,17 @@ def initialise_model(model_name):
 
     if model_name in HF_DECODER_MODELS:
         model = AutoModelForCausalLM.from_pretrained(
-            model_name, attn_implementation="flash_attention_2", torch_dtype=torch.float16, device_map="auto"
+            model_name,
+            attn_implementation="flash_attention_2",
+            torch_dtype=torch.float16,
+            device_map="auto",
         )
     else:
         model = AutoModelForSeq2SeqLM.from_pretrained(
-            model_name, attn_implementation="flash_attention_2", torch_dtype=torch.float16, device_map="auto"
+            model_name,
+            attn_implementation="flash_attention_2",
+            torch_dtype=torch.float16,
+            device_map="auto",
         )
 
     model.config.pad_token_id = model.config.eos_token_id

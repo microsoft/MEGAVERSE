@@ -337,4 +337,3 @@ def fix_eval_numbers(lang, path):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-"/home/t-sahuja/MultilingualBlanketEval/results/xstory_cloze/palm/es/PivotLang_es_PromptName_Answer Given options_Verbalizer_identity_FewShotK_8wthInstruction"

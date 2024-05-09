@@ -109,57 +109,26 @@ def hf_model_completion(
 
     with torch.inference_mode():
         output = model_obj.generate(
-        **batch,
-        max_new_tokens=model_params.get('max_new_tokens', 100),
-        return_dict_in_generate=True,
-        output_scores=True,
-        min_length=20,
-        early_stopping=False,
-        max_time=timeout,
-        eos_token_id=tokenizer.eos_token_id,
-        pad_token_id=tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id,
-    )
+            **batch,
+            max_new_tokens=model_params.get("max_new_tokens", 100),
+            return_dict_in_generate=True,
+            output_scores=True,
+            min_length=20,
+            early_stopping=False,
+            max_time=timeout,
+            eos_token_id=tokenizer.eos_token_id,
+            pad_token_id=(
+                tokenizer.pad_token_id
+                if tokenizer.pad_token_id is not None
+                else tokenizer.eos_token_id
+            ),
+        )
 
     input_length = batch["input_ids"].shape[1]
-    
-    # print("input_length", input_length)
-    
-    # print("output shape:", dir(output[0]))
-    # print("output:", output)
-    
+
     outputs += tokenizer.batch_decode(
         output.sequences[:, input_length:], skip_special_tokens=True
     )
-    
-    # except:
-            #     output = batch
-
-    # for idx, batch in enumerate(DataLoader(prompt_dataset, batch_size=batch_size, shuffle=False)):
-    #     with torch.no_grad():
-    #         output = model_obj.generate(
-    #             **batch,
-    #             max_new_tokens=model_params.get('max_new_tokens', 40),
-    #             return_dict_in_generate=True,
-    #             output_scores=True,
-    #             min_length=20,
-    #             early_stopping=False,
-    #             max_time=timeout,
-    #             eos_token_id=tokenizer.eos_token_id,
-    #         )
-
-    #     for idx, encoding in enumerate(batch["input_ids"]):
-
-    #         input_length = encoding.shape[0]
-    #         generated_tokens = output["sequences"][idx, input_length:]
-
-    #         outputs += tokenizer.batch_decode(
-    #             [generated_tokens], skip_special_tokens=True
-    #         )
-
-    # print(outputs)
-
-    # torch.cuda.empty_cache()
-    # gc.collect()
 
     return outputs[0].strip().strip("\n").strip("\r").strip("\t").strip(".")
 
@@ -191,14 +160,6 @@ def get_hf_model_pred(
         Dict[str, str]: _description_
     """
 
-    # print(f"use_api: {use_api}")
-    # print(test_examples)
-
-    # for test_example in test_examples:
-    #     print(test_example)
-    #     break
-
-    # print(use_api)
     prompt_input, label = construct_prompt(
         train_examples,
         test_example,
