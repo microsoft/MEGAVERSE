@@ -79,7 +79,12 @@ def run_seq_eval(
             torch_dtype=torch.bfloat16,
             attn_implementation="flash_attention_2",
         )
-        model_obj = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.float16, attn_implementation="flash_attention_2", device_map="auto")
+        model_obj = AutoModelForCausalLM.from_pretrained(
+            model,
+            torch_dtype=torch.float16,
+            attn_implementation="flash_attention_2",
+            device_map="auto",
+        )
         tokenizer = AutoTokenizer.from_pretrained(model)
         model_obj.eval()
 
