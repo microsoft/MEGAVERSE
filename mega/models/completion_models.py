@@ -5,9 +5,11 @@ import time
 import openai
 from openai import OpenAI
 
+import google.generativeai as genai
+import os
 
 from typing import List, Dict, Union, Any
-from google.api_core.exceptions import ResourceExhausted
+from google.api_core.exceptions import ResourceExhausted, InternalServerError
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.utils.substrate_llm import LLMClient, create_request_data
@@ -21,6 +23,8 @@ from mega.utils.const import (
     PALM_MAPPING,
     MODEL_TYPES,
     PALM_SUPPORTED_LANGUAGES_MAP,
+    GEMINI_SUPPORTED_LANGUAGES_MAP,
+    GEMINI_SAFETY_SETTINGS,
 )
 from mega.utils.env_utils import (
     load_openai_env_variables,
@@ -35,7 +39,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 
 load_openai_env_variables()
-
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 # Register an handler for the timeout
 # def handler(signum, frame):
@@ -97,6 +101,38 @@ def palm_api_completion(
     )
 
     return response.text
+
+
+# @backoff.on_exception(
+#     backoff.expo, Exception, max_time=300, max_tries=5
+# )
+def gemini_completion(
+    prompt: str, model: str = "gemini-pro", lang: str = "", **model_params
+) -> str:
+
+    if lang == "":
+        raise ValueError("Language argument is necessary for gemini model")
+    if (
+        lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.keys()
+        and lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.values()
+    ):
+        raise ValueError("Language not supported by Gemini-Pro!")
+    print(prompt)
+    model_load = genai.GenerativeModel(model)
+    response = model_load.generate_content(
+        prompt,
+        generation_config=genai.types.GenerationConfig(
+            temperature=model_params.get("temperature", 1),
+            max_output_tokens=model_params.get("max_tokens", 50),
+        ),
+        safety_settings=GEMINI_SAFETY_SETTINGS,
+    )
+
+    try:
+        return response.text
+    except:
+        print("Skipping")
+        return ""
 
 
 @backoff.on_exception(
@@ -320,6 +356,9 @@ def model_completion(
         return palm_api_completion(
             prompt, model=PALM_MAPPING[model], lang=lang, **model_params
         )
+
+    if "gemini" in model:
+        return gemini_completion(prompt, model=model, lang=lang, **model_params)
 
 
 def get_model_pred(

@@ -6,13 +6,17 @@ import openai
 from openai import AzureOpenAI
 
 client = AzureOpenAI(api_version="2023-03-15-preview", api_version="2022-12-01")
+import os
 import requests
+import google.generativeai as genai
 from mega.utils.substrate_llm import LLMClient, create_request_data
 from google.api_core.exceptions import ResourceExhausted
 from mega.utils.const import (
     PALM_SUPPORTED_LANGUAGES_MAP,
     CHAT_MODELS,
     PALM_MAPPING,
+    GEMINI_SUPPORTED_LANGUAGES_MAP,
+    GEMINI_SAFETY_SETTINGS,
 )
 
 from mega.prompting.prompting_utils import construct_tagging_prompt
@@ -24,6 +28,7 @@ from mega.utils.env_utils import (
 )
 
 load_openai_env_variables()
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 
 udpos_verbalizer = {
@@ -274,6 +279,89 @@ def palm_tagger(
     return predicted_tags
 
 
+@backoff.on_exception(backoff.expo, Exception, max_time=300)
+def gemini_tagger(
+    prompt: str,
+    model: str = "gemini-pro",
+    lang: str = "",
+    test_tokens: List[str] = [],
+    one_shot_tag: bool = True,
+    delimiter: str = "_",
+    **model_params,
+) -> str:
+    if lang == "":
+        raise ValueError("Language argument is necessary for Gemini model")
+    if (
+        lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.keys()
+        and lang not in GEMINI_SUPPORTED_LANGUAGES_MAP.values()
+    ):
+        raise ValueError("Language not supported by GEMINI!")
+
+    model_load = genai.GenerativeModel(model)
+
+    def predict_tag(prompt, token):
+        prompt_with_token = f"{prompt} {token}{delimiter}"
+        model_output = model_load.generate_content(
+            prompt_with_token,
+            generation_config=genai.types.GenerationConfig(
+                temperature=model_params.get("temperature", 1),
+                max_output_tokens=model_params.get("max_tokens", 50),
+            ),
+            safety_settings=GEMINI_SAFETY_SETTINGS,
+        )
+
+        try:
+            return model_output.text
+        except Exception as e:
+            print("Skipping due to error: ", e)
+            return ""
+
+    def predict_one_shot():
+        model_output = model_load.generate_content(
+            prompt,
+            generation_config=genai.types.GenerationConfig(
+                temperature=model_params.get("temperature", 1),
+                max_output_tokens=model_params.get("max_tokens", 50),
+            ),
+            safety_settings=GEMINI_SAFETY_SETTINGS,
+        )
+
+        try:
+            return model_output.text
+        except Exception as e:
+            print("Skipping due to error: ", e)
+            return ""
+
+    if one_shot_tag:
+        predicted_tokens_wth_tags = predict_one_shot()
+        predicted_tokens_wth_tags = predicted_tokens_wth_tags.split()
+        predicted_tags = []
+        for i, token in enumerate(test_tokens):
+            if i >= len(predicted_tokens_wth_tags):
+                predicted_tags.append("")
+                continue
+            pred_token_nd_tag = predicted_tokens_wth_tags[i].split(delimiter)
+            if len(pred_token_nd_tag) == 2:
+                pred_token, pred_tag = pred_token_nd_tag
+            else:
+                pred_token = ""
+                pred_tag = ""
+            if token == pred_token:
+                predicted_tags.append(pred_tag)
+            else:
+                predicted_tags.append("")
+        return predicted_tags
+
+    predicted_tags = []
+    prompt_with_decodings = prompt
+
+    for token in test_tokens:
+        predicted_tag = predict_tag(prompt_with_decodings, token)
+        prompt_with_decodings += f" {token}{delimiter}{predicted_tag}"
+        predicted_tags.append(predicted_tag)
+    return predicted_tags
+
+
 def bloom_tagger(
     prompt: str,
     model: str,
@@ -371,6 +459,16 @@ def model_tagger(
         return palm_tagger(
             prompt,
             PALM_MAPPING[model],
+            lang,
+            test_tokens,
+            delimiter,
+            **model_params,
+        )
+
+    elif "gemini-pro" in model:
+        return gemini_tagger(
+            prompt,
+            model,
             lang,
             test_tokens,
             delimiter,

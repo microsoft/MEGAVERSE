@@ -159,7 +159,6 @@ def get_hf_model_pred(
     Returns:
         Dict[str, str]: _description_
     """
-
     prompt_input, label = construct_prompt(
         train_examples,
         test_example,
@@ -188,7 +187,6 @@ def get_hf_model_pred(
         model_prediction = hf_model_api_completion(
             prompt_input, model_name, tokenizer, **model_params
         )
-
     else:
         model_prediction = hf_model_completion(
             prompt_input, model_obj, tokenizer, timeout=timeout, **model_params
