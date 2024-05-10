@@ -33,6 +33,11 @@ from mega.prompting.prompting_utils import (
     construct_qa_prompt,
     construct_qa_nocontext_prompt,
 )
+from mega.prompting.prompting_utils import (
+    construct_prompt,
+    construct_qa_prompt,
+    construct_qa_nocontext_prompt,
+)
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
@@ -218,6 +223,7 @@ def load_qa_dataset(dataset_name, lang, split, dataset_frac=1, translate_test=Fa
     elif dataset_name == "afriqa":
         dataset = load_dataset("masakhane/afriqa", lang)[split]
         dataset = dataset.filter(lambda example: example["lang"] == lang)
+        dataset = dataset.filter(lambda example: example["lang"] == lang)
 
     else:
         raise NotImplementedError()
@@ -287,6 +293,7 @@ def evaluate_qa_chatgpt(
         tokenizer = AutoTokenizer.from_pretrained(model)
 
     for i, test_example in pbar:
+        test_example["id"] = str(i)
         test_example["id"] = str(i)
         # example_id = f"q_{i}"
         # if i in idx_set:
@@ -393,7 +400,12 @@ def evaluate_qa_chatgpt(
                 "no_answer_probability": no_answer_probability,
             }
 
+
         reference = {
+            "answers": {
+                "text": test_example["answers"],
+                "answer_start": [0] * len(test_example["answers"]),
+            },
             "answers": {
                 "text": test_example["answers"],
                 "answer_start": [0] * len(test_example["answers"]),
@@ -512,6 +524,7 @@ def main(sys_args):
     prompt_template = PROMPTS_DICT[args.tgt_prompt_name]
 
     # Loading instruction for the task
+    instruction = INSTRUCTIONS["afriqa"]
     instruction = INSTRUCTIONS["afriqa"]
     print(instruction)
 
