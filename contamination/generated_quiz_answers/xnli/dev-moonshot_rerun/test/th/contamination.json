@@ -1,1 +1,0 @@
-{"dataset_name": "xnli", "dataset_split": "test", "model_name": "dev-moonshot", "lang": "th", "out_dir": "contamination/generated_quiz_answers/xnli/dev-moonshot_rerun/test/th", "chat_prompt": true, "substrate_prompt": true, "max_tokens": 10, "temperature": 0.0, "score": 0.4, "contamination": 0.20000000000000004}
