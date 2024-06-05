@@ -1,1 +1,0 @@
-{"dataset_name": "udpos", "dataset_split": "test", "model_name": "dev-moonshot", "lang": "zh", "out_dir": "contamination/generated_quiz_answers/udpos/dev-moonshot/test/zh", "chat_prompt": true, "substrate_prompt": true, "max_tokens": 15, "temperature": 0.0, "score": 0.3, "contamination": 0.06666666666666665}
