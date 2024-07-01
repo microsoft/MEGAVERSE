@@ -83,7 +83,7 @@ sos==4.5.6
 ssh-import-id==5.10
 system-service==0.3
 systemd-python==234
-Twisted==18.9.0
+Twisted==23.10.0
 ubuntu-advantage-tools==8001
 ufw==0.36
 unattended-upgrades==0.1
