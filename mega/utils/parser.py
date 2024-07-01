@@ -22,7 +22,6 @@ def parse_args(args: list) -> argparse.Namespace:
         "-d",
         "--dataset",
         default="xnli",
-        # choices=["xnli", "paws-x", "xcopa", "tydiqa", "xquad", "mlqa", "indicqa", "udpos", "panx", "xstory_cloze"],
         type=str,
         help="(HF) Dataset to use",
     )
@@ -30,7 +29,6 @@ def parse_args(args: list) -> argparse.Namespace:
         "-p",
         "--pivot_lang",
         default="en",
-        # choices=["en", "hi"],
         type=str,
         help="Language in which few-shot examples are provided",
     )
@@ -50,7 +48,6 @@ def parse_args(args: list) -> argparse.Namespace:
         "-t",
         "--tgt_lang",
         default="en",
-        # choices=["en", "hi"],
         type=str,
         help="Language to evaluate on",
     )

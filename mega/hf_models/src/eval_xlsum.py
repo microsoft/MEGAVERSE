@@ -2,12 +2,10 @@ import os
 from datasets import load_dataset
 import sys
 import time
-import json
 import csv
-from promptsource.templates import Template, DatasetTemplates
+from promptsource.templates import DatasetTemplates
 import yaml
 import random
-import openai
 from mega.data.data_utils import choose_few_shot_examples
 from mega.models.hf_completion_models import (
     hf_model_completion,
@@ -16,7 +14,6 @@ from mega.models.hf_completion_models import (
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.misc_utils import dump_predictions
-from mega.utils.env_utils import load_openai_env_variables
 from yaml.loader import SafeLoader
 import numpy as np
 from rouge_score import rouge_scorer
@@ -92,6 +89,7 @@ def load_xlsum_data(lang, split, dataset_frac):
         dataset = load_dataset("csebuetnlp/xlsum", lang)[split]
     else:
         print("Language not supported.")
+
     N = len(dataset)
     selector = np.arange(int(N * dataset_frac))
     return dataset.select(selector)
@@ -148,12 +146,10 @@ def compute_rouge(scorer, pred, label):
 
 if __name__ == "__main__":
     args = read_parameters("./mega/hf_models/scripts/parameters_70b.yaml")
-    env_name = "melange"
-    load_openai_env_variables()
     lang = sys.argv[1]
     prompt_name = args["prompt_names"][0]
 
-    wandb.init(project="debug", entity="scai-msri", config=args)
+    wandb.init(project="debug", entity="mega", config=args)
     wandb.config.lang = lang
     wandb.run.name = f"{lang}"
 
@@ -227,13 +223,7 @@ if __name__ == "__main__":
             instruction,
         )
 
-        # print(prompt)
-
         prompt = convert_to_hf_chat_prompt(prompt)
-
-        # print(prompt)
-
-        # print(args)
 
         time.sleep(args["sleep_period"])
         if args["use_api"]:

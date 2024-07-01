@@ -15,7 +15,6 @@ from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.prompting_utils import construct_tagging_prompt
 from mega.utils.parser import parse_args
 from mega.data.load_datasets import load_tagging_dataset
-from mega.utils.env_utils import load_openai_env_variables
 import openai
 
 udpos_verbalizer = {

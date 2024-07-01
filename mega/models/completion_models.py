@@ -1,27 +1,22 @@
+import os
 import requests
-import warnings
-import signal
 import time
 import openai
 from openai import OpenAI
 
 import google.generativeai as genai
-import os
 
 from typing import List, Dict, Union, Any
-from google.api_core.exceptions import ResourceExhausted, InternalServerError
+from google.api_core.exceptions import ResourceExhausted
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
-from mega.utils.substrate_llm import LLMClient, create_request_data
 from mega.models.hf_completion_models import (
     hf_model_api_completion,
     hf_model_completion,
 )
 from mega.utils.const import (
-    SUPPORTED_MODELS,
     CHAT_MODELS,
     PALM_MAPPING,
-    MODEL_TYPES,
     PALM_SUPPORTED_LANGUAGES_MAP,
     GEMINI_SUPPORTED_LANGUAGES_MAP,
     GEMINI_SAFETY_SETTINGS,
@@ -29,11 +24,10 @@ from mega.utils.const import (
 from mega.utils.env_utils import (
     load_openai_env_variables,
     HF_API_KEY,
-    # BLOOMZ_API_URL,
+    BLOOMZ_API_URL,
     HF_API_URL,
 )
 import backoff
-from huggingface_hub import InferenceClient
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
@@ -41,37 +35,7 @@ from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 load_openai_env_variables()
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
-# Register an handler for the timeout
-# def handler(signum, frame):
-#     raise Exception("API Response Stuck!")
-
-# signal.signal(signal.SIGALRM, handler)
-
 client = OpenAI()
-
-
-def timeout_handler(signum, frame):
-    raise openai.Timeout("API Response Stuck!")
-
-
-@backoff.on_exception(backoff.expo, KeyError, max_time=600)
-def substrate_llm_completion(
-    llm_client: LLMClient, prompt: str, model_name: str, **model_params
-) -> str:
-    request_data = create_request_data(
-        prompt,
-        model_params.get("max_tokens", 20),
-        model_params.get("temperature", 0),
-        model_params.get("top_p", 1),
-        model_params.get("n", 1),
-        model_params.get("stream", False),
-        model_params.get("logprops", 1),
-    )
-    response = llm_client.send_request(model_name, request_data)
-    text_result = response.choices[0].text
-    text_result = text_result.replace("<|im_end|>", "")
-    return text_result
-
 
 @backoff.on_exception(backoff.expo, ResourceExhausted, max_time=300)
 def palm_api_completion(
@@ -103,9 +67,6 @@ def palm_api_completion(
     return response.text
 
 
-# @backoff.on_exception(
-#     backoff.expo, Exception, max_time=300, max_tries=5
-# )
 def gemini_completion(
     prompt: str, model: str = "gemini-pro", lang: str = "", **model_params
 ) -> str:
@@ -137,7 +98,7 @@ def gemini_completion(
 
 @backoff.on_exception(
     backoff.expo,
-    (openai.APIError, openai.RateLimitError, openai.Timeout),
+    Exception,
     max_time=300,
 )
 def gpt3x_completion(
@@ -173,7 +134,7 @@ def gpt3x_completion(
         if response.choices[0].finish_reason == "content_filter":
             output = ""
         else:
-            output = response.choices[0].message.content.strip()  # .split("\n")[0]
+            output = response.choices[0].message.content.strip()
         time.sleep(1 / num_evals_per_sec)
 
     return output
@@ -197,19 +158,16 @@ def bloom_completion(prompt: str, **model_params) -> str:
     output = ""
     while True:
         try:
-            signal.alarm(60)  # Wait for a minute for the response to come
             model_output = query(prompt)
             output = model_output[0]["generated_text"][len(prompt) :].split("\n")[0]
-            signal.alarm(0)  # Reset the alarm
             break
-        except Exception as e:
+        except Exception:
             if (
                 "error_" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
             ):
                 raise openai.InvalidRequestError
             print("Exceeded Limit! Sleeping for a minute, will try again!")
-            signal.alarm(0)  # Reset the alarm
             time.sleep(60)
             continue
 
@@ -235,13 +193,11 @@ def bloomz_completion(prompt: str, **model_params) -> str:
     output = ""
     while True:
         try:
-            # signal.alarm(60)  # Wait for a minute for the response to come
             model_output = query(prompt)
             output = model_output[0]["generated_text"][len(prompt) :].split("\n")[0]
             output = output.strip()
-            # signal.alarm(0)  # Reset the alarm
             break
-        except Exception as e:
+        except Exception:
             if (
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
@@ -250,7 +206,6 @@ def bloomz_completion(prompt: str, **model_params) -> str:
                     model_output["error"], model_output["error_type"]
                 )
             print("Exceeded Limit! Sleeping for a minute, will try again!")
-            # signal.alarm(0)  # Reset the alarm
             time.sleep(60)
             continue
 
@@ -280,13 +235,11 @@ def llama2_completion(prompt: str, model: str, **model_params) -> str:
     output = ""
     while True:
         try:
-            # signal.alarm(60)  # Wait for a minute for the response to come
             model_output = query(prompt)
             output = model_output[0]["generated_text"][len(prompt) :].split("\n")[0]
             output = output.strip()
-            # signal.alarm(0)  # Reset the alarm
             break
-        except Exception as e:
+        except Exception:
             if (
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
@@ -295,7 +248,6 @@ def llama2_completion(prompt: str, model: str, **model_params) -> str:
                     model_output["error"], model_output["error_type"]
                 )
             print("Exceeded Limit! Sleeping for a minute, will try again!")
-            # signal.alarm(0)  # Reset the alarm
             time.sleep(60)
             continue
 
@@ -306,9 +258,7 @@ def model_completion(
     prompt: Union[str, List[Dict[str, str]]],
     model: str,
     lang: str,
-    run_substrate_llm_completion: bool = False,
     timeout: int = 0,
-    llm_client: LLMClient = None,
     model_obj: AutoModelForCausalLM = None,
     tokenizer: AutoTokenizer = None,
     **model_params,
@@ -323,14 +273,11 @@ def model_completion(
         str: generated string
     """
 
-    # print(model)
-
     if model_obj is not None and tokenizer is not None:
         return hf_model_completion(
             prompt,
             model_obj=model_obj,
             tokenizer=tokenizer,
-            # max_new_tokens=model_params.get("max_new_tokens", 40),
             **model_params,
         )
 
@@ -342,13 +289,6 @@ def model_completion(
 
     elif model == "BLOOMZ":
         return bloomz_completion(prompt, **model_params)
-
-    elif run_substrate_llm_completion:
-        if not llm_client:
-            raise ValueError(
-                "LLM Client not provided! Please provide a valid LLM Client"
-            )
-        return substrate_llm_completion(llm_client, prompt, model, **model_params)
 
     elif "Llama-2" in model:
         return hf_model_api_completion(prompt, model, **model_params)
@@ -371,8 +311,6 @@ def get_model_pred(
     model_obj: AutoModelForCausalLM = None,
     tokenizer: AutoTokenizer = None,
     chat_prompt: bool = False,
-    substrate_prompt: bool = False,
-    run_substrate_llm_completion: bool = False,
     instruction: str = "",
     timeout: int = 0,
     **model_params,
@@ -397,16 +335,10 @@ def get_model_pred(
         test_prompt_template,
         chat_prompt=(chat_prompt and model in CHAT_MODELS),
         instruction=instruction,
-        substrate_prompt=substrate_prompt,
     )
-
-    # print(prompt_input)
 
     if model_obj is not None and tokenizer is not None and chat_prompt:
         prompt_input = convert_to_hf_chat_prompt(prompt_input, model)
-
-    if substrate_prompt:
-        run_substrate_llm_completion = True
 
     model_prediction = model_completion(
         prompt_input,
@@ -415,7 +347,6 @@ def get_model_pred(
         timeout=timeout,
         model_obj=model_obj,
         tokenizer=tokenizer,
-        run_substrate_llm_completion=run_substrate_llm_completion,
         **model_params,
     )
 

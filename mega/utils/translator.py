@@ -1,10 +1,9 @@
 import os
-from tqdm import tqdm
 import pdb
-import requests, uuid, json
-from typing import Union, Optional, List, Dict
-import copy
-from datasets import Dataset, load_dataset
+import requests
+import uuid
+from typing import Optional, List, Dict
+from datasets import Dataset
 from mega.utils.env_utils import (
     BING_TRANSLATE_KEY,
     BING_TRANSLATE_ENDPOINT,
@@ -16,7 +15,6 @@ from mega.utils.env_utils import (
 from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
-import json
 
 
 subscription_key = BING_TRANSLATE_KEY

@@ -1,20 +1,16 @@
 import os
-import argparse
 import sys
-import time
 import random
 import json
-import wandb
 import numpy as np
 import spacy
 from typing import List
 from tqdm import tqdm
 from datasets import load_dataset
-from promptsource.templates import Template, DatasetTemplates
+from promptsource.templates import DatasetTemplates
 from mega.utils.parser import parse_args
 from mega.models.completion_models import model_completion
 from mega.data.data_utils import choose_few_shot_examples
-import pdb
 
 TYDIQA_LANG2CODES = {
     "bengali": "bn",

@@ -1,9 +1,7 @@
 import os
-import argparse
 from typing import Dict, Any, Optional
 import openai
 import sys
-import time
 import random
 import torch
 import json
@@ -29,12 +27,6 @@ from mega.prompting.prompting_utils import construct_xstory_prompt
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
-from mega.models.completion_models import (
-    get_model_pred,
-    gpt3x_completion,
-    substrate_llm_completion,
-)
-from mega.utils.substrate_llm import LLMClient
 
 PROMPT_TEMPLATES = {
     "Answer Given options": """{input_sentence_1} {input_sentence_2} {input_sentence_3} {input_sentence_4}\nWhat is a possible continuation for the story given the following options ?\n-Option1: {sentence_quiz1}\n-Option2: {sentence_quiz2}""",
@@ -59,18 +51,13 @@ def evaluate(
     use_hf_api: bool = False,
     selection_criteria: str = "random",
     save_preds_path: Optional[str] = None,
-    num_evals_per_sec: int = 2,
-    parallel_eval: bool = False,
-    num_proc: Optional[int] = None,
     log_wandb: bool = False,
     chat_prompt: bool = False,
-    substrate_prompt: bool = False,
     instruction: str = "",
     timeout: int = 0,
     max_tokens=20,
     **model_params,
 ) -> float:
-    run_details = {"num_calls": 0}
 
     train_examples = choose_few_shot_examples(
         train_dataset, few_shot_size, selection_criteria
@@ -83,7 +70,6 @@ def evaluate(
     matches = []
     running_acc = 0
     num_matches = 0
-    llm_client = LLMClient()
 
     try:
         with open(save_preds_path, "r") as file:
@@ -128,8 +114,7 @@ def evaluate(
                 prompt_template,
                 verbalizer,
                 chat_prompt,
-                instruction,
-                substrate_prompt,
+                instruction
             )
 
             if chat_prompt:
@@ -144,7 +129,6 @@ def evaluate(
                 )
 
             elif from_hf_hub:
-                # print("printing from hf hub")
                 pred = hf_model_completion(
                     prompts=prompt_input,
                     model_name=model,
@@ -163,27 +147,16 @@ def evaluate(
                     prompt_template,
                     verbalizer,
                     chat_prompt,
-                    instruction,
-                    substrate_prompt,
+                    instruction
                 )
                 try:
-                    if not substrate_prompt:
-                        pred = model_completion(
-                            prompt,
-                            model,
-                            lang,
-                            timeout=timeout,
-                            **model_params,
-                        )
-
-                    else:
-                        pred = substrate_llm_completion(
-                            llm_client=llm_client,
-                            prompt=prompt,
-                            model_name=model,
-                            temperature=0,
-                            max_tokens=max_tokens,
-                        )
+                    pred = model_completion(
+                        prompt,
+                        model,
+                        lang,
+                        timeout=timeout,
+                        **model_params,
+                    )
                     break
                 except (openai.InvalidRequestError, openai.Timeout):
                     if len(train_examples_i) == 0:
@@ -259,7 +232,6 @@ def main(sys_args):
 
     # Loading prompt template
     prompt_template = PROMPT_TEMPLATES[args.tgt_prompt_name]
-    # syysss
     verbalizer = VERBALIZER["default"]
 
     out_dir = f"{args.save_dir}/{args.dataset}/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_Verbalizer_{args.verbalizer}_FewShotK_{args.few_shot_k}wthInstruction"
@@ -294,11 +266,10 @@ def main(sys_args):
         top_p=args.top_p,
         max_tokens=args.max_tokens,
         timeout=args.timeout,
-        substrate_prompt=args.substrate_prompt,
         use_hf_api=args.use_hf_api,
         from_hf_hub=args.from_hf_hub,
     )
-    # preds_df.to_csv(f"{out_dir}/preds.json")
+
     print(eval_score)
     results_dict = vars(args)
     results_dict["metrics"] = {"accuracy": eval_score}

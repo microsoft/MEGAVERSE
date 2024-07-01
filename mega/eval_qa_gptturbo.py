@@ -1,10 +1,8 @@
 import sys
 import os
-import time
 import json
 import random
 import torch
-from typing import List
 import string
 import re
 import unicodedata
@@ -13,17 +11,10 @@ import numpy as np
 import pandas as pd
 import wandb
 from datasets import load_dataset
-from mega.data.load_datasets import load_xnli_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
-from mega.prompting.prompting_utils import load_prompt_template
-from mega.models.completion_models import CHAT_MODELS
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import (
-    get_model_pred,
-    gpt3x_completion,
-    substrate_llm_completion,
-    palm_api_completion,
     model_completion,
 )
 from mega.models.hf_completion_models import (
@@ -31,9 +22,8 @@ from mega.models.hf_completion_models import (
     hf_model_completion,
 )
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
-from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
-from mega.prompting.prompting_utils import construct_prompt, construct_qa_prompt
+from mega.prompting.prompting_utils import construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
@@ -232,12 +222,10 @@ def evaluate_qa_chatgpt(
     use_hf_api=False,
     from_hf_hub=False,
     num_evals_per_sec=2,
-    substrate_prompt=False,
     temperature=0,
     max_tokens=20,
     log_wandb=False,
     metric="squad",
-    llm_client=None,
     timeout=10,
 ):
     f1_sum = 0
@@ -291,15 +279,11 @@ def evaluate_qa_chatgpt(
                 train_prompt_template=prompt_template,
                 test_prompt_template=prompt_template,
                 chat_prompt=chat_prompt,
-                instruction=instruction,
-                substrate_prompt=substrate_prompt,
+                instruction=instruction
             )
 
             if chat_prompt:
-                # print("chat prompt")
                 prompt_input = convert_to_hf_chat_prompt(prompt, model)
-
-            # print(prompt_input)
 
             if use_hf_api:
                 pred = hf_model_api_completion(
@@ -310,7 +294,6 @@ def evaluate_qa_chatgpt(
                 )
 
             elif from_hf_hub:
-                # print("printing from hf hub")
                 pred = hf_model_completion(
                     prompts=prompt_input,
                     model_name=model,
@@ -328,34 +311,21 @@ def evaluate_qa_chatgpt(
                     train_prompt_template=prompt_template,
                     test_prompt_template=prompt_template,
                     chat_prompt=chat_prompt,
-                    instruction=instruction,
-                    substrate_prompt=substrate_prompt,
+                    instruction=instruction
                 )
 
                 try:
                     pred = model_completion(
                         prompt,
                         model,
-                        run_substrate_llm_completion=substrate_prompt,
                         temperature=temperature,
                         max_tokens=max_tokens,
                         max_output_tokens=max_tokens,
                         run_details=run_details,
                         num_evals_per_sec=num_evals_per_sec,
-                        llm_client=llm_client,
                         lang=lang,
                     )
                     break
-
-                # pred = substrate_llm_completion(
-                #     llm_client,
-                #     prompt,
-                #     max_tokens=max_tokens,
-                #     model_name=model,
-                #     temperature=temperature,
-                #     num_evals_per_sec=num_evals_per_sec,
-                #     run_details=run_details,
-                # )
                 except Exception as e:
                     print(e)
 
@@ -380,29 +350,12 @@ def evaluate_qa_chatgpt(
                 "no_answer_probability": no_answer_probability,
             }
 
-        # if no_answer_probability == 1:
-        #     breakpoint()
-
-        # if metric == "squad":
         reference = {}
         reference["answers"] = test_example["answers"]
         reference["id"] = test_example["id"]
         if reference["answers"]["text"][0] == "":
             reference["answers"]["text"] = []
             reference["answers"]["answer_start"] = []
-
-            # reference["answers"]["text"] = None if reference["answers"]["text"][0] == "" else reference["answers"]["text"]
-        # else:
-        #     reference = {}
-        #     reference["id"] = test_example["id"]
-        #     reference["answers"] = []
-        #     for idx in range(len(test_example["answers"]["text"])):
-        #         reference["answers"].append({
-        #             "text": test_example["answers"]["text"][idx],
-        #             "answer_start": test_example["answers"]["answer_start"][idx]
-        #         })
-
-        #         breakpoint()
 
         if metric == "squad":
             results = squad_metric.compute(
@@ -431,7 +384,6 @@ def evaluate_qa_chatgpt(
         except Exception as e:
             print(e)
             print("Unable to write predictions to file!")
-            pass
 
         preds.append(prediction)
         labels.append(reference)
@@ -518,7 +470,6 @@ def main(sys_args):
         normalize_answer if args.dataset != "mlqa" else normalize_answer_mlqa_fn
     )
     save_preds_path = f"{out_dir}/preds.json"
-    llm_client = LLMClient() if args.substrate_prompt else None
     metrics, preds_df = evaluate_qa_chatgpt(
         save_preds_path,
         train_examples,
@@ -535,13 +486,10 @@ def main(sys_args):
         from_hf_hub=args.from_hf_hub,
         metric="squad" if args.dataset != "indicqa" else "squad_v2",
         normalize_fn=normalize_fn,
-        substrate_prompt=args.substrate_prompt,
-        llm_client=llm_client,
         lang=args.tgt_lang,
         timeout=args.timeout,
     )
 
-    # preds_df.to_csv(f"{out_dir}/preds.csv")
     print(metrics)
     results_dict = vars(args)
     results_dict["metrics"] = metrics

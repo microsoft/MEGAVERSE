@@ -15,24 +15,17 @@ import string
 import re
 
 from tqdm import tqdm
-import openai
 from evaluate import load
 
 import numpy as np
 import torch
 import gc
-from mega.models.hf_completion_models import get_hf_model_pred, HF_DECODER_MODELS
+from mega.models.hf_completion_models import HF_DECODER_MODELS
 from transformers import AutoModelForCausalLM, AutoModelForSeq2SeqLM, AutoTokenizer
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.prompting_utils import construct_langchain_qa_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
-from mega.models.hf_completion_models import hf_model_api_completion
 from mega.utils.parser import parse_args
-
-# from mega.utils.env_utils import load_openai_env_variables
-
-
-# load_openai_env_variables()
 
 
 def initialise_model(model_name):
@@ -284,12 +277,9 @@ def hf_eval_qa(
             prompt_input = convert_to_hf_chat_prompt(prompt_input, tokenizer)
         prompt_to_use = prompt_input
 
-        # for trial in range(0, len(smaller_prompts) + 1):
-        # try:
         pred = answer_question(
             test_example["question"],
             test_example["context"],
-            # model_name=model_name,
             model=model,
             tokenizer=tokenizer,
             prompt=prompt_to_use,
@@ -298,22 +288,6 @@ def hf_eval_qa(
             chunk_size=model_kwargs.get("chunk_size", 100),
             chunk_overlap=model_kwargs.get("chunk_overlap", 0),
         ).strip()
-        #     break
-        # except openai.error.InvalidRequestError as e:
-        #     print(e, "Request here")
-        #     if trial == len(smaller_prompts):
-        #         print("Exausted Everything! Giving Empty Prediction Now :(")
-        #         pred = ""
-        #         break
-        #     print(
-        #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(smaller_prompts) - trial - 1}"
-        #     )
-        #     prompt_to_use = smaller_prompts[trial]
-
-        # except openai.error.APIError as e:
-        #     print("Content Policy Triggered! Giving Empty prediction for this!")
-        #     pred = ""
-        #     break
 
         pred = normalize_fn(pred)
         if metric == "squad":
@@ -325,9 +299,6 @@ def hf_eval_qa(
                 "id": test_example["id"],
                 "no_answer_probability": no_answer_probability,
             }
-
-        # if no_answer_probability == 1.0:
-        #     breakpoint()
 
         reference = {}
         reference["answers"] = test_example["answers"]
@@ -420,12 +391,12 @@ def main():
         for train_example in train_examples:
             sents = sent_tokenizer(train_example["context"])
             if train_example["answers"]["text"] == []:
-                context = sents[0]
+                sents[0]
             else:
-                context = sents[0]
+                sents[0]
                 for sent in sents:
                     if train_example["answers"]["text"][0] in sent:
-                        context = sent
+                        pass
 
         # breakpoint()
 

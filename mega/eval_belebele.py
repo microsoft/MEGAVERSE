@@ -1,15 +1,11 @@
 import os
-import argparse
 import sys
-import time
 import random
 import json
 import wandb
 import torch
 import numpy as np
 from mega.data.load_datasets import load_belebele_dataset, load_belebele_translate_test
-from mega.data.data_utils import choose_few_shot_examples
-from mega.eval.eval_cls import evaluate_model
 from mega.models.completion_models import model_completion
 from mega.models.hf_completion_models import (
     hf_model_api_completion,
@@ -24,11 +20,9 @@ from typing import Dict, Any, Optional
 from datasets import Dataset
 from tqdm import tqdm
 import pandas as pd
-import pdb
 import openai
 from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from mega.utils.substrate_llm import LLMClient
 
 
 PROMPT_TEMPLATES = {
@@ -142,18 +136,12 @@ def evaluate(
     model_lang: str = "en",
     instruction: str = "",
     timeout: int = 0,
-    substrate_prompt: bool = False,
     use_hf_api: bool = False,
     from_hf_hub: bool = False,
-    llm_client=None,
     out_dir: str = "",
     **model_params,
 ) -> float:
     run_details = {"num_calls": 0}
-
-    # train_examples = choose_few_shot_examples(
-    #     train_dataset, few_shot_size, selection_criteria
-    # )
 
     train_examples = []
 
@@ -233,10 +221,8 @@ def evaluate(
                         pred = model_completion(
                             prompt,
                             model,
-                            run_substrate_llm_completion=substrate_prompt,
                             run_details=run_details,
                             num_evals_per_sec=num_evals_per_sec,
-                            llm_client=llm_client,
                             lang=model_lang,
                         )
                         break
@@ -320,22 +306,6 @@ def main(sys_args):
             data_dir="data",
         )
 
-    # Load prompt templates for train and test datasets
-    # if args.same_prompt_name:
-    #     args.pivot_prompt_name = args.tgt_prompt_name
-    # train_prompt_template = construct_belebele_prompt(
-    #     args.pivot_lang, args.pivot_prompt_name, dataset="belebele"
-    # )
-    # test_prompt_template = construct_belebele_prompt(
-    #     args.tgt_lang, args.tgt_prompt_name, dataset="belebele"
-    # )
-
-    # train_examples = choose_few_shot_examples(
-    #     train_dataset, args.few_shot_k, args.few_shot_selection
-    # )
-
-    train_examples = []
-
     out_dir = f"{args.save_dir}/belebele/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"
     if args.translate_test:
         out_dir = f"{out_dir}_translate_test"
@@ -352,7 +322,7 @@ def main(sys_args):
     prompt_template = PROMPT_TEMPLATES[args.tgt_prompt_name]
     verbalizer = VERBALIZER["default"]
 
-    pred_file_path = f"{out_dir}/preds.csv"
+    f"{out_dir}/preds.csv"
 
     tokenizer = None
     model_obj = None
@@ -369,7 +339,6 @@ def main(sys_args):
         model_obj.eval()
 
     model_lang = "english" if args.translate_test else args.tgt_lang
-    llm_client = LLMClient() if args.substrate_prompt else None
 
     accuracy, results_df = evaluate(
         train_dataset,
@@ -396,9 +365,7 @@ def main(sys_args):
         timeout=args.timeout,
         use_hf_api=args.use_hf_api,
         from_hf_hub=args.from_hf_hub,
-        out_dir=out_dir,
-        llm_client=llm_client,
-        substrate_prompt=args.substrate_prompt,
+        out_dir=out_dir
     )
     print(accuracy)
     # Store results

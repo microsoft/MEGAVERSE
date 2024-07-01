@@ -1,28 +1,16 @@
 from transformers import AutoModelForCausalLM, AutoModelForSeq2SeqLM, AutoTokenizer
-from torch.utils.data import DataLoader
-from datasets import Dataset
-import torch, gc
-from tqdm import tqdm
-from typing import List, Dict, Union, Any
+import torch
+import gc
+from typing import List, Dict, Union
 from promptsource.templates import Template
 from mega.prompting.prompting_utils import construct_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.data.torch_dataset import PromptDataset
-from mega.hf_models.utils.variables import HF_DECODER_MODELS
-from huggingface_hub import InferenceClient, AsyncInferenceClient
-import huggingface_hub
+from huggingface_hub import InferenceClient
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
-from huggingface_hub.inference._text_generation import OverloadedError, ValidationError
-from mega.utils.env_utils import (
-    # load_openai_env_variables,
-    HF_API_KEY,
-    # BLOOMZ_API_URL,
-    HF_API_URL,
-)
+from huggingface_hub.inference._text_generation import ValidationError
+from mega.utils.env_utils import HF_API_KEY
 import time
-from pprint import pprint
-import backoff
-from tqdm.auto import tqdm
 
 HF_DECODER_MODELS = [
     "meta-llama/Llama-2-7b-chat-hf",
@@ -49,17 +37,12 @@ def hf_model_api_completion(
 ):
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    # print(model_name)
 
     if chat_prompt:
         prompt = convert_to_hf_chat_prompt(prompt, model_name)
 
-    # print(prompt)
-
     client = InferenceClient(model=model_name, token=HF_API_KEY, timeout=timeout)
-    client.headers["x-use-cache"] = (
-        "0"  # clears the cache for HF API (@Divyanshu, please check)
-    )
+    client.headers["x-use-cache"] = "0"
 
     while True:
 
@@ -76,10 +59,7 @@ def hf_model_api_completion(
         except:
             time.sleep(1)
 
-    # output = client.text_generation(prompt)
-
     output = tokenizer.decode(tokenizer(output)["input_ids"], skip_special_tokens=True)
-    # print(output)
     return output
 
 
@@ -88,13 +68,8 @@ def hf_model_completion(
     model_obj: Union[AutoModelForCausalLM, AutoModelForSeq2SeqLM],
     tokenizer: AutoTokenizer,
     timeout: int = 10000000,
-    batch_size: int = 1,
-    # max_new_tokens: int = 2,
     **model_params,
 ):
-
-    # torch.cuda.empty_cache()
-    # gc.collect()
 
     outputs = []
 
@@ -129,6 +104,9 @@ def hf_model_completion(
     outputs += tokenizer.batch_decode(
         output.sequences[:, input_length:], skip_special_tokens=True
     )
+
+    torch.cuda.empty_cache()
+    gc.collect()
 
     return outputs[0].strip().strip("\n").strip("\r").strip("\t").strip(".")
 
@@ -168,12 +146,8 @@ def get_hf_model_pred(
         instruction=instruction,
     )
 
-    # pprint(prompt_input)
-
     if chat_prompt:
         prompt_input = convert_to_hf_chat_prompt(prompt_input, model_name)
-
-    # print(prompt_input)
 
     if (
         len(tokenizer(prompt_input)["input_ids"])

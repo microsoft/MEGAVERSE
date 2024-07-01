@@ -52,7 +52,6 @@ def create_quiz_answer_template(
     )
     generated_response = json.loads(row_df["generated_response"])["options"]
     original_response = row_df["original_example"]
-    # original_response = original_response.replace("answer", "label")
 
     option_str = GENERATED_RESPONSE_REGISTRY[dataset_name](generated_response)
 
@@ -179,13 +178,9 @@ def get_quiz_answers(
         )
         try:
             parsed_response = pydantic_parser.parse(answer)
-            # parsed_response = {}
-            # parsed_response = '{"answer": ' + '"' + answer + '"' + "}"
-
             results.append(
                 {
                     "answer": parsed_response.json(),
-                    # "answer": parsed_response,
                     "prompt": prompt,
                 }
             )
