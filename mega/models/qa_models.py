@@ -180,19 +180,16 @@ def answer_question_bloomz(
 
     full_prompt = few_shot_ex_prompt + test_ex_prompt
     output = ""
-    # prompt = "\n".join([pr])
+
     while True:
         try:
-            # signal.alarm(60)  # Wait for a minute for the response to come
-            breakpoint()
             model_output = query(full_prompt)
             output = model_output[0]["generated_text"][len(full_prompt) :].split("\n")[
                 0
             ]
             output = output.strip()
-            # signal.alarm(0)  # Reset the alarm
             break
-        except Exception as e:
+        except Exception:
             if (
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]
@@ -201,7 +198,6 @@ def answer_question_bloomz(
                     model_output["error"], model_output["error_type"]
                 )
             print("Exceeded Limit! Sleeping for a minute, will try again!")
-            # signal.alarm(0)  # Reset the alarm
             time.sleep(60)
             continue
 

@@ -1,6 +1,5 @@
 import os
 from typing import List, Dict, Union, Tuple, Optional
-import time
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
@@ -9,14 +8,9 @@ from datasets import Dataset
 from promptsource.templates import Template
 from mega.models.hf_completion_models import get_hf_model_pred, HF_DECODER_MODELS
 from mega.data.data_utils import choose_few_shot_examples
-import pdb
 import gc
-import openai
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
-
-# import GPUtil
-import pprint
 
 
 def initialise_model(model_name):
@@ -95,11 +89,6 @@ def run_seq_eval(
 
     for test_example in pbar:
 
-        # train_examples_i = train_examples
-
-        # print(test_example)
-        # while len(train_examples_i) >= 0:
-        #     try:
         pred_dict = get_hf_model_pred(
             train_examples,
             test_example,
@@ -114,28 +103,10 @@ def run_seq_eval(
             timeout=timeout,
             **model_params,
         )
-        #     break
-        # except (openai.error.InvalidRequestError, openai.error.Timeout):
-        #     if len(train_examples_i) == 0:
-        #         pred_dict = {
-        #             "prediction": np.random.choice(
-        #                 valid_labels
-        #             ),  # Initialize with a random prediction
-        #             "ground_truth": test_prompt_template.apply(test_example)[1],
-        #         }
-        #         print("Exausted Everything! Giving Random Prediction Now :(")
-        #         break
-        #     train_examples_i = train_examples_i[:-1]
-        #     print(
-        #         f"Unable To Fit Context Size. Reducing few-size by 1. New Size: {len(train_examples_i)}"
-        #     )
 
         pred = pred_dict["prediction"]
-        # if pred == "Invalid request":
-        #     pdb.set_trace()
-        #     continue
         label = pred_dict["ground_truth"]
-        # print(label)
+
         num_matches += float(pred == label)
         preds.append(pred)
         labels.append(label)
@@ -143,8 +114,7 @@ def run_seq_eval(
         running_acc = np.mean(matches)
         pbar.set_description(f"Accuracy: {running_acc}")
         if log_wandb:
-            wandb.log({"acuracy": running_acc})
-            # time.sleep(1 / num_evals_per_sec)
+            wandb.log({"accuracy": running_acc})
 
     accuracy = num_matches / len(preds)
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
@@ -202,7 +172,7 @@ def run_parallel_eval(
     )
     preds = results_dataset["prediction"]
     labels = results_dataset["ground_truth"]
-    # matches = [float(pred == label) for (pred, label) in zip(preds, labels)]
+
     matches = [float(pred.startswith(label)) for (pred, label) in zip(preds, labels)]
     accuracy = sum(matches) / len(preds)
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})

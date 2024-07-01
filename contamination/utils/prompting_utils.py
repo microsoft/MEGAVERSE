@@ -1,6 +1,6 @@
-from contamination.templates import VERBALIZER_XNLI, VERBALIZER_PAWSX
+from contamination.templates import VERBALIZER_PAWSX
 from mega.prompting.prompting_utils import get_substrate_prompt
-from typing import Dict, List
+from typing import Dict
 from contamination.registry.langs_registry import LANGS
 
 

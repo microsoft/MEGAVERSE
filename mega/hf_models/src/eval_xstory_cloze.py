@@ -1,10 +1,7 @@
 import os
-import argparse
 from typing import Dict, Any, Optional
 
-# import openai
 import sys
-import time
 import random
 import json
 import wandb
@@ -28,7 +25,6 @@ from mega.utils.env_utils import load_openai_env_variables
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.eval.hf_eval_cls import initialise_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from huggingface_hub import InferenceTimeoutError
 
 PROMPT_TEMPLATES = {
     "Answer Given options": """{input_sentence_1} {input_sentence_2} {input_sentence_3} {input_sentence_4}\nWhat is a possible continuation for the story given the following options ?\n-Option1: {sentence_quiz1}\n-Option2: {sentence_quiz2}""",
@@ -62,7 +58,6 @@ def evaluate(
     use_api: bool = False,
     **model_params,
 ) -> float:
-    run_details = {"num_calls": 0}
 
     train_examples = choose_few_shot_examples(
         train_dataset, few_shot_size, selection_criteria
@@ -78,8 +73,7 @@ def evaluate(
 
     pbar = tqdm(test_dataset.shuffle(seed=42))
 
-    for idx, test_example in enumerate(pbar):
-        # print(idx)
+    for _, test_example in enumerate(pbar):
         train_examples_i = train_examples
         label = verbalizer[test_example["answer_right_ending"]]
 
@@ -95,15 +89,9 @@ def evaluate(
                 instruction,
             )
 
-            # print(prompt)
-            # print()
-
             try:
                 if chat_prompt:
                     prompt = convert_to_hf_chat_prompt(prompt, model)
-
-                # print(prompt)
-                # print()
 
                 if use_api:
                     pred = hf_model_api_completion(
@@ -140,8 +128,7 @@ def evaluate(
         running_acc = np.mean(matches)
         pbar.set_description(f"Accuracy: {running_acc}")
         if log_wandb:
-            wandb.log({"acuracy": running_acc})
-        # time.sleep(1 / num_evals_per_sec)
+            wandb.log({"accuracy": running_acc})
 
     accuracy = num_matches / len(preds)
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})

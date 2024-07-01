@@ -31,7 +31,6 @@ def construct_cot_prompt(
     system_prompt_role="system",
 ):
     def construct_cot_prompt_example(example, return_out=True):
-        premise_templized = ""
         premise = example["premise"]
         if example["question"] == "effect":
             premise_templatized = (

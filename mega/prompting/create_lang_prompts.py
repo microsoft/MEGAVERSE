@@ -1,11 +1,9 @@
 import argparse
 from typing import Optional
-from word2word import Word2word
 from promptsource.templates import Template, DatasetTemplates
-from mega.utils.translator import translate_with_bing, translate_with_azure
+from mega.utils.translator import translate_with_azure
 from mega.prompting.prompting_utils import load_prompt_template
 from mega.utils.const import SUPPORTED_MODELS
-import pdb
 
 dataset2langs = {"xnli": "ar,bg,de,el,es,fr,hi,ru,sw,th,tr,ur,vi,zh"}
 
@@ -117,7 +115,6 @@ def main():
         "-p",
         "--pivot_lang",
         default="en",
-        # choices=["en", "hi"],
         type=str,
         help="Language in which few-shot examples are provided",
     )
@@ -171,9 +168,6 @@ def main():
             args.pivot_lang,
             translate=False,
         )
-
-    # trannslated_prompt = translate_prompt(prompt_template, "es", "en")
-    # pdb.set_trace()
 
 
 if __name__ == "__main__":

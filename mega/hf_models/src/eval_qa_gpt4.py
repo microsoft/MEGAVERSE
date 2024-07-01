@@ -2,7 +2,6 @@ import sys
 import os
 import json
 import random
-import openai
 import numpy as np
 import pandas as pd
 import wandb
@@ -10,19 +9,15 @@ from datasets import load_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 
-# from mega.utils.env_utils import load_openai_env_variables
 from mega.models.hf_completion_models import (
     hf_model_api_completion,
-    hf_model_completion,
 )
 from mega.prompting.prompting_utils import construct_qa_prompt
 from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
-
-# load_openai_env_variables()
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 TYDIQA_LANG2CODES = {
     "bengali": "bn",
@@ -125,8 +120,6 @@ def evaluate_qa_chatgpt(
 
     pbar = tqdm(enumerate(test_dataset))
 
-    # pbar = enumerate(test_dataset)
-
     tokenizer = AutoTokenizer.from_pretrained(model)
 
     if use_api:
@@ -150,8 +143,6 @@ def evaluate_qa_chatgpt(
         if chat_prompt:
             prompt = convert_to_hf_chat_prompt(prompt)
 
-        # print(prompt)
-
         pred = hf_model_api_completion(
             prompt,
             model,
@@ -161,8 +152,6 @@ def evaluate_qa_chatgpt(
             num_evals_per_sec=num_evals_per_sec,
             max_tokens=max_tokens,
         )
-
-        # print(pred)
 
         prediction = {"prediction_text": pred, "id": test_example["id"]}
         reference = {}

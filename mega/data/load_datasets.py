@@ -13,7 +13,6 @@ from mega.utils.translator import (
     translate_belebele,
 )
 from mega.data.data_utils import read_conll_data
-from typing import List
 
 IN22_LANG2CODES = {
     "asm_Beng": "Assamese",

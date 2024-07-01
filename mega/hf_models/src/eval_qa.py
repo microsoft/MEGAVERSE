@@ -2,14 +2,12 @@ import sys
 import os
 import json
 import random
-import openai
 import numpy as np
 import pandas as pd
 import wandb
 from datasets import load_dataset
 from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
-from mega.utils.env_utils import load_openai_env_variables
 from mega.models.hf_completion_models import (
     hf_model_completion,
     hf_model_api_completion,
@@ -20,10 +18,7 @@ from mega.prompting.prompting_utils import construct_qa_prompt
 from mega.utils.parser import parse_args
 from tqdm import tqdm
 from evaluate import load
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
-
-
-# load_openai_env_variables()
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 TYDIQA_LANG2CODES = {
     "bengali": "bn",

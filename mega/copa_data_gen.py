@@ -1,5 +1,3 @@
-import os
-import openai
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import gpt3x_completion
 from tqdm import tqdm

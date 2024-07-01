@@ -8,30 +8,19 @@
 
 
 import os
-import argparse
-import sys
-import time
 import random
 import json
-import wandb
 import numpy as np
 from tqdm import tqdm
 import glob
 import pandas as pd
 import openai
-from mega.data.data_utils import choose_few_shot_examples
-from mega.eval.eval_cls import evaluate_model
 from mega.models.completion_models import gpt3x_completion
-from mega.prompting.prompting_utils import load_prompt_template
-from mega.prompting.instructions import INSTRUCTIONS
-from mega.utils.parser import parse_args
-from mega.utils.env_utils import load_openai_env_variables
 from mega.data.load_datasets import load_xstory_cloze_dataset
 
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib as mpl
-import matplotlib.patches as mpatches
 import numpy as np
 import json
 

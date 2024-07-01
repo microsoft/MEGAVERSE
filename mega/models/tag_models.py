@@ -3,13 +3,12 @@ import warnings
 from typing import Any, Dict, List, Union
 import backoff
 import openai
-from openai import AzureOpenAI
+from openai import OpenAI
 
-client = AzureOpenAI(api_version="2023-03-15-preview", api_version="2022-12-01")
 import os
 import requests
 import google.generativeai as genai
-from mega.utils.substrate_llm import LLMClient, create_request_data
+
 from google.api_core.exceptions import ResourceExhausted
 from mega.utils.const import (
     PALM_SUPPORTED_LANGUAGES_MAP,
@@ -29,6 +28,8 @@ from mega.utils.env_utils import (
 
 load_openai_env_variables()
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+
+client = OpenAI()
 
 
 udpos_verbalizer = {
@@ -60,18 +61,6 @@ panx_verbalizer = {
     "I-LOC": "inside-location",
     "O": "non-entity",
 }
-
-
-@backoff.on_exception(backoff.expo, KeyError)
-def substrate_llm_completion(
-    llm_client: LLMClient, prompt: str, model_name: str, **model_params
-) -> str:
-    request_data = create_request_data(prompt, **model_params)
-    response = llm_client.send_request(model_name, request_data)
-    text_result = response.choices[0].text
-    text_result = text_result.replace("<|im_end|>", "")
-    return text_result
-
 
 def gpt3x_tagger(
     prompt: Union[str, List[Dict[str, str]]],
@@ -105,7 +94,6 @@ def gpt3x_tagger(
     )
     def predict_tag(prompt, token):
         prompt_with_token = f"{prompt} {token}{delimiter}"
-        backoff_count = 0
         # Hit the api repeatedly till response is obtained
         try:
             response = client.completions.create(
@@ -429,8 +417,6 @@ def model_tagger(
     test_tokens: List[str],
     delimiter: str = "_",
     num_evals_per_second: int = 2,
-    chat_prompt: bool = False,
-    substrate_prompt: bool = False,
     one_shot_tag: bool = True,
     run_details: Any = {},
     **model_params,
@@ -475,11 +461,6 @@ def model_tagger(
             **model_params,
         )
 
-    if substrate_prompt:
-        llm_client = LLMClient()
-        return substrate_llm_completion(llm_client, prompt, model, **model_params)
-
-
 def get_model_pred(
     train_examples: List[Dict[str, Union[str, int]]],
     test_example: Dict[str, Union[str, int]],
@@ -490,7 +471,6 @@ def get_model_pred(
     delimiter: str = "_",
     num_evals_per_second: int = 2,
     chat_prompt: bool = False,
-    substrate_prompt: bool = False,
     instruction: str = "",
     one_shot_tag: bool = True,
     run_details: Any = {},
@@ -505,7 +485,6 @@ def get_model_pred(
         verbalizer,
         delimiter=delimiter,
         chat_prompt=chat_prompt,
-        substrate_prompt=substrate_prompt,
         instruction=instruction,
     )
     model_prediction = model_tagger(
@@ -516,7 +495,6 @@ def get_model_pred(
         delimiter=delimiter,
         num_evals_per_second=num_evals_per_second,
         chat_prompt=chat_prompt,
-        substrate_prompt=substrate_prompt,
         one_shot_tag=one_shot_tag,
         run_details=run_details,
         **model_params,

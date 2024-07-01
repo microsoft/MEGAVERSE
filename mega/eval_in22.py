@@ -10,7 +10,6 @@ from mega.data.data_utils import choose_few_shot_examples
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import model_completion
-from mega.utils.substrate_llm import LLMClient
 from mega.utils.misc_utils import dump_predictions
 from mega.prompting.prompting_utils import construct_translation_prompt
 from mega.utils.parser import parse_args
@@ -38,10 +37,8 @@ def evaluate_IN22(
     target,
     few_shot_k=8,
     num_evals_per_sec=2,
-    substrate_prompt=False,
     temperature=0,
     max_tokens=1024,
-    llm_client=None,
     use_hf_api=False,
     from_hf_hub=False,
     chat_prompt=False,
@@ -99,8 +96,7 @@ def evaluate_IN22(
         prompt = construct_translation_prompt(
             datapoint[f"sentence_{source}"],
             examples=incontext_examples,
-            instruction=instruction,
-            substrate_prompt=substrate_prompt,
+            instruction=instruction
         )
 
         if use_hf_api or from_hf_hub:
@@ -129,13 +125,11 @@ def evaluate_IN22(
                 pred = model_completion(
                     prompt,
                     model,
-                    run_substrate_llm_completion=substrate_prompt,
                     temperature=temperature,
                     max_tokens=max_tokens,
                     max_output_tokens=max_tokens,
                     run_details=run_details,
                     num_evals_per_sec=num_evals_per_sec,
-                    llm_client=llm_client,
                     lang=source,
                 )
             except Exception as e:
@@ -180,7 +174,6 @@ def main(sys_args):
         os.makedirs(out_dir)
 
     save_preds_path = f"{out_dir}/preds.json"
-    llm_client = LLMClient() if args.substrate_prompt else None
 
     _, preds_df = evaluate_IN22(
         save_preds_path,
@@ -191,10 +184,8 @@ def main(sys_args):
         target=args.tgt_trans_lang,
         few_shot_k=args.few_shot_k,
         num_evals_per_sec=args.num_evals_per_sec,
-        substrate_prompt=args.substrate_prompt,
         temperature=args.temperature,
         max_tokens=args.max_tokens,
-        llm_client=llm_client,
         chat_prompt=args.chat_prompt,
         timeout=args.timeout,
         use_hf_api=args.use_hf_api,

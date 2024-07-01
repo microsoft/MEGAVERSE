@@ -1,8 +1,6 @@
 import os
 from datasets import load_dataset
 import sys
-import time
-import json
 import csv
 from promptsource.templates import DatasetTemplates
 import torch
@@ -10,17 +8,13 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 import yaml
 import random
-import openai
 from mega.data.data_utils import choose_few_shot_examples
-from mega.models.completion_models import gpt3x_completion
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.misc_utils import dump_predictions
-from mega.utils.env_utils import load_openai_env_variables
 from yaml.loader import SafeLoader
 import numpy as np
 from rouge_score import rouge_scorer
 from tqdm import tqdm
-import wandb
 
 
 def read_parameters(args_path):
@@ -245,18 +239,9 @@ if __name__ == "__main__":
         rouge2.append(r2)
         rougeL.append(rL)
         pbar.set_description(f"ROUGE-L: {np.average(rougeL)}")
-        # wandb.log(run_details, step=idx + 1)
-        # wandb.log(
-        #     {
-        #         "avg R1": np.average(rouge1),
-        #         "avg R2": np.average(rouge2),
-        #         "avg RL": np.average(rougeL),
-        #     },
-        #     step=idx + 1,
-        # )
 
     print(
-        f"Average performance for the {prompt_name} in {lang} is ({np.average(rouge1)},{np.average(rouge2)},{np.average(rougeL)})"
+        f"Average performance for the {prompt_name} in {lang} is ({np.average(rouge1)}, {np.average(rouge2)}, {np.average(rougeL)})"
     )
     dump_metrics(
         lang,

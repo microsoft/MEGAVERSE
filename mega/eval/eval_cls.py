@@ -31,7 +31,6 @@ def run_seq_eval(
     chat_prompt: bool = False,
     instruction: str = "",
     log_wandb: bool = False,
-    substrate_prompt=False,
     timeout: int = 0,
     **model_params,
 ) -> Tuple[float, pd.DataFrame]:
@@ -64,7 +63,7 @@ def run_seq_eval(
     except:
         print("No preds file found")
         idx_set = set()
-    # # print(type(test_dataset))
+
     pbar = tqdm(enumerate(test_dataset))
     total_items = len(test_dataset)
     print("Len of test_set", total_items)
@@ -107,13 +106,11 @@ def run_seq_eval(
                         model_obj=model_obj,
                         tokenizer=tokenizer,
                         chat_prompt=chat_prompt,
-                        substrate_prompt=substrate_prompt,
                         instruction=instruction,
                         timeout=timeout,
                         **model_params,
                     )
                     break
-                    print(pred_dict)
                 except ValueError:
                     if len(train_examples_i) == 0:
                         pred_dict = {
@@ -140,7 +137,6 @@ def run_seq_eval(
                         model,
                         lang,
                         chat_prompt=chat_prompt,
-                        substrate_prompt=substrate_prompt,
                         instruction=instruction,
                         timeout=timeout,
                         **model_params,
@@ -164,20 +160,8 @@ def run_seq_eval(
         pred = pred_dict["prediction"].split("\n")[0]
         label = pred_dict["ground_truth"]
 
-        # print(pred)
         dump_predictions(idx, pred, label, save_preds_path)
 
-        # if pred == "Invalid request":
-        #     pdb.set_trace()
-        #     continue
-        # enc = tiktoken.get_encoding("cl100k_base")
-        # label = enc.encode(label)
-        # pred = enc.encode(pred)
-        # print(f"Label: {label}")
-        # print(f"Prediction: {pred}")
-        # print(f"label decoded: {enc.decode(label)}")
-        # print(f"pred decoded: {enc.decode(pred)}")
-        # sys.exit(0)
         pred = normalize_answer(pred)
         label = normalize_answer(label)
         if pred != "":
@@ -190,7 +174,6 @@ def run_seq_eval(
         pbar.set_description(f"Accuracy: {running_acc}")
         if log_wandb:
             wandb.log({"acuracy": running_acc})
-        # time.sleep(1 / num_evals_per_sec)
 
     accuracy = num_matches / len(preds)
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
@@ -238,7 +221,6 @@ def run_parallel_eval(
     )
     preds = results_dataset["prediction"]
     labels = results_dataset["ground_truth"]
-    # matches = [float(pred == label) for (pred, label) in zip(preds, labels)]
     matches = [float(pred.startswith(label)) for (pred, label) in zip(preds, labels)]
     accuracy = sum(matches) / len(preds)
     results_df = pd.DataFrame({"Label": labels, "Prediction": preds, "Match": matches})
@@ -292,7 +274,6 @@ def evaluate_model(
         preds_dir, _ = os.path.split(save_preds_path)
         if not os.path.exists(preds_dir):
             os.makedirs(preds_dir)
-        # results_df.to_csv(save_preds_path)
 
     if parallel_eval:
         num_proc = 4 if num_proc is None else num_proc

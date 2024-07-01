@@ -1,9 +1,9 @@
-from datasets import load_dataset
 import os
 from mega.models.completion_models import model_completion
 from mega.data.load_datasets import load_tagging_dataset
 import yaml
 import sys
+from datasets import load_dataset
 from tqdm import tqdm
 import pandas as pd
 from mega.utils.substrate_llm import LLMClient
@@ -16,7 +16,6 @@ from contamination.templates import (
 from typing import Dict, Any, Union, List
 from contamination.registry.prompting_registry import QUIZ_GENERATION_PROMPT_REGISTRY
 
-# suppress warnings
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -166,10 +165,6 @@ def run_quiz_creation(
             )
 
         except ValueError as e:
-            # print("="*100)
-            # print(response)
-            # print("="*100)
-            # sys.exit()
             print(f"Error for {idx}")
             print(e)
             continue
@@ -206,31 +201,6 @@ if __name__ == "__main__":
         pydantic_object=PYDANTIC_REGISTRY[dataset_name]
     )
 
-    # test_example = load_dataset(dataset_name, "en")[dataset_split][0]
-    # lang = "en"
-    # create_prompt = construct_quiz_generation_prompt(
-    #     dataset_name,
-    #     test_example,
-    #     TEMPLATES[template_name],
-    #     INSTRUCTION_FOR_QUIZ_GENERATION,
-    #     chat_prompt=chat_prompt,
-    #     substrate_prompt=substrate_prompt,
-    #     lang=lang,
-    # )
-
-    # response = model_completion(
-    #     create_prompt,
-    #     model_name,
-    #     lang,
-    #     max_tokens=max_tokens,
-    #     temperature=temperature,
-    # )
-
-    # print(response)
-
-    # if not os.path.exists(out_dir):
-    #     os.makedirs(out_dir)
-
     for lang in langs:
         print("creating dataset for lang", lang)
         try:
@@ -255,7 +225,7 @@ if __name__ == "__main__":
             print(f"Error for {lang}, not supported by Palm2")
             print(e)
             continue
-        except KeyError as e:
+        except KeyError:
             print(
                 f"Language {lang} not registered in registry. Please register it. Skipping this for now"
             )

@@ -1,8 +1,4 @@
-# Import the necessary modules to run evaluation
 from mega.eval.eval_cls import evaluate_model
-from mega.data.data_utils import choose_few_shot_examples
-
-# Import datasets and promptsource libraries
 from datasets import load_dataset
 from promptsource.templates import DatasetTemplates
 

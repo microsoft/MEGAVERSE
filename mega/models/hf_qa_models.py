@@ -5,9 +5,6 @@ from typing import List, Union
 import openai
 import requests
 from langchain import VectorDBQA
-from langchain.chat_models import AzureChatOpenAI
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.llms import AzureOpenAI
 from langchain.prompts.few_shot import FewShotPromptTemplate, PromptTemplate
 from langchain.text_splitter import TokenTextSplitter
 from langchain.vectorstores import Chroma
@@ -203,7 +200,7 @@ def answer_question_bloomz(
             output = output.strip()
             # signal.alarm(0)  # Reset the alarm
             break
-        except Exception as e:
+        except Exception:
             if (
                 "error" in model_output
                 and "must have less than 1000 tokens." in model_output["error"]

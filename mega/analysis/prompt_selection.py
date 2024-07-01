@@ -1,24 +1,14 @@
 import os
-import argparse
-import sys
-import time
-import random
 import json
-import wandb
 from tqdm import tqdm
-import numpy as np
-from promptsource.templates import Template, DatasetTemplates
+from promptsource.templates import DatasetTemplates
 from mega.data.load_datasets import (
     load_xnli_dataset,
-    load_xnli_translate_test,
     load_xcopa_dataset,
 )
-from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.eval_cls import evaluate_model
 from mega.prompting.prompting_utils import load_prompt_template
 from mega.prompting.instructions import INSTRUCTIONS
-from mega.utils.parser import parse_args
-from mega.utils.env_utils import load_openai_env_variables
 from mega.prompting.create_lang_prompts import add_prompt_to_dataset
 
 

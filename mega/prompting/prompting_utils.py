@@ -1,4 +1,4 @@
-from typing import Union, List, Dict, Tuple, Optional, Any
+from typing import Union, List, Dict, Tuple, Any
 from promptsource.templates import Template, DatasetTemplates
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
@@ -160,10 +160,6 @@ def construct_qa_nocontext_prompt(
 ):
 
     def fill_template(template, example, fill_answer=True):
-        # # Convert the string representation of list to an actual list
-        # if isinstance(example["answers"], str):
-        #     example["answers"] = ast.literal_eval(example["answers"])
-
         if fill_answer:
             answer = (
                 "unanswerable"

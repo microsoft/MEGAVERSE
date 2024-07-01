@@ -1,17 +1,10 @@
 import os
-import argparse
-from typing import Dict, Any, Optional, Union, List, Tuple
-import openai
+from typing import Tuple
 import sys
-import time
 import random
 import json
 import copy
-import wandb
 import numpy as np
-import pandas as pd
-from tqdm import tqdm
-from datasets import Dataset
 from transformers import AutoTokenizer
 from mega.data.load_datasets import (
     load_dataset_mega,
@@ -19,7 +12,6 @@ from mega.data.load_datasets import (
     get_dataset_splits,
 )
 from mega.models.completion_models import (
-    model_completion,
     gpt3x_completion,
     CHAT_MODELS,
 )
@@ -192,8 +184,6 @@ def check_contamination(
     """
     Checks if a dataset is present in the LM's pre-training data
     """
-
-    pass
 
 
 def remove_tokens(text: str, tokenizer, ratio: float = 0.5) -> str:

@@ -141,7 +141,7 @@ def exec_llm(
             return response, text_result
         else:
             return text_result
-    except KeyError as e:
+    except KeyError:
         print(response, "check")
         # no error handling
         return response

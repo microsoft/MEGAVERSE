@@ -3,7 +3,6 @@ import sys
 import random
 import json
 import wandb
-import torch
 import numpy as np
 from mega.data.load_datasets import load_pawsx_dataset, load_pawsx_translate_test
 from mega.data.data_utils import choose_few_shot_examples
@@ -12,18 +11,6 @@ from mega.prompting.prompting_utils import load_prompt_template
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
-from mega.models.completion_models import (
-    get_model_pred,
-    gpt3x_completion,
-    substrate_llm_completion,
-)
-from mega.models.hf_completion_models import (
-    hf_model_api_completion,
-    hf_model_completion,
-)
-from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from mega.utils.substrate_llm import LLMClient
 
 
 def main(sys_args):
@@ -107,7 +94,6 @@ def main(sys_args):
         num_proc=args.num_proc,
         temperature=args.temperature,
         top_p=args.top_p,
-        substrate_prompt=args.substrate_prompt,
     )
     print(accuracy)
     # Store results

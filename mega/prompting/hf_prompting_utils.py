@@ -1,11 +1,5 @@
-from typing import Union, List, Dict, Tuple, Optional, Any
-from promptsource.templates import Template, DatasetTemplates
-import pdb
-from langchain.prompts.few_shot import FewShotPromptTemplate
-from langchain.prompts.prompt import PromptTemplate
-from pprint import pprint
+from typing import List, Dict
 from fastchat.conversation import get_conv_template
-from transformers import AutoTokenizer
 
 # from mega.models.hf_completion_models import MODEL2PROMPT
 

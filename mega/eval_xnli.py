@@ -1,11 +1,8 @@
 import os
-import argparse
 import sys
-import time
 import random
 import json
 import wandb
-import torch
 import numpy as np
 from mega.data.load_datasets import load_xnli_dataset, load_xnli_translate_test
 from mega.data.data_utils import choose_few_shot_examples
@@ -14,13 +11,6 @@ from mega.prompting.prompting_utils import load_prompt_template
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
 from mega.utils.env_utils import load_openai_env_variables
-import pdb
-from mega.models.completion_models import (
-    get_model_pred,
-    gpt3x_completion,
-    substrate_llm_completion,
-)
-from mega.utils.substrate_llm import LLMClient
 
 
 def main(sys_args):
@@ -103,8 +93,7 @@ def main(sys_args):
         log_wandb=args.log_wandb,
         temperature=args.temperature,
         top_p=args.top_p,
-        timeout=args.timeout,
-        substrate_prompt=args.substrate_prompt,
+        timeout=args.timeout
     )
     print(accuracy)
     # Store results

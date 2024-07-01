@@ -1,24 +1,18 @@
 import os
-import argparse
 import sys
-import time
 import random
 import json
 import wandb
 import numpy as np
 from mega.data.load_datasets import load_xcopa_dataset, load_xcopa_translate_test
-from mega.data.data_utils import choose_few_shot_examples
 from mega.eval.hf_eval_cls import evaluate_model
 from mega.prompting.prompting_utils import load_prompt_template
 from mega.prompting.instructions import INSTRUCTIONS
 from mega.utils.parser import parse_args
-from mega.utils.env_utils import load_openai_env_variables
-import pdb
 
 
 def main(sys_args):
     args = parse_args(sys_args)
-    load_openai_env_variables()
 
     # Set seed
     random.seed(args.seed)
@@ -70,10 +64,6 @@ def main(sys_args):
     )
     test_prompt_template = load_prompt_template(
         args.tgt_lang, args.tgt_prompt_name, dataset="xcopa"
-    )
-
-    train_examples = choose_few_shot_examples(
-        train_dataset, args.few_shot_k, args.few_shot_selection
     )
 
     out_dir = f"{args.save_dir}/xcopa/{args.model}/{args.tgt_lang}/PivotLang_{args.pivot_lang}_PromptName_{args.tgt_prompt_name.replace('/','_')}_FewShotK_{args.few_shot_k}"

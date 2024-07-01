@@ -8,7 +8,6 @@ from tqdm import tqdm
 from dataclasses import dataclass
 from collections import defaultdict
 from mega.utils.parser import parse_args
-from mega.utils.substrate_llm import LLMClient
 from mega.utils.env_utils import load_openai_env_variables
 from mega.models.completion_models import model_completion
 from mega.models.hf_completion_models import (
@@ -19,7 +18,6 @@ from mega.prompting.hf_prompting_utils import convert_to_hf_chat_prompt
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-# TODO: Unify chat and non-chat prompts
 @dataclass
 class XRiSAWOZArgs:
     root_dir: str = "../xrisawoz_data/"  # Path to data
@@ -30,7 +28,6 @@ class XRiSAWOZArgs:
     language: str = (
         "en"  # Possible languages are ['en', 'hi', 'fr', 'ko', 'zh', 'enhi']
     )
-    substrate_llm: bool = False  # Substrate prompt
 
 
 def load_text(fname):
@@ -133,15 +130,6 @@ def main(sys_args):
                             "content": f'Target Example\nTurn ID: "{datum["turn_id"]}"\nDatabase: "{datum["task"]}"\nContext: "{datum["input_text"]}"\nAnswer:',
                         }
                     )
-                    # TODO: Check if it's a chat model and use a chat prompt
-
-                    # final_prompt = "\n".join(x["content"] for x in messages) + "\n"
-
-                    # make a string prompt for chat models
-                    # if (args.use_hf_api or args.from_hf_hub) and args.chat_prompt:
-                    #     final_prompt = convert_to_hf_chat_prompt(final_prompt, args.model)
-
-                    # print(final_prompt)
 
                     final_prompt = messages
 
@@ -157,7 +145,6 @@ def main(sys_args):
                         )
 
                     elif args.from_hf_hub:
-                        # print("printing from hf hub")
                         final_prompt = convert_to_hf_chat_prompt(
                             final_prompt, args.model
                         )
@@ -176,8 +163,6 @@ def main(sys_args):
                             final_prompt,
                             args.model,
                             lang=args.tgt_lang[-2:],
-                            run_substrate_llm_completion=args.substrate_prompt,
-                            llm_client=LLMClient() if args.substrate_prompt else None,
                             max_tokens=256,
                         )
 
