@@ -1,5 +1,5 @@
 # Introduction 
-Code for **M**ultilingual **E**valuation of **G**enerative **A**I (MEGA), a framework to evaluate Large Language Models (LLMs) on various multilingual benchmarks
+Code for MEGAVERSE. This codebase builds on the codebase of MEGA from [here](https://github.com/microsoft/Multilingual-Evaluation-of-Generative-AI-MEGA)
 
 # Getting Started
 
@@ -24,14 +24,7 @@ Install the required packages by running:
 pip install -r requirements.txt
 ```
 
-The framework also requires setting up the [promptsource](https://github.com/bigscience-workshop/promptsource/tree/eval-hackathon). To set up follow the steps below:
-
-```shell
-cd promptsource
-pip install -e .
-```
-
-Finally, the framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/) and [HUggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
+The framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/) and [HUggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
 
 #### Expected env variables
 1. `OPENAI_END_POINT`
@@ -39,23 +32,7 @@ Finally, the framework requires keys and endpoints for [OpenAI API](https://plat
 3. `OPENAI_API_TYPE`
 4. `OPENAI_API_VERSION`
 5. `HF_API_URL`
-6. `BLOOMZ_API_URL`
-7. `HF_API_KEY`
-8. `BING_TRANSLATE_KEY`
-9. `BING_TRANSLATE_ENDPOINT`
-
-# Overview of the Framework
-We use prompt-based approach to evaluate LLMs on multilingual benchmark. For each task we divide our prompt into two portions: i) Few-shot Labelled examples and ii) Test Example to evaluate. The few-shot examples and the test example can be in different languages and we denote the language used to represent few-shot examples as *Pivot Language* and *Target Language* to represent the test example. Taking inspiration from [Shi et al. 2022](https://arxiv.org/abs/2210.03057), we consider three setups for evaluation:
-1. Zero-Shot Cross Lingual Prompting: Where the pivot and target languages are different
-2. Monolingual Prompting: Pivot and target languages are same
-3. Translated Test: Test example is translated to pivot language before evaluating
-
-The figures below provide examples of the three setups:
-
-![Zero-Shot Prompting](images/zero_shot_prompting.jpg)
-![Monolingual Prompting](images/monolingual_prompting.jpg)
-![Translate Test](images/translate_test.jpg)
-
+6. `HF_API_KEY`
 
 # Running Evaluation
 
