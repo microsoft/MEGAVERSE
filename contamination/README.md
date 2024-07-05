@@ -1,7 +1,5 @@
 # Contamination analysis
 
-## This is WIP
-
 This code is implementation of the work done by Golchin et. al [here](https://arxiv.org/pdf/2311.06233.pdf).
 
 ### Generating Quiz inputs

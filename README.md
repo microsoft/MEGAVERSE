@@ -1,5 +1,7 @@
 # Introduction 
-Code for MEGAVERSE. This codebase builds on the codebase of MEGA from [here](https://github.com/microsoft/Multilingual-Evaluation-of-Generative-AI-MEGA)
+Code for MEGAVERSE. This codebase builds on the codebase of MEGA from [here](https://github.com/microsoft/Multilingual-Evaluation-of-Generative-AI-MEGA). MEGAVERSE covers new datasets (AfriQA, Belebele, X-RiSAWOZ, IN-22), and multimodal datasets (MarVL, XM-3600) along with new open-source models (Gemma, llama2, and Mistral).
+
+![Datasets, Models and Modalities in MEGAVERSE](images/megaverse_tasks.png)
 
 # Getting Started
 
@@ -24,7 +26,7 @@ Install the required packages by running:
 pip install -r requirements.txt
 ```
 
-The framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), [Azure Translation API](https://www.microsoft.com/en-us/translator/business/translator-api/) and [HUggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
+The framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), and [HUggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
 
 #### Expected env variables
 1. `OPENAI_END_POINT`
@@ -71,67 +73,8 @@ python -m mega.eval_xnli \
     --model gpt-35-turbo
 ```
 
-**Other tasks to be added soon!**
-
-## Extending the framework to workf for other Classification/QA tasks:
-
-Extending to other classification and QA tasks is simple. First create the prompts for different languages for a selected task using promptsource (next section). Then we only need to load the dataset for the task and the prompt templates to perform evaluation. Check sample code below for PAWS-X:
-```python
-# Import the necessary modules to run evaluation
-from mega.eval.eval_cls import evaluate_model
-from mega.data.data_utils import choose_few_shot_examples
-
-# Import datasets and promptsource libraries
-from datasets import load_dataset
-from promptsource.templates import DatasetTemplates
+We also have shell scripts for all the datasets. The scripts reside in `scripts` for API based querying and `hf_scripts` for local model querying respectively.
+To run multimodal benchmarks, refer to the README in `multimodal/README.md`
 
 
-# Load dataset of your choice
-dataset = "paws-x"
-src_lang = "en" #Can change the language from en to the language of your choice 
-tgt_lang = "en" #Similarly language here can be changed, if it is same as src_lang then monolingual, else zero-shot
-train_dataset = load_dataset(dataset, src_lang)["train"] 
-test_dataset = load_dataset(dataset, tgt_lang)["test"]
-
-# Load prompt templates for the dataset
-prompt_name = "Meaning" # Name of the prompt created by you on promptsource
-train_prompt = DatasetTemplates(f"{dataset}/{src_lang}")[prompt_name]
-test_prompt = DatasetTemplates(f"{dataset}/{tgt_lang}")[prompt_name]
-
-# Run evaluation
-accuracy = evaluate_model(
-        train_dataset,
-        test_dataset,
-        train_prompt,
-        test_prompt,
-        model="gpt-35-turbo", #Can change this to BLOOM also
-        few_shot_size=4, #Number of few-shot examples
-        save_preds_path="results/preds.csv",#Any path where you would like to store predictions,
-        temperature=0.1, # Temperature parameter for GPT-3x generations
-    )
-print(accuracy)
-```
-
-
-# Creating New Prompts
-Adapted from [`promptsource/README.md`](promptsource/README.md)
-
-PromptSource provides a Web-based GUI that enables developers to write prompts in a templating language and immediately view their outputs on different examples.
-
-There are 3 modes in the app:
-- **Sourcing**: create and write new prompts
-- **Prompted dataset viewer**: check the prompts you wrote (or the existing ones) on the entire dataset
-- **Helicopter view**: aggregate high-level metrics on the current state of P3
-
-![ALT](promptsource/assets/promptsource_app.png)
-
-To launch the app locally, please first make sure you have followed the steps in [Setup](#setup), and from the root directory of the repo, run:
-```bash
-cd promptsource
-streamlit run promptsource/app.py
-```
-
-You can also browse through existing prompts on the [hosted version of PromptSource](https://bigscience.huggingface.co/promptsource). Note the hosted version disables the Sourcing mode (`streamlit run promptsource/app.py -- --read-only`).
-
-### Writing prompts
-Before creating new prompts, you should read the [contribution guidelines](CONTRIBUTING.md) which give an step-by-step description of how to contribute to the collection of prompts.
+For contamination analysis, refer to the README in `contamination/README.md` file to run analysis for closed source models such as GPT-4 and PaLM2. For open-source contamination analysis, we referred to the work by Oren et. al [here](https://github.com/tatsu-lab/test_set_contamination).
