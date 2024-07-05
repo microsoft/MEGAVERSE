@@ -1,5 +1,18 @@
+
+<h2 align="center">
+  Official Code for MEGAVERSE
+</h2>
+
+<p align="center">
+  <a href="https://aclanthology.org/2024.naacl-long.143/"><img src="https://img.shields.io/badge/NAACL-2024-blue"></a>
+  <a href="https://github.com/microsoft/MEGAVERSE/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green">
+  </a>
+</p>
+
+
 # Introduction 
-Code for MEGAVERSE. This codebase builds on the codebase of MEGA from [here](https://github.com/microsoft/Multilingual-Evaluation-of-Generative-AI-MEGA). MEGAVERSE covers new datasets (AfriQA, Belebele, X-RiSAWOZ, IN-22), and multimodal datasets (MarVL, XM-3600) along with new open-source models (Gemma, llama2, and Mistral).
+This codebase builds on the codebase of MEGA from [here](https://github.com/microsoft/Multilingual-Evaluation-of-Generative-AI-MEGA). MEGAVERSE covers new datasets (AfriQA, Belebele, X-RiSAWOZ, IN-22), and multimodal datasets (MarVL, XM-3600) along with new open-source models (Gemma, llama2, and Mistral).
 
 ![Datasets, Models and Modalities in MEGAVERSE](images/megaverse_tasks.png)
 
