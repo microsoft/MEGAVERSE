@@ -39,7 +39,7 @@ Install the required packages by running:
 pip install -r requirements.txt
 ```
 
-The framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), and [HUggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
+The framework requires keys and endpoints for [OpenAI API](https://platform.openai.com), and [HuggingFace API](https://huggingface.co/inference-api) for inferencing. Please place all the keys, endpoints and expected env variables under `envs/melange.env`
 
 #### Expected env variables
 1. `OPENAI_END_POINT`
